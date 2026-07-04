@@ -200,6 +200,20 @@ cython_debug/
 #   and can be added to the global gitignore or merged into this file. However, if you prefer, 
 #   you could uncomment the following to ignore the entire vscode folder
 # .vscode/
+# NOTE: START of copy from https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore commit 33ce59b5983a27c5277996ede8c2bba926df3890
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+!*.code-workspace
+
+# Built Visual Studio Code Extensions
+*.vsix
+# NOTE: END of copy from https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore commit 33ce59b5983a27c5277996ede8c2bba926df3890
+
 # Temporary file for partial code execution
 tempCodeRunnerFile.py
 
@@ -216,3 +230,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+.venv
+.env
+.env.*
+!.env.example
+
