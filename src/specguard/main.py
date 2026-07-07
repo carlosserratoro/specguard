@@ -72,7 +72,7 @@ def call_specs() -> UseCaseSpec:
         "flag it as an open question."
     )
     user_prompt = (
-        f"Extract the use case from the following conversation thread:\n\n{thread.to_prompt()}",
+        f"Extract the use case from the following conversation thread:\n\n{thread.to_prompt()}"
     )
 
     result = client.create(
