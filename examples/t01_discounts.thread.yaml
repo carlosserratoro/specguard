@@ -1,0 +1,36 @@
+title: Discount approval on sales orders
+description: Salespeople apply discounts without control, sales manager wants to enforce some control.
+messages:
+  - ref: Amy-01
+    author: Amy
+    text: "Large discounts should require approval from the sales manager before confirming. Right now they have a situation in which any salesperson can give whatever discount they want."
+  - ref: Ben-02
+    author: Ben
+    text: "What counts as 'large'? A fixed % that they can configure somehow?"
+  - ref: Amy-03
+    author: Amy
+    text: "More than 15%. Wait. Cal said premium customers up to 20% without approval."
+  - ref: Cal-04
+    author: Cal
+    text: "Premium 20%, everyone else 15%. And if the order is over €10,000, always require approval, regardless of the discount."
+  - ref: Ben-05
+    author: Ben
+    text: "And who approves if you're on holiday?"
+  - ref: Amy-06
+    author: Amy
+    text: "I don't know. I'll ask them later."
+  - ref: Cal-07
+    author: Cal
+    text: "The approver has to receive a notification."
+  - ref: Ben-08
+    author: Ben
+    text: "Email or an in-app notification?"
+  - ref: Amy-09
+    author: Amy
+    text: "The order can't be confirmed while it's pending."
+  - ref: Ben-10
+    author: Ben
+    text: "Pending of what? Of authorising the discount?"
+  - ref: Amy-11
+    author: Amy
+    text: "@Ben Yep."
