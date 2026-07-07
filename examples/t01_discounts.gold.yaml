@@ -1,0 +1,40 @@
+id: UC-DISCOUNTS
+title: Approve discounts on sales orders
+goal: Ensure eligible discounts require approval before a sales order is confirmed.
+
+business_rules:
+  - id: BR1
+    statement: "When a standard customer's sales order has a discount greater than 15%, the system shall require approval before confirmation."
+    source_refs: [Amy-03, Cal-04]
+    severity: critical
+  - id: BR2
+    statement: "When a premium customer's sales order has a discount greater than 20%, the system shall require approval before confirmation."
+    source_refs: [Cal-04]
+    severity: critical
+  - id: BR3
+    statement: "When the sales order total is greater than €10,000, the system shall always require approval, regardless of the discount."
+    source_refs: [Cal-04]
+    severity: critical
+    precedence: [BR1, BR2]
+  - id: BR4
+    statement: "While a sales order is pending approval, the system shall not allow it to be confirmed."
+    source_refs: [Amy-09, Amy-11]
+    severity: critical
+  - id: BR5
+    statement: "When a sales order becomes pending approval, the system shall notify the approver."
+    source_refs: [Cal-07]
+    severity: normal
+
+open_questions:
+  - id: OQ1
+    question: "Who approves if the sales manager is unavailable?"
+    raised_by: Ben-05
+    status: unresolved
+  - id: OQ2
+    question: "Which channel is used for the notification: email or in-app?"
+    raised_by: Ben-08
+    status: unresolved
+  - id: OQ3
+    question: "What happens after the approver's decision (approve or reject)?"
+    raised_by: null
+    status: unresolved
