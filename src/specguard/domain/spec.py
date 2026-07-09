@@ -1,8 +1,6 @@
 from enum import StrEnum
-from pathlib import Path
 from typing import Literal
 
-import yaml
 from pydantic import BaseModel, Field
 
 
@@ -52,25 +50,3 @@ class UseCaseSpec(BaseModel):
     open_questions: list[OpenQuestion] = Field(
         description="Questions the thread leaves unresolved. Flag them instead of answering them."
     )
-
-
-class ThreadMessage(BaseModel):
-    ref: str
-    author: str
-    text: str
-
-
-class ConversationalThread(BaseModel):
-    title: str
-    description: str
-    messages: list[ThreadMessage]
-
-    def to_prompt(self) -> str:
-        lines = [f"Task: {self.title}", f"Description: {self.description}", ""]
-        lines += [f"{m.ref} ({m.author}): {m.text}" for m in self.messages]
-        return "\n".join(lines)
-
-    @classmethod
-    def from_file(cls, file_path: str | Path) -> "ConversationalThread":
-        raw = yaml.safe_load(Path(file_path).read_text(encoding="utf-8"))
-        return cls.model_validate(raw)

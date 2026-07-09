@@ -58,3 +58,11 @@ known-first-party = ["specguard"]
 
 [tool.ruff.format]
 quote-style = "double"
+
+[tool.pytest.ini_options]
+markers = [
+    "external: Tests that hit external services, e.g. live LLM calls",
+]
+filterwarnings = [
+    "ignore:There is no current event loop:DeprecationWarning:litellm._service_logger",
+]
