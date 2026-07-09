@@ -3,7 +3,7 @@ from pathlib import Path
 import pytest
 import yaml
 
-from specguard.models import UseCaseSpec
+from specguard.domain.spec import UseCaseSpec
 
 CASES_DIR = Path(__file__).resolve().parent.parent / "examples"
 GOLD_FILES = sorted(CASES_DIR.glob("*.gold.yaml"))
