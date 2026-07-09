@@ -1,6 +1,8 @@
 from enum import StrEnum
+from pathlib import Path
 from typing import Literal
 
+import yaml
 from pydantic import BaseModel, Field
 
 
@@ -50,3 +52,8 @@ class UseCaseSpec(BaseModel):
     open_questions: list[OpenQuestion] = Field(
         description="Questions the thread leaves unresolved. Flag them instead of answering them."
     )
+
+    @classmethod
+    def from_file(cls, file_path: str | Path) -> "UseCaseSpec":
+        raw = yaml.safe_load(Path(file_path).read_text(encoding="utf-8"))
+        return cls.model_validate(raw)
