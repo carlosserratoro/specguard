@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 from specguard.domain.spec import UseCaseSpec
-from specguard.service_layer.evaluation import evaluate_completeness
+from specguard.service_layer.evaluation import evaluate_rule_recall
 
 from .domain.thread import ConversationalThread
 
@@ -15,7 +15,7 @@ def main() -> None:
     thread = ConversationalThread.from_file(PROJECT_ROOT / "examples" / "t01_discounts.thread.yaml")
     gold = UseCaseSpec.from_file(PROJECT_ROOT / "examples" / "t01_discounts.gold.yaml")
 
-    report = evaluate_completeness(thread, gold, k=10)
+    report = evaluate_rule_recall(thread, gold, k=10)
     print(json.dumps(report, indent=2))
 
 

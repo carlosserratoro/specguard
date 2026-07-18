@@ -71,7 +71,8 @@ def match_rule(gold_rule: BusinessRule, candidates: list[BusinessRule]) -> Match
     return decision
 
 
-def rule_completeness(gold_rules: list[BusinessRule], candidates: list[BusinessRule]) -> dict:
+def rule_recall(gold_rules: list[BusinessRule], candidates: list[BusinessRule]) -> dict:
+    """Rule recall, i.e. completeness: fraction of gold rules captured."""
     total_weight = 0.0
     matched_weight = 0.0
     missed_rule_ids: list[str] = []
@@ -94,18 +95,19 @@ def rule_completeness(gold_rules: list[BusinessRule], candidates: list[BusinessR
     }
 
 
-def evaluate_completeness(
+def evaluate_rule_recall(
     thread: ConversationalThread,
     gold: UseCaseSpec,
     k: int = 5,
 ) -> dict:
+    """Run extractor k times and report recall."""
     recalls: list[float] = []
     all_missed: list[list[str]] = []
 
     # Iterate over the full pipeline: extract + judge. We measure here the full system.
     for _ in range(k):
         predicted = extract(thread)
-        result = rule_completeness(gold.business_rules, predicted.business_rules)
+        result = rule_recall(gold.business_rules, predicted.business_rules)
         recalls.append(result["recall"])
         all_missed.append(result["missed_rule_ids"])
 
