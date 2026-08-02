@@ -98,34 +98,6 @@ def rule_recall(gold_rules: list[BusinessRule], candidate_rules: list[BusinessRu
     }
 
 
-def evaluate_rule_recall(
-    thread: ConversationalThread,
-    gold: UseCaseSpec,
-    k: int = 5,
-) -> dict:
-    """Run extractor k times and report recall."""
-    recalls: list[float] = []
-    all_missed: list[list[str]] = []
-
-    # Iterate over the full pipeline: extract + judge. We measure here the full system.
-    for k_no in range(k):
-        print(f"Evaluating recall, repetition {k_no + 1}/{k}")
-        predicted = extract(thread)
-        result = rule_recall(gold.business_rules, predicted.business_rules)
-        recalls.append(result["recall"])
-        all_missed.append(result["missed_rule_ids"])
-
-    return {
-        "k": k,
-        "recall_mean": round(statistics.mean(recalls), 3),
-        "recall_stdev": round(statistics.stdev(recalls), 3) if k > 1 else 0.0,
-        "recall_min": min(recalls),
-        "recall_max": max(recalls),
-        "recalls": recalls,
-        "missed_per_run": all_missed,
-    }
-
-
 def rule_precision(predicted_rules: list[BusinessRule], gold_rules: list[BusinessRule]) -> dict:
     """Rule precision, i.e. fidelity vs gold: fraction of predicted rules supported by the gold."""
     total = len(predicted_rules)
@@ -152,29 +124,38 @@ def rule_precision(predicted_rules: list[BusinessRule], gold_rules: list[Busines
     }
 
 
-def evaluate_rule_precision(
-    thread: ConversationalThread,
-    gold: UseCaseSpec,
-    k: int = 5,
-) -> dict:
-    """Run extractor k times and report precision."""
-    precisions: list[float] = []
-    all_hallucinated: list[list[str]] = []
+def evaluate(thread: ConversationalThread, gold: UseCaseSpec, k: int = 5) -> dict:
+    """Run the full pipeline k times, computing all metrics on the same extractions."""
+    runs: list[dict] = []
 
-    # Iterate over the full pipeline: extract + judge. We measure here the full system.
-    for k_no in range(k):
-        print(f"Evaluating precision, repetition {k_no + 1}/{k}")
+    for i in range(k):
+        print(f"Evaluating, repetition {i + 1}/{k}")
         predicted = extract(thread)
-        result = rule_precision(predicted.business_rules, gold.business_rules)
-        precisions.append(result["precision"])
-        all_hallucinated.append(result["hallucinated_rule_ids"])
+        recall_result = rule_recall(gold.business_rules, predicted.business_rules)
+        precision_result = rule_precision(predicted.business_rules, gold.business_rules)
+        runs.append(
+            {
+                "recall": recall_result["recall"],
+                "missed_rule_ids": recall_result["missed_rule_ids"],
+                "precision": precision_result["precision"],
+                "hallucinated_rule_ids": precision_result["hallucinated_rule_ids"],
+            }
+        )
 
     return {
         "k": k,
-        "precision_mean": round(statistics.mean(precisions), 3),
-        "precision_stdev": round(statistics.stdev(precisions), 3) if k > 1 else 0.0,
-        "precision_min": min(precisions),
-        "precision_max": max(precisions),
-        "precisions": precisions,
-        "hallucinated_per_run": all_hallucinated,
+        "recall": _summarise([r["recall"] for r in runs]),
+        "precision": _summarise([r["precision"] for r in runs]),
+        "runs": runs,
+    }
+
+
+def _summarise(values: list[float]) -> dict:
+    """Mean, stdev and range for a metric across runs."""
+    return {
+        "mean": round(statistics.mean(values), 3),
+        "stdev": round(statistics.stdev(values), 3) if len(values) > 1 else 0.0,
+        "min": min(values),
+        "max": max(values),
+        "values": values,
     }
