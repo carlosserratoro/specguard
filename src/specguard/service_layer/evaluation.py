@@ -37,16 +37,16 @@ JUDGE_SYSTEM_PROMPT = (
 )
 
 
-def match_rule(gold_rule: BusinessRule, candidates: list[BusinessRule]) -> MatchDecision:
+def match_rule(gold_rule: BusinessRule, candidate_rules: list[BusinessRule]) -> MatchDecision:
     client = get_client()
 
     # Since both bold and the output use the same BRx to refer to the rules, the judge
     # is influenced by the IDs. I remap the original ID to a neutral one so that the
     # matching is not influenced.
-    label_to_id = {f"C{i}": c.id for i, c in enumerate(candidates, start=1)}
+    label_to_id = {f"C{i}": c.id for i, c in enumerate(candidate_rules, start=1)}
 
     candidates_text = "\n".join(
-        f"- [{label}] {c.statement}" for label, c in zip(label_to_id, candidates, strict=True)
+        f"- [{label}] {c.statement}" for label, c in zip(label_to_id, candidate_rules, strict=True)
     )
     decision = client.create(
         model=get_model(),
@@ -71,7 +71,7 @@ def match_rule(gold_rule: BusinessRule, candidates: list[BusinessRule]) -> Match
     return decision
 
 
-def rule_recall(gold_rules: list[BusinessRule], candidates: list[BusinessRule]) -> dict:
+def rule_recall(gold_rules: list[BusinessRule], candidate_rules: list[BusinessRule]) -> dict:
     """Rule recall, i.e. completeness: fraction of gold rules captured."""
     total_weight = 0.0
     matched_weight = 0.0
@@ -81,13 +81,16 @@ def rule_recall(gold_rules: list[BusinessRule], candidates: list[BusinessRule]) 
         weight = SEVERITY_WEIGHT[gold_rule.severity]
         total_weight += weight
 
-        decision = match_rule(gold_rule, candidates)
+        decision = match_rule(gold_rule, candidate_rules)
         if decision.matched:
             matched_weight += weight
         else:
             missed_rule_ids.append(gold_rule.id)
 
-    recall = round(matched_weight / total_weight, 3) if total_weight else 1.0
+    # It should not happen with real data that we receive an empty list of gold rules.
+    # But, if it happened, then on a degenerated empty gold we return 0 by convention
+    # so that it doesn't look like a success.
+    recall = round(matched_weight / total_weight, 3) if total_weight else 0
 
     return {
         "recall": recall,
@@ -105,7 +108,8 @@ def evaluate_rule_recall(
     all_missed: list[list[str]] = []
 
     # Iterate over the full pipeline: extract + judge. We measure here the full system.
-    for _ in range(k):
+    for k_no in range(k):
+        print(f"Evaluating recall, repetition {k_no + 1}/{k}")
         predicted = extract(thread)
         result = rule_recall(gold.business_rules, predicted.business_rules)
         recalls.append(result["recall"])
@@ -119,4 +123,58 @@ def evaluate_rule_recall(
         "recall_max": max(recalls),
         "recalls": recalls,
         "missed_per_run": all_missed,
+    }
+
+
+def rule_precision(predicted_rules: list[BusinessRule], gold_rules: list[BusinessRule]) -> dict:
+    """Rule precision, i.e. fidelity vs gold: fraction of predicted rules supported by the gold."""
+    total = len(predicted_rules)
+    supported = 0
+    hallucinated_ids: list[str] = []
+
+    for predicted_rule in predicted_rules:
+        decision = match_rule(predicted_rule, gold_rules)
+        if decision.matched:
+            supported += 1
+        else:
+            hallucinated_ids.append(predicted_rule.id)
+
+    # If the extractor produces no rules, then that would mean zero rules are wrong
+    # (although this would be a degenerated case) thus we'd get (arguably) 100% precision
+    # because no rule was invented (the side effect of no rule being extracted).
+    # However, that'd mean we are giving the highest precision to an extractor that is
+    # propably not working, so we return 0 by convention.
+    precision = round(supported / total, 3) if total else 0
+
+    return {
+        "precision": precision,
+        "hallucinated_rule_ids": hallucinated_ids,
+    }
+
+
+def evaluate_rule_precision(
+    thread: ConversationalThread,
+    gold: UseCaseSpec,
+    k: int = 5,
+) -> dict:
+    """Run extractor k times and report precision."""
+    precisions: list[float] = []
+    all_hallucinated: list[list[str]] = []
+
+    # Iterate over the full pipeline: extract + judge. We measure here the full system.
+    for k_no in range(k):
+        print(f"Evaluating precision, repetition {k_no + 1}/{k}")
+        predicted = extract(thread)
+        result = rule_precision(predicted.business_rules, gold.business_rules)
+        precisions.append(result["precision"])
+        all_hallucinated.append(result["hallucinated_rule_ids"])
+
+    return {
+        "k": k,
+        "precision_mean": round(statistics.mean(precisions), 3),
+        "precision_stdev": round(statistics.stdev(precisions), 3) if k > 1 else 0.0,
+        "precision_min": min(precisions),
+        "precision_max": max(precisions),
+        "precisions": precisions,
+        "hallucinated_per_run": all_hallucinated,
     }
