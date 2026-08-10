@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 
 from specguard.domain.spec import BusinessRule, Severity, UseCaseSpec
 from specguard.domain.thread import ConversationalThread
-from specguard.llm import get_client, get_model
+from specguard.llm import DEFAULT_EXTRACTOR_TEMPERATURE, JUDGE_TEMPERATURE, get_client, get_model
 from specguard.service_layer.extractor import extract
 
 SEVERITY_WEIGHT = {
@@ -51,7 +51,7 @@ def match_rule(gold_rule: BusinessRule, candidate_rules: list[BusinessRule]) -> 
     decision = client.create(
         model=get_model(),
         response_model=MatchDecision,
-        temperature=0,  # As deterministic as possible.
+        temperature=JUDGE_TEMPERATURE,
         messages=[
             {"role": "system", "content": JUDGE_SYSTEM_PROMPT},
             {
@@ -124,13 +124,18 @@ def rule_precision(predicted_rules: list[BusinessRule], gold_rules: list[Busines
     }
 
 
-def evaluate(thread: ConversationalThread, gold: UseCaseSpec, k: int = 5) -> dict:
+def evaluate(
+    thread: ConversationalThread,
+    gold: UseCaseSpec,
+    k: int = 5,
+    temperature: float = DEFAULT_EXTRACTOR_TEMPERATURE,
+) -> dict:
     """Run the full pipeline k times, computing all metrics on the same extractions."""
     runs: list[dict] = []
 
     for i in range(k):
         print(f"Evaluating, repetition {i + 1}/{k}")
-        predicted = extract(thread)
+        predicted = extract(thread, temperature)
         recall_result = rule_recall(gold.business_rules, predicted.business_rules)
         precision_result = rule_precision(predicted.business_rules, gold.business_rules)
         runs.append(
@@ -144,6 +149,7 @@ def evaluate(thread: ConversationalThread, gold: UseCaseSpec, k: int = 5) -> dic
 
     return {
         "k": k,
+        "temperature": temperature,
         "recall": _summarise([r["recall"] for r in runs]),
         "precision": _summarise([r["precision"] for r in runs]),
         "runs": runs,
