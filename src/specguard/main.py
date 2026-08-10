@@ -11,13 +11,13 @@ from .domain.thread import ConversationalThread
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
-def main() -> None:
+def main(k=20) -> None:
     thread = ConversationalThread.from_file(PROJECT_ROOT / "examples" / "t01_discounts.thread.yaml")
     gold = UseCaseSpec.from_file(PROJECT_ROOT / "examples" / "t01_discounts.gold.yaml")
 
-    report = evaluate(thread, gold, k=20)
+    report = evaluate(thread, gold, k=k)
     print(json.dumps(report, indent=2))
 
 
 if __name__ == "__main__":
-    main()
+    main(k=1)
