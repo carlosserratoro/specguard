@@ -10,6 +10,10 @@ load_dotenv()
 DEFAULT_MODEL = "openai/gpt-5.4-mini"
 
 
+DEFAULT_EXTRACTOR_TEMPERATURE = 1.0
+JUDGE_TEMPERATURE = 0.0  # For the judge, we want it as reproducible as possible.
+
+
 def get_model() -> str:
     return os.getenv("LLM_MODEL", DEFAULT_MODEL)
 

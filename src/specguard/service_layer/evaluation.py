@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 
 from specguard.domain.spec import BusinessRule, Severity, UseCaseSpec
 from specguard.domain.thread import ConversationalThread
-from specguard.llm import get_client, get_model
+from specguard.llm import DEFAULT_EXTRACTOR_TEMPERATURE, JUDGE_TEMPERATURE, get_client, get_model
 from specguard.service_layer.extractor import extract
 
 SEVERITY_WEIGHT = {
@@ -37,21 +37,21 @@ JUDGE_SYSTEM_PROMPT = (
 )
 
 
-def match_rule(gold_rule: BusinessRule, candidates: list[BusinessRule]) -> MatchDecision:
+def match_rule(gold_rule: BusinessRule, candidate_rules: list[BusinessRule]) -> MatchDecision:
     client = get_client()
 
     # Since both bold and the output use the same BRx to refer to the rules, the judge
     # is influenced by the IDs. I remap the original ID to a neutral one so that the
     # matching is not influenced.
-    label_to_id = {f"C{i}": c.id for i, c in enumerate(candidates, start=1)}
+    label_to_id = {f"C{i}": c.id for i, c in enumerate(candidate_rules, start=1)}
 
     candidates_text = "\n".join(
-        f"- [{label}] {c.statement}" for label, c in zip(label_to_id, candidates, strict=True)
+        f"- [{label}] {c.statement}" for label, c in zip(label_to_id, candidate_rules, strict=True)
     )
     decision = client.create(
         model=get_model(),
         response_model=MatchDecision,
-        temperature=0,  # As deterministic as possible.
+        temperature=JUDGE_TEMPERATURE,
         messages=[
             {"role": "system", "content": JUDGE_SYSTEM_PROMPT},
             {
@@ -71,7 +71,8 @@ def match_rule(gold_rule: BusinessRule, candidates: list[BusinessRule]) -> Match
     return decision
 
 
-def rule_completeness(gold_rules: list[BusinessRule], candidates: list[BusinessRule]) -> dict:
+def rule_recall(gold_rules: list[BusinessRule], candidate_rules: list[BusinessRule]) -> dict:
+    """Rule recall, i.e. completeness: fraction of gold rules captured."""
     total_weight = 0.0
     matched_weight = 0.0
     missed_rule_ids: list[str] = []
@@ -80,13 +81,16 @@ def rule_completeness(gold_rules: list[BusinessRule], candidates: list[BusinessR
         weight = SEVERITY_WEIGHT[gold_rule.severity]
         total_weight += weight
 
-        decision = match_rule(gold_rule, candidates)
+        decision = match_rule(gold_rule, candidate_rules)
         if decision.matched:
             matched_weight += weight
         else:
             missed_rule_ids.append(gold_rule.id)
 
-    recall = round(matched_weight / total_weight, 3) if total_weight else 1.0
+    # It should not happen with real data that we receive an empty list of gold rules.
+    # But, if it happened, then on a degenerated empty gold we return 0 by convention
+    # so that it doesn't look like a success.
+    recall = round(matched_weight / total_weight, 3) if total_weight else 0
 
     return {
         "recall": recall,
@@ -94,27 +98,70 @@ def rule_completeness(gold_rules: list[BusinessRule], candidates: list[BusinessR
     }
 
 
-def evaluate_completeness(
+def rule_precision(predicted_rules: list[BusinessRule], gold_rules: list[BusinessRule]) -> dict:
+    """Rule precision, i.e. fidelity vs gold: fraction of predicted rules supported by the gold."""
+    total = len(predicted_rules)
+    supported = 0
+    hallucinated_ids: list[str] = []
+
+    for predicted_rule in predicted_rules:
+        decision = match_rule(predicted_rule, gold_rules)
+        if decision.matched:
+            supported += 1
+        else:
+            hallucinated_ids.append(predicted_rule.id)
+
+    # If the extractor produces no rules, then that would mean zero rules are wrong
+    # (although this would be a degenerated case) thus we'd get (arguably) 100% precision
+    # because no rule was invented (the side effect of no rule being extracted).
+    # However, that'd mean we are giving the highest precision to an extractor that is
+    # propably not working, so we return 0 by convention.
+    precision = round(supported / total, 3) if total else 0
+
+    return {
+        "precision": precision,
+        "hallucinated_rule_ids": hallucinated_ids,
+    }
+
+
+def evaluate(
     thread: ConversationalThread,
     gold: UseCaseSpec,
     k: int = 5,
+    temperature: float = DEFAULT_EXTRACTOR_TEMPERATURE,
 ) -> dict:
-    recalls: list[float] = []
-    all_missed: list[list[str]] = []
+    """Run the full pipeline k times, computing all metrics on the same extractions."""
+    runs: list[dict] = []
 
-    # Iterate over the full pipeline: extract + judge. We measure here the full system.
-    for _ in range(k):
-        predicted = extract(thread)
-        result = rule_completeness(gold.business_rules, predicted.business_rules)
-        recalls.append(result["recall"])
-        all_missed.append(result["missed_rule_ids"])
+    for i in range(k):
+        print(f"Evaluating, repetition {i + 1}/{k}")
+        predicted = extract(thread, temperature)
+        recall_result = rule_recall(gold.business_rules, predicted.business_rules)
+        precision_result = rule_precision(predicted.business_rules, gold.business_rules)
+        runs.append(
+            {
+                "recall": recall_result["recall"],
+                "missed_rule_ids": recall_result["missed_rule_ids"],
+                "precision": precision_result["precision"],
+                "hallucinated_rule_ids": precision_result["hallucinated_rule_ids"],
+            }
+        )
 
     return {
         "k": k,
-        "recall_mean": round(statistics.mean(recalls), 3),
-        "recall_stdev": round(statistics.stdev(recalls), 3) if k > 1 else 0.0,
-        "recall_min": min(recalls),
-        "recall_max": max(recalls),
-        "recalls": recalls,
-        "missed_per_run": all_missed,
+        "temperature": temperature,
+        "recall": _summarise([r["recall"] for r in runs]),
+        "precision": _summarise([r["precision"] for r in runs]),
+        "runs": runs,
+    }
+
+
+def _summarise(values: list[float]) -> dict:
+    """Mean, stdev and range for a metric across runs."""
+    return {
+        "mean": round(statistics.mean(values), 3),
+        "stdev": round(statistics.stdev(values), 3) if len(values) > 1 else 0.0,
+        "min": min(values),
+        "max": max(values),
+        "values": values,
     }
