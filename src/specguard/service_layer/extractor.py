@@ -2,7 +2,11 @@ from __future__ import annotations
 
 from specguard.domain.spec import UseCaseSpec
 from specguard.domain.thread import ConversationalThread
-from specguard.llm import DEFAULT_EXTRACTOR_TEMPERATURE, get_client, get_model
+from specguard.llm import (
+    DEFAULT_EXTRACTOR_MODEL,
+    DEFAULT_EXTRACTOR_TEMPERATURE,
+    build_call,
+)
 
 SYSTEM_PROMPT = (
     "You are a business analyst with years of experience turning ambiguous, "
@@ -19,11 +23,13 @@ SYSTEM_PROMPT = (
 
 
 def extract(
-    thread: ConversationalThread, temperature: float = DEFAULT_EXTRACTOR_TEMPERATURE
+    thread: ConversationalThread,
+    temperature: float = DEFAULT_EXTRACTOR_TEMPERATURE,
+    model: str | None = DEFAULT_EXTRACTOR_MODEL,
 ) -> UseCaseSpec:
-    client = get_client()
-    return client.create(
-        model=get_model(),
+    call = build_call(model, temperature)
+    return call.client.create(
+        model=call.model,
         response_model=UseCaseSpec,
         temperature=temperature,
         messages=[
@@ -34,4 +40,5 @@ def extract(
                 + thread.to_prompt(),
             },
         ],
+        **call.kwargs,
     )
