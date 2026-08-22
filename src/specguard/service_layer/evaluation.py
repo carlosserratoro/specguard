@@ -129,7 +129,7 @@ def rule_faithfulness(predicted_rules: list[BusinessRule], thread: Conversationa
     not_stated_ids: list[str] = []
 
     for rule in predicted_rules:
-        verdict = verify_rule_against_thread(rule, thread)
+        verdict, _ = verify_rule_against_thread(rule, thread)
         if verdict.verdict == "supported":
             supported += 1
         elif verdict.verdict == "contradicted":
