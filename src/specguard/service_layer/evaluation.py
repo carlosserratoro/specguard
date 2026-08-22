@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import statistics
 import time
-from dataclasses import dataclass
 from typing import Any, Literal
 
 from pydantic import BaseModel, Field
@@ -39,7 +38,6 @@ class SupportVerdict(BaseModel):
     reasoning: str = Field(description="One concise sentence justifying the verdict.")
 
 
-@dataclass(frozen=True)
 class CallMetrics(BaseModel):
     latency_s: float
     provider_latency_s: float | None = None
@@ -131,7 +129,7 @@ def rule_faithfulness(predicted_rules: list[BusinessRule], thread: Conversationa
     not_stated_ids: list[str] = []
 
     for rule in predicted_rules:
-        verdict = verify_rule_against_thread(rule, thread)
+        verdict, _ = verify_rule_against_thread(rule, thread)
         if verdict.verdict == "supported":
             supported += 1
         elif verdict.verdict == "contradicted":
@@ -190,7 +188,6 @@ def match_rule(
     decision = call.client.create(
         model=call.model,
         response_model=MatchDecision,
-        temperature=call.temperature,
         messages=[
             {"role": "system", "content": JUDGE_SYSTEM_PROMPT},
             {

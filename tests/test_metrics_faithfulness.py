@@ -1,7 +1,7 @@
 from unittest.mock import patch
 
 from specguard.domain.spec import BusinessRule, Severity
-from specguard.service_layer.evaluation import SupportVerdict, rule_faithfulness
+from specguard.service_layer.evaluation import CallMetrics, SupportVerdict, rule_faithfulness
 
 DUMMY_VAL = "."
 
@@ -11,7 +11,10 @@ def _rule(id: str) -> BusinessRule:
 
 
 def _verdict(verdict: str) -> SupportVerdict:
-    return SupportVerdict(verdict=verdict, supporting_refs=[], reasoning=DUMMY_VAL)
+    return (
+        SupportVerdict(verdict=verdict, supporting_refs=[], reasoning=DUMMY_VAL),
+        CallMetrics(latency_s=0.0),
+    )
 
 
 def test_faithfulness_all_supported():
@@ -19,6 +22,7 @@ def test_faithfulness_all_supported():
     predicted = [_rule("BR1"), _rule("BR2")]
     with patch(
         "specguard.service_layer.evaluation.verify_rule_against_thread",
+        autospec=True,
         return_value=_verdict("supported"),
     ):
         result = rule_faithfulness(predicted, thread=None)
@@ -31,6 +35,7 @@ def test_faithfulness_empty_predicted():
     """No rules extracted: no faithfulness."""
     with patch(
         "specguard.service_layer.evaluation.verify_rule_against_thread",
+        autospec=True,
     ) as m:
         result = rule_faithfulness([], thread=None)
     assert result["faithfulness"] == 0.0
@@ -49,6 +54,7 @@ def test_faithfulness_sparates_verdicts():
     ]
     with patch(
         "specguard.service_layer.evaluation.verify_rule_against_thread",
+        autospec=True,
         side_effect=verdicts,
     ):
         result = rule_faithfulness(predicted, thread=None)
