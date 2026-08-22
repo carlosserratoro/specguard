@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import statistics
 import time
-from dataclasses import dataclass
 from typing import Any, Literal
 
 from pydantic import BaseModel, Field
@@ -39,7 +38,6 @@ class SupportVerdict(BaseModel):
     reasoning: str = Field(description="One concise sentence justifying the verdict.")
 
 
-@dataclass(frozen=True)
 class CallMetrics(BaseModel):
     latency_s: float
     provider_latency_s: float | None = None
@@ -190,7 +188,6 @@ def match_rule(
     decision = call.client.create(
         model=call.model,
         response_model=MatchDecision,
-        temperature=call.temperature,
         messages=[
             {"role": "system", "content": JUDGE_SYSTEM_PROMPT},
             {

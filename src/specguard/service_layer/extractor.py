@@ -31,7 +31,6 @@ def extract(
     return call.client.create(
         model=call.model,
         response_model=UseCaseSpec,
-        temperature=temperature,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {
