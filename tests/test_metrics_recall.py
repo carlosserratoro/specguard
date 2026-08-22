@@ -16,6 +16,7 @@ def test_recall_all_supported():
     gold = [_rule("G1"), _rule("G2")]
     with patch(
         "specguard.service_layer.evaluation.match_rule",
+        autospec=True,
         return_value=MatchDecision(gold_rule_id=DUMMY_VAL, matched=True, reasoning=DUMMY_VAL),
     ):
         result = rule_recall(gold, predicted)
@@ -33,6 +34,7 @@ def test_recall_with_one_missing():
     ]
     with patch(
         "specguard.service_layer.evaluation.match_rule",
+        autospec=True,
         side_effect=decisions,
     ):
         result = rule_recall(gold, predicted)
@@ -46,7 +48,10 @@ def test_recall_empty_gold():
     This is to test the impossible case (we should always have a gold)
     but it's given here for completeness.
     """
-    with patch("specguard.service_layer.evaluation.match_rule") as m:
+    with patch(
+        "specguard.service_layer.evaluation.match_rule",
+        autospec=True,
+    ) as m:
         result = rule_recall(gold_rules=[], candidate_rules=[_rule("BR1")])
     assert result["recall"] == 0
     m.assert_not_called()  # No gold rules, tus match_rule is not called.

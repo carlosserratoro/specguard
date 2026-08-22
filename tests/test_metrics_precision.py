@@ -16,6 +16,7 @@ def test_precision_all_supported():
     gold = [_rule("G1"), _rule("G2")]
     with patch(
         "specguard.service_layer.evaluation.match_rule",
+        autospec=True,
         return_value=MatchDecision(gold_rule_id=DUMMY_VAL, matched=True, reasoning=DUMMY_VAL),
     ):
         result = rule_precision(predicted, gold)
@@ -33,6 +34,7 @@ def test_precision_with_one_hallucination():
     ]
     with patch(
         "specguard.service_layer.evaluation.match_rule",
+        autospec=True,
         side_effect=decisions,
     ):
         result = rule_precision(predicted, gold)
@@ -42,7 +44,10 @@ def test_precision_with_one_hallucination():
 
 def test_precision_empty_predicted():
     """No predicion made: precision is zero."""
-    with patch("specguard.service_layer.evaluation.match_rule") as m:
+    with patch(
+        "specguard.service_layer.evaluation.match_rule",
+        autospec=True,
+    ) as m:
         result = rule_precision(predicted_rules=[], gold_rules=[_rule("G1")])
     assert result["precision"] == 0
     m.assert_not_called()  # No predicted rules, tus match_rule is not called.

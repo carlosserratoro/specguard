@@ -37,7 +37,7 @@ def test_extract_passes_temperature_once(thread):
     call itself: the value must come from call.kwargs, not from an explicit argument.
     """
     call = _patched_call(call_kwargs={"temperature": 0.4})
-    with patch("specguard.service_layer.extractor.build_call", return_value=call):
+    with patch("specguard.service_layer.extractor.build_call", autospec=True, return_value=call):
         extract(thread, temperature=0.3)
 
     _, create_kwargs = call.client.create.call_args
@@ -48,7 +48,9 @@ def test_extract_passes_temperature_once(thread):
 def test_extract_passes_temperature_to_build_call(thread):
     """The caller's temperature must reach build_call, not the hardcoded default."""
     call = _patched_call()
-    with patch("specguard.service_layer.extractor.build_call", return_value=call) as build_call:
+    with patch(
+        "specguard.service_layer.extractor.build_call", autospec=True, return_value=call
+    ) as build_call:
         extract(thread, temperature=0.7)
 
     create_args, _ = build_call.call_args
