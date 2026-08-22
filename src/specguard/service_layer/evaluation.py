@@ -1,12 +1,20 @@
 from __future__ import annotations
 
 import statistics
+import time
+from dataclasses import dataclass
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
 from specguard.domain.spec import BusinessRule, Severity, UseCaseSpec
 from specguard.domain.thread import ConversationalThread
-from specguard.llm import DEFAULT_EXTRACTOR_TEMPERATURE, JUDGE_TEMPERATURE, get_client, get_model
+from specguard.llm import (
+    DEFAULT_EXTRACTOR_TEMPERATURE,
+    DEFAULT_JUDGE_MODEL,
+    DEFAULT_JUDGE_TEMPERATURE,
+    build_call,
+)
 from specguard.service_layer.extractor import extract
 
 SEVERITY_WEIGHT = {
@@ -14,6 +22,131 @@ SEVERITY_WEIGHT = {
     Severity.normal: 2,
     Severity.minor: 1,
 }
+
+
+class SupportVerdict(BaseModel):
+    verdict: Literal["supported", "contradicted", "not_stated"] = Field(
+        description=(
+            "'supported' if the thread states this rule (even if worded differently); "
+            "'contradicted' if the thread states something incompatible with it; "
+            "'not_stated' if the thread does not mention it."
+        )
+    )
+    supporting_refs: list[str] = Field(
+        default_factory=list,
+        description="Message refs (e.g. ['Cal#04']) that support the rule. Empty if not supported.",
+    )
+    reasoning: str = Field(description="One concise sentence justifying the verdict.")
+
+
+@dataclass(frozen=True)
+class CallMetrics(BaseModel):
+    latency_s: float
+    provider_latency_s: float | None = None
+    prompt_tokens: int | None = None
+    cached_tokens: int | None = None
+    completion_tokens: int | None = None
+    reasoning_tokens: int | None = None
+
+    @classmethod
+    def from_completion(cls, completion: Any, latency_s: float) -> CallMetrics:
+        """Attempt to build metrics from a provider's completion."""
+        usage = getattr(completion, "usage", None)
+        provider_ms = getattr(completion, "_response_ms", None)
+        out_details = getattr(usage, "completion_tokens_details", None) or getattr(
+            usage, "output_tokens_details", None
+        )
+        in_details = getattr(usage, "prompt_tokens_details", None) or getattr(
+            usage, "input_tokens_details", None
+        )
+        return cls(
+            latency_s=latency_s,
+            provider_latency_s=provider_ms / 1000 if provider_ms else None,
+            prompt_tokens=getattr(usage, "prompt_tokens", None)
+            or getattr(usage, "input_tokens", None),
+            cached_tokens=getattr(in_details, "cached_tokens", None),
+            completion_tokens=getattr(usage, "completion_tokens", None)
+            or getattr(usage, "output_tokens", None),
+            reasoning_tokens=getattr(out_details, "reasoning_tokens", None),
+        )
+
+
+FAITHFULNESS_SYSTEM_PROMPT = (
+    "You verify whether a business rule is actually stated in a conversation thread.\n"
+    "The rule may be worded very differently from the thread, and that is fine: judge "
+    "MEANING, not wording.\n"
+    "Important: a rule expressed as a permission and a rule expressed as the equivalent "
+    "restriction are the SAME rule (e.g. 'allowed up to 20%' and 'requires approval above "
+    "20%' both express the same threshold). Treat them as supported.\n"
+    "Return 'supported' only if the thread actually states or directly implies the rule. "
+    "Return 'contradicted' if the thread states something incompatible. "
+    "Return 'not_stated' if the thread is silent about it.\n"
+    "Cite the message refs that support your verdict."
+)
+
+
+def verify_rule_against_thread(
+    rule: BusinessRule,
+    thread: ConversationalThread,
+    model: str = DEFAULT_JUDGE_MODEL,
+    temperature: float = DEFAULT_JUDGE_TEMPERATURE,
+    reasoning_effort: str | None = None,
+) -> tuple[SupportVerdict, CallMetrics]:
+    call = build_call(model, temperature, reasoning_effort)
+
+    start = time.perf_counter()
+    verdict, completion = call.client.create_with_completion(
+        model=call.model,
+        response_model=SupportVerdict,
+        messages=[
+            {"role": "system", "content": FAITHFULNESS_SYSTEM_PROMPT},
+            {
+                "role": "user",
+                "content": (
+                    f"Conversation thread:\n{thread.to_prompt()}\n\n"
+                    f"Rule to verify: {rule.statement}"
+                ),
+            },
+        ],
+        **call.kwargs,
+    )
+    elapsed_s = time.perf_counter() - start
+
+    return verdict, CallMetrics.from_completion(completion, elapsed_s)
+
+
+def rule_faithfulness(predicted_rules: list[BusinessRule], thread: ConversationalThread) -> dict:
+    """Faithfulness: fraction of extracted rules actually grounded in the thread (RAGAS-style).
+
+    See the paper for RAGAS where the original faithfulness is defined:
+    Shahul Es, Jithin James, Luis Espinosa Anke, and Steven Schockaert. 2024.
+    RAGAs: Automated Evaluation of Retrieval Augmented Generation. In Proceedings
+    of the 18th Conference of the European Chapter of the Association for Computational
+    Linguistics: System Demonstrations. Association for Computational Linguistics, 150-158.
+    https://doi.org/10.18653/v1/2024.eacl-demo.16
+    """
+    total = len(predicted_rules)
+    supported = 0
+    contradicted_ids: list[str] = []
+    not_stated_ids: list[str] = []
+
+    for rule in predicted_rules:
+        verdict = verify_rule_against_thread(rule, thread)
+        if verdict.verdict == "supported":
+            supported += 1
+        elif verdict.verdict == "contradicted":
+            contradicted_ids.append(rule.id)
+        else:
+            not_stated_ids.append(rule.id)
+
+    # Same convention as precision: an extractor that produces nothing gets no credit.
+    faithfulness = round(supported / total, 3) if total else 0.0
+
+    return {
+        "faithfulness": faithfulness,
+        "contradicted_rule_ids": contradicted_ids,
+        "not_stated_rule_ids": not_stated_ids,
+    }
 
 
 class MatchDecision(BaseModel):
@@ -37,8 +170,14 @@ JUDGE_SYSTEM_PROMPT = (
 )
 
 
-def match_rule(gold_rule: BusinessRule, candidate_rules: list[BusinessRule]) -> MatchDecision:
-    client = get_client()
+def match_rule(
+    gold_rule: BusinessRule,
+    candidate_rules: list[BusinessRule],
+    model: str | None = DEFAULT_JUDGE_MODEL,
+    temperature: float = DEFAULT_JUDGE_TEMPERATURE,
+    reasoning_effort: str | None = None,
+) -> MatchDecision:
+    call = build_call(model, temperature, reasoning_effort)
 
     # Since both bold and the output use the same BRx to refer to the rules, the judge
     # is influenced by the IDs. I remap the original ID to a neutral one so that the
@@ -48,10 +187,10 @@ def match_rule(gold_rule: BusinessRule, candidate_rules: list[BusinessRule]) -> 
     candidates_text = "\n".join(
         f"- [{label}] {c.statement}" for label, c in zip(label_to_id, candidate_rules, strict=True)
     )
-    decision = client.create(
-        model=get_model(),
+    decision = call.client.create(
+        model=call.model,
         response_model=MatchDecision,
-        temperature=JUDGE_TEMPERATURE,
+        temperature=call.temperature,
         messages=[
             {"role": "system", "content": JUDGE_SYSTEM_PROMPT},
             {
@@ -62,6 +201,7 @@ def match_rule(gold_rule: BusinessRule, candidate_rules: list[BusinessRule]) -> 
                 ),
             },
         ],
+        **call.kwargs,
     )
 
     # Store the original ID.

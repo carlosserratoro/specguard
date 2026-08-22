@@ -5,7 +5,11 @@ import os
 import pytest
 from pydantic import BaseModel, Field
 
-from specguard.llm import get_client, get_model
+from specguard.llm import (
+    DEFAULT_EXTRACTOR_MODEL,
+    DEFAULT_EXTRACTOR_TEMPERATURE,
+    build_call,
+)
 
 
 class _Greeting(BaseModel):
@@ -22,14 +26,15 @@ requires_api_key = pytest.mark.skipif(
 @pytest.mark.external
 @requires_api_key
 def test_llm_call_returns_validated_response() -> None:
-    client = get_client()
-    result = client.create(
-        model=get_model(),
+    call = build_call(DEFAULT_EXTRACTOR_MODEL, DEFAULT_EXTRACTOR_TEMPERATURE)
+    result = call.client.create(
+        model=call.model,
         response_model=_Greeting,
         messages=[
             {"role": "system", "content": "Return a short, valid greeting."},
             {"role": "user", "content": "Say 'Hello LLM' and mark it valid."},
         ],
+        **call.kwargs,
     )
     # Assert on structure/contract, NOT exact wording (output is non-deterministic).
     assert isinstance(result, _Greeting)

@@ -1,0 +1,193 @@
+{
+  "label": "PERMISSION-FORM",
+  "model": "openai/gpt-5.4-mini",
+  "temperature": 0.0,
+  "reasoning_effort": "none",
+  "statement": "When a premium customer's discount is up to 20%, the system shall allow confirmation without approval.",
+  "k": 10,
+  "runs": [
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% without approval, which directly supports allowing confirmation without approval at or below that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 2.7685289199980616,
+        "provider_latency_s": 2.707084,
+        "prompt_tokens": 657,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy states premium customers can go up to 20% without approval, and Cal confirms 'Premium 20%,' which directly supports confirmation without approval at or below that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.5767217079992406,
+        "provider_latency_s": 1.574976,
+        "prompt_tokens": 657,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers may go up to 20% without approval, which directly supports allowing confirmation without approval at or below that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.7862021249966347,
+        "provider_latency_s": 1.784559,
+        "prompt_tokens": 657,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy states premium customers can go up to 20% without approval, and Cal confirms 'Premium 20%'."
+      },
+      "call_metrics": {
+        "latency_s": 1.6380182440007047,
+        "provider_latency_s": 1.636324,
+        "prompt_tokens": 657,
+        "cached_tokens": 0,
+        "completion_tokens": 59,
+        "reasoning_tokens": 0
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% without approval, which directly matches allowing confirmation without approval for a premium customer's discount up to 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.8440642690002278,
+        "provider_latency_s": 1.842461,
+        "prompt_tokens": 657,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% without approval, which directly matches the rule that such discounts can be confirmed without approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.6379727449966595,
+        "provider_latency_s": 1.636292,
+        "prompt_tokens": 657,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy states premium customers can go up to 20% without approval, and Cal confirms 'Premium 20%,' which directly supports allowing confirmation without approval up to that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.638368198000535,
+        "provider_latency_s": 1.636735,
+        "prompt_tokens": 657,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers may go up to 20% without approval, which directly supports allowing confirmation without approval at or below that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.8443643110003904,
+        "provider_latency_s": 1.842662,
+        "prompt_tokens": 657,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy states premium customers can go up to 20% without approval, and Cal confirms 'Premium 20%,' which directly supports allowing confirmation without approval up to that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4321515199990245,
+        "provider_latency_s": 1.430243,
+        "prompt_tokens": 657,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% without approval, which directly matches allowing confirmation without approval for a premium customer's discount up to 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.651051226999698,
+        "provider_latency_s": 1.64941,
+        "prompt_tokens": 657,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0
+      }
+    }
+  ],
+  "verdict_counts": {
+    "supported": 10
+  }
+}

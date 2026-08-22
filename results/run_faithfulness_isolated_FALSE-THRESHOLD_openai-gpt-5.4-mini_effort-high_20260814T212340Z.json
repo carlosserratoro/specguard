@@ -1,0 +1,193 @@
+{
+  "label": "FALSE-THRESHOLD",
+  "model": "openai/gpt-5.4-mini",
+  "temperature": 0.0,
+  "reasoning_effort": "high",
+  "statement": "Premium customers are allowed up to 35% without approval.",
+  "k": 10,
+  "runs": [
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states premium customers may go up to 20% without approval, not 35%, so the proposed rule conflicts with the discussion."
+      },
+      "call_metrics": {
+        "latency_s": 1.6396370380025473,
+        "provider_latency_s": null,
+        "prompt_tokens": 574,
+        "cached_tokens": 0,
+        "completion_tokens": 142,
+        "reasoning_tokens": 73
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states premium customers can go up to 20% without approval, not 35%, and it also sets 15% for everyone else."
+      },
+      "call_metrics": {
+        "latency_s": 1.634260651000659,
+        "provider_latency_s": null,
+        "prompt_tokens": 574,
+        "cached_tokens": 0,
+        "completion_tokens": 149,
+        "reasoning_tokens": 78
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly sets premium customers at up to 20% without approval, which conflicts with the claim that they are allowed up to 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.7423082630011777,
+        "provider_latency_s": null,
+        "prompt_tokens": 574,
+        "cached_tokens": 0,
+        "completion_tokens": 182,
+        "reasoning_tokens": 111
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers can get up to 20% without approval, which conflicts with the claim that they are allowed up to 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.946010980002029,
+        "provider_latency_s": null,
+        "prompt_tokens": 574,
+        "cached_tokens": 0,
+        "completion_tokens": 166,
+        "reasoning_tokens": 95
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states premium customers may discount up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.6383428930021182,
+        "provider_latency_s": null,
+        "prompt_tokens": 574,
+        "cached_tokens": 0,
+        "completion_tokens": 139,
+        "reasoning_tokens": 77
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can get up to 20% without approval, which conflicts with the stated 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.565169903999049,
+        "provider_latency_s": null,
+        "prompt_tokens": 574,
+        "cached_tokens": 0,
+        "completion_tokens": 171,
+        "reasoning_tokens": 104
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can go up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.5071369809993485,
+        "provider_latency_s": null,
+        "prompt_tokens": 574,
+        "cached_tokens": 0,
+        "completion_tokens": 144,
+        "reasoning_tokens": 82
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-03"
+        ],
+        "reasoning": "The thread states premium customers can have up to 20% without approval, which conflicts with the claim that they are allowed up to 35% without approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.433664755000791,
+        "provider_latency_s": null,
+        "prompt_tokens": 574,
+        "cached_tokens": 0,
+        "completion_tokens": 142,
+        "reasoning_tokens": 69
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-03"
+        ],
+        "reasoning": "The thread states premium customers can go up to 20% without approval, which conflicts with the claimed 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 2.047512105000351,
+        "provider_latency_s": null,
+        "prompt_tokens": 574,
+        "cached_tokens": 0,
+        "completion_tokens": 107,
+        "reasoning_tokens": 41
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can get up to 20% without approval, which conflicts with the claim that they can get up to 35% without approval."
+      },
+      "call_metrics": {
+        "latency_s": 6.7584719189981115,
+        "provider_latency_s": null,
+        "prompt_tokens": 574,
+        "cached_tokens": 0,
+        "completion_tokens": 172,
+        "reasoning_tokens": 98
+      }
+    }
+  ],
+  "verdict_counts": {
+    "contradicted": 10
+  }
+}
