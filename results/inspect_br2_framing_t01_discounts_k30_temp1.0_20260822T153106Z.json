@@ -1,0 +1,790 @@
+{
+  "k": 30,
+  "temperature": 1.0,
+  "runs": [
+    {
+      "matched": true,
+      "reasoning": "C1 matches the gold rule because it requires approval before confirmation when a premium customer has a discount greater than 20%.",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a salesperson applies a discount greater than 20% for a premium customer, the system shall require sales manager approval before the order can be confirmed."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a salesperson applies a discount greater than 15% for a non-premium customer, the system shall require sales manager approval before the order can be confirmed."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order total is over \u20ac10,000, the system shall require sales manager approval before the order can be confirmed, regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When discount approval is required, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When discount approval is pending, the system shall not confirm the order."
+        }
+      ]
+    },
+    {
+      "matched": false,
+      "reasoning": "None of the candidates states that premium customers with discounts greater than 20% require approval before confirmation; the closest candidates either change the customer type, the threshold, or describe different conditions/behaviors.",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a discount is more than 15% and the customer is not premium, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a discount is up to 20% and the customer is premium, the system shall allow the order to proceed without approval."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order value is over \u20ac10,000, the system shall require approval regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When approval is required, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When discount approval is pending, the system shall not confirm the order."
+        }
+      ]
+    },
+    {
+      "matched": false,
+      "reasoning": "No candidate matches the gold rule\u2019s specific condition of a premium customer\u2019s sales order with discount greater than 20% requiring approval before confirmation.",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a salesperson applies a discount greater than 15% for a non-premium customer, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a salesperson applies a discount up to 20% for a premium customer, the system shall allow the discount without approval before the order can be confirmed."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order total is over \u20ac10,000, the system shall require approval before the order can be confirmed regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When a discount is pending authorisation, the system shall prevent the order from being confirmed."
+        },
+        {
+          "id": "BR5",
+          "statement": "When an approval is required, the system shall notify the approver."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C2 matches the same condition (premium customer, discount greater than 20%) and the same behavior (approval required before confirmation), despite wording differences.",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a salesperson enters a discount greater than 15% for a non-premium customer, the system shall require sales manager approval before the order can be confirmed."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a salesperson enters a discount greater than 20% for a premium customer, the system shall require sales manager approval before the order can be confirmed."
+        },
+        {
+          "id": "BR3",
+          "statement": "When a sales order total is over \u20ac10,000, the system shall require approval before the order can be confirmed, regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When discount approval is pending, the system shall not allow the order to be confirmed."
+        },
+        {
+          "id": "BR5",
+          "statement": "When a discount requires approval, the system shall notify the approver."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C2 matches the same premium-customer discount threshold and the same behavior by stating approval is not required at 20% or less, which is equivalent to requiring approval only when the discount is greater than 20%.",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a discount is more than 15% for a non-premium customer, the system shall require approval before confirming the order."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a discount is up to 20% for a premium customer, the system shall not require approval before confirming the order."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order total is over \u20ac10,000, the system shall require approval before confirming the order, regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When discount approval is required, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When discount approval is pending, the system shall not allow the order to be confirmed."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C2 matches the same condition (premium customer, discount greater than 20%) and the same behavior (require approval before confirmation).",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a discount on a sales order is greater than 15% for a non-premium customer, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a discount on a sales order is greater than 20% for a premium customer, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR3",
+          "statement": "When a sales order total is over \u20ac10,000, the system shall require approval before the order can be confirmed regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When discount approval is required, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When discount approval is pending, the system shall not allow the order to be confirmed."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C1 preserves the same condition (premium customer with discount greater than 20%) and the same behavior (approval required before confirmation).",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a salesperson applies a discount greater than 20% for a premium customer, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a salesperson applies a discount greater than 15% for a non-premium customer, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order total is over \u20ac10,000, the system shall require approval before the order can be confirmed, regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When approval is required for a discount, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When a discount approval is pending, the system shall not allow the order to be confirmed."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C2 matches the same condition (premium customer, discount greater than 20%) and the same required behavior (approval before confirmation).",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a sales order discount is greater than 15% for a non-premium customer, the system shall require approval before confirming the order."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a sales order discount is greater than 20% for a premium customer, the system shall require approval before confirming the order."
+        },
+        {
+          "id": "BR3",
+          "statement": "When a sales order total is over \u20ac10,000, the system shall require approval before confirming the order regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When an approval is required for a sales order discount, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When a sales order discount approval is pending, the system shall not confirm the order."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C2 matches the same condition (premium customer, discount greater than 20%) and the same behavior (approval required before confirmation).",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a salesperson applies a discount greater than 15% for a non-premium customer, the system shall require sales manager approval before the order can be confirmed."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a salesperson applies a discount greater than 20% for a premium customer, the system shall require sales manager approval before the order can be confirmed."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order total is over \u20ac10,000, the system shall require approval before the order can be confirmed, regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When discount approval is required, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When discount approval is pending, the system shall not allow the order to be confirmed."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C2 matches the same condition (premium customer, discount up to 20% meaning not greater than 20%) and the same behavior (no approval required before confirmation), which is the logical inverse boundary of the gold rule.",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a discount on a sales order is greater than 15% for a non-premium customer, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a discount on a sales order is up to 20% for a premium customer, the system shall not require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR3",
+          "statement": "When the order value is over \u20ac10,000, the system shall require approval regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When discount approval is pending, the system shall not allow the order to be confirmed."
+        },
+        {
+          "id": "BR5",
+          "statement": "When approval is required, the system shall notify the approver."
+        }
+      ]
+    },
+    {
+      "matched": false,
+      "reasoning": "No candidate matches the exact condition of a premium customer's sales order with discount greater than 20% requiring approval before confirmation.",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a discount exceeds 15%, the system shall require sales manager approval before confirming the order."
+        },
+        {
+          "id": "BR2",
+          "statement": "When the customer is premium and the discount is up to 20%, the system shall allow the order to proceed without approval."
+        },
+        {
+          "id": "BR3",
+          "statement": "When the customer is not premium and the discount is up to 15%, the system shall allow the order to proceed without approval."
+        },
+        {
+          "id": "BR4",
+          "statement": "When the order value is over \u20ac10,000, the system shall require approval regardless of the discount."
+        },
+        {
+          "id": "BR5",
+          "statement": "When approval is required, the system shall notify the approver."
+        },
+        {
+          "id": "BR6",
+          "statement": "When discount approval is pending, the system shall not confirm the order."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C1 matches the same condition (premium customer and discount greater than 20%) and the same behavior (approval required before confirmation).",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a discount is greater than 20% and the customer is premium, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a discount is greater than 15% and the customer is not premium, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order value is over \u20ac10,000, the system shall require approval before the order can be confirmed regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When approval is required, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When discount approval is pending, the system shall not allow the order to be confirmed."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C2 matches the same condition (premium customer, discount greater than 20%) and the same behavior (approval required before confirmation).",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a salesperson enters a discount greater than 15% for a non-premium customer, the system shall require sales manager approval before confirming the order."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a salesperson enters a discount greater than 20% for a premium customer, the system shall require sales manager approval before confirming the order."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order total is over \u20ac10,000, the system shall require approval before the order can be confirmed regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When approval is required, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When discount approval is pending, the system shall not confirm the order."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C1 preserves the same condition (premium customer with discount greater than 20%) and the same behavior (approval required before confirmation), despite different wording.",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a salesperson enters a discount greater than 20% for a premium customer, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a salesperson enters a discount greater than 15% for a non-premium customer, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order total is over \u20ac10,000, the system shall require approval before the order can be confirmed, regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When a discount approval is required, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When a discount approval is pending, the system shall not confirm the order."
+        }
+      ]
+    },
+    {
+      "matched": false,
+      "reasoning": "No candidate matches the premium-customer discount greater than 20% condition with mandatory approval before confirmation; the closest candidates either use different thresholds, different customer types, or only describe related notification/hold behavior.",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a salesperson applies a discount greater than 15% for a non-premium customer, the system shall require sales manager approval before confirming the order."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a salesperson applies a discount up to 20% for a premium customer, the system shall allow the order to proceed without approval."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order total is over \u20ac10,000, the system shall require approval before confirming the order, regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When an order requires discount approval, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When discount approval is pending, the system shall not confirm the order."
+        }
+      ]
+    },
+    {
+      "matched": false,
+      "reasoning": "No candidate matches the gold rule\u2019s condition of a premium customer with discount greater than 20% requiring approval before confirmation.",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a discount is more than 15% and the customer is not premium, the system shall require sales manager approval before confirming the order."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a customer is premium and the discount is up to 20%, the system shall allow confirmation without approval."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order total is over \u20ac10,000, the system shall require approval regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When approval is required, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When discount approval is pending, the system shall not confirm the order."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C2 matches the same condition (premium customer, discount greater than 20%) and the same behavior (approval required before confirmation), despite adding the approver role detail.",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a sales order discount exceeds 15% for a non-premium customer, the system shall require sales manager approval before the order can be confirmed."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a sales order discount exceeds 20% for a premium customer, the system shall require sales manager approval before the order can be confirmed."
+        },
+        {
+          "id": "BR3",
+          "statement": "When a sales order total is over \u20ac10,000, the system shall require approval before the order can be confirmed, regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When a discount approval is required, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When a discount approval is pending, the system shall prevent the order from being confirmed."
+        }
+      ]
+    },
+    {
+      "matched": false,
+      "reasoning": "None of the candidates matches the gold rule\u2019s condition of a premium customer with discount greater than 20% and requiring approval before confirmation.",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a salesperson applies a discount greater than 15% and the customer is not premium, the system shall require sales manager approval before confirming the order."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a salesperson applies a discount up to 20% and the customer is premium, the system shall allow the discount without approval before confirming the order."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order total is over \u20ac10,000, the system shall require approval regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When discount approval is pending, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When discount approval is pending, the system shall not confirm the order."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C2 matches the same condition (premium customer, discount greater than 20%) and the same behavior (require approval before confirmation).",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a discount is greater than 15% for a non-premium customer, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a discount is greater than 20% for a premium customer, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order total is over \u20ac10,000, the system shall require approval before the order can be confirmed regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When discount approval is required, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When discount approval is pending, the system shall not confirm the order."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C1 preserves the same condition (premium customer with discount greater than 20%) and the same behavior (approval required before order confirmation).",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a salesperson applies a discount greater than 20% for a premium customer, the system shall require approval before confirming the order."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a salesperson applies a discount greater than 15% for a non-premium customer, the system shall require approval before confirming the order."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order value is over \u20ac10,000, the system shall require approval before confirming the order regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When a discount approval is required, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When a discount approval is pending, the system shall not allow the order to be confirmed."
+        }
+      ]
+    },
+    {
+      "matched": false,
+      "reasoning": "None of the candidates matches the gold rule\u2019s condition of a premium customer with discount greater than 20% requiring approval before confirmation.",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a discount is more than 15% for non-premium customers, the system shall require approval from the sales manager before confirming the order."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a customer is premium and the discount is up to 20%, the system shall not require approval before confirming the order."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order total is over \u20ac10,000, the system shall always require approval regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When discount approval is pending, the system shall not allow the order to be confirmed."
+        },
+        {
+          "id": "BR5",
+          "statement": "When discount approval is required, the system shall notify the approver."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C2 matches the same condition (premium customer, discount greater than 20%) and the same required behavior (approval before confirming the sales order).",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a discount is greater than 15% for non-premium customers, the system shall require sales manager approval before confirming the sales order."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a discount is greater than 20% for premium customers, the system shall require sales manager approval before confirming the sales order."
+        },
+        {
+          "id": "BR3",
+          "statement": "When a sales order amount is over \u20ac10,000, the system shall require approval before confirming the sales order regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When discount approval is required, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When discount approval is pending, the system shall not confirm the sales order."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C2 matches the same condition (premium customer, discount greater than 20%) and the same required behavior (approval before confirmation).",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a sales order discount is more than 15% for non-premium customers, the system shall require approval before confirmation."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a sales order discount is more than 20% for premium customers, the system shall require approval before confirmation."
+        },
+        {
+          "id": "BR3",
+          "statement": "When a sales order total is over \u20ac10,000, the system shall require approval before confirmation regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When approval is required for a discount, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When a discount approval is pending, the system shall not confirm the order."
+        }
+      ]
+    },
+    {
+      "matched": false,
+      "reasoning": "None of the candidates states that a premium customer's discount greater than 20% requires approval before confirmation; C2 covers up to 20% without approval, while the others change the customer type, threshold, or behavior.",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a salesperson applies a discount greater than 15% and the customer is not premium, the system shall require sales manager approval before confirming the order."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a salesperson applies a discount up to 20% for a premium customer, the system shall allow the discount without approval before confirming the order."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order value is over \u20ac10,000, the system shall require approval regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When discount approval is pending, the system shall not confirm the order."
+        },
+        {
+          "id": "BR5",
+          "statement": "When discount approval is required, the system shall notify the approver."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C2 matches the same condition (premium customer, discount greater than 20%) and the same behavior (approval required before confirmation).",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a salesperson applies a discount greater than 15% for a non-premium customer, the system shall require sales manager approval before the order can be confirmed."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a salesperson applies a discount greater than 20% for a premium customer, the system shall require sales manager approval before the order can be confirmed."
+        },
+        {
+          "id": "BR3",
+          "statement": "When the order total is over \u20ac10,000, the system shall require approval before the order can be confirmed, regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When discount approval is required, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When discount approval is pending, the system shall not allow the order to be confirmed."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C1 matches the same condition (premium customer with discount greater than 20%) and the same behavior (approval required before confirmation).",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a discount is greater than 20% for a premium customer, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a discount is greater than 15% for a non-premium customer, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order total is greater than \u20ac10,000, the system shall require approval before the order can be confirmed, regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When approval is required for a discount, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When a discount approval is pending, the system shall not allow the order to be confirmed."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C1 preserves the same condition (premium customer with discount greater than 20%) and the same behavior (approval required before confirmation).",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a salesperson applies a discount greater than 20% for a premium customer, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a salesperson applies a discount greater than 15% for a non-premium customer, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order total is over \u20ac10,000, the system shall require approval before the order can be confirmed, regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When approval is required for a discount, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When a discount approval is pending, the system shall not allow the order to be confirmed."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C1 matches the same condition (premium customer with discount greater than 20%) and the same behavior (approval required before confirmation).",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a discount is more than 20% for a premium customer, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a discount is more than 15% for a non-premium customer, the system shall require approval before the order can be confirmed."
+        },
+        {
+          "id": "BR3",
+          "statement": "When an order is over \u20ac10,000, the system shall require approval before the order can be confirmed regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When approval is required, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When discount approval is pending, the system shall not confirm the order."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C1 matches the same condition (premium customer, discount greater than 20%) and the same behavior (require approval before confirmation).",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a discount on a sales order is more than 20% for a premium customer, the system shall require approval before confirmation."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a discount on a sales order is more than 15% for a non-premium customer, the system shall require approval before confirmation."
+        },
+        {
+          "id": "BR3",
+          "statement": "When a sales order total is over \u20ac10,000, the system shall require approval before confirmation regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When an approval is required for a sales order discount, the system shall notify the approver."
+        },
+        {
+          "id": "BR5",
+          "statement": "When a sales order discount is pending approval, the system shall not allow the order to be confirmed."
+        }
+      ]
+    },
+    {
+      "matched": true,
+      "reasoning": "C2 matches the premium-customer discount threshold and the requirement that approval is not needed before confirmation for discounts up to 20%, which is the complement of requiring approval when the discount is greater than 20%.",
+      "predicted_rules": [
+        {
+          "id": "BR1",
+          "statement": "When a discount on a sales order is more than 15% for a non-premium customer, the system shall require sales manager approval before confirmation."
+        },
+        {
+          "id": "BR2",
+          "statement": "When a discount on a sales order is up to 20% for a premium customer, the system shall not require approval before confirmation."
+        },
+        {
+          "id": "BR3",
+          "statement": "When a sales order total is over \u20ac10,000, the system shall require approval regardless of the discount."
+        },
+        {
+          "id": "BR4",
+          "statement": "When discount approval is pending, the system shall prevent the order from being confirmed."
+        },
+        {
+          "id": "BR5",
+          "statement": "When a discount approval is required, the system shall notify the approver."
+        }
+      ]
+    }
+  ]
+}
