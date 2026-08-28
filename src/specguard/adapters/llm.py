@@ -3,10 +3,12 @@ from __future__ import annotations
 import os
 from dataclasses import dataclass
 from functools import cache
+from typing import Any
 
 import instructor
 import litellm
 from dotenv import load_dotenv
+from pydantic import BaseModel
 
 load_dotenv()
 
@@ -40,6 +42,44 @@ class LLMCall:
     client: instructor.Instructor
     model: str
     kwargs: dict
+
+
+class CallMetrics(BaseModel):
+    """Cost and latency for one LLM call, unified across providers.
+
+    It's placed in the adapters layer because extracting it requires knowing
+    each provider's response shape, and we want to keep that knowledge here.
+    The service layer returns it to its caller without inspecting it.
+    """
+
+    latency_s: float
+    provider_latency_s: float | None = None
+    prompt_tokens: int | None = None
+    cached_tokens: int | None = None
+    completion_tokens: int | None = None
+    reasoning_tokens: int | None = None
+
+    @classmethod
+    def from_completion(cls, completion: Any, latency_s: float) -> CallMetrics:
+        """Attempt to build metrics from a provider's completion."""
+        usage = getattr(completion, "usage", None)
+        provider_ms = getattr(completion, "_response_ms", None)
+        out_details = getattr(usage, "completion_tokens_details", None) or getattr(
+            usage, "output_tokens_details", None
+        )
+        in_details = getattr(usage, "prompt_tokens_details", None) or getattr(
+            usage, "input_tokens_details", None
+        )
+        return cls(
+            latency_s=latency_s,
+            provider_latency_s=provider_ms / 1000 if provider_ms else None,
+            prompt_tokens=getattr(usage, "prompt_tokens", None)
+            or getattr(usage, "input_tokens", None),
+            cached_tokens=getattr(in_details, "cached_tokens", None),
+            completion_tokens=getattr(usage, "completion_tokens", None)
+            or getattr(usage, "output_tokens", None),
+            reasoning_tokens=getattr(out_details, "reasoning_tokens", None),
+        )
 
 
 def build_call(model: str, temperature: float, reasoning_effort: str | None = None) -> LLMCall:

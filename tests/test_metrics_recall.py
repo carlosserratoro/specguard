@@ -1,7 +1,7 @@
 from unittest.mock import patch
 
 from specguard.domain.spec import BusinessRule, Severity
-from specguard.service_layer.evaluation import MatchDecision, rule_recall
+from specguard.service_layer.metrics import MatchDecision, rule_recall
 
 DUMMY_VAL = "."
 
@@ -15,7 +15,7 @@ def test_recall_all_supported():
     predicted = [_rule("BR1"), _rule("BR2")]
     gold = [_rule("G1"), _rule("G2")]
     with patch(
-        "specguard.service_layer.evaluation.match_rule",
+        "specguard.service_layer.metrics.match_rule",
         autospec=True,
         return_value=MatchDecision(gold_rule_id=DUMMY_VAL, matched=True, reasoning=DUMMY_VAL),
     ):
@@ -33,7 +33,7 @@ def test_recall_with_one_missing():
         MatchDecision(gold_rule_id=DUMMY_VAL, matched=False, reasoning=DUMMY_VAL),  # G2: no match
     ]
     with patch(
-        "specguard.service_layer.evaluation.match_rule",
+        "specguard.service_layer.metrics.match_rule",
         autospec=True,
         side_effect=decisions,
     ):
@@ -49,7 +49,7 @@ def test_recall_empty_gold():
     but it's given here for completeness.
     """
     with patch(
-        "specguard.service_layer.evaluation.match_rule",
+        "specguard.service_layer.metrics.match_rule",
         autospec=True,
     ) as m:
         result = rule_recall(gold_rules=[], candidate_rules=[_rule("BR1")])
