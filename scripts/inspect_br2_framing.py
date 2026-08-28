@@ -6,15 +6,12 @@ from __future__ import annotations
 
 from paths import PROJECT_ROOT, RESULTS_DIR
 
+from specguard.adapters.llm import DEFAULT_EXTRACTOR_TEMPERATURE, JudgeConfig
 from specguard.adapters.reporting import save_report
 from specguard.domain.spec import UseCaseSpec
 from specguard.domain.thread import ConversationalThread
-from specguard.service_layer.evaluation import (
-    DEFAULT_EXTRACTOR_TEMPERATURE,
-    JudgeConfig,
-    extract,
-    match_rule,
-)
+from specguard.service_layer.extractor import extract
+from specguard.service_layer.metrics import match_rule
 
 REPS = 30
 

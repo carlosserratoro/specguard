@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from collections import Counter
-from dataclasses import asdict
 
 from paths import PROJECT_ROOT, RESULTS_DIR
 
@@ -9,7 +8,7 @@ from specguard.adapters.llm import DEFAULT_JUDGE_MODEL, DEFAULT_JUDGE_TEMPERATUR
 from specguard.adapters.reporting import save_report
 from specguard.domain.spec import BusinessRule, Severity
 from specguard.domain.thread import ConversationalThread
-from specguard.service_layer.evaluation import verify_rule_against_thread
+from specguard.service_layer.metrics import verify_rule_against_thread
 
 REPS_PERMISSION_FORM = 10
 REPS_RESTRICTION_FORM = 10
@@ -34,7 +33,6 @@ def check(
 
     report = {
         "label": label,
-        "judge_config": asdict(judge_config),
         "statement": statement,
         "k": k,
         "runs": [],
