@@ -2,18 +2,18 @@ from __future__ import annotations
 
 import statistics
 import time
+from dataclasses import asdict
 from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
-from specguard.domain.spec import BusinessRule, Severity, UseCaseSpec
-from specguard.domain.thread import ConversationalThread
-from specguard.llm import (
+from specguard.adapters.llm import (
     DEFAULT_EXTRACTOR_TEMPERATURE,
-    DEFAULT_JUDGE_MODEL,
-    DEFAULT_JUDGE_TEMPERATURE,
+    JudgeConfig,
     build_call,
 )
+from specguard.domain.spec import BusinessRule, Severity, UseCaseSpec
+from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.extractor import extract
 
 SEVERITY_WEIGHT = {
@@ -86,11 +86,10 @@ FAITHFULNESS_SYSTEM_PROMPT = (
 def verify_rule_against_thread(
     rule: BusinessRule,
     thread: ConversationalThread,
-    model: str = DEFAULT_JUDGE_MODEL,
-    temperature: float = DEFAULT_JUDGE_TEMPERATURE,
-    reasoning_effort: str | None = None,
+    judge_config: JudgeConfig | None = None,
 ) -> tuple[SupportVerdict, CallMetrics]:
-    call = build_call(model, temperature, reasoning_effort)
+    judge_config = judge_config or JudgeConfig()
+    call = build_call(judge_config.model, judge_config.temperature, judge_config.reasoning_effort)
 
     start = time.perf_counter()
     verdict, completion = call.client.create_with_completion(
@@ -113,7 +112,11 @@ def verify_rule_against_thread(
     return verdict, CallMetrics.from_completion(completion, elapsed_s)
 
 
-def rule_faithfulness(predicted_rules: list[BusinessRule], thread: ConversationalThread) -> dict:
+def rule_faithfulness(
+    predicted_rules: list[BusinessRule],
+    thread: ConversationalThread,
+    judge_config: JudgeConfig | None = None,
+) -> dict:
     """Faithfulness: fraction of extracted rules actually grounded in the thread (RAGAS-style).
 
     See the paper for RAGAS where the original faithfulness is defined:
@@ -123,13 +126,15 @@ def rule_faithfulness(predicted_rules: list[BusinessRule], thread: Conversationa
     Linguistics: System Demonstrations. Association for Computational Linguistics, 150-158.
     https://doi.org/10.18653/v1/2024.eacl-demo.16
     """
+    judge_config = judge_config or JudgeConfig()
+
     total = len(predicted_rules)
     supported = 0
     contradicted_ids: list[str] = []
     not_stated_ids: list[str] = []
 
     for rule in predicted_rules:
-        verdict, _ = verify_rule_against_thread(rule, thread)
+        verdict, _ = verify_rule_against_thread(rule, thread, judge_config)
         if verdict.verdict == "supported":
             supported += 1
         elif verdict.verdict == "contradicted":
@@ -171,13 +176,12 @@ JUDGE_SYSTEM_PROMPT = (
 def match_rule(
     gold_rule: BusinessRule,
     candidate_rules: list[BusinessRule],
-    model: str | None = DEFAULT_JUDGE_MODEL,
-    temperature: float = DEFAULT_JUDGE_TEMPERATURE,
-    reasoning_effort: str | None = None,
+    judge_config: JudgeConfig | None = None,
 ) -> MatchDecision:
-    call = build_call(model, temperature, reasoning_effort)
+    judge_config = judge_config or JudgeConfig()
+    call = build_call(judge_config.model, judge_config.temperature, judge_config.reasoning_effort)
 
-    # Since both bold and the output use the same BRx to refer to the rules, the judge
+    # Since both gold and the output use the same BRx to refer to the rules, the judge
     # is influenced by the IDs. I remap the original ID to a neutral one so that the
     # matching is not influenced.
     label_to_id = {f"C{i}": c.id for i, c in enumerate(candidate_rules, start=1)}
@@ -208,8 +212,13 @@ def match_rule(
     return decision
 
 
-def rule_recall(gold_rules: list[BusinessRule], candidate_rules: list[BusinessRule]) -> dict:
+def rule_recall(
+    gold_rules: list[BusinessRule],
+    candidate_rules: list[BusinessRule],
+    judge_config: JudgeConfig | None = None,
+) -> dict:
     """Rule recall, i.e. completeness: fraction of gold rules captured."""
+    judge_config = judge_config or JudgeConfig()
     total_weight = 0.0
     matched_weight = 0.0
     missed_rule_ids: list[str] = []
@@ -218,7 +227,7 @@ def rule_recall(gold_rules: list[BusinessRule], candidate_rules: list[BusinessRu
         weight = SEVERITY_WEIGHT[gold_rule.severity]
         total_weight += weight
 
-        decision = match_rule(gold_rule, candidate_rules)
+        decision = match_rule(gold_rule, candidate_rules, judge_config)
         if decision.matched:
             matched_weight += weight
         else:
@@ -235,14 +244,19 @@ def rule_recall(gold_rules: list[BusinessRule], candidate_rules: list[BusinessRu
     }
 
 
-def rule_precision(predicted_rules: list[BusinessRule], gold_rules: list[BusinessRule]) -> dict:
+def rule_precision(
+    predicted_rules: list[BusinessRule],
+    gold_rules: list[BusinessRule],
+    judge_config: JudgeConfig | None = None,
+) -> dict:
     """Rule precision, i.e. fidelity vs gold: fraction of predicted rules supported by the gold."""
+    judge_config = judge_config or JudgeConfig()
     total = len(predicted_rules)
     supported = 0
     hallucinated_ids: list[str] = []
 
     for predicted_rule in predicted_rules:
-        decision = match_rule(predicted_rule, gold_rules)
+        decision = match_rule(predicted_rule, gold_rules, judge_config)
         if decision.matched:
             supported += 1
         else:
@@ -252,7 +266,7 @@ def rule_precision(predicted_rules: list[BusinessRule], gold_rules: list[Busines
     # (although this would be a degenerated case) thus we'd get (arguably) 100% precision
     # because no rule was invented (the side effect of no rule being extracted).
     # However, that'd mean we are giving the highest precision to an extractor that is
-    # propably not working, so we return 0 by convention.
+    # probably not working, so we return 0 by convention.
     precision = round(supported / total, 3) if total else 0
 
     return {
@@ -265,16 +279,20 @@ def evaluate(
     thread: ConversationalThread,
     gold: UseCaseSpec,
     k: int = 5,
-    temperature: float = DEFAULT_EXTRACTOR_TEMPERATURE,
+    extractor_temperature: float = DEFAULT_EXTRACTOR_TEMPERATURE,
+    judge_config: JudgeConfig | None = None,
 ) -> dict:
     """Run the full pipeline k times, computing all metrics on the same extractions."""
+    judge_config = judge_config or JudgeConfig()
     runs: list[dict] = []
 
     for i in range(k):
         print(f"Evaluating, repetition {i + 1}/{k}")
-        predicted = extract(thread, temperature)
-        recall_result = rule_recall(gold.business_rules, predicted.business_rules)
-        precision_result = rule_precision(predicted.business_rules, gold.business_rules)
+        predicted = extract(thread, extractor_temperature)
+        recall_result = rule_recall(gold.business_rules, predicted.business_rules, judge_config)
+        precision_result = rule_precision(
+            predicted.business_rules, gold.business_rules, judge_config
+        )
         runs.append(
             {
                 "recall": recall_result["recall"],
@@ -286,7 +304,8 @@ def evaluate(
 
     return {
         "k": k,
-        "temperature": temperature,
+        "extractor_temperature": extractor_temperature,
+        "judge_config": asdict(judge_config),
         "recall": _summarise([r["recall"] for r in runs]),
         "precision": _summarise([r["precision"] for r in runs]),
         "runs": runs,

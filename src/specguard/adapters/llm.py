@@ -19,6 +19,21 @@ DEFAULT_JUDGE_TEMPERATURE = 0.0  # For the judge, we want it as reproducible as 
 
 
 @dataclass(frozen=True)
+class JudgeConfig:
+    """One experimental condition that can change a verdict."""
+
+    model: str = DEFAULT_JUDGE_MODEL
+    temperature: float = DEFAULT_JUDGE_TEMPERATURE
+    reasoning_effort: str | None = None
+    scaffolding: bool = False
+
+    def label(self) -> str:
+        """Short identifier for filenames, e.g. effort-none."""
+        effort = self.reasoning_effort or "none"
+        return f"effort-{effort}_scaffold-{'on' if self.scaffolding else 'off'}"
+
+
+@dataclass(frozen=True)
 class LLMCall:
     """Data needed to make a call."""
 

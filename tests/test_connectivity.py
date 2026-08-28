@@ -5,7 +5,7 @@ import os
 import pytest
 from pydantic import BaseModel, Field
 
-from specguard.llm import (
+from specguard.adapters.llm import (
     DEFAULT_EXTRACTOR_MODEL,
     DEFAULT_EXTRACTOR_TEMPERATURE,
     build_call,
