@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-from specguard.domain.spec import UseCaseSpec
-from specguard.domain.thread import ConversationalThread
-from specguard.llm import (
+from specguard.adapters.llm import (
     DEFAULT_EXTRACTOR_MODEL,
     DEFAULT_EXTRACTOR_TEMPERATURE,
     build_call,
 )
+from specguard.domain.spec import UseCaseSpec
+from specguard.domain.thread import ConversationalThread
 
 SYSTEM_PROMPT = (
     "You are a business analyst with years of experience turning ambiguous, "

@@ -2,14 +2,14 @@ from unittest.mock import patch
 
 import pytest
 
-from specguard.llm import build_call
+from specguard.adapters.llm import build_call
 
 
 @pytest.fixture
 def mock_clients():
     with (
-        patch("specguard.llm.get_client", return_value=None),
-        patch("specguard.llm.get_responses_client", return_value=None),
+        patch("specguard.adapters.llm.get_client", return_value=None),
+        patch("specguard.adapters.llm.get_responses_client", return_value=None),
     ):
         yield
 

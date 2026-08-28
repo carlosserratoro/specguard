@@ -1,13 +1,14 @@
 from __future__ import annotations
 
-import json
 from collections import Counter
-from datetime import UTC, datetime
-from pathlib import Path
+from dataclasses import asdict
 
+from paths import PROJECT_ROOT, RESULTS_DIR
+
+from specguard.adapters.llm import DEFAULT_JUDGE_MODEL, DEFAULT_JUDGE_TEMPERATURE, JudgeConfig
+from specguard.adapters.reporting import save_report
 from specguard.domain.spec import BusinessRule, Severity
 from specguard.domain.thread import ConversationalThread
-from specguard.llm import DEFAULT_JUDGE_MODEL, DEFAULT_JUDGE_TEMPERATURE
 from specguard.service_layer.evaluation import verify_rule_against_thread
 
 REPS_PERMISSION_FORM = 10
@@ -22,37 +23,18 @@ REASONING_EFFORTS = (
     "xhigh",
 )
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-RESULTS_DIR = PROJECT_ROOT / "results"
-
-
-def save_report(report: dict) -> Path:
-    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    timestamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
-    model = report["model"].replace("/", "-")
-    effort = report.get("reasoning_effort", "default")
-    path = RESULTS_DIR / (
-        f"run_faithfulness_isolated_{report['label']}_{model}_effort-{effort}_{timestamp}.json"
-    )
-    path.write_text(json.dumps(report, indent=2), encoding="utf-8")
-    return path
-
 
 def check(
     statement: str,
     label: str,
     thread: ConversationalThread,
-    model: str | None = None,
-    temperature: float | None = None,
-    reasoning_effort: str | None = None,
+    judge_config: JudgeConfig,
     k: int = 20,
 ) -> dict:
 
     report = {
         "label": label,
-        "model": model,
-        "temperature": temperature,
-        "reasoning_effort": reasoning_effort,
+        "judge_config": asdict(judge_config),
         "statement": statement,
         "k": k,
         "runs": [],
@@ -68,9 +50,7 @@ def check(
 
     verdicts = []
     for rep_no in range(k):
-        verdict, call_metrics = verify_rule_against_thread(
-            rule, thread, model, temperature=temperature, reasoning_effort=reasoning_effort
-        )
+        verdict, call_metrics = verify_rule_against_thread(rule, thread, judge_config)
         print(f"{label} repetition {rep_no + 1}/{k}: {verdict.verdict}")
         verdicts.append(verdict)
 
@@ -83,45 +63,64 @@ def check(
 
     verdict_counts = Counter(v.verdict for v in verdicts)
     report.update({"verdict_counts": dict(verdict_counts)})
-    print(f"{label} {model} effort={reasoning_effort} verdict_counts: {dict(verdict_counts)}\n")
+    print(f"{label} {judge_config.label()} verdict_counts: {dict(verdict_counts)}\n")
 
     return report
 
 
 thread = ConversationalThread.from_file(PROJECT_ROOT / "examples" / "t01_discounts.thread.yaml")
 
+
 for reasoning_effort in REASONING_EFFORTS:
+    judge_config = JudgeConfig(
+        model=DEFAULT_JUDGE_MODEL,
+        temperature=DEFAULT_JUDGE_TEMPERATURE,
+        reasoning_effort=reasoning_effort,
+    )
+
     report_permission_form = check(
         "When a premium customer's discount is up to 20%, "
         "the system shall allow confirmation without approval.",
         "PERMISSION-FORM",
         thread,
-        model=DEFAULT_JUDGE_MODEL,
-        temperature=DEFAULT_JUDGE_TEMPERATURE,
-        reasoning_effort=reasoning_effort,
+        judge_config=judge_config,
         k=REPS_PERMISSION_FORM,
     )
-    save_report(report_permission_form)
+    save_report(
+        report_permission_form,
+        judge_config,
+        results_dir=RESULTS_DIR,
+        experiment="faithfulness",
+        case_id=f"t01_discounts_PERMISSION-FORM_k{REPS_PERMISSION_FORM}",
+    )
 
     report_restriction_form = check(
         "When a discount exceeds 20% for a premium customer, "
         "the system shall require approval before confirming.",
         "RESTRICTION-FORM",
         thread,
-        model=DEFAULT_JUDGE_MODEL,
-        temperature=DEFAULT_JUDGE_TEMPERATURE,
-        reasoning_effort=reasoning_effort,
+        judge_config=judge_config,
         k=REPS_RESTRICTION_FORM,
     )
-    save_report(report_restriction_form)
+    save_report(
+        report_restriction_form,
+        judge_config,
+        results_dir=RESULTS_DIR,
+        experiment="faithfulness",
+        case_id=f"t01_discounts_RESTRICTION-FORM_k{REPS_RESTRICTION_FORM}",
+    )
 
     report_false_threshold = check(
         "Premium customers are allowed up to 35% without approval.",
         "FALSE-THRESHOLD",
         thread,
-        model=DEFAULT_JUDGE_MODEL,
-        temperature=DEFAULT_JUDGE_TEMPERATURE,
-        reasoning_effort=reasoning_effort,
+        judge_config=judge_config,
         k=REPS_FALSE_THRESHOLD,
     )
-    save_report(report_false_threshold)
+    save_report(
+        report_false_threshold,
+        judge_config,
+        results_dir=RESULTS_DIR,
+        experiment="faithfulness",
+        case_id=f"t01_discounts_FALSE-THRESHOLD_k{REPS_FALSE_THRESHOLD}",
+    )
