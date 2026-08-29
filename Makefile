@@ -18,3 +18,24 @@ test:
 
 sync:
 	uv sync
+
+# Experiments:
+# Examples:
+# make exp-faithfulness EFFORT=medium K=100
+# make exp-faithfulness-sweep K=10
+K ?= 1
+EFFORT ?= none
+
+exp-recall-precision:
+	uv run python scripts/run_recall_precision.py -k $(K)
+
+exp-br2-framing:
+	uv run python scripts/inspect_br2_framing.py -k $(K)
+
+exp-faithfulness:
+	uv run python scripts/run_faithfulness.py -k $(K) --effort $(EFFORT)
+
+exp-faithfulness-sweep:
+	@for e in none low medium high xhigh; do \
+		uv run python scripts/run_faithfulness.py -k $(K) --effort $$e; \
+	done
