@@ -2,25 +2,14 @@ from __future__ import annotations
 
 from collections import Counter
 
-from paths import PROJECT_ROOT, RESULTS_DIR
+from cli import build_parser, judge_config_from_args
+from paths import EXAMPLES_DIR, RESULTS_DIR
 
-from specguard.adapters.llm import DEFAULT_JUDGE_MODEL, DEFAULT_JUDGE_TEMPERATURE, JudgeConfig
+from specguard.adapters.llm import JudgeConfig
 from specguard.adapters.reporting import save_report
 from specguard.domain.spec import BusinessRule, Severity
 from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.metrics import verify_rule_against_thread
-
-REPS_PERMISSION_FORM = 10
-REPS_RESTRICTION_FORM = 10
-REPS_FALSE_THRESHOLD = 10
-
-REASONING_EFFORTS = (
-    "none",
-    "low",
-    "medium",
-    "high",
-    "xhigh",
-)
 
 
 def check(
@@ -66,59 +55,56 @@ def check(
     return report
 
 
-thread = ConversationalThread.from_file(PROJECT_ROOT / "examples" / "t01_discounts.thread.yaml")
+parser = build_parser("Measures faithfulness over the threshold cases.")
+args = parser.parse_args()
+judge_config = judge_config_from_args(args)
+
+thread = ConversationalThread.from_file(EXAMPLES_DIR / "t01_discounts.thread.yaml")
 
 
-for reasoning_effort in REASONING_EFFORTS:
-    judge_config = JudgeConfig(
-        model=DEFAULT_JUDGE_MODEL,
-        temperature=DEFAULT_JUDGE_TEMPERATURE,
-        reasoning_effort=reasoning_effort,
-    )
+report_permission_form = check(
+    "When a premium customer's discount is up to 20%, "
+    "the system shall allow confirmation without approval.",
+    "PERMISSION-FORM",
+    thread,
+    judge_config=judge_config,
+    k=args.reps,
+)
+save_report(
+    report_permission_form,
+    judge_config,
+    results_dir=RESULTS_DIR,
+    experiment="faithfulness",
+    case_id=f"t01_discounts_PERMISSION-FORM_k{args.reps}",
+)
 
-    report_permission_form = check(
-        "When a premium customer's discount is up to 20%, "
-        "the system shall allow confirmation without approval.",
-        "PERMISSION-FORM",
-        thread,
-        judge_config=judge_config,
-        k=REPS_PERMISSION_FORM,
-    )
-    save_report(
-        report_permission_form,
-        judge_config,
-        results_dir=RESULTS_DIR,
-        experiment="faithfulness",
-        case_id=f"t01_discounts_PERMISSION-FORM_k{REPS_PERMISSION_FORM}",
-    )
+report_restriction_form = check(
+    "When a discount exceeds 20% for a premium customer, "
+    "the system shall require approval before confirming.",
+    "RESTRICTION-FORM",
+    thread,
+    judge_config=judge_config,
+    k=args.reps,
+)
+save_report(
+    report_restriction_form,
+    judge_config,
+    results_dir=RESULTS_DIR,
+    experiment="faithfulness",
+    case_id=f"t01_discounts_RESTRICTION-FORM_k{args.reps}",
+)
 
-    report_restriction_form = check(
-        "When a discount exceeds 20% for a premium customer, "
-        "the system shall require approval before confirming.",
-        "RESTRICTION-FORM",
-        thread,
-        judge_config=judge_config,
-        k=REPS_RESTRICTION_FORM,
-    )
-    save_report(
-        report_restriction_form,
-        judge_config,
-        results_dir=RESULTS_DIR,
-        experiment="faithfulness",
-        case_id=f"t01_discounts_RESTRICTION-FORM_k{REPS_RESTRICTION_FORM}",
-    )
-
-    report_false_threshold = check(
-        "Premium customers are allowed up to 35% without approval.",
-        "FALSE-THRESHOLD",
-        thread,
-        judge_config=judge_config,
-        k=REPS_FALSE_THRESHOLD,
-    )
-    save_report(
-        report_false_threshold,
-        judge_config,
-        results_dir=RESULTS_DIR,
-        experiment="faithfulness",
-        case_id=f"t01_discounts_FALSE-THRESHOLD_k{REPS_FALSE_THRESHOLD}",
-    )
+report_false_threshold = check(
+    "Premium customers are allowed up to 35% without approval.",
+    "FALSE-THRESHOLD",
+    thread,
+    judge_config=judge_config,
+    k=args.reps,
+)
+save_report(
+    report_false_threshold,
+    judge_config,
+    results_dir=RESULTS_DIR,
+    experiment="faithfulness",
+    case_id=f"t01_discounts_FALSE-THRESHOLD_k{args.reps}",
+)
