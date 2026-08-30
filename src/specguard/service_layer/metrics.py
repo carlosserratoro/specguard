@@ -35,6 +35,34 @@ class SupportVerdict(BaseModel):
     reasoning: str = Field(description="One concise sentence justifying the verdict.")
 
 
+class ScaffoldedSupportVerdict(BaseModel):
+    """Same as SupportVerdict but the model must analyse the threshold first.
+
+    Fields are duplicated in a new class, instead of making use of inheritance,
+    because inheriting from SupportVerdict would have added the inherited fields
+    before the new fields added, and here we want that the threshold analysis is
+    made before the other fields.
+    """
+
+    threshold_analysis: str = Field(
+        description="If the rule involves a threshold, state what the thread "
+        "implies both above and below it, before deciding."
+    )
+    verdict: Literal["supported", "contradicted", "not_stated"] = Field(
+        description=(
+            "Decide the verdict based on the threshold_analysis above. "
+            "'supported' if the thread states this rule (even if worded differently); "
+            "'contradicted' if the thread states something incompatible with it; "
+            "'not_stated' if the thread does not mention it."
+        )
+    )
+    supporting_refs: list[str] = Field(
+        default_factory=list,
+        description="Message refs (e.g. ['Cal#04']) that support the rule. Empty if not supported.",
+    )
+    reasoning: str = Field(description="One concise sentence justifying the verdict.")
+
+
 FAITHFULNESS_SYSTEM_PROMPT = (
     "You verify whether a business rule is actually stated in a conversation thread.\n"
     "The rule may be worded very differently from the thread, and that is fine: judge "
@@ -56,11 +84,12 @@ def verify_rule_against_thread(
 ) -> tuple[SupportVerdict, CallMetrics]:
     judge_config = judge_config or JudgeConfig()
     call = build_call(judge_config.model, judge_config.temperature, judge_config.reasoning_effort)
+    response_model = ScaffoldedSupportVerdict if judge_config.scaffolding else SupportVerdict
 
     start = time.perf_counter()
     verdict, completion = call.client.create_with_completion(
         model=call.model,
-        response_model=SupportVerdict,
+        response_model=response_model,
         messages=[
             {"role": "system", "content": FAITHFULNESS_SYSTEM_PROMPT},
             {
