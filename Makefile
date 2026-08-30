@@ -39,3 +39,15 @@ exp-faithfulness-sweep:
 	@for e in none low medium high xhigh; do \
 		uv run python scripts/run_faithfulness.py -k $(K) --effort $$e; \
 	done
+
+exp-faithfulness-sweep-scaffolding:
+	@for e in none low medium high xhigh; do \
+		uv run python scripts/run_faithfulness.py -k $(K) --effort $$e --scaffolding; \
+	done
+
+exp-reasoning-vs-scaffolding:
+	uv run python scripts/run_faithfulness.py -k 100 --effort none
+	uv run python scripts/run_faithfulness.py -k 100 --effort low
+	uv run python scripts/run_faithfulness.py -k 100 --effort medium
+	uv run python scripts/run_faithfulness.py -k 100 --effort none --scaffolding
+	uv run python scripts/run_faithfulness.py -k 100 --effort low --scaffolding
