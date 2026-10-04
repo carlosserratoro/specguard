@@ -24,6 +24,7 @@ def check(
         "label": label,
         "statement": statement,
         "k": k,
+        "verdict_counts": {},
         "runs": [],
     }
 
@@ -49,7 +50,9 @@ def check(
         )
 
     verdict_counts = Counter(v.verdict for v in verdicts)
-    report.update({"verdict_counts": dict(verdict_counts)})
+    report["verdict_counts"] = {
+        v: verdict_counts[v] for v in ("supported", "contradicted", "not_stated")
+    }
     print(f"{label} {judge_config.label()} verdict_counts: {dict(verdict_counts)}\n")
 
     return report
