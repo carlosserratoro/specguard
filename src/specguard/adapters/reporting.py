@@ -19,6 +19,9 @@ def save_report(
     out_dir.mkdir(parents=True, exist_ok=True)
     timestamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     path = out_dir / f"{case_id}_{judge_config.label()}_{timestamp}.json"
-    payload = {"judge_config": asdict(judge_config), **report}
+    # "temperature" keeps the configured value; "applied_temperature" is what the code
+    # actually sent (None when no temperature was sent, as in reasoning runs).
+    config = {**asdict(judge_config), "applied_temperature": judge_config.applied_temperature}
+    payload = {"judge_config": config, **report}
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     return path
