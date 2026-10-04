@@ -49,8 +49,10 @@ exp-reasoning-vs-scaffolding:
 	uv run python scripts/run_faithfulness.py -k 100 --effort none
 	uv run python scripts/run_faithfulness.py -k 100 --effort low
 	uv run python scripts/run_faithfulness.py -k 100 --effort medium
+	uv run python scripts/run_faithfulness.py -k 100 --effort high
 	uv run python scripts/run_faithfulness.py -k 100 --effort none --scaffolding
 	uv run python scripts/run_faithfulness.py -k 100 --effort low --scaffolding
+	uv run python scripts/run_faithfulness.py -k 100 --effort medium --scaffolding
 
 PLOT = uv run python -m scripts.plots
 PLOT_RECALL_PRECISION_JSON = results/recall-precision/t01_discounts_k20_effort-none_scaffold-off_20260808T181041Z.json
