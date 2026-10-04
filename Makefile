@@ -51,3 +51,39 @@ exp-reasoning-vs-scaffolding:
 	uv run python scripts/run_faithfulness.py -k 100 --effort medium
 	uv run python scripts/run_faithfulness.py -k 100 --effort none --scaffolding
 	uv run python scripts/run_faithfulness.py -k 100 --effort low --scaffolding
+
+PLOT = uv run python -m scripts.plots
+PLOT_RECALL_PRECISION_JSON = results/recall-precision/t01_discounts_k20_effort-none_scaffold-off_20260808T181041Z.json
+
+.PHONY: plots plot-recall-precision plot-missed-by-rule plot-br2-framing \
+        plot-thread-verdicts plot-thread-verdicts-judge-effort \
+        plot-thread-verdicts-judge-reasoning-tokens \
+        plot-thread-verdicts-judge-cost-and-latency
+
+plots: plot-recall-precision plot-missed-by-rule plot-br2-framing \
+       plot-thread-verdicts plot-thread-verdicts-judge-effort \
+       plot-thread-verdicts-judge-reasoning-tokens \
+       plot-thread-verdicts-judge-cost-and-latency
+
+plot-recall-precision:
+	$(PLOT).plot_recall_precision $(PLOT_RECALL_PRECISION_JSON)
+
+plot-missed-by-rule:
+	$(PLOT).plot_missed_by_rule
+
+plot-br2-framing:
+	$(PLOT).plot_br2_framing
+
+plot-thread-verdicts:
+	$(PLOT).plot_thread_verdicts
+
+plot-thread-verdicts-judge-effort:
+	$(PLOT).plot_thread_verdicts_judge_effort --k 10
+	$(PLOT).plot_thread_verdicts_judge_effort --k 100
+
+plot-thread-verdicts-judge-reasoning-tokens:
+	$(PLOT).plot_thread_verdicts_judge_reasoning_tokens
+	$(PLOT).plot_thread_verdicts_judge_reasoning_tokens --cover
+
+plot-thread-verdicts-judge-cost-and-latency:
+	$(PLOT).plot_thread_verdicts_judge_cost_and_latency
