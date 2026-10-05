@@ -1,0 +1,2320 @@
+{
+  "judge_config": {
+    "model": "openai/gpt-5.4-mini",
+    "temperature": 0.0,
+    "reasoning_effort": "none",
+    "scaffolding": false,
+    "applied_temperature": 0.0
+  },
+  "label": "RESTRICTION-FORM",
+  "statement": "When a discount exceeds 20% for a premium customer, the system shall require approval before confirming.",
+  "k": 100,
+  "verdict_counts": {
+    "supported": 0,
+    "contradicted": 100,
+    "not_stated": 0
+  },
+  "errors": 0,
+  "runs": [
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.3459955600000058,
+        "provider_latency_s": 1.34437,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 73,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6384369330000084,
+        "provider_latency_s": 1.636272,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 73,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6388079570000116,
+        "provider_latency_s": 1.636576,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.8432143859999996,
+        "provider_latency_s": 1.841492,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 74,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval when a premium discount exceeds 20% conflicts with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.433897518000009,
+        "provider_latency_s": 1.431758,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 69,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.4670152429999916,
+        "provider_latency_s": 1.465307,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 73,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% conflicts with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.8140385639999863,
+        "provider_latency_s": 1.812308,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 70,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule that premium 20% is the threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.7357950150000079,
+        "provider_latency_s": 1.734087,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 82,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule that premium 20% is the threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.5250341519999893,
+        "provider_latency_s": 1.5233,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 82,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.0592212229999802,
+        "provider_latency_s": 2.057081,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 70,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.3312508680000121,
+        "provider_latency_s": 1.329512,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 74,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.5419002790000036,
+        "provider_latency_s": 1.539719,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 74,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.041790115999987,
+        "provider_latency_s": 2.040047,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 73,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.4341092460000198,
+        "provider_latency_s": 1.432378,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 73,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6446696540000119,
+        "provider_latency_s": 1.642958,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval when a premium discount exceeds 20% conflicts with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.836970144999981,
+        "provider_latency_s": 1.835217,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 69,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6390374779999775,
+        "provider_latency_s": 1.636584,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.4390892570000062,
+        "provider_latency_s": 1.437414,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6331528420000154,
+        "provider_latency_s": 1.630988,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 70,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so approval is required only above 20%, not when the discount merely exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.4331554130000086,
+        "provider_latency_s": 1.431439,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may go up to 20% without approval, so approval is required only above 20% rather than when the discount merely exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.3315827270000113,
+        "provider_latency_s": 1.329833,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 73,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states premium customers may discount up to 20% without approval, so approval is required only above 20% rather than when the discount exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.330513322999991,
+        "provider_latency_s": 1.328741,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 72,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6385582390000195,
+        "provider_latency_s": 1.636827,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% conflicts with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.9427163579999842,
+        "provider_latency_s": 1.940591,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 70,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, so approval is required only above 20% rather than when the discount exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.33722579800002,
+        "provider_latency_s": 1.335481,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 72,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, so approval is required only above 20%, not when the discount merely exceeds 20% in the sense of a threshold at 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.4306335110000532,
+        "provider_latency_s": 1.428485,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 82,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may go up to 20% without approval, so approval is required only above 20% for premium customers, not merely when the discount exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.4342160919999856,
+        "provider_latency_s": 1.432511,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 76,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.2281842159999883,
+        "provider_latency_s": 1.226443,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule that premium 20% is the threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4336949760000266,
+        "provider_latency_s": 1.432053,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 82,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may go up to 20% without approval, so approval is not required when a premium customer's discount merely exceeds 20% threshold as stated; instead, 20% is the allowed limit and only above that would be outside the approved range."
+      },
+      "call_metrics": {
+        "latency_s": 1.6386772820000033,
+        "provider_latency_s": 1.637018,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 92,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule that approval is needed above 15% for everyone else and only over \u20ac10,000 regardless of discount."
+      },
+      "call_metrics": {
+        "latency_s": 1.8432637439999553,
+        "provider_latency_s": 1.841119,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 95,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so approval is required only above 20% rather than when the discount exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.433775904000015,
+        "provider_latency_s": 1.431957,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may go up to 20% without approval, so approval is required only above 20% rather than when the discount merely exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.2297448150000037,
+        "provider_latency_s": 1.227504,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 73,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.4318727429999853,
+        "provider_latency_s": 1.430044,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states premium customers may discount up to 20% without approval, so approval is required only above 20% rather than when the discount merely exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.4337435709999795,
+        "provider_latency_s": 1.432036,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 73,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule that premium customers are capped at 20% without approval."
+      },
+      "call_metrics": {
+        "latency_s": 2.0480236849999756,
+        "provider_latency_s": 2.046243,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 85,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may go up to 20% without approval, so approval is required only above 20% for premium customers, not merely when the discount exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.9467664079999736,
+        "provider_latency_s": 1.944955,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 76,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, so approval is required only above 20% rather than when the discount merely exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.434366372999989,
+        "provider_latency_s": 1.432195,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 73,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may go up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.333497431000012,
+        "provider_latency_s": 1.331764,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 72,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, so approval is required only above 20%, not when the discount merely exceeds 20% in the sense of 20%+; the stated rule is also framed as 'Premium 20%' rather than a stricter threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.430236452000031,
+        "provider_latency_s": 1.428144,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 99,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.2282864430000018,
+        "provider_latency_s": 1.226546,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 74,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6417877190000354,
+        "provider_latency_s": 1.639985,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 72,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.635500669999999,
+        "provider_latency_s": 1.633815,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 73,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.63813245099999,
+        "provider_latency_s": 1.636351,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, so approval is required only above 20% rather than at or below it."
+      },
+      "call_metrics": {
+        "latency_s": 1.4352935740000135,
+        "provider_latency_s": 1.433196,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 69,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6368593390000115,
+        "provider_latency_s": 1.63519,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6383560510000166,
+        "provider_latency_s": 1.636158,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 73,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6394031489999747,
+        "provider_latency_s": 1.637764,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6379347499999994,
+        "provider_latency_s": 1.63623,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 73,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 5.73612364600001,
+        "provider_latency_s": 5.734403,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 70,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.431981047000022,
+        "provider_latency_s": 1.430297,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may go up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.638431981999986,
+        "provider_latency_s": 1.636314,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 72,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.4335771110000337,
+        "provider_latency_s": 1.431883,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 72,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.8443794089999983,
+        "provider_latency_s": 1.842233,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 74,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6371260930000062,
+        "provider_latency_s": 1.63541,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, so approval is required only above 20% for premium customers, not when the discount merely exceeds 20% in the sense of a threshold that is otherwise unstated."
+      },
+      "call_metrics": {
+        "latency_s": 1.6383184370000095,
+        "provider_latency_s": 1.636672,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 87,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.4334005630000206,
+        "provider_latency_s": 1.431645,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 72,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.433599868999977,
+        "provider_latency_s": 1.431892,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 72,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.4337129489999825,
+        "provider_latency_s": 1.431629,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 70,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may go up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6484732339999937,
+        "provider_latency_s": 1.646703,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 72,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may go up to 20% without approval, so approval is not required when the discount merely exceeds 20% only if that threshold is crossed; the stated rule is instead that premium discounts up to 20% are allowed without approval, with approval required above 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.7300309670000047,
+        "provider_latency_s": 1.727776,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 99,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may go up to 20% without approval, so approval is required only above 20% for premium customers, not merely when the discount exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.3316318359999855,
+        "provider_latency_s": 1.329885,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 76,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.434289707000005,
+        "provider_latency_s": 1.432574,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 74,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so approval is required only above 20% for premium customers, not when the discount merely exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.5353910670000346,
+        "provider_latency_s": 1.533679,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 75,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, so approval is required only above 20% for premium customers, not at 20% or below."
+      },
+      "call_metrics": {
+        "latency_s": 1.9487488879999546,
+        "provider_latency_s": 1.947023,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 74,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6349940189999757,
+        "provider_latency_s": 1.63288,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may go up to 20% without approval, so approval is not required when the discount is 20% or less; the proposed rule says approval is required when a premium customer's discount exceeds 20%, which is incompatible with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.8476375310000321,
+        "provider_latency_s": 1.845898,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 92,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.839546276999954,
+        "provider_latency_s": 1.837273,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 73,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6376686500000233,
+        "provider_latency_s": 1.635951,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.4338239159999944,
+        "provider_latency_s": 1.43214,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6385132329999692,
+        "provider_latency_s": 1.636761,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 74,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may get up to 20% without approval, so approval is required only above 20% for premium customers, not when the discount merely exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.8497526029999563,
+        "provider_latency_s": 1.848005,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 76,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may go up to 20% without approval, so approval is required only above 20% for premium customers, not when the discount merely exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.2219415680000338,
+        "provider_latency_s": 1.219863,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 76,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.8467499010000097,
+        "provider_latency_s": 1.845047,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 73,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.4299128789999713,
+        "provider_latency_s": 1.427824,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states premium customers may discount up to 20% without approval, so approval is required only above 20% rather than when the discount exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.4354288619999807,
+        "provider_latency_s": 1.433656,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 72,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may go up to 20% without approval, so approval is not required when a premium customer's discount merely exceeds 20% only if that threshold is crossed; the stated rule is actually that premium discounts up to 20% are allowed without approval, with approval required above 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.84146507600002,
+        "provider_latency_s": 1.839809,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 101,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.228656027999989,
+        "provider_latency_s": 1.226912,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval when a premium discount exceeds 20% is not stated and is incompatible with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.6388852690000135,
+        "provider_latency_s": 1.637056,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 77,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.637884033999967,
+        "provider_latency_s": 1.635702,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may go up to 20% without approval, so approval is not required when the discount merely exceeds 20% only if that threshold is crossed; the stated rule is actually that premium customers need approval only above 20% is incompatible with 'exceeds 20% requires approval' because the conversation sets 20% as the no-approval limit, not a stricter rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.0480209799999898,
+        "provider_latency_s": 2.046382,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 120,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.4342150329999868,
+        "provider_latency_s": 1.432162,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 74,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval only when a premium discount exceeds 20% is not stated and conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4328364450000208,
+        "provider_latency_s": 1.431174,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 77,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.8434402469999895,
+        "provider_latency_s": 1.841642,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may go up to 20% without approval, so approval is not required when the discount merely exceeds 20% only if that threshold is crossed; the stated rule is instead that premium discounts up to 20% are allowed and approval is required only above 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.4338472879999813,
+        "provider_latency_s": 1.432094,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 98,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.2345837089999918,
+        "provider_latency_s": 1.232849,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6327084800000193,
+        "provider_latency_s": 1.630583,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 73,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may go up to 20% without approval, so approval is not required when a premium discount merely exceeds 20% only if that threshold is crossed; the stated rule is instead that premium discounts up to 20% are allowed without approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.8427796429999717,
+        "provider_latency_s": 1.84107,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 92,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.2274150769999892,
+        "provider_latency_s": 1.225278,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 73,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers up to 20% without approval, so requiring approval when a premium discount exceeds 20% conflicts with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6400194730000521,
+        "provider_latency_s": 1.638282,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 68,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.4336580629999958,
+        "provider_latency_s": 1.431976,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6380351450000035,
+        "provider_latency_s": 1.636305,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.229058705,
+        "provider_latency_s": 1.227413,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 74,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.8432457749999571,
+        "provider_latency_s": 1.8412339999999998,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 74,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so approval is required only above 20%, not when the discount merely exceeds 20% as stated."
+      },
+      "call_metrics": {
+        "latency_s": 1.6377853419999724,
+        "provider_latency_s": 1.636101,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 73,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.4347157700000253,
+        "provider_latency_s": 1.432623,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may go up to 20% without approval, so approval is not required when the discount merely exceeds 20% only if that threshold is crossed; the stated rule is instead that premium customers need approval only above 20% is incompatible with 'exceeds 20% requires approval' because 20% itself is allowed without approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.6375309479999487,
+        "provider_latency_s": 1.635856,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 110,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, so approval is required only above 20% rather than when the discount exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.2494686320000028,
+        "provider_latency_s": 1.247749,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 72,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval only when a premium discount exceeds 20% is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.2131857389999823,
+        "provider_latency_s": 1.211406,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 74,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium-customer discounts up to 20% as allowed without approval, so requiring approval only when a premium discount exceeds 20% is not stated and conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.8379295240000033,
+        "provider_latency_s": 1.836188,
+        "prompt_tokens": 658,
+        "cached_tokens": 0,
+        "completion_tokens": 77,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    }
+  ]
+}
