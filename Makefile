@@ -65,7 +65,8 @@ PLOT_RECALL_PRECISION_JSON = results/recall-precision/t01_discounts_k20_effort-n
 plots: plot-recall-precision plot-missed-by-rule plot-br2-framing \
        plot-thread-verdicts plot-thread-verdicts-judge-effort \
        plot-thread-verdicts-judge-reasoning-tokens \
-       plot-thread-verdicts-judge-cost-and-latency
+       plot-thread-verdicts-judge-cost-and-latency \
+	   plot-thread-verdicts_judge-cot
 
 plot-recall-precision:
 	$(PLOT).plot_recall_precision $(PLOT_RECALL_PRECISION_JSON)
@@ -89,3 +90,11 @@ plot-thread-verdicts-judge-reasoning-tokens:
 
 plot-thread-verdicts-judge-cost-and-latency:
 	$(PLOT).plot_thread_verdicts_judge_cost_and_latency
+
+plot-thread-verdicts-judge-cot:
+	$(PLOT).plot_thread_verdicts_judge_cot_accuracy_k100
+	$(PLOT).plot_thread_verdicts_judge_cot_accuracy_k1000
+	$(PLOT).plot_thread_verdicts_judge_cot_cost
+	$(PLOT).plot_thread_verdicts_judge_cot_latency
+	$(PLOT).plot_thread_verdicts_judge_cot_latency_per_call
+	$(PLOT).plot_thread_verdicts_judge_cot_latency_tail
