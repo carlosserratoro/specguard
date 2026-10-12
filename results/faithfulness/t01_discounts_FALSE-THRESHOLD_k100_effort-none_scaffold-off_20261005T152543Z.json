@@ -1,0 +1,2320 @@
+{
+  "judge_config": {
+    "model": "openai/gpt-5.4-mini",
+    "temperature": 0.0,
+    "reasoning_effort": "none",
+    "scaffolding": false,
+    "applied_temperature": 0.0
+  },
+  "label": "FALSE-THRESHOLD",
+  "statement": "Premium customers are allowed up to 35% without approval.",
+  "k": 100,
+  "verdict_counts": {
+    "supported": 0,
+    "contradicted": 100,
+    "not_stated": 0
+  },
+  "errors": 0,
+  "runs": [
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.431951578000053,
+        "provider_latency_s": 1.430163,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6388083239999673,
+        "provider_latency_s": 1.637065,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states premium customers are allowed up to 20% without approval, not 35%, so the proposed threshold is incompatible with the conversation."
+      },
+      "call_metrics": {
+        "latency_s": 8.970465788000013,
+        "provider_latency_s": 8.968859,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers are allowed up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.473732219999988,
+        "provider_latency_s": 1.472053,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 68,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.430653516999996,
+        "provider_latency_s": 1.428591,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers are allowed up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.4367350019999776,
+        "provider_latency_s": 1.435017,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 68,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states premium customers are allowed up to 20% without approval, not 35%, so the proposed threshold is incompatible with the conversation."
+      },
+      "call_metrics": {
+        "latency_s": 1.2312074410000378,
+        "provider_latency_s": 1.228997,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.0465785600000004,
+        "provider_latency_s": 2.044833,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states premium customers may go up to 20% without approval, not 35%, so the proposed threshold is incompatible with the conversation."
+      },
+      "call_metrics": {
+        "latency_s": 1.2275171070000397,
+        "provider_latency_s": 1.225794,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, and Cal explicitly states 'Premium 20%, everyone else 15%,' which conflicts with a 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.2776306079999813,
+        "provider_latency_s": 1.275913,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 76,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.5893601959999728,
+        "provider_latency_s": 1.587573,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4340901580000036,
+        "provider_latency_s": 1.432003,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.6371366980000062,
+        "provider_latency_s": 1.635416,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, then Cal explicitly confirms 'Premium 20%, everyone else 15%,' which conflicts with a 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.2291534070000125,
+        "provider_latency_s": 1.226045,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 76,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.8437720460000264,
+        "provider_latency_s": 1.841912,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states premium customers are allowed up to 20% without approval, not 35%, so the proposed threshold is incompatible with the conversation."
+      },
+      "call_metrics": {
+        "latency_s": 1.4334712190000118,
+        "provider_latency_s": 1.431701,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.2274784080000245,
+        "provider_latency_s": 1.225748,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4339466879999918,
+        "provider_latency_s": 1.432195,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.0475730950000184,
+        "provider_latency_s": 2.04542,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.638982284000008,
+        "provider_latency_s": 1.63721,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.432899922000047,
+        "provider_latency_s": 1.430785,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers are allowed up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6384828070000026,
+        "provider_latency_s": 1.636676,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 68,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.2288097770000377,
+        "provider_latency_s": 1.227058,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.4336852559999897,
+        "provider_latency_s": 1.431979,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers are allowed up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.4335626540000135,
+        "provider_latency_s": 1.431875,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 68,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states premium customers can have up to 20% without approval, not 35%, so the proposed threshold is incompatible with the conversation."
+      },
+      "call_metrics": {
+        "latency_s": 1.4342989149999994,
+        "provider_latency_s": 1.432192,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, and Cal explicitly states 'Premium 20%.'"
+      },
+      "call_metrics": {
+        "latency_s": 1.3318594339999663,
+        "provider_latency_s": 1.330097,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.535769275000007,
+        "provider_latency_s": 1.533614,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers are allowed up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.0454977349999695,
+        "provider_latency_s": 2.043774,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 68,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.231460205000019,
+        "provider_latency_s": 1.229635,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, then Cal confirms 'Premium 20%, everyone else 15%,' which conflicts with a 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4334456070000101,
+        "provider_latency_s": 1.431742,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 75,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers are allowed up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.433931154999982,
+        "provider_latency_s": 1.4322,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 68,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4320195949999857,
+        "provider_latency_s": 1.429967,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.2322061209999902,
+        "provider_latency_s": 1.230501,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4314063139999575,
+        "provider_latency_s": 1.429305,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated approval threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4321370809999507,
+        "provider_latency_s": 1.430377,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.6385014169999863,
+        "provider_latency_s": 1.636705,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.8418919939999796,
+        "provider_latency_s": 1.840176,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4350338990000182,
+        "provider_latency_s": 1.433372,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, and Cal explicitly says 'Premium 20%'; this conflicts with a 35% no-approval threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.2284573860000023,
+        "provider_latency_s": 1.226419,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 74,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.5837323040000229,
+        "provider_latency_s": 1.582082,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4894404870000244,
+        "provider_latency_s": 1.486307,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4335877049999795,
+        "provider_latency_s": 1.431783,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, and Cal explicitly states 'Premium 20%, everyone else 15%', which conflicts with a 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.6577936520000094,
+        "provider_latency_s": 1.656051,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 75,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval (Amy-03, Cal-04), which conflicts with the proposed 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.619061686000009,
+        "provider_latency_s": 1.6173170000000001,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 70,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval (Amy-03, Cal-04), which conflicts with the claimed 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.6415147870000055,
+        "provider_latency_s": 1.639817,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 70,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.636401865000039,
+        "provider_latency_s": 1.633705,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, then Cal confirms 'Premium 20%, everyone else 15%', which conflicts with a 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4332232019999651,
+        "provider_latency_s": 1.430163,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 74,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.227737186000013,
+        "provider_latency_s": 1.225619,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.048000394999974,
+        "provider_latency_s": 2.04632,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4335480080000025,
+        "provider_latency_s": 1.431883,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, and Cal explicitly states 'Premium 20%,' which conflicts with a 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4340631989999792,
+        "provider_latency_s": 1.432408,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, then Cal confirms 'Premium 20%, everyone else 15%', which conflicts with a 35% no-approval threshold."
+      },
+      "call_metrics": {
+        "latency_s": 2.047496938999984,
+        "provider_latency_s": 2.045728,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 77,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, and Cal explicitly states 'Premium 20%, everyone else 15%,' which conflicts with a 35% no-approval threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4329474439999785,
+        "provider_latency_s": 1.430825,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 79,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6389804109999773,
+        "provider_latency_s": 1.637287,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers are allowed up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6382816130000037,
+        "provider_latency_s": 1.636115,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 68,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.638176642000019,
+        "provider_latency_s": 1.636412,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated approval threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.2292389099999923,
+        "provider_latency_s": 1.227464,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.8432192620000478,
+        "provider_latency_s": 1.841568,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.536944792999975,
+        "provider_latency_s": 1.53528,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, then Cal confirms 'Premium 20%, everyone else 15%', which conflicts with a 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.7393916739999895,
+        "provider_latency_s": 1.737379,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 74,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.2292315799999756,
+        "provider_latency_s": 1.227505,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.2321197530000063,
+        "provider_latency_s": 1.230388,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.6350429649999683,
+        "provider_latency_s": 1.633409,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6374605269999734,
+        "provider_latency_s": 1.635794,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, then Cal confirms 'Premium 20%,' which conflicts with a 35% no-approval threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.229446510999992,
+        "provider_latency_s": 1.227328,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 73,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, then Cal confirms 'Premium 20%, everyone else 15%,' which conflicts with a 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.639991512999984,
+        "provider_latency_s": 1.638232,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 75,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers can get up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.050423556999988,
+        "provider_latency_s": 2.048596,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 68,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.5353562930000066,
+        "provider_latency_s": 1.533675,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, then Cal explicitly confirms 'Premium 20%, everyone else 15%,' which conflicts with a 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.3302072870000075,
+        "provider_latency_s": 1.327331,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 76,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states premium customers can get up to 20% without approval, not 35%, so the proposed threshold is incompatible with the conversation."
+      },
+      "call_metrics": {
+        "latency_s": 1.2262944060000223,
+        "provider_latency_s": 1.224619,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6380321689999846,
+        "provider_latency_s": 1.636384,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, and Cal explicitly says 'Premium 20%,' which conflicts with a 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4335167140000067,
+        "provider_latency_s": 1.431484,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states premium customers are allowed up to 20% without approval, not 35%, so the proposed threshold is incompatible with the conversation."
+      },
+      "call_metrics": {
+        "latency_s": 1.4339558940000074,
+        "provider_latency_s": 1.432223,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, then Cal confirms 'Premium 20%'; this conflicts with a claim that premium customers may go up to 35% without approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.6381533800000057,
+        "provider_latency_s": 1.636366,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 79,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states premium customers are allowed up to 20% without approval, not 35%, so the proposed threshold is incompatible with the conversation."
+      },
+      "call_metrics": {
+        "latency_s": 1.6512421820000327,
+        "provider_latency_s": 1.649535,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.8293879370000354,
+        "provider_latency_s": 1.827685,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, and Cal explicitly states 'Premium 20%.'"
+      },
+      "call_metrics": {
+        "latency_s": 1.639398325000002,
+        "provider_latency_s": 1.63731,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, and also says orders over \u20ac10,000 always require approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.4334632179999858,
+        "provider_latency_s": 1.431764,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 69,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4337544639999464,
+        "provider_latency_s": 1.432022,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers can have up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.4335740679999844,
+        "provider_latency_s": 1.431926,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 68,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states premium customers are allowed up to 20% without approval, not 35%, so the proposed threshold is incompatible with the conversation."
+      },
+      "call_metrics": {
+        "latency_s": 1.3717972240000336,
+        "provider_latency_s": 1.369813,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.9041667899999766,
+        "provider_latency_s": 1.901587,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states premium customers are allowed up to 20% without approval, not 35%, so the proposed threshold is incompatible with the conversation."
+      },
+      "call_metrics": {
+        "latency_s": 1.229007503000048,
+        "provider_latency_s": 1.227264,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval (Amy-03, Cal-04), which conflicts with the claim that they are allowed up to 35% without approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.6386545159999741,
+        "provider_latency_s": 1.636911,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 77,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6386361719999059,
+        "provider_latency_s": 1.636835,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers are allowed up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.047938090999992,
+        "provider_latency_s": 2.046238,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 68,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, and Cal explicitly states 'Premium 20%,' which conflicts with the claimed 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.4304901399999608,
+        "provider_latency_s": 1.428431,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 72,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, and Cal explicitly states 'Premium 20%, everyone else 15%', which conflicts with a 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.264853721999998,
+        "provider_latency_s": 1.263123,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 75,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, then Cal confirms 'Premium 20%'; this conflicts with the claim that premium customers are allowed up to 35% without approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.8128286170000365,
+        "provider_latency_s": 1.811032,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 79,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, and also says premium 20% while everyone else is 15%."
+      },
+      "call_metrics": {
+        "latency_s": 1.4302090659999749,
+        "provider_latency_s": 1.428453,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval (Amy-03, Cal-04), which conflicts with the proposed 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.2287356639999416,
+        "provider_latency_s": 1.227055,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 70,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.1269564820000824,
+        "provider_latency_s": 1.124897,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly sets premium customers at up to 20% without approval, not 35%, so the proposed 35% threshold conflicts with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.534725627000057,
+        "provider_latency_s": 1.532986,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 70,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.2294250980000925,
+        "provider_latency_s": 1.22776,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, and Cal explicitly says 'Premium 20%,' which conflicts with a 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.2276007670000126,
+        "provider_latency_s": 1.225885,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated approval threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.537432545999991,
+        "provider_latency_s": 1.535804,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.945011185999988,
+        "provider_latency_s": 1.943008,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed rule conflicts with the stated threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.2282766089999768,
+        "provider_latency_s": 1.226641,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 66,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets premium customers at up to 20% without approval, not 35%, so the proposed threshold is incompatible with the stated rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6373237169999584,
+        "provider_latency_s": 1.634381,
+        "prompt_tokens": 650,
+        "cached_tokens": 0,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    }
+  ]
+}

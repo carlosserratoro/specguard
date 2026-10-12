@@ -1,0 +1,2326 @@
+{
+  "judge_config": {
+    "model": "openai/gpt-5.4-mini",
+    "temperature": 0.0,
+    "reasoning_effort": "high",
+    "scaffolding": false,
+    "applied_temperature": null
+  },
+  "label": "PERMISSION-FORM",
+  "statement": "When a premium customer's discount is up to 20%, the system shall allow confirmation without approval.",
+  "k": 100,
+  "verdict_counts": {
+    "supported": 99,
+    "contradicted": 1,
+    "not_stated": 0
+  },
+  "errors": 0,
+  "runs": [
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers may get up to 20% without approval, and Cal confirms \u201cPremium 20%,\u201d which matches the rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.2277682600001754,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 187,
+        "reasoning_tokens": 117,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers may get up to 20% without approval, which directly matches allowing confirmation without approval at that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 2.1494928019999406,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 226,
+        "reasoning_tokens": 159,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers may discount up to 20% without approval, which matches allowing confirmation without approval at that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 2.047796468000115,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 258,
+        "reasoning_tokens": 192,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can get up to 20% without approval, which means confirmation is allowed without approval at or below that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.6380329070000244,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 221,
+        "reasoning_tokens": 152,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can have discounts up to 20% without approval, and Cal confirms 'Premium 20%,' which matches the rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.867324850000159,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 231,
+        "reasoning_tokens": 161,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, which directly matches allowing confirmation without approval for premium discounts up to 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.4359420319999572,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 208,
+        "reasoning_tokens": 137,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% without approval, which implies the order may be confirmed without approval at that discount level."
+      },
+      "call_metrics": {
+        "latency_s": 3.072292800000014,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 247,
+        "reasoning_tokens": 177,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy-03 explicitly says premium customers are allowed up to 20% without approval, and Cal-04 reiterates premium 20% with approval required only above that or for orders over \u20ac10,000."
+      },
+      "call_metrics": {
+        "latency_s": 2.0459242649999396,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 263,
+        "reasoning_tokens": 182,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "Cal explicitly states that premium customers may receive up to 20% without approval, and the thread confirms that confirmation is blocked only while discount authorisation is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.842459942000005,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 174,
+        "reasoning_tokens": 99,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can get up to 20% without approval, which means confirmation is allowed without approval at that discount level."
+      },
+      "call_metrics": {
+        "latency_s": 1.641178378999939,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 197,
+        "reasoning_tokens": 130,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy explicitly restates that premium customers can go up to 20% without approval, and Cal confirms 'Premium 20%.'"
+      },
+      "call_metrics": {
+        "latency_s": 2.2500068639999427,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 242,
+        "reasoning_tokens": 177,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers may get up to 20% discount without approval, which means confirmation is allowed without approval up to that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.6380074690000583,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 230,
+        "reasoning_tokens": 161,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% discount without approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.6386425370001234,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 220,
+        "reasoning_tokens": 163,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, which directly matches confirmation without approval for a premium discount up to 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.4917690099998708,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 204,
+        "reasoning_tokens": 133,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% discount without approval, and only higher discounts or orders over \u20ac10,000 require approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.5813240210000004,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 189,
+        "reasoning_tokens": 118,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers may receive up to 20% discount without approval, which means confirmation is allowed without approval at that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.6375075390001257,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 198,
+        "reasoning_tokens": 130,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, with approval only required above that or for orders over \u20ac10,000."
+      },
+      "call_metrics": {
+        "latency_s": 1.8424038519999613,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 242,
+        "reasoning_tokens": 172,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, which matches allowing confirmation without approval at that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 2.0485382520000712,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 311,
+        "reasoning_tokens": 246,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can get up to 20% without approval, which matches allowing confirmation without approval at that discount level."
+      },
+      "call_metrics": {
+        "latency_s": 2.0472722389999944,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 241,
+        "reasoning_tokens": 174,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can get up to 20% without approval, which matches the rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.433998092000138,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 184,
+        "reasoning_tokens": 124,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy-03 and Cal-04 explicitly state that premium customers may receive discounts up to 20% without approval, which means confirmation is allowed without approval in that case."
+      },
+      "call_metrics": {
+        "latency_s": 3.2768973160000314,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 289,
+        "reasoning_tokens": 216,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can have up to 20% discount without approval, matching the rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.866998039000009,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 224,
+        "reasoning_tokens": 164,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, and Cal reiterates that premium is 20%."
+      },
+      "call_metrics": {
+        "latency_s": 3.072028823999972,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 179,
+        "reasoning_tokens": 113,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, which means confirmation can proceed without approval at or below that discount."
+      },
+      "call_metrics": {
+        "latency_s": 2.663525160000063,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 198,
+        "reasoning_tokens": 130,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy explicitly states that Cal said premium customers can go up to 20% without approval, and Cal\u2019s rule sets premium customers at 20%, which matches the threshold."
+      },
+      "call_metrics": {
+        "latency_s": 2.0467434339998363,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 281,
+        "reasoning_tokens": 208,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can discount up to 20% without approval, which means the order can be confirmed without approval in that case."
+      },
+      "call_metrics": {
+        "latency_s": 1.852487821000068,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 267,
+        "reasoning_tokens": 199,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy states that premium customers are allowed up to 20% without approval, and Cal confirms premium 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.5473225129999264,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 228,
+        "reasoning_tokens": 166,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% without approval, and Cal confirms the premium threshold as 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.719957296000075,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 213,
+        "reasoning_tokens": 146,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, matching the rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.0480413200000385,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 273,
+        "reasoning_tokens": 214,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% without approval, which matches the rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.8671623680002085,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 210,
+        "reasoning_tokens": 149,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can receive up to 20% without approval, which means such discounts may be confirmed without approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.6387085110000044,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 212,
+        "reasoning_tokens": 146,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% without approval, which matches allowing confirmation without approval up to that discount level."
+      },
+      "call_metrics": {
+        "latency_s": 1.8568398300001263,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 201,
+        "reasoning_tokens": 133,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can go up to 20% without approval, which matches allowing confirmation without approval at that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.8504080440000052,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 273,
+        "reasoning_tokens": 207,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy explicitly says premium customers can get up to 20% without approval, and Cal confirms premium customers are treated at 20%, matching the rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.02654364,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 226,
+        "reasoning_tokens": 157,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can have discounts up to 20% without approval, which means confirmation is allowed without approval at that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.638680898000075,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 214,
+        "reasoning_tokens": 146,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, which matches the rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.4329170480000357,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 188,
+        "reasoning_tokens": 128,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can go up to 20% without approval, which matches allowing confirmation without approval up to that discount level."
+      },
+      "call_metrics": {
+        "latency_s": 3.484148745000084,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 264,
+        "reasoning_tokens": 197,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can get up to 20% without approval, which means confirmation is allowed without approval at that discount level."
+      },
+      "call_metrics": {
+        "latency_s": 3.4778239039999335,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 211,
+        "reasoning_tokens": 144,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% without approval, which matches allowing confirmation without approval for that discount range."
+      },
+      "call_metrics": {
+        "latency_s": 2.0494734710000557,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 216,
+        "reasoning_tokens": 149,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers may go up to 20% without approval, and Cal confirms \u201cPremium 20%,\u201d which matches the rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.8703290570001627,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 149,
+        "reasoning_tokens": 79,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy-03 and Cal-04 explicitly state that premium customers may receive up to 20% without approval, which implies confirmation is allowed without approval at or below 20%."
+      },
+      "call_metrics": {
+        "latency_s": 3.0449680770000214,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 192,
+        "reasoning_tokens": 117,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy explicitly states that premium customers are allowed up to 20% without approval, and Cal confirms premium 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.637514938999857,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 171,
+        "reasoning_tokens": 108,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy explicitly states that premium customers are allowed up to 20% without approval, and Cal confirms the premium threshold is 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.8437201970000388,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 205,
+        "reasoning_tokens": 139,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy-03 explicitly says premium customers are allowed up to 20% without approval, and Cal-04 reinforces that premium customers have a 20% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 3.075395044999823,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 225,
+        "reasoning_tokens": 154,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can discount up to 20% without approval, which directly matches allowing confirmation without approval for up to 20%."
+      },
+      "call_metrics": {
+        "latency_s": 2.044525758999953,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 298,
+        "reasoning_tokens": 228,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers get up to 20% without approval and confirms that premium orders at 20% do not require approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.644010322999975,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 204,
+        "reasoning_tokens": 137,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, which means confirmation can proceed without approval at or below that discount."
+      },
+      "call_metrics": {
+        "latency_s": 2.2473156700000345,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 292,
+        "reasoning_tokens": 224,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy explicitly states premium customers can go up to 20% without approval, and Cal confirms premium 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.4323032409999996,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 195,
+        "reasoning_tokens": 133,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers may be approved up to 20%, but it also says orders over \u20ac10,000 always require approval regardless of discount, so the system is not always allowed to confirm without approval in that case."
+      },
+      "call_metrics": {
+        "latency_s": 3.4831788419999157,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 587,
+        "reasoning_tokens": 497,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% without approval, which matches allowing confirmation without approval for discounts up to 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.8426736359999722,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 242,
+        "reasoning_tokens": 172,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, and Cal-04 adds that only orders over \u20ac10,000 always require approval regardless of discount."
+      },
+      "call_metrics": {
+        "latency_s": 1.638202402999923,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 238,
+        "reasoning_tokens": 163,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy-03 explicitly says premium customers can go up to 20% without approval, and Cal-04 confirms premium 20%."
+      },
+      "call_metrics": {
+        "latency_s": 2.0477353949997905,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 209,
+        "reasoning_tokens": 143,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can get up to 20% without approval, which matches the rule that such discounts may be confirmed without approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.638636945999906,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 220,
+        "reasoning_tokens": 151,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can go up to 20% without approval, and Cal further summarizes this as \u201cPremium 20%,\u201d which matches the rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.8481802480000624,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 238,
+        "reasoning_tokens": 165,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy-03 explicitly states that premium customers are allowed up to 20% without approval, and Cal-04 sets the premium threshold at 20%."
+      },
+      "call_metrics": {
+        "latency_s": 2.2502162920000046,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 321,
+        "reasoning_tokens": 251,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy explicitly says premium customers are allowed up to 20% without approval, and Cal\u2019s policy lists premium as 20%, matching the rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.0455249760000243,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 278,
+        "reasoning_tokens": 210,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers may receive discounts up to 20% without approval, and Cal confirms \"Premium 20%, everyone else 15%.\""
+      },
+      "call_metrics": {
+        "latency_s": 1.8430684969998765,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 212,
+        "reasoning_tokens": 141,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can have discounts up to 20% without approval, which means the order may be confirmed without approval at that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 3.2773356500001682,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 314,
+        "reasoning_tokens": 244,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy explicitly states that premium customers are allowed up to 20% without approval, and Cal confirms the premium threshold as 20% without approval."
+      },
+      "call_metrics": {
+        "latency_s": 2.9690532210001948,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 202,
+        "reasoning_tokens": 134,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers may discount up to 20% without approval, which directly implies the system can confirm such orders without approval."
+      },
+      "call_metrics": {
+        "latency_s": 2.355320772999903,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 235,
+        "reasoning_tokens": 167,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can have discounts up to 20% without approval, which directly implies the system may confirm such orders without approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.9718843360001301,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 320,
+        "reasoning_tokens": 251,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can have discounts up to 20% without approval, which matches the rule."
+      },
+      "call_metrics": {
+        "latency_s": 3.3582738320001226,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 326,
+        "reasoning_tokens": 264,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can have discounts up to 20% without approval, which matches the rule that confirmation is allowed without approval at that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.837638975000118,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 196,
+        "reasoning_tokens": 125,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers may have discounts up to 20% without approval, which implies the order can be confirmed without approval at that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.8430429259999528,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 236,
+        "reasoning_tokens": 166,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy explicitly restates that premium customers can go up to 20% without approval, and Cal confirms \"Premium 20%\"."
+      },
+      "call_metrics": {
+        "latency_s": 3.6859705830001985,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 534,
+        "reasoning_tokens": 468,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, which directly matches the rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.670342956000013,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 228,
+        "reasoning_tokens": 167,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can go up to 20% without approval, and confirms a 20% premium threshold."
+      },
+      "call_metrics": {
+        "latency_s": 2.040239464999786,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 197,
+        "reasoning_tokens": 132,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% without approval, which matches allowing confirmation without approval for premium discounts up to 20%."
+      },
+      "call_metrics": {
+        "latency_s": 3.4846507780000593,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 226,
+        "reasoning_tokens": 155,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers may have discounts up to 20% without approval, which means the order can be confirmed without approval in that case."
+      },
+      "call_metrics": {
+        "latency_s": 3.069170490000033,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 274,
+        "reasoning_tokens": 204,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy notes premium customers can go up to 20% without approval, and Cal confirms premium 20%, which directly matches the rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.867110787999991,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 184,
+        "reasoning_tokens": 118,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% without approval, which matches the rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.4333805179999217,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 191,
+        "reasoning_tokens": 130,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers may go up to 20% without approval, which matches allowing confirmation without approval up to 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.5112963420001506,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 197,
+        "reasoning_tokens": 129,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can go up to 20% without approval, which matches allowing confirmation without approval for premium discounts up to 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.976585064999881,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 262,
+        "reasoning_tokens": 191,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy-03 states that premium customers are allowed up to 20% without approval, and Cal-04 confirms 'Premium 20%' without approval except for orders over \u20ac10,000."
+      },
+      "call_metrics": {
+        "latency_s": 1.836861423999835,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 255,
+        "reasoning_tokens": 178,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers may receive discounts up to 20% without approval, which matches allowing confirmation without approval at that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.8612995020000653,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 213,
+        "reasoning_tokens": 146,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, which matches the rule that such discounts can be confirmed without approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.825024429999985,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 231,
+        "reasoning_tokens": 163,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers may receive discounts up to 20% without approval, and Cal confirms \"Premium 20%.\""
+      },
+      "call_metrics": {
+        "latency_s": 3.072227964999911,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 244,
+        "reasoning_tokens": 178,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can go up to 20% without approval, which directly matches allowing confirmation without approval up to that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 2.0476539260000663,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 271,
+        "reasoning_tokens": 204,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, which directly matches confirmation without approval for that discount level."
+      },
+      "call_metrics": {
+        "latency_s": 2.8671619009999176,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 332,
+        "reasoning_tokens": 266,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy explicitly states that premium customers are allowed up to 20% without approval, and Cal reiterates the premium 20% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 2.047939051999947,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 282,
+        "reasoning_tokens": 216,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can receive up to 20% without approval, with Cal-04 and Amy-03 both reflecting that rule."
+      },
+      "call_metrics": {
+        "latency_s": 2.4337756239999635,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 218,
+        "reasoning_tokens": 149,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% without approval, which directly matches allowing confirmation without approval for premium discounts up to 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.8708228109999254,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 259,
+        "reasoning_tokens": 187,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, which matches allowing confirmation without approval at that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.8392003670001031,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 264,
+        "reasoning_tokens": 199,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can receive up to 20% without approval, which directly matches allowing confirmation without approval up to 20%."
+      },
+      "call_metrics": {
+        "latency_s": 2.2534280929999113,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 211,
+        "reasoning_tokens": 142,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, which matches allowing confirmation without approval for discounts up to 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.6382540560000507,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 219,
+        "reasoning_tokens": 150,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% without approval, which matches allowing confirmation without approval up to that discount level."
+      },
+      "call_metrics": {
+        "latency_s": 1.842628022999861,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 258,
+        "reasoning_tokens": 190,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, which directly implies confirmation can proceed without approval for that discount level."
+      },
+      "call_metrics": {
+        "latency_s": 1.8430991249999806,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 286,
+        "reasoning_tokens": 218,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, and Cal reiterates 'Premium 20%,' matching the rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6378684080000312,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 194,
+        "reasoning_tokens": 125,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Ben-11"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, and it also says an order cannot be confirmed while discount authorisation is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.457929642000181,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 374,
+        "reasoning_tokens": 295,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can receive up to 20% discount without approval, matching the rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6384111370000483,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 194,
+        "reasoning_tokens": 133,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy explicitly states that premium customers can go up to 20% without approval, and Cal confirms the premium threshold as 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.8431692780000049,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 277,
+        "reasoning_tokens": 211,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, so confirmation without approval is permitted up to that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 2.048377427000105,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 218,
+        "reasoning_tokens": 152,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% without approval, which matches allowing confirmation without approval at that discount level."
+      },
+      "call_metrics": {
+        "latency_s": 1.842763965000131,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 217,
+        "reasoning_tokens": 150,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% without approval, which means confirmation can proceed without approval at that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.8437261310000395,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 239,
+        "reasoning_tokens": 172,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy-03 explicitly says premium customers are allowed up to 20% without approval, and Cal-04 confirms 'Premium 20%' as the threshold."
+      },
+      "call_metrics": {
+        "latency_s": 2.2521933979999176,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 194,
+        "reasoning_tokens": 124,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, which matches the rule."
+      },
+      "call_metrics": {
+        "latency_s": 1.6373552300001393,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 208,
+        "reasoning_tokens": 148,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed up to 20% without approval, which matches confirmation without approval for discounts up to 20%."
+      },
+      "call_metrics": {
+        "latency_s": 2.867847460999883,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 233,
+        "reasoning_tokens": 165,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can go up to 20% without approval, and only pending approvals block confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.8434016680000695,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 218,
+        "reasoning_tokens": 147,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers are allowed up to 20% without approval, which directly matches allowing confirmation without approval up to that discount."
+      },
+      "call_metrics": {
+        "latency_s": 1.6383837729999868,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 191,
+        "reasoning_tokens": 123,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states that premium customers may have up to 20% discount without approval, which matches allowing confirmation without approval up to that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 3.074206753999988,
+        "provider_latency_s": null,
+        "prompt_tokens": 581,
+        "cached_tokens": 0,
+        "completion_tokens": 201,
+        "reasoning_tokens": 133,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    }
+  ]
+}

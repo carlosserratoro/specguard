@@ -82,6 +82,7 @@ def _parse(path: Path) -> Report:
             latency_s=r["call_metrics"]["latency_s"],
         )
         for r in data["runs"]
+        if "verdict" in r  # Failed calls are stored as {"error": ...} (see run_faithfulness.py)
     )
     return Report(
         path=path,

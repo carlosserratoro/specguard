@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import os
 from dataclasses import dataclass
 from functools import cache
@@ -29,6 +30,15 @@ class JudgeConfig:
     reasoning_effort: str | None = None
     scaffolding: bool = False
 
+    @property
+    def applied_temperature(self) -> float | None:
+        """Temperature this code actually sends, or None if it sends none.
+
+        Derived from call_kwargs, the same function build_call uses, so it records
+        what was sent rather than an assumption about what the provider accepts.
+        """
+        return call_kwargs(self.temperature, self.reasoning_effort).get("temperature")
+
     def label(self) -> str:
         """Short identifier for filenames, e.g. effort-none."""
         effort = self.reasoning_effort or "none"
@@ -45,11 +55,17 @@ class LLMCall:
 
 
 class CallMetrics(BaseModel):
-    """Cost and latency for one LLM call, unified across providers.
+    """Cost, latency and output provenance for one LLM call, unified across providers.
 
     It's placed in the adapters layer because extracting it requires knowing
     each provider's response shape, and we want to keep that knowledge here.
     The service layer returns it to its caller without inspecting it.
+
+    field_order stores the order in which the LLM actually wrote the fields of
+    the structured output. Instructor's TOOLS mode doesn't guarantee that the model
+    follows the schema order, so for experiments where the order matters
+    (scaffolding) we measure it instead of assuming it. See:
+    https://python.useinstructor.com/integrations/openai/#instructor-modes
     """
 
     latency_s: float
@@ -58,6 +74,7 @@ class CallMetrics(BaseModel):
     cached_tokens: int | None = None
     completion_tokens: int | None = None
     reasoning_tokens: int | None = None
+    field_order: list[str] | None = None
 
     @classmethod
     def from_completion(cls, completion: Any, latency_s: float) -> CallMetrics:
@@ -79,7 +96,60 @@ class CallMetrics(BaseModel):
             completion_tokens=getattr(usage, "completion_tokens", None)
             or getattr(usage, "output_tokens", None),
             reasoning_tokens=getattr(out_details, "reasoning_tokens", None),
+            field_order=_field_order(completion),
         )
+
+
+def _field_order(completion: Any) -> list[str] | None:
+    """Keys of the structured output, in the order the model generated them.
+
+    The tool-call arguments arrive as a JSON string written by the model, and
+    json.loads keeps the key order of that string. The parsed Pydantic object
+    can't be used for this because it always follows the order of the model class.
+    """
+    arguments = _tool_call_arguments(completion)
+    if not isinstance(
+        arguments, str
+    ):  # None if there's no tool call or if it's a MagicMock (in some tests).
+        return None
+    try:
+        parsed = json.loads(arguments)
+    except json.JSONDecodeError:
+        return None
+    return list(parsed) if isinstance(parsed, dict) else None
+
+
+def _tool_call_arguments(completion: Any) -> str | None:
+    """Raw arguments of the first tool call, for both response shapes we use."""
+    # Chat Completions (LiteLLM): choices[0].message.tool_calls[0].function.arguments
+    choices = getattr(completion, "choices", None)
+    if choices:
+        tool_calls = getattr(getattr(choices[0], "message", None), "tool_calls", None)
+        if tool_calls:
+            return getattr(getattr(tool_calls[0], "function", None), "arguments", None)
+    # Responses API: output items of type "function_call" carry the arguments.
+    for item in getattr(completion, "output", None) or []:
+        if getattr(item, "type", None) == "function_call":
+            return getattr(item, "arguments", None)
+    return None
+
+
+def uses_reasoning(reasoning_effort: str | None) -> bool:
+    """Single source of truth for when a call needs the Responses API."""
+    return reasoning_effort not in (None, "none")
+
+
+def call_kwargs(temperature: float, reasoning_effort: str | None) -> dict:
+    """Sampling parameters sent with a call.
+
+    Reasoning calls don't send a temperature. For gpt-5.4-mini that is a provider
+    constraint (temperature is only supported with reasoning effort 'none'); other
+    models may behave differently, and if one of them accepts both, this is the
+    single place to change.
+    """
+    if not uses_reasoning(reasoning_effort):
+        return {"temperature": temperature}
+    return {"reasoning": {"effort": reasoning_effort}}
 
 
 def build_call(model: str, temperature: float, reasoning_effort: str | None = None) -> LLMCall:
@@ -90,12 +160,13 @@ def build_call(model: str, temperature: float, reasoning_effort: str | None = No
     function tools). Everything else goes through LiteLLM, which keeps the code
     provider-agnostic for now.
     """
-    if reasoning_effort is None or reasoning_effort == "none":
-        return LLMCall(client=get_client(), model=model, kwargs={"temperature": temperature})
+    kwargs = call_kwargs(temperature, reasoning_effort)
+    if not uses_reasoning(reasoning_effort):
+        return LLMCall(client=get_client(), model=model, kwargs=kwargs)
     return LLMCall(
         client=get_responses_client(model),
         model=_strip_provider_prefix(model),
-        kwargs={"reasoning": {"effort": reasoning_effort}},
+        kwargs=kwargs,
     )
 
 

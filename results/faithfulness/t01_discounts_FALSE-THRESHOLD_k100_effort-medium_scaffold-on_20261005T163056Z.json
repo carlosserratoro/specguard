@@ -1,0 +1,2520 @@
+{
+  "judge_config": {
+    "model": "openai/gpt-5.4-mini",
+    "temperature": 0.0,
+    "reasoning_effort": "medium",
+    "scaffolding": true,
+    "applied_temperature": null
+  },
+  "label": "FALSE-THRESHOLD",
+  "statement": "Premium customers are allowed up to 35% without approval.",
+  "k": 100,
+  "verdict_counts": {
+    "supported": 0,
+    "contradicted": 100,
+    "not_stated": 0
+  },
+  "errors": 0,
+  "runs": [
+    {
+      "verdict": {
+        "threshold_analysis": "If the rule were true, premium customers would be permitted discounts up to 35% without approval, and discounts above 35% would need approval; however, the thread instead says premium customers are allowed up to 20% without approval, which is a lower threshold and conflicts with 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly caps premium-customer discounts at 20% without approval, so 35% is incompatible."
+      },
+      "call_metrics": {
+        "latency_s": 1.9229261700002098,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 187,
+        "reasoning_tokens": 58,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly gives a premium-customer approval-free threshold of 20% (and 15% for everyone else); above that, approval is required, so a 35% approval-free limit is incompatible with what is stated.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation states premium customers can go up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.8633279770001536,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 191,
+        "reasoning_tokens": 78,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "If premium customers were allowed up to 35% without approval, discounts at or below 35% for premium customers would not need approval and discounts above 35% would. The thread instead says premium customers are allowed only up to 20% without approval, with approval required above that, so the stated threshold is lower than 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly sets the premium-customer no-approval limit at 20%, which conflicts with 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.8230654339995453,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 206,
+        "reasoning_tokens": 67,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20% without approval; anything above 20% would need approval, so a claim of 35% without approval conflicts with the stated limit.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly caps premium customer discounts at 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 2.0478473610000947,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 166,
+        "reasoning_tokens": 61,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20% without approval; anything above that would require approval, so 35% is above the stated limit, not within it.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers may discount up to 20% without approval, which conflicts with a 35% allowance."
+      },
+      "call_metrics": {
+        "latency_s": 3.0251673259999734,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 177,
+        "reasoning_tokens": 69,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a specific premium-customer threshold at 20% without approval; above that, approval is required, so it does not imply a 35% no-approval threshold.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers can discount up to 20% without approval, which conflicts with a 35% limit."
+      },
+      "call_metrics": {
+        "latency_s": 1.6851168660004987,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 191,
+        "reasoning_tokens": 82,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "For premium customers, the thread states approval is not needed up to 20%, and anything above that would require approval; it does not state a 35% allowance. Since 35% is well above the stated 20% threshold, the thread implies the opposite of the claimed rule.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly caps premium customers at 20% without approval, which conflicts with allowing 35% without approval."
+      },
+      "call_metrics": {
+        "latency_s": 2.867113854999843,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 199,
+        "reasoning_tokens": 71,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a higher no-approval limit for premium customers at 20% and a lower limit for everyone else at 15%; a claim of 35% for premium customers is above the stated premium threshold and conflicts with it.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers can go up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.6376423970004907,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 168,
+        "reasoning_tokens": 53,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread states a threshold for premium customers: Amy says 'More than 15%' as the large-discount approval threshold generally, then corrects with 'Cal said premium customers up to 20% without approval,' and Cal confirms 'Premium 20%, everyone else 15%.' This implies premium customers are allowed up to 20% without approval, but nothing in the thread mentions 35%; above 35% is not discussed.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can go up to 20% without approval, which is incompatible with a 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 3.599878675000582,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 159,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20% without approval; anything above that would require approval, so a 35% no-approval allowance is above the stated limit and incompatible with the conversation.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers may discount up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 2.135274811999807,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 163,
+        "reasoning_tokens": 53,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread discusses discount approval thresholds for premium customers at 20% and everyone else at 15%, with additional approval over \u20ac10,000; it implies anything above those limits needs approval, not that premium customers can go up to 35% without approval.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets premium customers\u2019 no-approval limit at 20%, which conflicts with the claimed 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.6379686560003393,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 122,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets the premium-customer no-approval limit at 20%: below or at 20% premium discounts can proceed without approval, while above 20% they would need approval; it does not leave room for a 35% no-approval limit.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation states premium customers get up to 20% without approval, which directly conflicts with a 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 2.2549179099996763,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 194,
+        "reasoning_tokens": 68,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold of 20% without approval; anything above that would require approval, so 35% would be above the stated limit rather than allowed below it.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers may go up to 20% without approval, which conflicts with a 35% no-approval limit."
+      },
+      "call_metrics": {
+        "latency_s": 1.601418036000723,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 161,
+        "reasoning_tokens": 48,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The rule sets a premium-customer threshold at 35% without approval; the thread instead says premium customers may go up to 20% without approval, which is below 35%, so the thread does not support a 35% limit and directly conflicts with it.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly states premium customers are allowed only up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.9708518529996581,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 197,
+        "reasoning_tokens": 74,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets the premium-customer no-approval threshold at 20% (with everyone else at 15%); anything above 20% for premium customers would require approval, so a 35% no-approval allowance is above the stated limit and incompatible with it.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers can discount up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 2.062370340000598,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 188,
+        "reasoning_tokens": 65,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The rule sets a premium-customer discount threshold of 35% without approval; the thread instead says premium customers may go up to 20% without approval, so anything above 20% would require approval rather than being freely allowed, and 35% is incompatible with that.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly caps premium-customer discounts at 20% without approval, which conflicts with a 35% no-approval limit."
+      },
+      "call_metrics": {
+        "latency_s": 2.9647994480001216,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 183,
+        "reasoning_tokens": 53,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets premium-customer discounts at up to 20% without approval, so it supports a much lower threshold than 35%; above 35% is not discussed as allowed, and below 35% is already constrained by the stated 20% cap.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation says premium customers can go up to 20% without approval, which conflicts with a 35% limit."
+      },
+      "call_metrics": {
+        "latency_s": 1.8432179370001904,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 221,
+        "reasoning_tokens": 96,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a much lower threshold for premium customers: Amy says premium customers can go up to 20% without approval, while anything above that would need approval; nothing suggests a 35% limit.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers are allowed up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.4339462000007188,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 174,
+        "reasoning_tokens": 65,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread says premium customers can go up to 20% without approval, while above that approval is required; it does not say anything about a 35% threshold, and 35% is beyond the stated no-approval limit.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets the premium no-approval limit at 20%, which conflicts with a claim that premium customers may go up to 35% without approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.7177427300002819,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 198,
+        "reasoning_tokens": 72,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The rule sets a 35% threshold for premium customers: above 35% would need approval, while at or below 35% would be allowed without approval. The thread instead says premium customers are allowed only up to 20% without approval, so discounts between 20% and 35% would still require approval under the thread, which conflicts with the rule.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly states premium customers get only up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 3.200204479000604,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 235,
+        "reasoning_tokens": 93,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a much lower no-approval threshold for premium customers: up to 20% without approval, while anything above that would require approval; a 35% no-approval allowance would be above the stated threshold and therefore incompatible.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-03"
+        ],
+        "reasoning": "The thread explicitly says premium customers may discount up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 2.0446627729998,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 189,
+        "reasoning_tokens": 73,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread discusses approval thresholds for discounts: Amy says more than 15% needs approval, then corrects that Cal said premium customers can go up to 20% without approval; Cal then confirms premium 20% and everyone else 15%, plus over \u20ac10,000 always requires approval. There is no mention of 35% or any rule allowing premium customers up to that level.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets the premium-customer no-approval limit at 20%, which conflicts with a claimed 35% limit."
+      },
+      "call_metrics": {
+        "latency_s": 1.843728707000082,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 149,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets the premium-customer no-approval limit at 20%, so a 35% no-approval threshold would be above the stated limit and is not what the conversation says.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers are allowed up to 20% without approval, which conflicts with allowing up to 35%."
+      },
+      "call_metrics": {
+        "latency_s": 3.1738591760004056,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 270,
+        "reasoning_tokens": 159,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The threshold is 35%: if the thread said premium customers can go up to 35% without approval, that would support the rule; if it said a lower cap or that approval is required above a lower cap, it would contradict it. The thread instead sets premium customers at 20% without approval.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly caps premium customers at 20% without approval, which conflicts with a 35% cap."
+      },
+      "call_metrics": {
+        "latency_s": 1.7430679700000837,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 179,
+        "reasoning_tokens": 47,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread says premium customers may go up to 20% without approval, while anything above that would need approval; 35% is above the stated premium threshold, not below it.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets the premium-customer no-approval limit at 20%, so a 35% allowance without approval conflicts with it."
+      },
+      "call_metrics": {
+        "latency_s": 3.274486487000104,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 187,
+        "reasoning_tokens": 75,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly states a threshold for premium customers: up to 20% discount without approval, and anything above that would require approval; if the rule were 35%, discounts between 20% and 35% would be allowed, which conflicts with the thread's stated limit.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread sets the premium-customer no-approval limit at 20%, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.8415040019999651,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 198,
+        "reasoning_tokens": 75,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "If the rule were true, premium customers would be able to discount at or below 35% without approval, and only discounts above 35% would need approval; however, the thread instead says premium customers can go up to 20% without approval, which is far below 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly sets the premium-customer limit at 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 3.073442509000415,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 210,
+        "reasoning_tokens": 83,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The claimed rule sets a premium-customer threshold at 35% without approval; the thread instead states premium customers can go up to 20% without approval and everyone else up to 15%, so anything above 20% for premium would already need approval.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly caps premium discounts at 20% without approval, which conflicts with a 35% cap."
+      },
+      "call_metrics": {
+        "latency_s": 1.8432809679998172,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 178,
+        "reasoning_tokens": 57,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread says premium customers can be discounted without approval up to 20%, which is far below 35%; above 35% the thread does not permit it, and even below 35% it already requires approval once past 20%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets the premium-customer no-approval limit at 20%, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 2.2925146889992902,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 255,
+        "reasoning_tokens": 138,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread gives a much lower premium-customer limit: Amy says premium customers can go up to 20% without approval, and Cal confirms 'Premium 20%, everyone else 15%'; nothing suggests a 35% allowance, so above 20% would not be allowed without approval under the thread, while below or equal to 20% for premium customers is allowed.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets the premium-customer threshold at 20%, which conflicts with a 35% limit."
+      },
+      "call_metrics": {
+        "latency_s": 2.2127547990003222,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 270,
+        "reasoning_tokens": 125,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "If the rule were true, premium customers would be allowed to discount up to 35% without approval, meaning 35% and below would not require approval for premium customers, while amounts above 35% would. The thread instead states a lower premium threshold: premium customers can go up to 20% without approval, which is incompatible with 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers get up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 3.2768945529996927,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 210,
+        "reasoning_tokens": 71,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread specifies a threshold for premium customers at 20% without approval, while above that approval is required; it also separately says everyone else is limited to 15% and orders over \u20ac10,000 always need approval. Nothing in the thread suggests a 35% no-approval limit for premium customers; 35% is above the stated premium threshold and would therefore require approval under the thread.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets premium customers at 20% without approval, so a 35% no-approval allowance is incompatible with it."
+      },
+      "call_metrics": {
+        "latency_s": 1.56040751799992,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 152,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The rule sets a premium-customer discount threshold at 35% without approval; the thread instead says premium customers are allowed up to 20% without approval, so anything above 20% would need approval rather than 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly caps premium-customer discounts without approval at 20%, which is incompatible with a 35% cap."
+      },
+      "call_metrics": {
+        "latency_s": 1.9237528220000968,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 197,
+        "reasoning_tokens": 79,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "If the rule were true, premium customers could discount up to 35% without approval and would need approval only above 35%; the thread instead says premium customers are allowed only up to 20% without approval, with approval needed above that, so 35% is incompatible.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly sets premium customers' no-approval limit at 20%, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 2.090961461999541,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 226,
+        "reasoning_tokens": 103,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer allowance at 20% without approval (Amy-03 clarifies 'more than 15%' then Cal-04 states 'Premium 20%'); there is no mention of any 35% threshold, and 35% would be above the stated premium limit.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation caps premium customers at 20% without approval, which directly conflicts with allowing 35% without approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.59253559499939,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 129,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread says premium customers may go up to 20% without approval, while anything above that would need approval; it does not allow 35% without approval, and 35% is well above the stated premium threshold.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets the premium no-approval limit at 20%, which conflicts with a 35% allowance."
+      },
+      "call_metrics": {
+        "latency_s": 1.7017493510002168,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 181,
+        "reasoning_tokens": 66,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold at 20% without approval; anything above that would require approval, so a 35% no-approval allowance is above the stated threshold and incompatible with it.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states premium customers can get up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 2.9060191600001417,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 160,
+        "reasoning_tokens": 51,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The rule sets a maximum discount threshold of 35% for premium customers without approval; the thread instead says premium customers may go up to 20% without approval, and anything above that would require approval, so above 35% would be beyond the stated limit while below 35% is not the implied threshold here.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly limits premium customers to 20% without approval, which conflicts with a 35% allowance."
+      },
+      "call_metrics": {
+        "latency_s": 1.9456976760002362,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 194,
+        "reasoning_tokens": 61,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets the premium-customer discount threshold at 20% without approval (and 15% for everyone else), with additional approval required above that or for orders over \u20ac10,000; it does not mention any 35% allowance. Below 35% would include much of the range, but the explicit premium threshold stated is 20%, not 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers can go up to 20% without approval, which conflicts with a 35% limit."
+      },
+      "call_metrics": {
+        "latency_s": 2.047878897999908,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 145,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a specific premium-customer threshold at 20% without approval; anything above that would require approval, so 35% is above the stated limit rather than within it.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers can go up to 20% without approval, which conflicts with a claim of 35%."
+      },
+      "call_metrics": {
+        "latency_s": 2.3952986219992454,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 163,
+        "reasoning_tokens": 53,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer allowance at 20% without approval, with anything above that requiring approval; a 35% allowance would mean approval is not needed up to 35%, which is incompatible with the stated 20% threshold.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers can discount up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.2913775469996835,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 115,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets the premium-customer no-approval threshold at 20%: discounts up to 20% are allowed without approval, while anything above that requires approval; 35% is not mentioned as an allowed ceiling.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can go up to 20% without approval, which conflicts with a 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 4.505289695000101,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 212,
+        "reasoning_tokens": 95,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread states that premium customers may go up to 20% without approval, so amounts above 20% would require approval; 35% is above that threshold and is not allowed without approval.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets the premium-customer no-approval limit at 20%, which conflicts with a 35% limit."
+      },
+      "call_metrics": {
+        "latency_s": 3.0741937510001662,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 184,
+        "reasoning_tokens": 72,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The rule claims premium customers can discount up to 35% without approval; the thread instead states a much lower threshold for premium customers (20% without approval) and separately says orders over \u20ac10,000 always require approval regardless of discount, so anything above 20% for premium customers is incompatible with the thread.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets the premium-customer no-approval limit at 20%, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.8410570810001445,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 198,
+        "reasoning_tokens": 67,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets the premium-customer no-approval threshold at 20%: below or at 20% is allowed without approval for premium customers, while above that would require approval; there is no mention of any 35% limit.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers get up to 20% without approval, which conflicts with a 35% allowance."
+      },
+      "call_metrics": {
+        "latency_s": 1.8741998040004546,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 174,
+        "reasoning_tokens": 55,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The rule sets a premium-customer no-approval threshold at 35%; the thread instead states premium customers are limited to 20% without approval, so anything above 20% would require approval rather than being allowed.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly caps premium customers at 20% without approval, which conflicts with a 35% allowance."
+      },
+      "call_metrics": {
+        "latency_s": 1.8122221450003053,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 177,
+        "reasoning_tokens": 64,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a threshold for premium customers at 20% without approval, and elsewhere says everyone else 15%; there is also a separate rule that orders over \u20ac10,000 always require approval. Nothing in the thread suggests premium customers may go as high as 35% without approval, which would be above the stated premium threshold.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation says premium customers can go up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.8430848489997516,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 133,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "This rule sets a maximum no-approval discount for premium customers at 35%; the thread instead says premium customers can go up to 20% without approval, so anything above 20% would require approval rather than being allowed up to 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly limits premium customers to 20% without approval, which conflicts with a 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.638153167999917,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 210,
+        "reasoning_tokens": 90,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets the premium-customer no-approval limit at 20%: discounts at or below 20% for premium customers do not need approval, while discounts above that would need approval; it does not indicate any premium allowance anywhere near 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers can go up to 20% without approval, which conflicts with a 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 2.252649795000252,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 217,
+        "reasoning_tokens": 93,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20% without approval; anything above 20% would require approval, so 35% without approval is above the stated limit and incompatible.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers can go up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 4.9400604550000935,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 166,
+        "reasoning_tokens": 60,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a lower threshold for premium customers: up to 20% without approval, while above that approval is needed; it does not suggest a 35% allowance, and 35% would be above the stated premium threshold.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation says premium customers may discount up to 20% without approval, which conflicts with a 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 2.0231503000004523,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 174,
+        "reasoning_tokens": 55,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold at 20% without approval; anything above that would require approval, so 35% is above the stated limit rather than permitted below it.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation says premium customers may go up to 20% without approval, which conflicts with a 35% no-approval limit."
+      },
+      "call_metrics": {
+        "latency_s": 1.6382144479994167,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 159,
+        "reasoning_tokens": 47,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20% without approval, while anything above that would require approval; it also says everyone else is limited to 15% and orders over \u20ac10,000 always require approval regardless of discount. A claim that premium customers are allowed up to 35% without approval is above the stated 20% threshold and therefore incompatible with the thread.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers get up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.8433975929992812,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 210,
+        "reasoning_tokens": 66,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "If the rule were true, premium customers could discount at or below 35% without approval, and anything above 35% would need approval; however, the thread explicitly says premium customers are limited to 20% without approval, which is stricter and incompatible with 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation directly sets the premium-customer no-approval limit at 20%, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 3.276610730000357,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 208,
+        "reasoning_tokens": 83,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "If the rule were true, premium customers could discount up to 35% without approval; below that threshold no approval would be needed, while above 35% approval would be required. The thread instead says premium customers can go up to 20% without approval and everyone else 15%, so it sets a lower threshold than 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly limits premium customers to 20% without approval, which conflicts with the proposed 35% limit."
+      },
+      "call_metrics": {
+        "latency_s": 3.4860894299999927,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 242,
+        "reasoning_tokens": 103,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The rule sets a threshold at 35% for premium customers: below or at 35% would be allowed without approval, while above 35% would need approval. The thread instead states a different premium threshold of 20% without approval, which is incompatible with 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can go up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 2.517278503999478,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 176,
+        "reasoning_tokens": 51,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread specifies a premium-customer discount threshold of 20% without approval; above that, approval is required, so a 35% no-approval allowance would be above the stated threshold and incompatible with it.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets premium customers at 20% without approval, which conflicts with allowing 35% without approval."
+      },
+      "call_metrics": {
+        "latency_s": 2.077169636999315,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 191,
+        "reasoning_tokens": 78,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets the premium-customer threshold at 20% without approval, while anything above that requires approval; it does not leave room for 35% without approval.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers can go up to 20% without approval, which conflicts with a 35% no-approval limit."
+      },
+      "call_metrics": {
+        "latency_s": 2.773677984000642,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 179,
+        "reasoning_tokens": 70,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "If this rule were stated, discounts at or below 35% for premium customers would not need approval, while discounts above 35% would require approval; the thread instead says premium customers need approval only above 20% (since they can go up to 20% without approval), which conflicts with 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly sets the no-approval limit for premium customers at 20%, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 2.0466309220000767,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 251,
+        "reasoning_tokens": 119,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The rule sets a maximum discount threshold for premium customers: below or at 35% would mean no approval, while above 35% would require approval; the thread instead discusses a much lower premium threshold of 20% without approval, so it does not match 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can get up to 20% without approval, which conflicts with the claimed 35% limit."
+      },
+      "call_metrics": {
+        "latency_s": 2.130068534000202,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 264,
+        "reasoning_tokens": 135,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread says premium customers may go up to 20% without approval, which means amounts at or below 20% are allowed and above 20% require approval; 35% is above that stated limit and therefore not allowed without approval.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets the premium-customer no-approval limit at 20%, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 3.6054881549998754,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 198,
+        "reasoning_tokens": 81,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread specifies a premium-customer threshold of up to 20% without approval, and separately says everyone else 15% and orders over \u20ac10,000 always require approval. It does not mention any threshold as high as 35%, and above 35% would be well beyond the stated premium limit.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly caps premium customers at 20% without approval, which is incompatible with allowing 35% without approval."
+      },
+      "call_metrics": {
+        "latency_s": 2.047861316000308,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 131,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "For premium customers, the thread says up to 20% can be applied without approval; it does not indicate any special permission up to 35%, and anything above 20% for premium is implied to need approval based on the stated limit.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly caps premium discounts at 20% without approval, which conflicts with a 35% no-approval allowance."
+      },
+      "call_metrics": {
+        "latency_s": 2.2695780459998787,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 265,
+        "reasoning_tokens": 144,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread specifies a much lower threshold for premium customers: Amy says 'More than 15%' and Cal clarifies 'Premium 20%, everyone else 15%.' There is also an independent approval rule for orders over \u20ac10,000, but nothing suggests a 35% allowance for premium customers; above 35% would clearly exceed the stated premium limit, and below 35% is not what the thread says either.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets premium customer discounts at 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.6215581500000553,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 150,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets the premium-customer no-approval threshold at 20%: below or at 20% for premium customers is allowed without approval, while above that would require approval; 35% would be above the stated threshold, not below it.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation says premium customers may discount up to 20% without approval, which conflicts with a claim that they can do so up to 35%."
+      },
+      "call_metrics": {
+        "latency_s": 2.0477285369997844,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 199,
+        "reasoning_tokens": 69,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "If the threshold were 35%, discounts at or below 35% for premium customers would be allowed without approval, while anything above 35% would require approval; the thread instead says premium customers can go up to 20% without approval and above that approval is needed.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly caps premium customers at 20% without approval, which conflicts with a 35% allowance."
+      },
+      "call_metrics": {
+        "latency_s": 1.7568342340000527,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 184,
+        "reasoning_tokens": 60,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20% without approval: at or below 20% no approval is needed for premium customers, while above 20% approval is required; it does not mention any 35% allowance.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers can go up to 20% without approval, which conflicts with a 35% limit."
+      },
+      "call_metrics": {
+        "latency_s": 1.9391541109998798,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 169,
+        "reasoning_tokens": 49,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "This rule sets a threshold of 35%: above 35% would need approval, and at or below 35% would be allowed without approval. The thread instead states that premium customers may go up to 20% without approval, which is a lower threshold and incompatible with 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers can get up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 2.65075660399998,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 189,
+        "reasoning_tokens": 61,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread specifies a special allowance threshold for premium customers of up to 20% without approval; anything above that would need approval, and there is also a separate approval trigger for orders over \u20ac10,000 regardless of discount. It does not mention a 35% threshold, and 35% would be above the stated 20% limit.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-03"
+        ],
+        "reasoning": "The conversation explicitly sets premium customers at up to 20% without approval, which conflicts with a claim of up to 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.8453922720000264,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 141,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets the premium-customer no-approval limit at 20%, which means discounts above 20% for premium customers need approval; it does not suggest any 35% allowance, and 35% would be above the stated threshold.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers get up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 2.662269755000125,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 199,
+        "reasoning_tokens": 83,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread states a specific approval threshold for premium customers: up to 20% without approval; above that, approval is needed. A rule allowing premium customers up to 35% without approval would mean discounts between 20% and 35% are also allowed without approval, which directly conflicts with the stated 20% limit.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets premium customers\u2019 no-approval limit at 20%, so 35% without approval is incompatible."
+      },
+      "call_metrics": {
+        "latency_s": 1.9796441859998595,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 190,
+        "reasoning_tokens": 53,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20% without approval (Amy-03 and Cal-04), which is below the proposed 35%; nothing suggests premium customers can go as high as 35% without approval.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers are allowed only up to 20% without approval, so 35% is incompatible."
+      },
+      "call_metrics": {
+        "latency_s": 1.4998246780005502,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 115,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a discount threshold for premium customers at 20% without approval; anything above that would require approval. It does not mention any allowance as high as 35%, so the stated rule would be above the discussed threshold and incompatible with the thread.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers may go up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.4354880130003949,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 117,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a specific premium-customer threshold at 20% without approval, and anything above that would require approval; a 35% allowance would be above the stated threshold and therefore incompatible with the discussion.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers can go up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.8432985600002212,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 190,
+        "reasoning_tokens": 80,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20% without approval (and 15% for everyone else); a 35% allowance would be above that threshold, so the thread would need to explicitly state a much higher premium limit to support this rule, which it does not.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers can go up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 3.6840839120004603,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 123,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20% without approval; anything above that would require approval, so it does not imply a 35% no-approval limit.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers may discount up to 20% without approval, which conflicts with a 35% allowance."
+      },
+      "call_metrics": {
+        "latency_s": 1.8455551819997709,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 187,
+        "reasoning_tokens": 79,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets the premium-customer threshold at 20% without approval and implies approval is needed above that; it does not suggest a 35% limit, and 35% would be above the stated threshold.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers can discount up to 20% without approval, which conflicts with a 35% allowance."
+      },
+      "call_metrics": {
+        "latency_s": 3.6863596100001814,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 198,
+        "reasoning_tokens": 83,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread says premium customers may go up to 20% without approval; amounts above that would require approval, so 35% is not allowed without approval.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets the premium-customer no-approval limit at 20%, which conflicts with a 35% limit."
+      },
+      "call_metrics": {
+        "latency_s": 2.663593903999754,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 162,
+        "reasoning_tokens": 58,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The rule claims premium customers may discount up to 35% without approval; the thread instead says premium customers may discount up to 20% without approval and that above those limits approval is needed, so the thread supports a much lower threshold rather than 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets the premium-customer no-approval limit at 20%, which conflicts with 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.8402331950001098,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 174,
+        "reasoning_tokens": 51,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets the premium-customer no-approval limit at 20% and says everyone else gets 15%; if 35% were allowed, it would be above that limit, but the thread does not mention any threshold anywhere near 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation states premium customers may go up to 20% without approval, which directly conflicts with a 35% allowance."
+      },
+      "call_metrics": {
+        "latency_s": 2.321927164999579,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 202,
+        "reasoning_tokens": 78,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets the premium-customer threshold at 20% without approval: at or below 20% is allowed, while above 20% would require approval; it does not mention any higher premium limit like 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers can go up to 20% without approval, which conflicts with a 35% no-approval limit."
+      },
+      "call_metrics": {
+        "latency_s": 3.4141710420008167,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 177,
+        "reasoning_tokens": 56,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets the premium-customer no-approval threshold at 20%: below or at 20% premium customers can discount without approval, while above that approval is required; 35% would be above this threshold and therefore would not be allowed without approval.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers may go up to 20% without approval, which conflicts with a 35% allowance."
+      },
+      "call_metrics": {
+        "latency_s": 2.048240627999803,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 199,
+        "reasoning_tokens": 74,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The rule sets a premium-customer threshold of 35% for no-approval discounts; the thread instead says premium customers may go up to 20% without approval, so anything above 20% would need approval, not 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly caps premium customers at 20% without approval, which conflicts with a 35% limit."
+      },
+      "call_metrics": {
+        "latency_s": 3.0739879059992745,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 187,
+        "reasoning_tokens": 69,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "If the threshold were 35%, discounts at or below 35% for premium customers would be allowed without approval, while anything above 35% would require approval; however, the thread instead explicitly sets the premium-customer limit at 20%, which is a different threshold.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-03"
+        ],
+        "reasoning": "The thread explicitly says premium customers can discount up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 2.4551298449996466,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 235,
+        "reasoning_tokens": 112,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread discusses discount approval thresholds: Amy says more than 15% needs approval, then corrects with Cal's statement that premium customers are allowed up to 20% without approval, while everyone else gets 15%, and orders over \u20ac10,000 always require approval. There is nothing implying a 35% allowance for premium customers; the highest premium threshold stated is 20%, not 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can go up to 20% without approval, which conflicts with a 35% limit."
+      },
+      "call_metrics": {
+        "latency_s": 1.844706357999712,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 152,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20% without approval, and separately 15% for everyone else, with over \u20ac10,000 always requiring approval. Nothing suggests any threshold as high as 35%; below 35% would still be within an approval-free range only if the thread had said so, but it explicitly caps premium customers at 20%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can go up to 20% without approval, which conflicts with a claimed 35% threshold."
+      },
+      "call_metrics": {
+        "latency_s": 3.274731292999604,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 146,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The rule sets a 35% no-approval limit for premium customers; the thread instead says premium customers may go up to 20% without approval, so amounts between 21% and 35% are not allowed there, which is incompatible with the proposed rule.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly caps premium discounts at 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 2.0815413689997513,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 232,
+        "reasoning_tokens": 113,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread discusses discount limits for premium customers at 20% without approval and for everyone else at 15%, plus a separate \u20ac10,000 approval rule. There is no statement implying premium customers can go up to 35% without approval; above 20% would contradict the stated premium limit.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-03"
+        ],
+        "reasoning": "The conversation explicitly sets premium customers at 20% without approval, which conflicts with a 35% no-approval threshold."
+      },
+      "call_metrics": {
+        "latency_s": 3.0016277240001727,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 130,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The rule sets a premium-customer threshold of 35% without approval; above 35% approval would be needed, and below or at 35% it would be allowed. The thread instead says premium customers may go up to 20% without approval, so 35% is incompatible with the stated threshold.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly caps premium-customer discounts at 20% without approval, which contradicts a 35% limit."
+      },
+      "call_metrics": {
+        "latency_s": 3.00652910000008,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 192,
+        "reasoning_tokens": 58,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets the premium-customer no-approval threshold at 20%, so discounts above 20% require approval; it does not indicate anything allowing up to 35% without approval.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers get up to 20% without approval, which conflicts with a 35% no-approval limit."
+      },
+      "call_metrics": {
+        "latency_s": 1.739583754000705,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 201,
+        "reasoning_tokens": 89,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets the premium-customer threshold at 20% without approval; anything above that would require approval, so 35% is above the stated limit rather than below it.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation says premium customers can go up to 20% without approval, which conflicts with a 35% no-approval allowance."
+      },
+      "call_metrics": {
+        "latency_s": 1.8379911049996736,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 181,
+        "reasoning_tokens": 70,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread specifies a threshold for premium customers of up to 20% without approval, and anything above that would require approval; it does not mention any 35% allowance.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets premium customers\u2019 no-approval limit at 20%, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.6454819900000075,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 100,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold at 20% without approval; anything above that would require approval, so 35% is above the stated limit rather than below it.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-03"
+        ],
+        "reasoning": "The conversation says premium customers can go up to 20% without approval, which directly conflicts with 35%."
+      },
+      "call_metrics": {
+        "latency_s": 2.8664047629999914,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 170,
+        "reasoning_tokens": 63,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread states a threshold for premium customers of 20% without approval; above 20% premium discounts would require approval, so 35% is above the stated threshold and not allowed without approval. Nothing in the thread suggests a higher 35% cap.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets premium customers at up to 20% without approval, which conflicts with a 35% no-approval allowance."
+      },
+      "call_metrics": {
+        "latency_s": 2.01013100199998,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 190,
+        "reasoning_tokens": 64,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "If the rule were true, premium customers could give discounts up to 35% without approval, while anything above 35% would require approval; the thread instead caps premium discounts at 20% without approval, so it does not reach the 35% threshold.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers are allowed only up to 20% without approval, which conflicts with 35%."
+      },
+      "call_metrics": {
+        "latency_s": 2.2906995060002373,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 253,
+        "reasoning_tokens": 129,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "If the thread supported this rule, it would need to state that premium customers may discount up to 35% without approval, meaning approval is only required above 35%; instead, the thread explicitly sets the premium threshold at 20% without approval, so 35% is above the stated limit and incompatible with it.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers can go up to 20% without approval, which conflicts with allowing 35% without approval."
+      },
+      "call_metrics": {
+        "latency_s": 2.0505358150003303,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 192,
+        "reasoning_tokens": 56,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The rule sets a premium-customer threshold of 35%: discounts at or below 35% would not need approval, while discounts above 35% would. The thread instead says premium customers may go up to 20% without approval, with approval needed above that, so it states a much lower threshold than 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly caps premium customers at 20% without approval, which conflicts with a 35% allowance."
+      },
+      "call_metrics": {
+        "latency_s": 3.2787071149996336,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 199,
+        "reasoning_tokens": 63,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread states that premium customers may discount up to 20% without approval, while above that approval is needed; 35% would be above the stated threshold, not below it.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly caps premium-customer discounts at 20% without approval, which conflicts with allowing 35% without approval."
+      },
+      "call_metrics": {
+        "latency_s": 2.2474326569999903,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 185,
+        "reasoning_tokens": 76,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold of 20% for premium customers without approval, meaning above 20% approval is required; it does not suggest anything as high as 35%.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers can get up to 20% without approval, which conflicts with a 35% no-approval allowance."
+      },
+      "call_metrics": {
+        "latency_s": 2.048527640999964,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 176,
+        "reasoning_tokens": 65,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets the premium-customer no-approval threshold at 20%: above that approval is needed; below or at 20% it is allowed without approval. A 35% no-approval limit would be above the stated threshold and is incompatible with the discussion.",
+        "verdict": "contradicted",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can discount up to 20% without approval, not 35%."
+      },
+      "call_metrics": {
+        "latency_s": 1.7472501809997993,
+        "provider_latency_s": null,
+        "prompt_tokens": 736,
+        "cached_tokens": 0,
+        "completion_tokens": 179,
+        "reasoning_tokens": 56,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    }
+  ]
+}

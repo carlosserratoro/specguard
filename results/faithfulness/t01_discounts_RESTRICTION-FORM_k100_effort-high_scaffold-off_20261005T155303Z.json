@@ -1,0 +1,2483 @@
+{
+  "judge_config": {
+    "model": "openai/gpt-5.4-mini",
+    "temperature": 0.0,
+    "reasoning_effort": "high",
+    "scaffolding": false,
+    "applied_temperature": null
+  },
+  "label": "RESTRICTION-FORM",
+  "statement": "When a discount exceeds 20% for a premium customer, the system shall require approval before confirming.",
+  "k": 100,
+  "verdict_counts": {
+    "supported": 100,
+    "contradicted": 0,
+    "not_stated": 0
+  },
+  "errors": 0,
+  "runs": [
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "Cal states premium customers can discount up to 20% without approval, which implies discounts over 20% require approval, and Amy confirms the order cannot be confirmed while pending approval."
+      },
+      "call_metrics": {
+        "latency_s": 2.042791045000058,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 245,
+        "reasoning_tokens": 166,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, implying discounts above 20% need approval, and it also says the order cannot be confirmed while pending approval."
+      },
+      "call_metrics": {
+        "latency_s": 3.8911127439998836,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 350,
+        "reasoning_tokens": 265,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers may discount up to 20% without approval, so anything above 20% requires approval, and pending approval prevents confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.662346424000134,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 302,
+        "reasoning_tokens": 225,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers are allowed up to 20% without approval, which implies discounts over 20% need approval, and it also states the order cannot be confirmed while pending approval."
+      },
+      "call_metrics": {
+        "latency_s": 3.4828412969998226,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 337,
+        "reasoning_tokens": 252,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, which directly implies discounts above 20% require approval, and it also says the order cannot be confirmed while discount authorization is pending."
+      },
+      "call_metrics": {
+        "latency_s": 3.2768052779999834,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 439,
+        "reasoning_tokens": 350,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "Cal states premium customers can discount up to 20% without approval, implying discounts above 20% require approval, and Amy confirms pending orders cannot be confirmed until authorization is complete."
+      },
+      "call_metrics": {
+        "latency_s": 2.2515249479999966,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 245,
+        "reasoning_tokens": 166,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may get up to 20% without approval, so anything above 20% requires approval, and it also says the order cannot be confirmed while the discount approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.25270632999991,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 272,
+        "reasoning_tokens": 184,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, implying approval is required for anything above 20%, and that an order cannot be confirmed while discount authorisation is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.328333794999935,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 328,
+        "reasoning_tokens": 241,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers may get up to 20% without approval, implying discounts above 20% require approval, and it also states the order cannot be confirmed while the discount approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 3.6116616079998494,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 291,
+        "reasoning_tokens": 204,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may get up to 20% without approval, which directly implies discounts above 20% require approval, and it also says the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.5589392089998455,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 292,
+        "reasoning_tokens": 204,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states premium customers can go up to 20% without approval, which implies discounts above 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.0643834989998595,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 261,
+        "reasoning_tokens": 192,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread explicitly states that premium customers can go up to 20% without approval, implying discounts above 20% require approval, and that the order cannot be confirmed while discount authorization is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.7412160760000006,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 240,
+        "reasoning_tokens": 154,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states that premium customers may receive up to 20% without approval, which directly implies that a premium discount exceeding 20% requires approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.2368294190000597,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 312,
+        "reasoning_tokens": 241,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers may discount up to 20% without approval, which directly implies discounts above 20% require approval before the order can be confirmed."
+      },
+      "call_metrics": {
+        "latency_s": 2.457779169999867,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 373,
+        "reasoning_tokens": 294,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "Cal states premium customers may discount up to 20% without approval, which directly implies discounts above 20% require approval, and Amy confirms the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 3.279216558999906,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 236,
+        "reasoning_tokens": 155,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, which implies that discounts over 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.8441481810000369,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 230,
+        "reasoning_tokens": 162,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, which directly implies that discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.043737328000134,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 283,
+        "reasoning_tokens": 214,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers are allowed up to 20% without approval, which implies discounts above 20% need approval, and it also states the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.2560427169999,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 336,
+        "reasoning_tokens": 250,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers are allowed up to 20% without approval, which implies discounts above 20% need approval, and it also says the order cannot be confirmed while the discount approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.353021310000031,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 363,
+        "reasoning_tokens": 274,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, which directly implies discounts over 20% require approval before confirmation, and it also states the order cannot be confirmed while pending approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.682870813999898,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 245,
+        "reasoning_tokens": 157,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers may discount up to 20% without approval, so exceeding 20% requires approval, and pending approval the order cannot be confirmed."
+      },
+      "call_metrics": {
+        "latency_s": 1.7685095150000052,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 226,
+        "reasoning_tokens": 147,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, so anything above 20% requires approval, and it also states the order cannot be confirmed while that approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.1799028549999093,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 285,
+        "reasoning_tokens": 199,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, which implies discounts over 20% need approval, and it also says the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 3.071951209999952,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 306,
+        "reasoning_tokens": 219,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread explicitly says premium customers can discount up to 20% without approval, which implies discounts above 20% require approval, and it also states the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 3.0722354020001603,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 240,
+        "reasoning_tokens": 153,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, so anything above 20% requires approval, and it also says the order cannot be confirmed while the approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 3.891282371999978,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 261,
+        "reasoning_tokens": 174,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers are allowed up to 20% without approval, which directly implies that discounts exceeding 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.635971810000001,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 214,
+        "reasoning_tokens": 143,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers can discount up to 20% without approval, which implies discounts over 20% require approval, and it also says the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 4.507690604000118,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 266,
+        "reasoning_tokens": 180,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may go up to 20% without approval, implying discounts above 20% need approval, and it also says the order cannot be confirmed while pending approval."
+      },
+      "call_metrics": {
+        "latency_s": 2.4575892459999977,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 222,
+        "reasoning_tokens": 137,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers are allowed up to 20% without approval, which directly implies discounts over 20% need approval, and it also states the order cannot be confirmed while pending approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.6384366299998874,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 254,
+        "reasoning_tokens": 168,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers may get up to 20% without approval and that the order cannot be confirmed while discount authorization is pending, which implies discounts above 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 3.892169486000057,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 262,
+        "reasoning_tokens": 173,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "Cal states premium customers are allowed up to 20% without approval, and Amy confirms the order cannot be confirmed while discount approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.100451278000037,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 341,
+        "reasoning_tokens": 270,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers are allowed up to 20% without approval, which implies discounts above 20% need approval, and it also says the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.997374561000015,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 281,
+        "reasoning_tokens": 195,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers are allowed up to 20% without approval, which implies discounts above 20% require approval, and it also states the order cannot be confirmed while the approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.942356923000034,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 272,
+        "reasoning_tokens": 185,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, which implies discounts above 20% require approval, and it also states orders cannot be confirmed while pending approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.945494331999953,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 260,
+        "reasoning_tokens": 176,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may get up to 20% without approval, so a discount exceeding 20% requires approval, and pending orders cannot be confirmed until that authorization is done."
+      },
+      "call_metrics": {
+        "latency_s": 2.252685541999881,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 302,
+        "reasoning_tokens": 217,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers can receive up to 20% without approval, so anything above 20% requires approval, and pending orders cannot be confirmed."
+      },
+      "call_metrics": {
+        "latency_s": 1.640189656000075,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 243,
+        "reasoning_tokens": 164,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers are allowed up to 20% without approval, implying discounts above 20% need approval, and it also says the order cannot be confirmed while the discount authorization is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.1484618869999395,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 302,
+        "reasoning_tokens": 215,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, which directly implies that discounts exceeding 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.740906730000006,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 223,
+        "reasoning_tokens": 151,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, so any discount above 20% needs approval, and it also states the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.252670498000043,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 291,
+        "reasoning_tokens": 209,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, implying anything above 20% requires approval, and it also states the order cannot be confirmed while that approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.4574017550000917,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 264,
+        "reasoning_tokens": 178,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "Cal states premium customers are allowed up to 20% without approval, and Amy confirms the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.048294702000021,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 184,
+        "reasoning_tokens": 114,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread sets premium-customer discounts at 20% without approval and states the order cannot be confirmed while discount authorization is pending, which implies discounts above 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 3.276965065000013,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 268,
+        "reasoning_tokens": 180,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers may get up to 20% without approval, so discounts above 20% require approval, and it also states the order cannot be confirmed while the approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 3.48114984200015,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 314,
+        "reasoning_tokens": 228,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread sets premium discounts at 20% as the no-approval threshold and says the order cannot be confirmed while approval is pending, which directly implies discounts above 20% for premium customers require approval before confirming."
+      },
+      "call_metrics": {
+        "latency_s": 2.6635765820001325,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 389,
+        "reasoning_tokens": 299,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, which directly implies that a premium discount exceeding 20% requires approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.0495136609999918,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 280,
+        "reasoning_tokens": 209,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers are allowed up to 20% without approval, which directly implies approval is required above 20%, and pending orders cannot be confirmed."
+      },
+      "call_metrics": {
+        "latency_s": 3.274743171000182,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 510,
+        "reasoning_tokens": 431,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, which directly implies that discounts above 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 3.0710750570001437,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 291,
+        "reasoning_tokens": 220,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread explicitly says premium customers can have up to 20% without approval, which directly implies discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.7406788460002645,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 229,
+        "reasoning_tokens": 161,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers are allowed up to 20% without approval, which implies discounts above 20% need approval, and it also states the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 3.789719693000279,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 397,
+        "reasoning_tokens": 311,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, which implies discounts exceeding 20% require approval, and it also says the order cannot be confirmed while the discount is pending approval."
+      },
+      "call_metrics": {
+        "latency_s": 2.2522591990000365,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 356,
+        "reasoning_tokens": 267,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers may discount up to 20% without approval, implying anything above 20% requires approval, and it also says the order cannot be confirmed while discount authorization is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.662366153000221,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 280,
+        "reasoning_tokens": 194,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers are allowed up to 20% without approval, which implies discounts above 20% require approval, and it also says the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.252840182,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 360,
+        "reasoning_tokens": 274,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers may discount up to 20% without approval, which directly implies that any discount above 20% requires approval before the order can be confirmed."
+      },
+      "call_metrics": {
+        "latency_s": 1.8431697070000155,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 272,
+        "reasoning_tokens": 191,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers may discount up to 20% without approval, so anything above 20% requires approval, and orders cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.2526243289999,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 309,
+        "reasoning_tokens": 228,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, which implies discounts exceeding 20% require approval, and it also states the order cannot be confirmed while pending approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.843598192999707,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 261,
+        "reasoning_tokens": 176,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers may receive up to 20% without approval, which implies discounts above 20% need approval, and that the order cannot be confirmed while the approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.0475950220002233,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 294,
+        "reasoning_tokens": 209,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, so any discount above 20% requires approval, and orders cannot be confirmed while that approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.457463483999618,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 253,
+        "reasoning_tokens": 169,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers may discount up to 20% without approval, so anything above 20% needs approval, and it also says the order cannot be confirmed while the discount approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.048250991000259,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 267,
+        "reasoning_tokens": 180,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers may receive up to 20% without approval, implying discounts above 20% require approval, and it also says the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.6380769180000243,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 194,
+        "reasoning_tokens": 113,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "Cal states premium customers may discount up to 20% without approval, which implies anything above 20% needs approval, and Amy confirms the order cannot be confirmed while that approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 4.096160023999801,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 331,
+        "reasoning_tokens": 250,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers are allowed up to 20% without approval, which directly implies discounts above 20% require approval, and it also states the order cannot be confirmed while that approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.2527477750004437,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 309,
+        "reasoning_tokens": 221,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may get up to 20% without approval, which implies discounts above 20% require approval before the order can be confirmed, and that pending discount authorization blocks confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.4573445340001854,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 267,
+        "reasoning_tokens": 180,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "Cal states premium customers may discount up to 20% without approval, which directly implies discounts above 20% need approval, and Amy confirms the order cannot be confirmed while discount authorisation is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.253330738999921,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 345,
+        "reasoning_tokens": 258,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers may get up to 20% without approval, which implies discounts above 20% require approval, and that confirmation is blocked while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.6378267049999522,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 238,
+        "reasoning_tokens": 156,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers can go up to 20% without approval, which means discounts above 20% need approval, and it also states the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.457098755000061,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 355,
+        "reasoning_tokens": 269,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, so any discount above 20% requires approval, and it also says the order cannot be confirmed while pending approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.8435909230001926,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 266,
+        "reasoning_tokens": 180,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may go up to 20% without approval, which implies discounts above 20% require approval, and it also says the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.25274360100002,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 320,
+        "reasoning_tokens": 233,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, which implies discounts above 20% require approval, and it also states the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 3.0747222569998485,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 238,
+        "reasoning_tokens": 152,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers may get up to 20% without approval, which implies discounts above 20% require approval, and it also states the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 3.2733986359999108,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 288,
+        "reasoning_tokens": 202,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-09"
+        ],
+        "reasoning": "Cal states premium customers may receive up to 20% without approval, which implies discounts above 20% require approval, and Amy confirms orders cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.8437760740002886,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 246,
+        "reasoning_tokens": 171,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "Cal states premium customers may get up to 20% and Amy confirms the order cannot be confirmed while approval is pending, which directly implies discounts over 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.8429934249998041,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 232,
+        "reasoning_tokens": 145,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers may discount up to 20% without approval, which directly implies that discounts exceeding 20% require approval before the order can be confirmed."
+      },
+      "call_metrics": {
+        "latency_s": 3.2766155700001036,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 288,
+        "reasoning_tokens": 208,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, which directly implies that discounts exceeding 20% require approval before confirmation, and it also says the order cannot be confirmed while pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.6436293130000195,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 244,
+        "reasoning_tokens": 155,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers may get up to 20% without approval, which implies discounts above 20% require approval, and it also states the order cannot be confirmed while pending approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.838869854999757,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 234,
+        "reasoning_tokens": 149,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, implying anything above 20% requires approval, and it also says the order cannot be confirmed while the discount is pending approval."
+      },
+      "call_metrics": {
+        "latency_s": 2.046991994000109,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 271,
+        "reasoning_tokens": 183,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers may discount up to 20% without approval, which directly implies discounts above 20% require approval before the order can be confirmed."
+      },
+      "call_metrics": {
+        "latency_s": 3.0721141020003415,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 294,
+        "reasoning_tokens": 215,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "Cal states that premium customers are allowed up to 20% without approval, which directly implies discounts above 20% require approval, and Amy confirms the order cannot be confirmed while the discount is pending authorization."
+      },
+      "call_metrics": {
+        "latency_s": 2.0490182829998957,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 302,
+        "reasoning_tokens": 218,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers may discount up to 20% without approval and that the order cannot be confirmed while discount authorization is pending, which together imply discounts above 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.7399344660002498,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 274,
+        "reasoning_tokens": 184,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers are allowed up to 20% without approval, implying discounts above 20% need approval, and that the order cannot be confirmed while the discount authorization is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.1499115800002073,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 296,
+        "reasoning_tokens": 210,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers may get up to 20% without approval, so anything above 20% requires approval, and pending approval the order cannot be confirmed."
+      },
+      "call_metrics": {
+        "latency_s": 1.8432307590001074,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 247,
+        "reasoning_tokens": 167,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers are allowed up to 20% without approval, which implies discounts above 20% require approval, and that an order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.8449258399996324,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 255,
+        "reasoning_tokens": 170,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers may discount up to 20% without approval, which directly implies that a premium discount exceeding 20% requires approval, and that pending approval blocks confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.8411769710000954,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 265,
+        "reasoning_tokens": 182,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread says premium customers may get up to 20% without approval, which directly implies discounts above 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.0515348379999523,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 284,
+        "reasoning_tokens": 214,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers may go up to 20% without approval, implying discounts above 20% require approval, and that orders cannot be confirmed while the discount approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.6590230560000236,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 279,
+        "reasoning_tokens": 195,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, so anything above 20% requires approval, and it also says the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 3.277439093000339,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 276,
+        "reasoning_tokens": 190,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, implying discounts above 20% require approval, and it also states the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.307262855999852,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 288,
+        "reasoning_tokens": 203,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, which directly implies that discounts above 20% require approval before the order can be confirmed."
+      },
+      "call_metrics": {
+        "latency_s": 3.538986732000012,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 287,
+        "reasoning_tokens": 206,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states that premium customers may go up to 20% without approval, which directly implies discounts over 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 3.3690537790002963,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 277,
+        "reasoning_tokens": 209,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may go up to 20% without approval, which implies discounts over 20% need approval, and it also says the order cannot be confirmed while the approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 4.096277493999878,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 333,
+        "reasoning_tokens": 245,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-09"
+        ],
+        "reasoning": "Cal states premium customers can get up to 20% without approval, which implies discounts over 20% require approval, and Amy confirms the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 3.4813400230000298,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 313,
+        "reasoning_tokens": 237,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers may discount up to 20% without approval, which directly implies discounts above 20% require approval, and it also says the order cannot be confirmed while the discount approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 4.915254520999952,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 300,
+        "reasoning_tokens": 211,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread explicitly says premium customers may discount up to 20% without approval, which implies discounts above 20% require approval, and that confirmed orders cannot proceed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.8594625779996932,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 228,
+        "reasoning_tokens": 144,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, implying discounts over 20% require approval, and that the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.8265576160001729,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 241,
+        "reasoning_tokens": 157,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states premium customers may go up to 20% without approval, which implies discounts above 20% need approval, and it also says the order cannot be confirmed while pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.048371302000305,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 267,
+        "reasoning_tokens": 183,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, which implies discounts above 20% require approval before confirmation, and it also says pending orders cannot be confirmed."
+      },
+      "call_metrics": {
+        "latency_s": 1.8430844819999948,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 234,
+        "reasoning_tokens": 149,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The thread states that premium customers may discount up to 20% without approval, which directly implies that discounts above 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.843742967000253,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 264,
+        "reasoning_tokens": 195,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers can get up to 20% without approval, so anything above 20% needs approval, and it also says the order cannot be confirmed while the approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.4729414230000657,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 383,
+        "reasoning_tokens": 296,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may get up to 20% without approval, which directly implies discounts above 20% require approval, and pending orders cannot be confirmed until authorization is complete."
+      },
+      "call_metrics": {
+        "latency_s": 3.465602183000101,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 280,
+        "reasoning_tokens": 195,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread states that premium customers may get up to 20% without approval, and orders cannot be confirmed while discount approval is pending, which together imply discounts above 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 3.072016843000256,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 327,
+        "reasoning_tokens": 237,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    },
+    {
+      "verdict": {
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread says premium customers may discount up to 20% without approval, which directly implies any discount above 20% requires approval before the order can be confirmed."
+      },
+      "call_metrics": {
+        "latency_s": 2.048149627999919,
+        "provider_latency_s": null,
+        "prompt_tokens": 582,
+        "cached_tokens": 0,
+        "completion_tokens": 250,
+        "reasoning_tokens": 170,
+        "field_order": [
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ]
+      }
+    }
+  ]
+}
