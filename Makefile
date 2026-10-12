@@ -94,6 +94,7 @@ plot-thread-verdicts-judge-cost-and-latency:
 plot-thread-verdicts-judge-cot:
 	$(PLOT).plot_thread_verdicts_judge_cot_accuracy_k100
 	$(PLOT).plot_thread_verdicts_judge_cot_accuracy_k1000
+	$(PLOT).plot_thread_verdicts_judge_cot_accuracy_cover
 	$(PLOT).plot_thread_verdicts_judge_cot_cost
 	$(PLOT).plot_thread_verdicts_judge_cot_latency
 	$(PLOT).plot_thread_verdicts_judge_cot_latency_per_call
