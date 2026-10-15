@@ -10,6 +10,7 @@ from specguard.adapters.llm import (
     JudgeConfig,
     build_call,
 )
+from specguard.domain.definitions import EQUIVALENCE_HINT, VERDICT_DEFINITIONS
 from specguard.domain.spec import BusinessRule, Severity
 from specguard.domain.thread import ConversationalThread
 
@@ -23,9 +24,9 @@ SEVERITY_WEIGHT = {
 class SupportVerdict(BaseModel):
     verdict: Literal["supported", "contradicted", "not_stated"] = Field(
         description=(
-            "'supported' if the thread states this rule (even if worded differently); "
-            "'contradicted' if the thread states something incompatible with it; "
-            "'not_stated' if the thread does not mention it."
+            f"'supported' if {VERDICT_DEFINITIONS['supported']}; "
+            f"'contradicted' if {VERDICT_DEFINITIONS['contradicted']}; "
+            f"'not_stated' if {VERDICT_DEFINITIONS['not_stated']}."
         )
     )
     supporting_refs: list[str] = Field(
@@ -51,9 +52,9 @@ class ScaffoldedSupportVerdict(BaseModel):
     verdict: Literal["supported", "contradicted", "not_stated"] = Field(
         description=(
             "Decide the verdict based on the threshold_analysis above. "
-            "'supported' if the thread states this rule (even if worded differently); "
-            "'contradicted' if the thread states something incompatible with it; "
-            "'not_stated' if the thread does not mention it."
+            f"'supported' if {VERDICT_DEFINITIONS['supported']}; "
+            f"'contradicted' if {VERDICT_DEFINITIONS['contradicted']}; "
+            f"'not_stated' if {VERDICT_DEFINITIONS['not_stated']}."
         )
     )
     supporting_refs: list[str] = Field(
@@ -67,12 +68,10 @@ FAITHFULNESS_SYSTEM_PROMPT = (
     "You verify whether a business rule is actually stated in a conversation thread.\n"
     "The rule may be worded very differently from the thread, and that is fine: judge "
     "MEANING, not wording.\n"
-    "Important: a rule expressed as a permission and a rule expressed as the equivalent "
-    "restriction are the SAME rule (e.g. 'allowed up to 20%' and 'requires approval above "
-    "20%' both express the same threshold). Treat them as supported.\n"
-    "Return 'supported' only if the thread actually states or directly implies the rule. "
-    "Return 'contradicted' if the thread states something incompatible. "
-    "Return 'not_stated' if the thread is silent about it.\n"
+    f"Important: {EQUIVALENCE_HINT}. Treat them as supported.\n"
+    f"Return 'supported' only if {VERDICT_DEFINITIONS['supported']}. "
+    f"Return 'contradicted' if {VERDICT_DEFINITIONS['contradicted']}. "
+    f"Return 'not_stated' if {VERDICT_DEFINITIONS['not_stated']}.\n"
     "Cite the message refs that support your verdict."
 )
 
