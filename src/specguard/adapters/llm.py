@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 import os
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from functools import cache
 from typing import Any
 
@@ -43,6 +43,14 @@ class JudgeConfig:
         """Short identifier for filenames, e.g. effort-none."""
         effort = self.reasoning_effort or "none"
         return f"effort-{effort}_scaffold-{'on' if self.scaffolding else 'off'}"
+
+    def to_record(self) -> dict:
+        """Configuration as stored in the report.
+
+        "temperature" keeps the configured value; but "applied_temperature" is
+        what the code actually sent (in reasoning runs, there is not temperature).
+        """
+        return {**asdict(self), "applied_temperature": self.applied_temperature}
 
 
 @dataclass(frozen=True)

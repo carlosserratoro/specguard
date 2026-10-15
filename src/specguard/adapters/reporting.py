@@ -2,14 +2,19 @@ from __future__ import annotations
 
 import json
 import subprocess
-from dataclasses import asdict
 from datetime import UTC, datetime
 from functools import cache
 from pathlib import Path
-
-from specguard.adapters.llm import JudgeConfig
+from typing import Protocol
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
+
+
+class ExperimentConfig(Protocol):
+    """Protocol class for experimental configurations: LLM, Jev, etc."""
+
+    def label(self) -> str: ...
+    def to_record(self) -> dict: ...
 
 
 @cache
@@ -35,7 +40,7 @@ def code_version(repo: Path = REPO_ROOT) -> dict | None:
 
 def save_report(
     report: dict,
-    judge_config: JudgeConfig,
+    config: ExperimentConfig,
     results_dir: Path,
     experiment: str,
     case_id: str,
@@ -43,10 +48,7 @@ def save_report(
     out_dir = results_dir / experiment
     out_dir.mkdir(parents=True, exist_ok=True)
     timestamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
-    path = out_dir / f"{case_id}_{judge_config.label()}_{timestamp}.json"
-    # "temperature" keeps the configured value; "applied_temperature" is what the code
-    # actually sent (None when no temperature was sent, as in reasoning runs).
-    config = {**asdict(judge_config), "applied_temperature": judge_config.applied_temperature}
-    payload = {"judge_config": config, "code_version": code_version(), **report}
+    path = out_dir / f"{case_id}_{config.label()}_{timestamp}.json"
+    payload = {"judge_config": config.to_record(), "code_version": code_version(), **report}
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     return path
