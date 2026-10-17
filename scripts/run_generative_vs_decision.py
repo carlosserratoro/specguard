@@ -27,6 +27,12 @@ parser = argparse.ArgumentParser(
 )
 parser.add_argument("-k", "--reps", type=int, required=True, help="Decisions per statement.")
 parser.add_argument("--configs", nargs="+", choices=list(CONFIGS), default=list(CONFIGS))
+parser.add_argument(
+    "--statements",
+    nargs="+",
+    choices=list(THRESHOLD_STATEMENTS),
+    default=list(THRESHOLD_STATEMENTS),
+)
 args = parser.parse_args()
 
 thread = ConversationalThread.from_file(EXAMPLES_DIR / "t01_discounts.thread.yaml")
@@ -38,7 +44,8 @@ for name in args.configs:
     else:
         verify = make_generative_verifier(thread, config)
 
-    for label, statement in THRESHOLD_STATEMENTS.items():
+    for label in args.statements:
+        statement = THRESHOLD_STATEMENTS[label]
         report = check(statement, label, verify, k=args.reps)
         save_report(
             report,
