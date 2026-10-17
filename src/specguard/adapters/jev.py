@@ -1,36 +1,39 @@
 import os
 import time
-from collections import dataclass
-from dataclasses import asdict
+from dataclasses import asdict, dataclass
 from functools import cache
 from typing import Literal
 
 import requests
 from dotenv import load_dotenv
 
-from specguard.domain.definitions import EQUIVALENCE_HINT, VERDICT_DEFINITIONS
+from specguard.domain.definitions import EQUIVALENCE_HINT, VERDICT_CRITERIA_JEV, VERDICT_DEFINITIONS
 from specguard.domain.spec import BusinessRule
 from specguard.domain.thread import ConversationalThread
+from specguard.service_layer.metrics import (
+    FAITHFULNESS_SYSTEM_PROMPT,
+    FAITHFULNESS_TASK,
+    build_faithfulness_user_message,
+)
 
 load_dotenv()
 
 JEV_URL = "https://openrouter.ai/api/alpha/decisions"
 JEV_TIMEOUT_SECS = 30
+VERDICT_QUESTION = "verdict"
 
 
 @dataclass(frozen=True)
 class JevConfig:
     model: str = "typesafe/jev-1.13"
     # The shape of each criteria value:
-    # "string" sends the same definitions as the LLM;
-    # "object" uses the what/not_for
-    # there are other values (see https://docs.typesafe.ai/primitives/advanced) but for now
-    # this is all we need.
-    criteria_style: Literal["string", "object"] = "string"
+    # "same-as-llm" sends exactly what the LLM receives;
+    # "jev" sends the same content, structured as TypeSafe's documentation sugggests.
+    input_style: Literal["same-as-llm", "jev"] = "same-as-llm"
 
     def label(self) -> str:
         """Short identifier for filenames."""
-        return f"jev_criteria-{self.criteria_style}"
+        return f"jev_input-{self.input_style}"
 
     def to_record(self) -> dict:
         """Configuration as stored in the report."""
@@ -49,22 +52,34 @@ def _headers() -> dict:
     }
 
 
-def verify_rule_with_jev(
-    rule: BusinessRule, thread: ConversationalThread, model="typesafe/jev-1.13"
-):
-    payload = {
-        "model": model,
-        "state": {"thread": thread.to_prompt(), "rule": rule.statement},
+def build_payload(rule: BusinessRule, thread: ConversationalThread, config: JevConfig):
+    """Build a payload following the usual LLM format or Jev's recommended format."""
+    if config.input_style == "same-as-llm":
+        state: str | dict = build_faithfulness_user_message(rule, thread)
+        instructions: str | dict = FAITHFULNESS_SYSTEM_PROMPT
+        criteria: dict = VERDICT_DEFINITIONS
+    else:  # if config.input_style == 'jev':
+        state = {"thread": thread.model_dump(), "rule": rule.statement}
+        instructions = {
+            "task": FAITHFULNESS_TASK,
+            "note": f"{EQUIVALENCE_HINT}. Treat them as supported.",
+        }
+        criteria = VERDICT_CRITERIA_JEV
+    return {
+        "model": config.model,
+        "state": state,
         "questions": {
-            "verdict": {
+            VERDICT_QUESTION: {
                 "type": "choice",
-                "instructions": (
-                    f"{EQUIVALENCE_HINT.capitalize()}. Is the rule stated in the thread?"
-                ),
-                "criteria": VERDICT_DEFINITIONS,
+                "instructions": instructions,
+                "criteria": criteria,
             }
         },
     }
+
+
+def verify_rule_with_jev(rule: BusinessRule, thread: ConversationalThread, config: JevConfig):
+    payload = build_payload(rule, thread, config)
     start = time.perf_counter()
     response = _session().post(JEV_URL, headers=_headers(), json=payload, timeout=JEV_TIMEOUT_SECS)
     elapsed_s = time.perf_counter() - start

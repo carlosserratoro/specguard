@@ -64,10 +64,17 @@ class ScaffoldedSupportVerdict(BaseModel):
     reasoning: str = Field(description="One concise sentence justifying the verdict.")
 
 
-FAITHFULNESS_SYSTEM_PROMPT = (
+JudgeVerdict = SupportVerdict | ScaffoldedSupportVerdict
+
+
+FAITHFULNESS_TASK = (
     "You verify whether a business rule is actually stated in a conversation thread.\n"
     "The rule may be worded very differently from the thread, and that is fine: judge "
-    "MEANING, not wording.\n"
+    "MEANING, not wording."
+)
+
+FAITHFULNESS_SYSTEM_PROMPT = (
+    f"{FAITHFULNESS_TASK}\n"
     f"Important: {EQUIVALENCE_HINT}. Treat them as supported.\n"
     f"Return 'supported' only if {VERDICT_DEFINITIONS['supported']}. "
     f"Return 'contradicted' if {VERDICT_DEFINITIONS['contradicted']}. "
@@ -84,7 +91,7 @@ def verify_rule_against_thread(
     rule: BusinessRule,
     thread: ConversationalThread,
     judge_config: JudgeConfig | None = None,
-) -> tuple[SupportVerdict, CallMetrics]:
+) -> tuple[JudgeVerdict, CallMetrics]:
     judge_config = judge_config or JudgeConfig()
     call = build_call(judge_config.model, judge_config.temperature, judge_config.reasoning_effort)
     response_model = ScaffoldedSupportVerdict if judge_config.scaffolding else SupportVerdict
