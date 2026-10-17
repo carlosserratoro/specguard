@@ -83,10 +83,24 @@ class CallMetrics(BaseModel):
     completion_tokens: int | None = None
     reasoning_tokens: int | None = None
     field_order: list[str] | None = None
+    cost: float | None = None  # by OpenRouter
+    provider: str | None = None  # by OpenRouter
+    service_tier: str | None = None  # by OpenRouter
 
     @classmethod
     def from_completion(cls, completion: Any, latency_s: float) -> CallMetrics:
         """Attempt to build metrics from a provider's completion."""
+
+        def _str_or_none(value: Any) -> str | None:
+            return value if isinstance(value, str) else None
+
+        def _number_or_none(value: Any) -> float | None:
+            return (
+                float(value)
+                if isinstance(value, (int, float)) and not isinstance(value, bool)
+                else None
+            )
+
         usage = getattr(completion, "usage", None)
         provider_ms = getattr(completion, "_response_ms", None)
         out_details = getattr(usage, "completion_tokens_details", None) or getattr(
@@ -105,6 +119,9 @@ class CallMetrics(BaseModel):
             or getattr(usage, "output_tokens", None),
             reasoning_tokens=getattr(out_details, "reasoning_tokens", None),
             field_order=_field_order(completion),
+            cost=_number_or_none(getattr(usage, "cost", None)),
+            provider=_str_or_none(getattr(completion, "provider", None)),
+            service_tier=_str_or_none(getattr(completion, "service_tier", None)),
         )
 
 

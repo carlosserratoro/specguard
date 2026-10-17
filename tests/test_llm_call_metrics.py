@@ -1,6 +1,8 @@
 import json
 from types import SimpleNamespace
 
+from openai.types.chat import ChatCompletion
+
 from specguard.adapters.llm import CallMetrics, JudgeConfig
 
 
@@ -62,3 +64,27 @@ def test_applied_temperature_without_reasoning():
 
 def test_applied_temperature_with_reasoning_is_none():
     assert JudgeConfig(temperature=0.0, reasoning_effort="medium").applied_temperature is None
+
+
+def test_from_completion_reads_openrouter_extras():
+    completion = ChatCompletion.model_validate(
+        {
+            "id": "x",
+            "object": "chat.completion",
+            "created": 0,
+            "model": "openai/gpt-5.4-mini",
+            "choices": [],
+            "provider": "OpenAI",
+            "service_tier": "default",
+            "usage": {
+                "prompt_tokens": 10,
+                "completion_tokens": 5,
+                "total_tokens": 15,
+                "cost": 0.0001,
+            },
+        }
+    )
+    metrics = CallMetrics.from_completion(completion, latency_s=1.0)
+    assert metrics.cost == 0.0001
+    assert metrics.provider == "OpenAI"
+    assert metrics.service_tier == "default"
