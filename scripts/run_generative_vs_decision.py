@@ -1,0 +1,49 @@
+"""Compare GPT-5.4 mini and Jev as faithfulness judges (post 7)."""
+
+from __future__ import annotations
+
+import argparse
+
+from faithfulness_runner import THRESHOLD_STATEMENTS, check
+from paths import EXAMPLES_DIR, RESULTS_DIR, RESULTS_LLM_VS_JEV_DIR
+from verifiers import make_decision_verifier, make_generative_verifier
+
+from specguard.adapters.jev import JevConfig
+from specguard.adapters.llm import JudgeConfig
+from specguard.adapters.reporting import save_report
+from specguard.domain.thread import ConversationalThread
+
+GENERATIVE_MODEL = "openrouter/openai/gpt-5.4-mini"
+DECISION_MODEL = "typesafe/jev-1.13"
+
+CONFIGS = {
+    "A": JevConfig(model=DECISION_MODEL, input_style="same-as-llm"),
+    "A-prime": JevConfig(model=DECISION_MODEL, input_style="jev"),
+    "B": JudgeConfig(model=GENERATIVE_MODEL, scaffolding=True),
+}
+
+parser = argparse.ArgumentParser(
+    description="Compares GPT-5.4 mini and Jev on the threshold cases."
+)
+parser.add_argument("-k", "--reps", type=int, required=True, help="Decisions per statement.")
+parser.add_argument("--configs", nargs="+", choices=list(CONFIGS), default=list(CONFIGS))
+args = parser.parse_args()
+
+thread = ConversationalThread.from_file(EXAMPLES_DIR / "t01_discounts.thread.yaml")
+
+for name in args.configs:
+    config = CONFIGS[name]
+    if isinstance(config, JevConfig):
+        verify = make_decision_verifier(thread, config)
+    else:
+        verify = make_generative_verifier(thread, config)
+
+    for label, statement in THRESHOLD_STATEMENTS.items():
+        report = check(statement, label, verify, k=args.reps)
+        save_report(
+            report,
+            config,
+            results_dir=RESULTS_DIR,
+            experiment=RESULTS_LLM_VS_JEV_DIR.name,
+            case_id=f"t01_discounts_{label}_k{args.reps}",
+        )
