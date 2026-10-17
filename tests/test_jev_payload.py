@@ -1,4 +1,4 @@
-from specguard.adapters.jev import VERDICT_QUESTION, JevConfig, build_payload
+from specguard.adapters.jev import VERDICT_QUESTION, DecisionConfig, build_payload
 from specguard.domain.definitions import (
     EQUIVALENCE_HINT,
     VERDICT_CRITERIA_JEV,
@@ -30,7 +30,7 @@ def _question(payload: dict) -> dict:
 
 
 def test_same_as_llm_style_sends_exactly_what_the_llm_receives():
-    payload = build_payload(RULE, THREAD, JevConfig(input_style="same-as-llm"))
+    payload = build_payload(RULE, THREAD, DecisionConfig(input_style="same-as-llm"))
 
     assert payload["state"] == build_faithfulness_user_message(RULE, THREAD)
     question = _question(payload)
@@ -40,7 +40,7 @@ def test_same_as_llm_style_sends_exactly_what_the_llm_receives():
 
 
 def test_jev_style_sends_the_same_content_with_structure():
-    payload = build_payload(RULE, THREAD, JevConfig(input_style="jev"))
+    payload = build_payload(RULE, THREAD, DecisionConfig(input_style="jev"))
 
     assert payload["state"] == {"thread": THREAD.model_dump(), "rule": RULE.statement}
     question = _question(payload)
@@ -61,5 +61,5 @@ def test_jev_criteria_only_restructure_the_definitions():
 
 def test_both_styles_send_the_configured_model():
     for style in ("same-as-llm", "jev"):
-        payload = build_payload(RULE, THREAD, JevConfig(input_style=style))
-        assert payload["model"] == JevConfig().model
+        payload = build_payload(RULE, THREAD, DecisionConfig(input_style=style))
+        assert payload["model"] == DecisionConfig().model

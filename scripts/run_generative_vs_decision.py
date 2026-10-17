@@ -8,24 +8,26 @@ from faithfulness_runner import THRESHOLD_STATEMENTS, check, check_majority
 from paths import EXAMPLES_DIR, RESULTS_DIR, RESULTS_LLM_VS_JEV_DIR
 from verifiers import make_decision_verifier, make_generative_verifier
 
-from specguard.adapters.jev import JevConfig
+from specguard.adapters.jev import DecisionConfig
 from specguard.adapters.llm import JudgeConfig
 from specguard.adapters.reporting import save_report
 from specguard.domain.thread import ConversationalThread
 
 GENERATIVE_MODEL = "openrouter/openai/gpt-5.4-mini"
-DECISION_MODEL = "typesafe/jev-1.13"
+DECISION_MODEL_JEV = "typesafe/jev-1.13"
+DECISION_MODEL_LUNA = "openai/gpt-6-luna-decisions"
 
 CONFIGS = {
-    "A": JevConfig(model=DECISION_MODEL, input_style="same-as-llm"),
-    "A-prime": JevConfig(model=DECISION_MODEL, input_style="jev"),
+    "A": DecisionConfig(model=DECISION_MODEL_JEV, input_style="same-as-llm"),
+    "A-prime": DecisionConfig(model=DECISION_MODEL_JEV, input_style="jev"),
     "B": JudgeConfig(model=GENERATIVE_MODEL, scaffolding=True),
     "C": JudgeConfig(model=GENERATIVE_MODEL, scaffolding=True),
+    "D": DecisionConfig(model=DECISION_MODEL_LUNA, input_style="same-as-llm"),
 }
 GROUP_SIZE = 10
 
 parser = argparse.ArgumentParser(
-    description="Compares GPT-5.4 mini and Jev on the threshold cases."
+    description="Compares GPT-5.4 mini, Jev and Luna Decisions on the threshold cases."
 )
 parser.add_argument("-k", "--reps", type=int, required=True, help="Decisions per statement.")
 parser.add_argument("--configs", nargs="+", choices=list(CONFIGS), default=list(CONFIGS))
@@ -41,7 +43,7 @@ thread = ConversationalThread.from_file(EXAMPLES_DIR / "t01_discounts.thread.yam
 
 for name in args.configs:
     config = CONFIGS[name]
-    if isinstance(config, JevConfig):
+    if isinstance(config, DecisionConfig):
         verify = make_decision_verifier(thread, config)
     else:
         verify = make_generative_verifier(thread, config)

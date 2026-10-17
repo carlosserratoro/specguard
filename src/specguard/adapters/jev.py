@@ -24,7 +24,7 @@ VERDICT_QUESTION = "verdict"
 
 
 @dataclass(frozen=True)
-class JevConfig:
+class DecisionConfig:
     model: str = "typesafe/jev-1.13"
     # The shape of each criteria value:
     # "same-as-llm" sends exactly what the LLM receives;
@@ -33,7 +33,7 @@ class JevConfig:
 
     def label(self) -> str:
         """Short identifier for filenames."""
-        return f"jev_input-{self.input_style}"
+        return f"{self.model.split('/')[-1]}_input-{self.input_style}"
 
     def to_record(self) -> dict:
         """Configuration as stored in the report."""
@@ -52,7 +52,7 @@ def _headers() -> dict:
     }
 
 
-def build_payload(rule: BusinessRule, thread: ConversationalThread, config: JevConfig):
+def build_payload(rule: BusinessRule, thread: ConversationalThread, config: DecisionConfig):
     """Build a payload following the usual LLM format or Jev's recommended format."""
     if config.input_style == "same-as-llm":
         state: str | dict = build_faithfulness_user_message(rule, thread)
@@ -78,10 +78,14 @@ def build_payload(rule: BusinessRule, thread: ConversationalThread, config: JevC
     }
 
 
-def verify_rule_with_jev(rule: BusinessRule, thread: ConversationalThread, config: JevConfig):
+def verify_rule_with_jev(rule: BusinessRule, thread: ConversationalThread, config: DecisionConfig):
     payload = build_payload(rule, thread, config)
     start = time.perf_counter()
     response = _session().post(JEV_URL, headers=_headers(), json=payload, timeout=JEV_TIMEOUT_SECS)
     elapsed_s = time.perf_counter() - start
+    if not response.ok:
+        raise requests.HTTPError(
+            f"{response.status_code} from {JEV_URL}: {response.text[:500]}", response=response
+        )
     response.raise_for_status()
     return response.json(), elapsed_s

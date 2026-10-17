@@ -2,7 +2,7 @@ import requests
 from faithfulness_runner import JudgeCallError, Verifier
 from instructor.core import InstructorRetryException
 
-from specguard.adapters.jev import VERDICT_QUESTION, JevConfig, verify_rule_with_jev
+from specguard.adapters.jev import VERDICT_QUESTION, DecisionConfig, verify_rule_with_jev
 from specguard.adapters.llm import JudgeConfig
 from specguard.domain.spec import BusinessRule
 from specguard.domain.thread import ConversationalThread
@@ -23,7 +23,7 @@ def make_generative_verifier(thread: ConversationalThread, config: JudgeConfig) 
     return verify
 
 
-def make_decision_verifier(thread: ConversationalThread, config: JevConfig) -> Verifier:
+def make_decision_verifier(thread: ConversationalThread, config: DecisionConfig) -> Verifier:
     def verify(rule: BusinessRule) -> tuple[str, dict]:
         try:
             response, elapsed_s = verify_rule_with_jev(rule, thread, config)
