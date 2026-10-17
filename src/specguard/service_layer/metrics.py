@@ -76,6 +76,10 @@ FAITHFULNESS_SYSTEM_PROMPT = (
 )
 
 
+def build_faithfulness_user_message(rule: BusinessRule, thread: ConversationalThread) -> str:
+    return f"Conversation thread:\n{thread.to_prompt()}\n\nRule to verify: {rule.statement}"
+
+
 def verify_rule_against_thread(
     rule: BusinessRule,
     thread: ConversationalThread,
@@ -93,10 +97,7 @@ def verify_rule_against_thread(
             {"role": "system", "content": FAITHFULNESS_SYSTEM_PROMPT},
             {
                 "role": "user",
-                "content": (
-                    f"Conversation thread:\n{thread.to_prompt()}\n\n"
-                    f"Rule to verify: {rule.statement}"
-                ),
+                "content": build_faithfulness_user_message(rule, thread),
             },
         ],
         **call.kwargs,
