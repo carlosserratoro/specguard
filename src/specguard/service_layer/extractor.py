@@ -25,7 +25,7 @@ SYSTEM_PROMPT = (
 def extract(
     thread: ConversationalThread,
     temperature: float = DEFAULT_EXTRACTOR_TEMPERATURE,
-    model: str | None = DEFAULT_EXTRACTOR_MODEL,
+    model: str = DEFAULT_EXTRACTOR_MODEL,
 ) -> UseCaseSpec:
     call = build_call(model, temperature)
     return call.client.create(
