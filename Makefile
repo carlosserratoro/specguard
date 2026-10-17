@@ -66,7 +66,7 @@ plots: plot-recall-precision plot-missed-by-rule plot-br2-framing \
        plot-thread-verdicts plot-thread-verdicts-judge-effort \
        plot-thread-verdicts-judge-reasoning-tokens \
        plot-thread-verdicts-judge-cost-and-latency \
-	   plot-thread-verdicts_judge-cot
+	   plot-thread-verdicts-judge-cot
 
 plot-recall-precision:
 	$(PLOT).plot_recall_precision $(PLOT_RECALL_PRECISION_JSON)
