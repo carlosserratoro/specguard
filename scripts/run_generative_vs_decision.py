@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import argparse
 
-from faithfulness_runner import THRESHOLD_STATEMENTS, check
+from faithfulness_runner import THRESHOLD_STATEMENTS, check, check_majority
 from paths import EXAMPLES_DIR, RESULTS_DIR, RESULTS_LLM_VS_JEV_DIR
 from verifiers import make_decision_verifier, make_generative_verifier
 
@@ -20,7 +20,9 @@ CONFIGS = {
     "A": JevConfig(model=DECISION_MODEL, input_style="same-as-llm"),
     "A-prime": JevConfig(model=DECISION_MODEL, input_style="jev"),
     "B": JudgeConfig(model=GENERATIVE_MODEL, scaffolding=True),
+    "C": JudgeConfig(model=GENERATIVE_MODEL, scaffolding=True),
 }
+GROUP_SIZE = 10
 
 parser = argparse.ArgumentParser(
     description="Compares GPT-5.4 mini and Jev on the threshold cases."
@@ -46,11 +48,18 @@ for name in args.configs:
 
     for label in args.statements:
         statement = THRESHOLD_STATEMENTS[label]
-        report = check(statement, label, verify, k=args.reps)
+        if name == "C":
+            report = check_majority(
+                statement, label, verify, groups=args.reps, group_size=GROUP_SIZE
+            )
+            case_id = f"t01_discounts_{label}_groups{args.reps}x{GROUP_SIZE}"
+        else:
+            report = check(statement, label, verify, k=args.reps)
+            case_id = f"t01_discounts_{label}_k{args.reps}"
         save_report(
             report,
             config,
             results_dir=RESULTS_DIR,
             experiment=RESULTS_LLM_VS_JEV_DIR.name,
-            case_id=f"t01_discounts_{label}_k{args.reps}",
+            case_id=case_id,
         )

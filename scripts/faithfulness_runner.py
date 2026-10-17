@@ -1,5 +1,7 @@
+import time
 from collections import Counter
 from collections.abc import Callable
+from concurrent.futures import ThreadPoolExecutor
 
 from specguard.domain.spec import BusinessRule, Severity
 
@@ -25,6 +27,12 @@ class JudgeCallError(Exception):
 Verifier = Callable[[BusinessRule], tuple[str, dict]]
 
 
+def _rule(statement: str, label: str) -> BusinessRule:
+    return BusinessRule(
+        id=label, statement=statement, source_refs=[], severity=Severity.critical, precedence=[]
+    )
+
+
 def check(
     statement: str,
     label: str,
@@ -41,13 +49,7 @@ def check(
         "runs": [],
     }
 
-    rule = BusinessRule(
-        id=label,
-        statement=statement,
-        source_refs=[],
-        severity=Severity.critical,
-        precedence=[],
-    )
+    rule = _rule(statement, label)
 
     verdicts = []
     consecutive_errors = 0
@@ -73,4 +75,68 @@ def check(
     report["verdict_counts"] = {v: counts[v] for v in VERDICT_ORDER}
     print(f"{label} verdict_counts: {report['verdict_counts']}, errors: {report['errors']}\n")
 
+    return report
+
+
+def _call(verify: Verifier, rule: BusinessRule) -> tuple[str | None, dict]:
+    """One call that never raises: a failure comes back as an error record."""
+    try:
+        return verify(rule)
+    except JudgeCallError as exc:
+        cause = exc.__cause__ or exc
+        return None, {"error": {"type": type(cause).__name__, "message": str(cause)}}
+
+
+def check_majority(
+    statement: str, label: str, verify: Verifier, groups: int, group_size: int = 10
+) -> dict:
+    """Each decision is the majority verdict of `group_size` concurrent calls.
+
+    One warm-up call is made first, in the calling thread, and discarded: Instructor
+    fills its handler registry on the first call, and doing that from several threads
+    at once fails.
+    """
+    rule = _rule(statement, label)
+    _call(verify, rule)  # warm-up, not stored
+
+    report = {
+        "label": label,
+        "statement": statement,
+        "groups": groups,
+        "group_size": group_size,
+        "warm_up_calls": 1,
+        "verdict_counts": {},  # one majority verdict per group
+        "call_verdict_counts": {},  # every individual call
+        "ties": 0,
+        "errors": 0,
+        "decisions": [],
+    }
+    majorities, call_verdicts = [], []
+
+    with ThreadPoolExecutor(max_workers=group_size) as pool:
+        for group_no in range(groups):
+            start = time.perf_counter()
+            results = list(pool.map(lambda _: _call(verify, rule), range(group_size)))
+            wall_time_s = time.perf_counter() - start
+
+            verdicts = [v for v, _ in results if v is not None]
+            report["errors"] += group_size - len(verdicts)
+            if not verdicts:
+                raise RuntimeError(f"{label} group {group_no + 1}: every call failed")
+
+            ranked = Counter(verdicts).most_common()
+            tie = len(ranked) > 1 and ranked[0][1] == ranked[1][1]
+            majority = None if tie else ranked[0][0]
+            report["ties"] += tie
+            if majority:
+                majorities.append(majority)
+            call_verdicts.extend(verdicts)
+
+            report["decisions"].append(
+                {"majority": majority, "wall_time_s": wall_time_s, "runs": [r for _, r in results]}
+            )
+            print(f"{label} group {group_no + 1}/{groups}: {majority} ({wall_time_s:.2f} s)")
+
+    report["verdict_counts"] = {v: Counter(majorities)[v] for v in VERDICT_ORDER}
+    report["call_verdict_counts"] = {v: Counter(call_verdicts)[v] for v in VERDICT_ORDER}
     return report

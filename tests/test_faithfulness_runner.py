@@ -1,6 +1,7 @@
+import threading
 from unittest.mock import Mock
 
-from faithfulness_runner import JudgeCallError, check
+from faithfulness_runner import JudgeCallError, check, check_majority
 
 
 def test_check_counts_verdicts_and_stores_records_unchanged():
@@ -22,3 +23,49 @@ def test_check_stores_the_original_error_type():
 
     assert report["errors"] == 1
     assert report["runs"][0] == {"error": {"type": "ValueError", "message": "error"}}
+
+
+WARM_UP = ["supported"]  # Consumed by the warm-up call and never stored.
+
+
+def _scripted(outcomes):
+    lock, it = threading.Lock(), iter(outcomes)
+
+    def verify(rule):
+        with lock:
+            outcome = next(it)
+        if isinstance(outcome, Exception):
+            raise JudgeCallError(str(outcome)) from outcome
+        return outcome, {"verdict": outcome}
+
+    return verify
+
+
+def test_majority_takes_the_most_frequent_verdict():
+    verify = _scripted([*WARM_UP, "supported", "supported", "not_stated"])
+    report = check_majority("A rule.", "LABEL", verify, groups=1, group_size=3)
+    assert report["verdict_counts"]["supported"] == 1
+    assert report["call_verdict_counts"] == {"supported": 2, "contradicted": 0, "not_stated": 1}
+    assert len(report["decisions"][0]["runs"]) == 3
+
+
+def test_majority_records_a_tie_as_no_decision():
+    verify = _scripted([*WARM_UP, "supported", "not_stated"])
+    report = check_majority("A rule.", "LABEL", verify, groups=1, group_size=2)
+    assert report["ties"] == 1
+    assert sum(report["verdict_counts"].values()) == 0
+
+
+def test_majority_ignores_failed_calls():
+    verify = _scripted([*WARM_UP, "supported", ValueError("error"), "supported"])
+    report = check_majority("A rule.", "LABEL", verify, groups=1, group_size=3)
+    assert report["errors"] == 1
+    assert report["verdict_counts"]["supported"] == 1
+
+
+def test_majority_does_not_store_the_warm_up_call():
+    verify = _scripted(["contradicted"] + ["supported"] * 3)
+    report = check_majority("A rule.", "LABEL", verify, groups=1, group_size=3)
+    assert report["warm_up_calls"] == 1
+    assert report["call_verdict_counts"]["contradicted"] == 0
+    assert len(report["decisions"][0]["runs"]) == 3
