@@ -31,3 +31,11 @@ Li, Y., Miao, Y., Krishnan, R., & Padman, R. (2026). *JEV-as-a-judge: Accept whe
 
 ## Addendum 2026-10-17T19:09+02:00, after seeing the k=100 results
 B supported RESTRICTION-FORM in 96/100 runs, against 994/1,000 in post 6. Between both experiments, the verdict definitions were unified and the calls were routed through OpenRouter. I extend B to k=1,000 on RESTRICTION-FORM only, to estimate its accuracy with the same precision as in post 6. This extension was not preregistered.
+
+## Addendum 2026-10-17T20:56+02:00, configuration D with OpenAI's Decisions API
+D: GPT-6 Luna through OpenAI's Decisions API (openai/gpt-6-luna-decisions), one call per decision, same input as the LLM. k=100 per statement, through OpenRouter.
+
+Predictions:
+- Accuracy: comparable to Jev, meaning at least 95/100 on RESTRICTION-FORM and within 5 percentage points of Jev on every statement.
+- Latency: median above Jev's, which I attribute (as an assumption) to OpenRouter converting the request to OpenAI's format.
+- Cost: about 2.4 times Jev's per decision, from the listed prices ($0.10 vs $0.042 per million input tokens), if both receive a similar number of tokens.
