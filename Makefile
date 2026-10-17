@@ -104,3 +104,4 @@ exp-generative-vs-decision:
 	uv run python scripts/run_generative_vs_decision.py -k 100 --configs A A-prime B
 	uv run python scripts/run_generative_vs_decision.py -k 1000 --configs B --statements RESTRICTION-FORM
 	uv run python scripts/run_generative_vs_decision.py -k 100 --configs C
+	uv run python scripts/run_generative_vs_decision.py -k 100 --configs D
