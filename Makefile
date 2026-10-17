@@ -99,3 +99,6 @@ plot-thread-verdicts-judge-cot:
 	$(PLOT).plot_thread_verdicts_judge_cot_latency
 	$(PLOT).plot_thread_verdicts_judge_cot_latency_per_call
 	$(PLOT).plot_thread_verdicts_judge_cot_latency_tail
+
+exp-generative-vs-decision:
+	uv run python scripts/run_generative_vs_decision.py -k 100 --configs A A-prime B
