@@ -27,3 +27,7 @@ Accuracy per statement with 95% Wilson intervals; cost per decision from the `co
 
 ## References
 Li, Y., Miao, Y., Krishnan, R., & Padman, R. (2026). *JEV-as-a-judge: Accept when confident, escalate when unsure* \[Preprint\]. arXiv. https://arxiv.org/abs/2609.26550
+
+
+## Addendum 2026-10-17T19:09+02:00, after seeing the k=100 results
+B supported RESTRICTION-FORM in 96/100 runs, against 994/1,000 in post 6. Between both experiments, the verdict definitions were unified and the calls were routed through OpenRouter. I extend B to k=1,000 on RESTRICTION-FORM only, to estimate its accuracy with the same precision as in post 6. This extension was not preregistered.
