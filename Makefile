@@ -107,4 +107,4 @@ exp-generative-vs-decision:
 	uv run python scripts/run_generative_vs_decision.py -k 100 --configs D
 
 exp-generative-vs-decision-hint-vs-no-hint:
-	uv run python scripts/run_generative_vs_decision.py -k 100 --configs A A-no-hint A-prime A-prime-no-hint B B-no-hint C C-no-hint D D-no-hint
+	uv run python scripts/run_generative_vs_decision.py -k 100 --configs A A-no-hint A-prime A-prime-no-hint B B-no-hint C C-no-hint D D-no-hint E E-no-hint
