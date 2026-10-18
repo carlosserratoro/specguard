@@ -15,3 +15,6 @@ The difference is that, now, each configuration will be run with and without the
 ## What would prove me wrong
 - A or A' supports RESTRICTION-FORM without the hint in 50 or more of 100 runs.
 - A configuration with the hint differs by more than 5 percentage points from its result in preregistration/post-07-jev.md.
+
+## Addendum 2026-10-18T19:25+02:00
+I ran out of credits in OpenRouter so some files were errored due to this. I'm relaunching all experiments, keeping the old files in the folder results/faithfulness_llm_vs_jev_hint_vs_no_hint/incomplete.
