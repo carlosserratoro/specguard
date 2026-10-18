@@ -28,6 +28,8 @@ CONFIGS = {
     "B-no-hint": JudgeConfig(model=GENERATIVE_MODEL, scaffolding=True, hint=False),
     "C-no-hint": JudgeConfig(model=GENERATIVE_MODEL, scaffolding=True, hint=False),
     "D-no-hint": DecisionConfig(model=DECISION_MODEL_LUNA, input_style="same-as-llm", hint=False),
+    "E": DecisionConfig(model=DECISION_MODEL_LUNA, input_style="jev"),
+    "E-no-hint": DecisionConfig(model=DECISION_MODEL_LUNA, input_style="jev", hint=False),
 }
 GROUP_SIZE = 10
 
