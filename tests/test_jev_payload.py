@@ -7,9 +7,9 @@ from specguard.domain.definitions import (
 from specguard.domain.spec import BusinessRule, Severity
 from specguard.domain.thread import ConversationalThread, ThreadMessage
 from specguard.service_layer.metrics import (
-    FAITHFULNESS_SYSTEM_PROMPT,
     FAITHFULNESS_TASK,
     build_faithfulness_user_message,
+    faithfulness_system_prompt,
 )
 
 THREAD = ConversationalThread(
@@ -35,11 +35,11 @@ def test_same_as_llm_style_sends_exactly_what_the_llm_receives():
     assert payload["state"] == build_faithfulness_user_message(RULE, THREAD)
     question = _question(payload)
     assert question["type"] == "choice"
-    assert question["instructions"] == FAITHFULNESS_SYSTEM_PROMPT
+    assert question["instructions"] == faithfulness_system_prompt()
     assert question["criteria"] == VERDICT_DEFINITIONS
 
 
-def test_jev_style_sends_the_same_content_with_structure():
+def test_jev_style_sends_the_same_content_with_structure_using_hint():
     payload = build_payload(RULE, THREAD, DecisionConfig(input_style="jev"))
 
     assert payload["state"] == {"thread": THREAD.model_dump(), "rule": RULE.statement}
@@ -47,6 +47,17 @@ def test_jev_style_sends_the_same_content_with_structure():
     assert question["type"] == "choice"
     assert question["instructions"]["task"] == FAITHFULNESS_TASK
     assert EQUIVALENCE_HINT in question["instructions"]["note"]
+    assert question["criteria"] == VERDICT_CRITERIA_JEV
+
+
+def test_jev_style_sends_the_same_content_with_structure_without_hint():
+    payload = build_payload(RULE, THREAD, DecisionConfig(input_style="jev", hint=False))
+
+    assert payload["state"] == {"thread": THREAD.model_dump(), "rule": RULE.statement}
+    question = _question(payload)
+    assert question["type"] == "choice"
+    assert question["instructions"]["task"] == FAITHFULNESS_TASK
+    assert "note" not in question["instructions"]
     assert question["criteria"] == VERDICT_CRITERIA_JEV
 
 

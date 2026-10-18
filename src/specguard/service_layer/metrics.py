@@ -107,7 +107,7 @@ def verify_rule_against_thread(
         model=call.model,
         response_model=response_model,
         messages=[
-            {"role": "system", "content": FAITHFULNESS_SYSTEM_PROMPT},
+            {"role": "system", "content": faithfulness_system_prompt(judge_config.hint)},
             {
                 "role": "user",
                 "content": build_faithfulness_user_message(rule, thread),

@@ -29,6 +29,7 @@ class JudgeConfig:
     temperature: float = DEFAULT_JUDGE_TEMPERATURE
     reasoning_effort: str | None = None
     scaffolding: bool = False
+    hint: bool = True
 
     @property
     def applied_temperature(self) -> float | None:
@@ -42,7 +43,8 @@ class JudgeConfig:
     def label(self) -> str:
         """Short identifier for filenames, e.g. effort-none."""
         effort = self.reasoning_effort or "none"
-        return f"effort-{effort}_scaffold-{'on' if self.scaffolding else 'off'}"
+        hint = "_hint-off" if not self.hint else ""
+        return f"effort-{effort}_scaffold-{'on' if self.scaffolding else 'off'}{hint}"
 
     def to_record(self) -> dict:
         """Configuration as stored in the report.

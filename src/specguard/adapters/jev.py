@@ -11,9 +11,9 @@ from specguard.domain.definitions import EQUIVALENCE_HINT, VERDICT_CRITERIA_JEV,
 from specguard.domain.spec import BusinessRule
 from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.metrics import (
-    FAITHFULNESS_SYSTEM_PROMPT,
     FAITHFULNESS_TASK,
     build_faithfulness_user_message,
+    faithfulness_system_prompt,
 )
 
 load_dotenv()
@@ -30,6 +30,7 @@ class DecisionConfig:
     # "same-as-llm" sends exactly what the LLM receives;
     # "jev" sends the same content, structured as TypeSafe's documentation sugggests.
     input_style: Literal["same-as-llm", "jev"] = "same-as-llm"
+    hint: bool = True
 
     def label(self) -> str:
         """Short identifier for filenames."""
@@ -56,14 +57,13 @@ def build_payload(rule: BusinessRule, thread: ConversationalThread, config: Deci
     """Build a payload following the usual LLM format or Jev's recommended format."""
     if config.input_style == "same-as-llm":
         state: str | dict = build_faithfulness_user_message(rule, thread)
-        instructions: str | dict = FAITHFULNESS_SYSTEM_PROMPT
+        instructions: str | dict = faithfulness_system_prompt(config.hint)
         criteria: dict = VERDICT_DEFINITIONS
     else:  # if config.input_style == 'jev':
         state = {"thread": thread.model_dump(), "rule": rule.statement}
-        instructions = {
-            "task": FAITHFULNESS_TASK,
-            "note": f"{EQUIVALENCE_HINT}. Treat them as supported.",
-        }
+        instructions = {"task": FAITHFULNESS_TASK}
+        if config.hint:
+            instructions["note"] = f"{EQUIVALENCE_HINT}. Treat them as supported."
         criteria = VERDICT_CRITERIA_JEV
     return {
         "model": config.model,
