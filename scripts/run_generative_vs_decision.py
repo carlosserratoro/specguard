@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 
 from faithfulness_runner import THRESHOLD_STATEMENTS, check, check_majority
-from paths import EXAMPLES_DIR, RESULTS_DIR, RESULTS_LLM_VS_JEV_DIR
+from paths import EXAMPLES_DIR, RESULTS_DIR, RESULTS_LLM_VS_JEV_HINT_VS_NO_HINT_DIR
 from verifiers import make_decision_verifier, make_generative_verifier
 
 from specguard.adapters.jev import DecisionConfig
@@ -23,6 +23,11 @@ CONFIGS = {
     "B": JudgeConfig(model=GENERATIVE_MODEL, scaffolding=True),
     "C": JudgeConfig(model=GENERATIVE_MODEL, scaffolding=True),
     "D": DecisionConfig(model=DECISION_MODEL_LUNA, input_style="same-as-llm"),
+    "A-no-hint": DecisionConfig(model=DECISION_MODEL_JEV, input_style="same-as-llm", hint=False),
+    "A-prime-no-hint": DecisionConfig(model=DECISION_MODEL_JEV, input_style="jev", hint=False),
+    "B-no-hint": JudgeConfig(model=GENERATIVE_MODEL, scaffolding=True, hint=False),
+    "C-no-hint": JudgeConfig(model=GENERATIVE_MODEL, scaffolding=True, hint=False),
+    "D-no-hint": DecisionConfig(model=DECISION_MODEL_LUNA, input_style="same-as-llm", hint=False),
 }
 GROUP_SIZE = 10
 
@@ -50,18 +55,18 @@ for name in args.configs:
 
     for label in args.statements:
         statement = THRESHOLD_STATEMENTS[label]
-        if name == "C":
+        if name in ("C", "C-no-hint"):
             report = check_majority(
                 statement, label, verify, groups=args.reps, group_size=GROUP_SIZE
             )
             case_id = f"t01_discounts_{label}_groups{args.reps}x{GROUP_SIZE}"
         else:
             report = check(statement, label, verify, k=args.reps)
-            case_id = f"t01_discounts_{label}_k{args.reps}"
+            case_id = f"t01_discounts_{label}_{name}_k{args.reps}"
         save_report(
             report,
             config,
             results_dir=RESULTS_DIR,
-            experiment=RESULTS_LLM_VS_JEV_DIR.name,
+            experiment=RESULTS_LLM_VS_JEV_HINT_VS_NO_HINT_DIR.name,
             case_id=case_id,
         )
