@@ -73,14 +73,20 @@ FAITHFULNESS_TASK = (
     "MEANING, not wording."
 )
 
-FAITHFULNESS_SYSTEM_PROMPT = (
-    f"{FAITHFULNESS_TASK}\n"
-    f"Important: {EQUIVALENCE_HINT}. Treat them as supported.\n"
-    f"Return 'supported' only if {VERDICT_DEFINITIONS['supported']}. "
-    f"Return 'contradicted' if {VERDICT_DEFINITIONS['contradicted']}. "
-    f"Return 'not_stated' if {VERDICT_DEFINITIONS['not_stated']}.\n"
-    "Cite the message refs that support your verdict."
-)
+
+def faithfulness_system_prompt(hint: bool = True) -> str:
+    hint_line = f"Important: {EQUIVALENCE_HINT}. Treat them as supported.\n" if hint else ""
+    return (
+        f"{FAITHFULNESS_TASK}\n"
+        f"{hint_line}"
+        f"Return 'supported' only if {VERDICT_DEFINITIONS['supported']}. "
+        f"Return 'contradicted' if {VERDICT_DEFINITIONS['contradicted']}. "
+        f"Return 'not_stated' if {VERDICT_DEFINITIONS['not_stated']}.\n"
+        "Cite the message refs that support your verdict."
+    )
+
+
+FAITHFULNESS_SYSTEM_PROMPT = faithfulness_system_prompt(hint=True)
 
 
 def build_faithfulness_user_message(rule: BusinessRule, thread: ConversationalThread) -> str:
