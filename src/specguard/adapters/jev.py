@@ -34,7 +34,8 @@ class DecisionConfig:
 
     def label(self) -> str:
         """Short identifier for filenames."""
-        return f"{self.model.split('/')[-1]}_input-{self.input_style}"
+        hint = "_hint-off" if not self.hint else ""
+        return f"{self.model.split('/')[-1]}_input-{self.input_style}{hint}"
 
     def to_record(self) -> dict:
         """Configuration as stored in the report."""
