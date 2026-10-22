@@ -72,7 +72,8 @@ def main() -> None:
     fig.subplots_adjust(left=0.3, right=0.97, top=0.88, bottom=0.12)
     add_footer(
         fig,
-        "SpecGuard · 300 decisions per row · without the hint · Luna, TypeSafe-style input: separate run",
+        "SpecGuard · 300 decisions per row · without the hint · "
+        "Luna, TypeSafe-style input: separate run",
     )
     save(fig, "latency", DEFAULT_OUTPUT_DIR)
 

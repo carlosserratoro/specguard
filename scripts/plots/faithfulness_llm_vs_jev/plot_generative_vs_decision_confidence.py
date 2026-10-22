@@ -84,7 +84,11 @@ def main() -> None:
     fig.legend(
         handles=legend, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, 0.04)
     )
-    fig.suptitle("Without the hint, the probability of the right answer dropped on the hard case", fontsize=20, y=0.97)
+    fig.suptitle(
+        "Without the hint, the probability of the right answer dropped on the hard case",
+        fontsize=20,
+        y=0.97,
+    )
     fig.subplots_adjust(left=0.1, right=0.97, top=0.86, bottom=0.22, wspace=0.12)
     add_footer(fig, "SpecGuard · 100 calls per group · line at 0.5")
     save(fig, "confidence", DEFAULT_OUTPUT_DIR)
