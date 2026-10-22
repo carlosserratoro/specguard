@@ -60,13 +60,15 @@ PLOT_RECALL_PRECISION_JSON = results/recall-precision/t01_discounts_k20_effort-n
 .PHONY: plots plot-recall-precision plot-missed-by-rule plot-br2-framing \
         plot-thread-verdicts plot-thread-verdicts-judge-effort \
         plot-thread-verdicts-judge-reasoning-tokens \
-        plot-thread-verdicts-judge-cost-and-latency
+        plot-thread-verdicts-judge-cost-and-latency \
+		plot-generative-vs-decision
 
 plots: plot-recall-precision plot-missed-by-rule plot-br2-framing \
        plot-thread-verdicts plot-thread-verdicts-judge-effort \
        plot-thread-verdicts-judge-reasoning-tokens \
        plot-thread-verdicts-judge-cost-and-latency \
-	   plot-thread-verdicts_judge-cot
+	   plot-thread-verdicts-judge-cot \
+	   plot-generative-vs-decision
 
 plot-recall-precision:
 	$(PLOT).plot_recall_precision $(PLOT_RECALL_PRECISION_JSON)
@@ -99,3 +101,23 @@ plot-thread-verdicts-judge-cot:
 	$(PLOT).plot_thread_verdicts_judge_cot_latency
 	$(PLOT).plot_thread_verdicts_judge_cot_latency_per_call
 	$(PLOT).plot_thread_verdicts_judge_cot_latency_tail
+
+exp-generative-vs-decision:
+	uv run python scripts/run_generative_vs_decision.py -k 100 --configs A A-prime B
+	uv run python scripts/run_generative_vs_decision.py -k 1000 --configs B --statements RESTRICTION-FORM
+	uv run python scripts/run_generative_vs_decision.py -k 100 --configs C
+	uv run python scripts/run_generative_vs_decision.py -k 100 --configs D
+
+exp-generative-vs-decision-hint-vs-no-hint:
+	uv run python scripts/run_generative_vs_decision.py -k 100 --configs A A-no-hint A-prime A-prime-no-hint B B-no-hint C C-no-hint D D-no-hint E E-no-hint
+
+PLOT_P07 = $(PLOT).faithfulness_llm_vs_jev
+
+plot-generative-vs-decision:
+	$(PLOT_P07).summarise_generative_vs_decision
+	$(PLOT_P07).plot_generative_vs_decision_hint_effect
+	$(PLOT_P07).plot_generative_vs_decision_probabilities
+	$(PLOT_P07).plot_generative_vs_decision_confidence
+	$(PLOT_P07).plot_generative_vs_decision_cost
+	$(PLOT_P07).plot_generative_vs_decision_latency
+	$(PLOT_P07).plot_generative_vs_decision_cover

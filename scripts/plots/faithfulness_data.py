@@ -137,7 +137,7 @@ def add_footer(fig: plt.Figure, text: str) -> None:
 
 def save(fig: plt.Figure, name: str, directory: Path = DEFAULT_OUTPUT_DIR) -> Path:
     directory.mkdir(parents=True, exist_ok=True)
-    out = DEFAULT_OUTPUT_DIR / f"{name}.png"
+    out = directory / f"{name}.png"
     fig.savefig(out, dpi=DEFAULT_DPI)
     plt.close(fig)
     print(f"saved {out}")

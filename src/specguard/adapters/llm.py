@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 import os
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from functools import cache
 from typing import Any
 
@@ -29,6 +29,7 @@ class JudgeConfig:
     temperature: float = DEFAULT_JUDGE_TEMPERATURE
     reasoning_effort: str | None = None
     scaffolding: bool = False
+    hint: bool = True
 
     @property
     def applied_temperature(self) -> float | None:
@@ -42,7 +43,16 @@ class JudgeConfig:
     def label(self) -> str:
         """Short identifier for filenames, e.g. effort-none."""
         effort = self.reasoning_effort or "none"
-        return f"effort-{effort}_scaffold-{'on' if self.scaffolding else 'off'}"
+        hint = "_hint-off" if not self.hint else ""
+        return f"effort-{effort}_scaffold-{'on' if self.scaffolding else 'off'}{hint}"
+
+    def to_record(self) -> dict:
+        """Configuration as stored in the report.
+
+        "temperature" keeps the configured value; but "applied_temperature" is
+        what the code actually sent (in reasoning runs, there is not temperature).
+        """
+        return {**asdict(self), "applied_temperature": self.applied_temperature}
 
 
 @dataclass(frozen=True)
@@ -75,10 +85,24 @@ class CallMetrics(BaseModel):
     completion_tokens: int | None = None
     reasoning_tokens: int | None = None
     field_order: list[str] | None = None
+    cost: float | None = None  # by OpenRouter
+    provider: str | None = None  # by OpenRouter
+    service_tier: str | None = None  # by OpenRouter
 
     @classmethod
     def from_completion(cls, completion: Any, latency_s: float) -> CallMetrics:
         """Attempt to build metrics from a provider's completion."""
+
+        def _str_or_none(value: Any) -> str | None:
+            return value if isinstance(value, str) else None
+
+        def _number_or_none(value: Any) -> float | None:
+            return (
+                float(value)
+                if isinstance(value, (int, float)) and not isinstance(value, bool)
+                else None
+            )
+
         usage = getattr(completion, "usage", None)
         provider_ms = getattr(completion, "_response_ms", None)
         out_details = getattr(usage, "completion_tokens_details", None) or getattr(
@@ -97,6 +121,9 @@ class CallMetrics(BaseModel):
             or getattr(usage, "output_tokens", None),
             reasoning_tokens=getattr(out_details, "reasoning_tokens", None),
             field_order=_field_order(completion),
+            cost=_number_or_none(getattr(usage, "cost", None)),
+            provider=_str_or_none(getattr(completion, "provider", None)),
+            service_tier=_str_or_none(getattr(completion, "service_tier", None)),
         )
 
 

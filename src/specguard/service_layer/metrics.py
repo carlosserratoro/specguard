@@ -10,6 +10,7 @@ from specguard.adapters.llm import (
     JudgeConfig,
     build_call,
 )
+from specguard.domain.definitions import EQUIVALENCE_HINT, VERDICT_DEFINITIONS
 from specguard.domain.spec import BusinessRule, Severity
 from specguard.domain.thread import ConversationalThread
 
@@ -23,9 +24,9 @@ SEVERITY_WEIGHT = {
 class SupportVerdict(BaseModel):
     verdict: Literal["supported", "contradicted", "not_stated"] = Field(
         description=(
-            "'supported' if the thread states this rule (even if worded differently); "
-            "'contradicted' if the thread states something incompatible with it; "
-            "'not_stated' if the thread does not mention it."
+            f"'supported' if {VERDICT_DEFINITIONS['supported']}; "
+            f"'contradicted' if {VERDICT_DEFINITIONS['contradicted']}; "
+            f"'not_stated' if {VERDICT_DEFINITIONS['not_stated']}."
         )
     )
     supporting_refs: list[str] = Field(
@@ -51,9 +52,9 @@ class ScaffoldedSupportVerdict(BaseModel):
     verdict: Literal["supported", "contradicted", "not_stated"] = Field(
         description=(
             "Decide the verdict based on the threshold_analysis above. "
-            "'supported' if the thread states this rule (even if worded differently); "
-            "'contradicted' if the thread states something incompatible with it; "
-            "'not_stated' if the thread does not mention it."
+            f"'supported' if {VERDICT_DEFINITIONS['supported']}; "
+            f"'contradicted' if {VERDICT_DEFINITIONS['contradicted']}; "
+            f"'not_stated' if {VERDICT_DEFINITIONS['not_stated']}."
         )
     )
     supporting_refs: list[str] = Field(
@@ -63,25 +64,40 @@ class ScaffoldedSupportVerdict(BaseModel):
     reasoning: str = Field(description="One concise sentence justifying the verdict.")
 
 
-FAITHFULNESS_SYSTEM_PROMPT = (
+JudgeVerdict = SupportVerdict | ScaffoldedSupportVerdict
+
+
+FAITHFULNESS_TASK = (
     "You verify whether a business rule is actually stated in a conversation thread.\n"
     "The rule may be worded very differently from the thread, and that is fine: judge "
-    "MEANING, not wording.\n"
-    "Important: a rule expressed as a permission and a rule expressed as the equivalent "
-    "restriction are the SAME rule (e.g. 'allowed up to 20%' and 'requires approval above "
-    "20%' both express the same threshold). Treat them as supported.\n"
-    "Return 'supported' only if the thread actually states or directly implies the rule. "
-    "Return 'contradicted' if the thread states something incompatible. "
-    "Return 'not_stated' if the thread is silent about it.\n"
-    "Cite the message refs that support your verdict."
+    "MEANING, not wording."
 )
+
+
+def faithfulness_system_prompt(hint: bool = True) -> str:
+    hint_line = f"Important: {EQUIVALENCE_HINT}. Treat them as supported.\n" if hint else ""
+    return (
+        f"{FAITHFULNESS_TASK}\n"
+        f"{hint_line}"
+        f"Return 'supported' only if {VERDICT_DEFINITIONS['supported']}. "
+        f"Return 'contradicted' if {VERDICT_DEFINITIONS['contradicted']}. "
+        f"Return 'not_stated' if {VERDICT_DEFINITIONS['not_stated']}.\n"
+        "Cite the message refs that support your verdict."
+    )
+
+
+FAITHFULNESS_SYSTEM_PROMPT = faithfulness_system_prompt(hint=True)
+
+
+def build_faithfulness_user_message(rule: BusinessRule, thread: ConversationalThread) -> str:
+    return f"Conversation thread:\n{thread.to_prompt()}\n\nRule to verify: {rule.statement}"
 
 
 def verify_rule_against_thread(
     rule: BusinessRule,
     thread: ConversationalThread,
     judge_config: JudgeConfig | None = None,
-) -> tuple[SupportVerdict, CallMetrics]:
+) -> tuple[JudgeVerdict, CallMetrics]:
     judge_config = judge_config or JudgeConfig()
     call = build_call(judge_config.model, judge_config.temperature, judge_config.reasoning_effort)
     response_model = ScaffoldedSupportVerdict if judge_config.scaffolding else SupportVerdict
@@ -91,13 +107,10 @@ def verify_rule_against_thread(
         model=call.model,
         response_model=response_model,
         messages=[
-            {"role": "system", "content": FAITHFULNESS_SYSTEM_PROMPT},
+            {"role": "system", "content": faithfulness_system_prompt(judge_config.hint)},
             {
                 "role": "user",
-                "content": (
-                    f"Conversation thread:\n{thread.to_prompt()}\n\n"
-                    f"Rule to verify: {rule.statement}"
-                ),
+                "content": build_faithfulness_user_message(rule, thread),
             },
         ],
         **call.kwargs,

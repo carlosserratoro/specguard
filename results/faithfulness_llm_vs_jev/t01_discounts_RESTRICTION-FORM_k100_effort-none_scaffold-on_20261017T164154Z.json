@@ -1,0 +1,2872 @@
+{
+  "judge_config": {
+    "model": "openrouter/openai/gpt-5.4-mini",
+    "temperature": 0.0,
+    "reasoning_effort": null,
+    "scaffolding": true,
+    "applied_temperature": 0.0
+  },
+  "code_version": {
+    "commit": "241b0039d1cdb774a22b4601b9e4ae62548fccc3",
+    "dirty": false
+  },
+  "label": "RESTRICTION-FORM",
+  "statement": "When a discount exceeds 20% for a premium customer, the system shall require approval before confirming.",
+  "k": 100,
+  "verdict_counts": {
+    "supported": 96,
+    "contradicted": 0,
+    "not_stated": 4
+  },
+  "errors": 0,
+  "runs": [
+    {
+      "verdict": {
+        "threshold_analysis": "The thread discusses a discount threshold for premium customers, stating 'Premium 20%' and that premium customers can go up to 20% without approval, which implies approval is needed above 20%.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation directly sets premium customers at 20% without approval, which means discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.249776552000185,
+        "provider_latency_s": 2.248032,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 108,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00099975,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread distinguishes premium customers with an approval-free discount cap of 20% (\"Premium 20%\"), which implies that above 20% approval is required; below or at 20% it is not required.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Cal explicitly sets premium customers at 20% without approval, directly implying that discounts exceeding 20% for premium customers need approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.638410178000413,
+        "provider_latency_s": 1.636698,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 116,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00103575,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: Amy says 'premium customers up to 20% without approval' and Cal repeats 'Premium 20%'. A rule about requiring approval when discount exceeds 20% matches the implied converse of that threshold, while anything at or below 20% would not require approval.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly states premium customers may discount up to 20% without approval, which directly implies approval is required above 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.63823956700071,
+        "provider_latency_s": 1.6362,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 137,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00113025,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20% for approval-free discounts, which implies discounts above 20% fall outside that allowance and therefore need approval; below or at 20% they do not need approval for premium customers.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Cal explicitly states 'Premium 20%' and Amy notes premium customers can go up to 20% without approval, which directly implies discounts over 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.8427963789999922,
+        "provider_latency_s": 1.841138,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 130,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00109875,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: Amy says premium customers can go up to 20% without approval, while Cal says premium 20% and everyone else 15%, implying approval is needed only above those limits; the rule specifically asks about exceeding 20%, which is beyond the allowed premium threshold.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation directly states premium customers may discount up to 20% without approval, so any discount exceeding 20% for a premium customer requires approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.843574897999133,
+        "provider_latency_s": 1.841744,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 141,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00114825,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a special threshold for premium customers at 20%, saying 'Premium 20%, everyone else 15%'. That implies discounts up to 20% for premium customers do not need approval, while anything above 20% would exceed the no-approval threshold and thus require approval. There is no conflicting statement about premium customers above 20%.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly states premium customers are allowed up to 20% without approval, which directly implies discounts over 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.6384413779996976,
+        "provider_latency_s": 1.636719,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 144,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00116175,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer discount threshold at 20%: premium customers may get up to 20% without approval, which implies anything above 20% requires approval; below or at 20% does not.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy-03 and Cal-04 state that premium customers can go up to 20% without approval, directly implying discounts exceeding 20% need approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.641129274999912,
+        "provider_latency_s": 1.639266,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 122,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00106275,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: Cal says 'Premium 20%'. This implies discounts up to and including 20% for premium customers do not need approval, while amounts above 20% do require approval.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-01",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "Cal explicitly states premium customers may have 20% without approval, and Amy says discounts over that threshold require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.8404591730013635,
+        "provider_latency_s": 1.838386,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 125,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00107625,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold at 20%: Amy says 'premium customers up to 20% without approval,' and Cal says 'Premium 20%'; this implies approval is required above 20% for premium customers.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation directly states that premium customers may discount up to 20% without approval, which means discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.6384345529986604,
+        "provider_latency_s": 1.636571,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 121,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00105825,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold at 20%: premium customers may go up to 20% without approval, so anything above 20% would require approval; below or at 20% does not require approval for premium customers on discount amount alone.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation states that premium customers can get up to 20% without approval, which directly implies discounts exceeding 20% need approval before confirming."
+      },
+      "call_metrics": {
+        "latency_s": 1.6384866449989204,
+        "provider_latency_s": 1.63673,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 126,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00108075,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread distinguishes premium-customer discounts up to 20% without approval and says large discounts require approval before confirming; that implies the threshold is at or below 20% for premium customers, with above 20% requiring approval.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "Premium customers are allowed up to 20% without approval, and approval is required before confirmation for discounts above that threshold."
+      },
+      "call_metrics": {
+        "latency_s": 1.8429789190013253,
+        "provider_latency_s": 1.84129,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 121,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00105825,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold at 20% approval-free discount, which implies that above 20% approval is required; below or at 20% no approval is needed for premium customers.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy and Cal state that premium customers may get up to 20% without approval, which directly implies discounts over 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.047801774000618,
+        "provider_latency_s": 2.045965,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 118,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00104475,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets two relevant thresholds: premium customers may go up to 20% without approval, and anything over 15% applies to everyone else; it also says orders over \u20ac10,000 always need approval regardless of discount. A rule requiring approval when a premium customer's discount exceeds 20% would mean no approval at or below 20% and approval above 20%, but the thread only states the opposite cutoff for premium customers (up to 20% without approval), not the >20% case explicitly.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Saying premium customers can have up to 20% without approval directly implies approval is required above 20% for premium customers."
+      },
+      "call_metrics": {
+        "latency_s": 2.048321902999305,
+        "provider_latency_s": 2.045369,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 172,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00128775,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets the premium-customer threshold at 20% with no approval up to that point, and says amounts above 20% require approval; below 20% for premium customers approval is not required.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy and Cal state that premium customers may go up to 20% without approval, implying discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.6381641580010182,
+        "provider_latency_s": 1.636404,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 114,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00102675,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: Amy says premium customers are allowed up to 20% without approval, so above 20% crosses into approval-required territory; below or at 20% does not require approval for premium customers.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly states premium customers may discount up to 20% without approval, which directly implies discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.848018716000297,
+        "provider_latency_s": 1.846249,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 124,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00107175,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20% without approval; above that threshold, approval is required before confirmation, while at or below it approval is not required.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly says premium customers can go up to 20% without approval and that discounts above that require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.6334984400000394,
+        "provider_latency_s": 1.631645,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 103,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00097725,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold at 20% ('Premium 20%') and says premium customers can go up to 20% without approval, which implies approval is required when the discount is above that threshold; the rule asks for discounts exceeding 20%, which is the above-threshold case.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-03",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The conversation states premium customers may discount up to 20% without approval and that orders cannot be confirmed while discount authorization is pending, so discounts over 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.843884629999593,
+        "provider_latency_s": 1.842053,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 151,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00119325,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold at 20% without approval, which implies approval is required above 20%; below or at 20% it is allowed without approval.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation states premium customers may discount up to 20% without approval, which directly implies discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.8449642510004196,
+        "provider_latency_s": 1.842793,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 108,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00099975,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold at 20%: premium customers may get up to 20% without approval, so approval is required only above 20% for premium customers.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation directly states that premium customers can have up to 20% without approval, which implies discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.6361491110001225,
+        "provider_latency_s": 1.63437,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 111,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00101325,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer discount threshold at 20% and says premium customers may go up to 20% without approval; anything above that exceeds the threshold and would therefore need approval before confirmation.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The conversation states premium customers are allowed up to 20% without approval, and orders with pending approval cannot be confirmed."
+      },
+      "call_metrics": {
+        "latency_s": 1.5361449219999486,
+        "provider_latency_s": 1.534491,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 117,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00104025,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20%: Amy says 'premium customers up to 20% without approval,' which implies approval is needed above 20%; below or at 20% no approval is needed, above 20% approval is required.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03"
+        ],
+        "reasoning": "Amy explicitly states premium customers may go up to 20% without approval, directly implying that discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.150130103000265,
+        "provider_latency_s": 2.148441,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 121,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00105825,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer discount threshold at 20% without approval: Cal says 'Premium 20%' after Amy clarifies 'More than 15%' and notes Cal's correction; this implies above 20% would require approval, while at or below 20% for premium customers would not. However, the thread does not explicitly state what happens when a premium customer's discount exceeds 20%, only the threshold and the no-approval level.",
+        "verdict": "not_stated",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation establishes a 20% no-approval threshold for premium customers, but it does not explicitly say that discounts above 20% for premium customers require approval."
+      },
+      "call_metrics": {
+        "latency_s": 2.354657068999586,
+        "provider_latency_s": 2.352905,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 169,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00127425,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: Amy says 'premium customers up to 20% without approval,' which implies approval is required above 20% for premium customers.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly states premium customers may discount up to 20% without approval, which directly implies discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.7117224689991417,
+        "provider_latency_s": 1.709605,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 111,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00101325,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread distinguishes premium customers from everyone else and sets a premium threshold at 20%: Amy says 'premium customers up to 20% without approval,' and Cal says 'Premium 20%,' which implies approval is required only above 20% for premium customers.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly states premium customers may go up to 20% without approval, so exceeding 20% requires approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.9757157450003433,
+        "provider_latency_s": 1.973971,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 123,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00106725,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20% without approval, so above 20% implies approval is required; below or at 20% is allowed without approval for premium customers.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy and Cal explicitly state premium customers can go up to 20% without approval, which directly implies discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.1494589030007774,
+        "provider_latency_s": 2.147655,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 112,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00101775,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: Cal says 'Premium 20%, everyone else 15%', which implies premium discounts up to 20% do not need approval and anything above 20% does; there is also a separate \u20ac10,000 approval rule, but that is independent.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation directly states premium customers may discount up to 20% without approval, so exceeding 20% requires approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.790621407000799,
+        "provider_latency_s": 1.788821,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 132,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00110775,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20% without approval; above that threshold would require approval, while at or below 20% would not. The rule asks specifically about discounts exceeding 20% for premium customers, which matches the implied approval requirement above the threshold.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The conversation explicitly states premium customers can go up to 20% without approval and that discounts over that limit need approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.948220524000135,
+        "provider_latency_s": 1.946478,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 133,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00111225,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20%: Amy says 'Cal said premium customers up to 20% without approval,' which implies approval is needed above 20%; nothing says a premium discount at or below 20% needs approval.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03"
+        ],
+        "reasoning": "Amy-03 directly states premium customers may get up to 20% without approval, which implies discounts exceeding 20% for premium customers require approval before confirming."
+      },
+      "call_metrics": {
+        "latency_s": 1.7503534660008881,
+        "provider_latency_s": 1.748251,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 122,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00106275,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a special approval threshold for premium customers at 20%: Amy notes 'premium customers up to 20% without approval,' and Cal states 'Premium 20%.' That implies approval is required only above 20% for premium customers, not at or below 20%.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation directly states that premium customers can go up to 20% without approval, which implies discounts exceeding 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 3.317474665998816,
+        "provider_latency_s": 3.315681,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 134,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00111675,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: Amy says 'Premium 20%' and Cal clarifies premium customers can go up to 20% without approval, which implies approval is required above 20%; the rule asks specifically about discounts exceeding 20%, which falls on the 'above the threshold' side.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly states premium customers may discount up to 20% without approval, which directly implies approval is required when the discount exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.843100066000261,
+        "provider_latency_s": 1.841308,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 139,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00113925,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20% without approval; anything above that would therefore require approval before confirming. If the discount is at or below 20%, approval is not required by this rule.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "Cal and Amy explicitly state premium customers can go up to 20% without approval and that orders cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.6386760200002755,
+        "provider_latency_s": 1.637041,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 121,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00105825,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer discount threshold at 20%: Cal says 'Premium 20%, everyone else 15%,' and Amy says large discounts require approval before confirming; this implies that above 20% for premium customers is beyond the no-approval limit. Below or at 20% for premium customers, approval is not required per the stated allowance.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The conversation directly states premium customers may go up to 20% without approval and that confirmation is blocked while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 2.2529935630009277,
+        "provider_latency_s": 2.2514,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 150,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00118875,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20%: Amy says 'premium customers up to 20% without approval,' and Cal repeats 'Premium 20%'; this implies approval is needed only above 20% for premium customers, while 20% or below does not require approval.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly states premium customers can go up to 20% without approval, which directly implies discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.9457163400002173,
+        "provider_latency_s": 1.943472,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 132,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00110775,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: Amy says 'premium customers up to 20% without approval,' and Cal reiterates 'Premium 20%...'. That implies approval is required above 20% for premium customers, while 20% or below does not require approval.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly states premium customers may get up to 20% without approval, which directly implies discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.9449455730009504,
+        "provider_latency_s": 1.942787,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 133,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00111225,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold at 20%: Cal says 'Premium 20%, everyone else 15%.' This implies that for premium customers, approval is not required up to 20% but would be required above 20% if the rule is framed as a threshold; the thread does not explicitly say 'exceeds 20%' but directly supports the same threshold logic.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-03"
+        ],
+        "reasoning": "The conversation states premium customers are allowed 20% without approval, which directly implies discounts above 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.3540094679992762,
+        "provider_latency_s": 2.352234,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 149,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00118425,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20% without approval: Cal says 'Premium 20%,' and Amy says 'More than 15%. Wait. Cal said premium customers up to 20% without approval.' This implies approval is required above 20% for premium customers, while at or below 20% it is not required.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly states premium customers may go up to 20% without approval, which directly implies discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.0493155519998254,
+        "provider_latency_s": 2.047515,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 143,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00115725,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread states a premium-customer threshold of 20%: Cal says 'Premium 20%' and Amy says 'more than 15%' then notes Cal said premium customers up to 20% without approval. Above 20% would therefore cross the stated premium limit, while 20% or below would not require approval.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets premium customers at up to 20% without approval, implying approval is required when a premium discount exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.7406090479998966,
+        "provider_latency_s": 1.738828,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 137,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00113025,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold of 20%: premium customers can go up to 20% without approval, so anything above 20% would require approval before confirmation; below or at 20% would not trigger that approval rule.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The conversation states that premium customers may discount up to 20% without approval and that orders cannot be confirmed while approval is pending, which directly implies approval is required when a premium customer's discount exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.7411011349995533,
+        "provider_latency_s": 1.738882,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 144,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00116175,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly states that premium customers may go up to 20% without approval, which implies approval is required above 20%; below or at 20% no approval is needed for premium customers.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation says premium customers are allowed up to 20% without approval, directly implying approval is required when the discount exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 2.5595139030010614,
+        "provider_latency_s": 2.557691,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 111,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00101325,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: Cal says 'Premium 20%, everyone else 15%,' and Amy says 'More than 15%' before correcting with Cal's premium exception; the rule asks specifically about discounts exceeding 20% for premium customers, which is stricter than the stated allowance and is not directly addressed beyond the 20% cap for premium customers.",
+        "verdict": "not_stated",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation states premium customers may go up to 20% without approval, but it does not explicitly say that discounts above 20% for premium customers require approval."
+      },
+      "call_metrics": {
+        "latency_s": 2.253167871000187,
+        "provider_latency_s": 2.251366,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 158,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00122475,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold at 20%: premium customers can go up to 20% without approval, so the implied rule above that threshold is that approval is required; below or at 20% it is not required.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy and Cal state that premium customers may receive discounts up to 20% without approval, which directly implies approval is required when a premium customer's discount exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.8429549270003918,
+        "provider_latency_s": 1.841207,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 127,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00108525,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: premium customers need no approval up to 20%, which implies approval is required above 20%; this matches the rule's 'exceeds 20%' condition.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly states premium customers can go up to 20% without approval, so discounts above 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.048334837998482,
+        "provider_latency_s": 2.046487,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 115,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00103125,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a special threshold for premium customers at 20%: Amy says 'up to 20% without approval' and Cal summarizes 'Premium 20%'; above that threshold would therefore require approval, while at or below it would not.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly states that premium customers may discount up to 20% without approval, which directly implies approval is required when the discount exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.9448551080004108,
+        "provider_latency_s": 1.941975,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 124,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00107175,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a threshold for premium customers at 20%: Amy says 'premium customers up to 20% without approval,' and Cal confirms 'Premium 20%'. This implies that above 20% requires approval, while at or below 20% does not.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation directly states premium customers may go up to 20% without approval, which means discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.7415460880001774,
+        "provider_latency_s": 1.739751,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 127,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00108525,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread distinguishes premium customers from everyone else and sets a higher approval-free allowance for premium customers: Cal says 'Premium 20%, everyone else 15%,' which implies premium discounts up to 20% do not need approval, while amounts above that threshold do. Therefore a discount that exceeds 20% for a premium customer falls into the approval-required side of the threshold.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets premium customers at 20% without approval, implying discounts above 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.0475903549995564,
+        "provider_latency_s": 2.045771,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 142,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00115275,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20% without approval; the rule asks specifically about discounts exceeding 20%, which would be above that threshold and therefore require approval, while 20% or below would not under that statement.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "Cal and Amy state premium customers can get up to 20% without approval and that the order cannot be confirmed while discount authorisation is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.6376278110001294,
+        "provider_latency_s": 1.635873,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 128,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00108975,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20%: Amy says premium customers can go up to 20% without approval, and Cal repeats 'Premium 20%'; this implies above 20% would need approval, while at or below 20% would not. The rule asks specifically for discounts exceeding 20% for premium customers requiring approval before confirming, which matches the implied threshold behavior.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The conversation states premium customers may discount up to 20% without approval and that confirmation is blocked while approval is pending, which directly implies discounts over 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.2526419689984323,
+        "provider_latency_s": 2.250652,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 169,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00127425,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: Amy says premium customers can have up to 20% without approval, and Cal reiterates 'Premium 20%'; this implies above 20% should require approval, while 20% or below does not.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly establishes that premium customers may discount up to 20% without approval, so exceeding 20% requires approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.8433695690000604,
+        "provider_latency_s": 1.841222,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 126,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00108075,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold specifically for premium customers at 20%: premium customers can go up to 20% without approval, which implies approval is required above 20%.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Cal explicitly states premium customers are allowed 20% without approval, which directly implies discounts exceeding 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.842923828999119,
+        "provider_latency_s": 1.841257,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 108,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00099975,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a threshold for premium customers at 20%: premium customers may get up to 20% without approval, so above 20% would fall into the approval-required case; below or at 20% approval is not required for premium customers on discount alone.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation states premium customers can have up to 20% without approval, which directly implies discounts exceeding 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.0479549949996,
+        "provider_latency_s": 2.0462,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 130,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00109875,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20%: Amy says premium customers can go up to 20% without approval, and Cal summarizes 'Premium 20%'. A rule about requiring approval when the discount exceeds 20% is the equivalent above-threshold restriction.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly allows premium customers up to 20% without approval, which directly implies approval is required above 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.8427548069994373,
+        "provider_latency_s": 1.841049,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 124,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00107175,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20%: premium customers are allowed up to 20% without approval, so approval is implied only when the discount is above 20% for premium customers; below or at 20% it is not required.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly states premium customers can discount up to 20% without approval, which directly implies discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.6389080310000281,
+        "provider_latency_s": 1.637095,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 125,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00107625,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: Amy says premium customers can go up to 20% without approval, which implies approval is needed above 20%; it does not say whether exactly 20% requires approval, only that exceeding 20% does.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation directly states premium customers may discount up to 20% without approval, so discounts above 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.6381890009997733,
+        "provider_latency_s": 1.63609,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 126,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00108075,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer discount threshold at 20% without approval, which means approval is required only when a premium customer's discount is above 20%; below or at 20% it is allowed without approval.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy and Cal state that premium customers can have up to 20% without approval, implying discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.843249106001167,
+        "provider_latency_s": 1.841532,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 115,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00103125,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a special threshold for premium customers at 20%: premium customers may go up to 20% without approval, while 'more than 20%' would be above that threshold and thus require approval before confirming; below or at 20% no approval is required for premium customers.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The conversation explicitly states premium customers are allowed up to 20% without approval, which implies discounts exceeding 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.8431158980001783,
+        "provider_latency_s": 1.841397,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 141,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00114825,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: 'Premium 20%, everyone else 15%.' This implies premium discounts up to 20% do not need approval, while anything above 20% does. The rule asks specifically about exceeding 20% for premium customers, which matches the implied approval threshold.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly states premium customers get 20% without approval and that approval is required above that level before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.5355764369996905,
+        "provider_latency_s": 1.533813,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 132,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00110775,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: Amy says premium up to 20% without approval, and Cal reiterates 'Premium 20%'. The rule asks about discounts that exceed 20%, which is the above-threshold case; the thread implies approval is required only when going beyond that limit, not at or below it.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation directly states that premium customers can receive up to 20% without approval, implying discounts over 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.945989236000969,
+        "provider_latency_s": 1.94425,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 142,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00115275,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer discount threshold at 20%: Amy says 'Premium 20%' and Cal reiterates 'Premium 20%, everyone else 15%.' This implies premiums up to 20% do not need approval, while anything above 20% does. The rule asks specifically about discounts exceeding 20% for premium customers, which matches the implied above-threshold approval requirement.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation sets premium customers at 20% without approval, which directly implies that discounts over 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.047754878998603,
+        "provider_latency_s": 2.045712,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 151,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00119325,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold at 20% with no approval required up to that point; anything above that would be above the stated limit and thus would require approval, since the rule is about discounts exceeding 20%.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy and Cal state premium customers may get up to 20% without approval, which directly implies discounts above 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.6384627480001654,
+        "provider_latency_s": 1.636742,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 123,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00106725,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold of 20%: premium customers may go up to 20% without approval, while higher discounts require approval; below or at 20% no approval is needed for premium customers.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation states premium customers can discount up to 20% without approval, which directly implies discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.8436411089987814,
+        "provider_latency_s": 1.841796,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 117,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00104025,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20% without approval, which implies approval is needed above 20%; the rule asks specifically about discounts exceeding 20% for premium customers, matching that implication.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Cal states premium customers can go up to 20% without approval, which directly implies any discount above 20% for a premium customer requires approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.8425598599988007,
+        "provider_latency_s": 1.840778,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 117,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00104025,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20%: discounts up to 20% need no approval, so anything above 20% would cross the approval threshold. The rule asks specifically about exceeding 20% for premium customers, which is the same threshold expressed as requiring approval above it.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation states premium customers may go up to 20% without approval, implying discounts over 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.842837600999701,
+        "provider_latency_s": 1.841143,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 129,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00109425,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread states a threshold for premium customers of 20% without approval, which implies that above 20% approval is required; below or at 20% is allowed without approval.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy and Cal explicitly set premium customers' no-approval limit at 20%, which directly implies discounts exceeding 20% need approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.6382215760004328,
+        "provider_latency_s": 1.636202,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 109,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00100425,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a special threshold for premium customers at 20% with no approval, and says approval is required for discounts above that threshold; below or at 20% for premium customers, approval is not required.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly states premium customers may get up to 20% without approval, which directly implies discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.995676349999485,
+        "provider_latency_s": 1.993987,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 115,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00103125,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold at 20%: Cal says 'Premium 20%, everyone else 15%,' which implies premium discounts up to 20% do not need approval, so anything exceeding 20% would need approval.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation directly establishes 20% as the premium-customer cutoff and says the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.5885008109999035,
+        "provider_latency_s": 1.586761,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 119,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00104925,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread states a premium-customer threshold of 20% without approval and says premium 20%; by implication, anything above that threshold exceeds the no-approval limit and would need approval before confirmation.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The conversation sets premium customers at 20% without approval and says the order cannot be confirmed while approval is pending, which directly implies discounts over 20% for premium customers require approval before confirming."
+      },
+      "call_metrics": {
+        "latency_s": 1.536259878999772,
+        "provider_latency_s": 1.534529,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 130,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00109875,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: Amy says premium customers can go up to 20% without approval, which implies approval is needed above 20%.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly allows premium customers up to 20% without approval, so discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.4312217860006058,
+        "provider_latency_s": 1.429412,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 105,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00098625,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20% with approval required above that level; below or at 20% for premium customers is allowed without approval, while non-premium customers use 15% and orders over \u20ac10,000 always need approval.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "Cal explicitly says premium customers are allowed 20% and Amy confirms the order cannot be confirmed while pending approval."
+      },
+      "call_metrics": {
+        "latency_s": 1.6402683870001056,
+        "provider_latency_s": 1.638144,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 126,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00108075,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: Amy says 'premium 20%' and Cal clarifies 'Premium 20%, everyone else 15%'; this implies discounts up to 20% for premium customers do not require approval, while anything above 20% does.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly states premium customers are allowed 20% without approval, which directly implies approval is required when the discount exceeds 20%."
+      },
+      "call_metrics": {
+        "latency_s": 1.6388079380012641,
+        "provider_latency_s": 1.637015,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 131,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00110325,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold of 20%: Amy says premium customers are allowed up to 20% without approval, which implies approval is required only when the discount is above 20%.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation directly states premium customers may discount up to 20% without approval, so anything above 20% requires approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.4336089030002768,
+        "provider_latency_s": 1.431797,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 113,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00102225,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20%: Amy says 'premium customers up to 20% without approval,' and Cal reinforces 'Premium 20%'. Above that threshold, approval is required; below or at it, no approval is needed for premium customers.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly states premium customers may discount up to 20% without approval, which directly implies discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.0533844450001197,
+        "provider_latency_s": 2.051578,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 128,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00108975,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly gives a threshold for premium customers: 'Premium 20%' and says premium customers can go up to 20% without approval, which implies approval is required above 20%.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation states premium customers may discount up to 20% without approval, which directly implies discounts exceeding 20% require approval before confirming."
+      },
+      "call_metrics": {
+        "latency_s": 1.633202730999983,
+        "provider_latency_s": 1.631472,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 110,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00100875,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a special premium-customer threshold at 20%: premium customers may go up to 20% without approval, so above 20% requires approval; below or at 20% does not. The user rule is about exceeding 20% for premium customers, which aligns with that threshold.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation states that premium customers can go up to 20% without approval, implying discounts above 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.0476975019992096,
+        "provider_latency_s": 2.044866,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 136,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00112575,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a threshold for premium customers at 20%: premium customers may receive up to 20% without approval, which implies approval is required above 20%.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation states premium customers can get up to 20% without approval, which directly implies discounts exceeding 20% require approval before confirming."
+      },
+      "call_metrics": {
+        "latency_s": 1.4843895860012708,
+        "provider_latency_s": 1.482667,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 107,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00099525,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer discount threshold at 20% without approval, so above 20% would require approval; below or at 20% it would not. However, Cal-04 says premium customers are allowed up to 20% without approval, which implies that a discount exceeding 20% needs approval before confirmation.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The thread explicitly establishes a 20% no-approval threshold for premium customers and says the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.5877317899994523,
+        "provider_latency_s": 1.585919,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 145,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00116625,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20%: Amy says premium customers can go up to 20% without approval, while anything above that would exceed the threshold and thus require approval before confirmation.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The conversation explicitly states premium customers may receive up to 20% without approval and that the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.6386843039999803,
+        "provider_latency_s": 1.636866,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 120,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00105375,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: Cal says 'Premium 20%, everyone else 15%,' which implies premium customers may go up to 20% without approval and anything above that needs approval.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly states premium customers can have discounts up to 20% without approval, so exceeding 20% requires approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.6421435920001386,
+        "provider_latency_s": 1.640416,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 116,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00103575,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: premium customers can discount up to 20% without approval, so anything above 20% crosses the approval threshold; below or at 20% does not require approval for premium customers.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy and Cal explicitly state that premium customers may go up to 20% without approval, which directly implies discounts exceeding 20% require approval before confirming."
+      },
+      "call_metrics": {
+        "latency_s": 1.838572127999214,
+        "provider_latency_s": 1.836466,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 124,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00107175,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: premium customers may get up to 20% without approval, so approval is required only above 20%; below or at 20% no approval is needed for premium customers.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Cal explicitly states premium customers are allowed up to 20% without approval, which directly implies discounts exceeding 20% for premium customers need approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.6385602110003674,
+        "provider_latency_s": 1.636825,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 122,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00106275,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a specific threshold for premium customers: Amy says more than 15%, then corrects with Cal's statement that 'Premium 20%, everyone else 15%,' which implies premium customers may discount up to 20% without approval and anything above that crosses the approval threshold.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation directly states that premium customers can go up to 20% without approval, so discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.047374552999827,
+        "provider_latency_s": 2.04559,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 129,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00109425,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold at 20% with no approval required up to that point, and also says premium customers over 20% need approval; below or at 20% does not require approval, above 20% does.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The conversation states that premium customers may get up to 20% without approval and that anything above that requires approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.63942526000028,
+        "provider_latency_s": 1.637705,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 127,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00108525,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold at 20%: Cal says 'Premium 20%, everyone else 15%,' which implies premium discounts up to 20% do not need approval, while anything above 20% would exceed that allowance and thus require approval before confirmation.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The conversation directly establishes premium customers may discount up to 20% without approval, so exceeding 20% requires approval before the order can be confirmed."
+      },
+      "call_metrics": {
+        "latency_s": 1.8431099080007698,
+        "provider_latency_s": 1.841334,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 139,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00113925,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly distinguishes premium customers having up to 20% discount without approval, implying approval is needed above that threshold; the rule asks about exceeding 20%, which is directly above the stated limit.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation states premium customers can receive up to 20% without approval, so any discount above 20% for a premium customer requires approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.4336432789987157,
+        "provider_latency_s": 1.431572,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 114,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00102675,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly states that premium customers are allowed up to 20% without approval, which implies that approval is required above 20%; below or at 20% no approval is needed.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "Amy and Cal state that premium customers can go up to 20% without approval, directly implying discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.4330573259994708,
+        "provider_latency_s": 1.431273,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 110,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00100875,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread distinguishes premium customers at 20% without approval and says premium 20%; therefore a discount that exceeds 20% would fall above the allowed threshold and require approval.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets premium customers at 20% without approval, which directly implies anything above 20% for premium customers needs approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.6404445040006976,
+        "provider_latency_s": 1.638378,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 107,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00099525,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer discount threshold at 20%: Cal says 'Premium 20%, everyone else 15%.' Since the rule asks about discounts exceeding 20%, that is the above-threshold case, while at or below 20% for premium customers is implied to be allowed without approval.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Cal-04"
+        ],
+        "reasoning": "Cal-04 states premium customers are capped at 20%, which directly supports requiring approval for premium discounts above 20% before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.841052165000292,
+        "provider_latency_s": 1.838968,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 130,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00109875,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: Cal says 'Premium 20%' and Amy says large discounts need approval, while discounts up to 20% for premium customers are allowed without approval; anything above that would therefore require approval.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The conversation directly implies premium customers may discount up to 20% without approval, so any discount exceeding 20% requires approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.6387356049999653,
+        "provider_latency_s": 1.63706,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 130,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00109875,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread establishes a premium-customer threshold of 20% for discounts without approval; above that threshold, approval is required before confirmation. If the discount is 20% or below for a premium customer, approval is not required.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "Amy and Cal explicitly set premium customers' no-approval limit at 20%, and Amy confirms the order cannot be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.8428182999996352,
+        "provider_latency_s": 1.840679,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 126,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00108075,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a specific threshold for premium customers: Amy says premium customers can go up to 20% without approval, and Cal restates 'Premium 20%'. That implies approval is required above 20% for premium customers; below or at 20% it is not required.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly allows premium customers up to 20% without approval, which directly implies discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 2.0482787219989405,
+        "provider_latency_s": 2.046491,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 128,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00108975,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a special threshold for premium customers at up to 20% without approval; anything above that threshold implies approval is needed before confirmation.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The conversation explicitly states premium customers may discount up to 20% without approval and that orders cannot be confirmed while discount authorisation is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.6284312150000915,
+        "provider_latency_s": 1.626534,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 108,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00099975,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a special threshold for premium customers at 20%: discounts up to 20% are allowed without approval, so anything above 20% would be beyond that threshold and would need approval before confirmation. Below 20% for premium customers, approval is not required.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The conversation explicitly states premium customers may get up to 20% without approval and that confirmation is blocked while discount authorisation is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.8527439089994004,
+        "provider_latency_s": 1.850875,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 134,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00111675,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20% without approval, so above 20% would require approval; below or at 20% would not require it for premium customers.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "Cal explicitly states premium customers are allowed up to 20% without approval, which directly implies discounts exceeding 20% require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.638776865998807,
+        "provider_latency_s": 1.636981,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 117,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00104025,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread distinguishes premium customers from everyone else and sets a premium-customer threshold of 20%: Amy says 'premium customers up to 20% without approval' and Cal says 'Premium 20%'. That implies approval is required above 20% for premium customers, while at or below 20% it is not required.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation explicitly sets premium customers at 20% without approval, which directly implies discounts exceeding 20% for premium customers require approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.6380706199997803,
+        "provider_latency_s": 1.636013,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 139,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00113925,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly states a premium customer threshold of 20% with no approval up to that point, and says large discounts require approval before confirming; above 20% therefore implies approval is required, while at or below 20% it is not.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "Cal states premium customers are allowed 20% and Amy confirms the order cannot be confirmed while approval is pending, which together implies discounts over 20% for premium customers need approval before confirmation."
+      },
+      "call_metrics": {
+        "latency_s": 1.8430180459999974,
+        "provider_latency_s": 1.841334,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 139,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00113925,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread distinguishes premium customers up to 20% without approval, implying that above 20% crosses the approval threshold; it also says large discounts require approval before confirming.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The conversation explicitly sets premium customers at 20% without approval and says confirmation is blocked while discount authorisation is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.8430943560015294,
+        "provider_latency_s": 1.841297,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 109,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00100425,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a threshold for premium customers at 20%: Amy says 'Premium 20%' and earlier Amy says 'up to 20% without approval,' which implies approval is needed above 20% for premium customers. The rule asks specifically about exceeding 20%, which matches the implied above-threshold case.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04"
+        ],
+        "reasoning": "The conversation states premium customers may go up to 20% without approval, which directly implies discounts over 20% require approval before confirming."
+      },
+      "call_metrics": {
+        "latency_s": 1.8437585909996415,
+        "provider_latency_s": 1.841963,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 135,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00112125,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread sets a premium-customer threshold at 20%: Cal says 'Premium 20%' and Amy says 'more than 15%' while noting Cal's premium-customer exception. A rule requiring approval only when a premium customer's discount exceeds 20% would mean approval is not needed at or below 20% and is needed above 20%.",
+        "verdict": "not_stated",
+        "supporting_refs": [
+          "Cal-04",
+          "Amy-03"
+        ],
+        "reasoning": "The thread mentions premium customers up to 20% without approval, but it does not state that discounts above 20% for premium customers specifically require approval."
+      },
+      "call_metrics": {
+        "latency_s": 2.0474984510001377,
+        "provider_latency_s": 2.045698,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 148,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00117975,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread distinguishes premium customers up to 20% without approval; above that threshold, approval is implied to be required before confirmation. The rule concerns a discount exceeding 20% for a premium customer, which falls on the 'above 20%' side of that threshold.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The conversation explicitly says premium customers can go up to 20% without approval and that orders can't be confirmed while pending authorization, implying discounts over 20% for premium customers require approval before confirming."
+      },
+      "call_metrics": {
+        "latency_s": 1.6384211300010065,
+        "provider_latency_s": 1.636232,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 144,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00116175,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread states that premium customers can have discounts up to 20% without approval; anything above that threshold would therefore require approval before confirmation.",
+        "verdict": "supported",
+        "supporting_refs": [
+          "Amy-03",
+          "Cal-04",
+          "Amy-09",
+          "Amy-11"
+        ],
+        "reasoning": "The conversation explicitly sets premium customers at 20% without approval and says orders can't be confirmed while approval is pending."
+      },
+      "call_metrics": {
+        "latency_s": 1.8431947569988552,
+        "provider_latency_s": 1.841321,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 102,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00097275,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    },
+    {
+      "verdict": {
+        "threshold_analysis": "The thread explicitly sets a premium-customer threshold at 20%: Cal says 'Premium 20%, everyone else 15%.' If the rule is about discounts exceeding 20% for premium customers, the thread does not directly state that premium discounts above 20% require approval; instead it indicates premium customers may go up to 20% without approval, and a separate approval rule exists for orders over \u20ac10,000 regardless of discount.",
+        "verdict": "not_stated",
+        "supporting_refs": [
+          "Cal-04"
+        ],
+        "reasoning": "The conversation gives the premium limit as 20% but does not state that discounts above 20% for premium customers require approval."
+      },
+      "call_metrics": {
+        "latency_s": 2.2527510830004758,
+        "provider_latency_s": 2.251022,
+        "prompt_tokens": 685,
+        "cached_tokens": 0,
+        "completion_tokens": 156,
+        "reasoning_tokens": 0,
+        "field_order": [
+          "threshold_analysis",
+          "verdict",
+          "supporting_refs",
+          "reasoning"
+        ],
+        "cost": 0.00121575,
+        "provider": "OpenAI",
+        "service_tier": "default"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2522 @@
+{
+  "judge_config": {
+    "model": "openai/gpt-6-luna-decisions",
+    "input_style": "jev",
+    "hint": true
+  },
+  "code_version": {
+    "commit": "756603ce36596f02767f0b458f699269ae7517dd",
+    "dirty": false
+  },
+  "label": "RESTRICTION-FORM",
+  "statement": "When a discount exceeds 20% for a premium customer, the system shall require approval before confirming.",
+  "k": 100,
+  "verdict_counts": {
+    "supported": 100,
+    "contradicted": 0,
+    "not_stated": 0
+  },
+  "errors": 0,
+  "runs": [
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354035-K1KrLtTggX6IBOUTYzjG",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4041783869979554
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354035-9KxmGYOHTZMXmYvi5S1G",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4090036710003915
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354036-faLU8XDiSUvoafOiSSLI",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.2093761039977835
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354036-8aQvfz2VNvMNXBFmh9qR",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4055567430004885
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354036-G0MZQj4bZzsbjcpWn9Ur",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.40680138199968496
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354037-ank07OJheSuG5YO04Xfv",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.41163183599928743
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354037-PhVAKPWq9Jt0OHVrTXeU",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4094643790012924
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354037-pnJ92uKXvZz5cXwkD7XZ",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.5118769380023878
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354038-cmyIIJ3cUqKUK8ias9d2",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.301455368000461
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354038-gVLur4e7qeaOvnmti9Cb",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3250429409999924
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354039-ed1R1BI1QTmUDAjHFS52",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3974870780002675
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354039-cuAZJuSj9oBnWiNG2huc",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.31156211699999403
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354039-m1X3q9hFK76spbmCdrN8",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4052111380005954
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354040-j1Zw2GhU082VVbIbL0GV",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.327952194998943
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354040-xdTuUC3kgA9UTer8FHMH",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3902696430013748
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354040-ipTQTImvJ74ne6rDNFWd",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.30346595799710485
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354041-7mcyBaAHxyiWVKvTIm7u",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.6166614600006142
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354041-4PjLlrYHRgqsNP3Z0enc",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.40951017800034606
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354042-vCxglmCU0uZwJuSvIltL",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.5121705339988694
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354042-REoRkwr8szSHU7i7fjRN",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.40895997699772124
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354043-yFonoxkYGCbhvvJTjf7I",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.40941083099824027
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354043-WqQR8ae5Hi5pCS3t04qJ",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3387609839992365
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354043-tRvOnX11zIzdud5sKtnm",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.41020495200064033
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354044-cQzqREU2hZN3mrqQvEZg",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3790905109999585
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354044-ilHDKJaMWv7SAQV9Xusw",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.5107992609991925
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354045-BphdcXHGx0B4MuNxeEvN",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.40943468299883534
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354045-JRMxgaIpWfivn5VjFWD0",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.30719574600152555
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354045-43Ic4fyYfC9JaAPJDyJN",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.413653785999486
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354046-qFjGYZBi1yvh4r9GM0Fv",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.405301506001706
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354046-gNzps1mTSCmpuTenxdaK",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3064354420021118
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354047-Yzrwgju9c89DGYAxSAwo",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4096983370000089
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354047-nVkskLBPfzCjIZvS1DOY",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.35353743499945267
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354047-JSlqSQGxhQNOzDb0sexv",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3628753789998882
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354048-7iPweEvjPW46cMBcHayJ",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4097335020014725
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354048-vDpQyu3r9EQYrONupVi2",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4095561379981518
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354049-KmtdWuZPOcDudXyZ6NJq",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4117527849994076
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354049-GXv8OLyXUWk0BIlT1Vkk",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.40614228599952185
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354049-oRyR14MpuYbB1gkGchdO",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4107094330029213
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354050-upNK327swj1SmqCCuTPB",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3063430049987801
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354050-JcJ8InkOdrjUBpqMkAUB",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4102403559991217
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354050-xoACRXu8aCaRG1ZYFeUi",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.40953442500176607
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354051-r7CVbbQoRBaWYMyn6Pks",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.307269091001217
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354051-q77WlTcy4XbaHlsgPwMd",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4093650719987636
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354052-ArEHBFvSGu2uR1cyVgNb",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3480442869986291
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354052-uaQYVBxRY5dgL0kS9PgD",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3688437659984629
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354052-izp8hgwcErsHHuFcF2AG",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3049120710020361
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354053-YVUYxKgG96fAE5lyRuHs",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.30393964700124343
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354053-2E8bjSTNKaQosK24hmPy",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.33077674100059085
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354053-uaCDYgDgrZWSoohIsWXT",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3957649769981799
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354054-DRzSzH08yMEdRPwOKFve",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3018439990009938
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354054-XlULRx0XPLHHljk3q0G0",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.41380103299889015
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354054-AT831wxAKptWbYznZ5c6",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.40574258400010876
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354055-f0WV9jvn2WPWHO7YCb9U",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.40940685700115864
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354055-2y4K1ITpEb37kASEWX5o",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4099939830011863
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354056-biCNSeVFVkGhbz9u8tEG",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.5117530620009347
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354056-euupgIXPcb0QSJJXDCAB",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.40747215100054746
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354056-mtkjjqO4pS2LGVYUZtjc",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4112189990009938
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354057-B3y1b9IBHHrBTpFD2RSm",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4078610020005726
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354057-rhXqXS81MafiXIFIO18M",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.41147298500072793
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354058-RMIIFDkDsKdYczpZHRlv",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.30724517600174295
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354058-6phUx9qR9UC5ZyTA9ohQ",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3214969390028273
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354058-XZ6MTaNQqew0CArJkAnT",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3937045599996054
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354059-RVqkgpydZqI7cPDZ4xF0",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.410435839999991
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354059-oRLamBYr2U7fhgyeJWAf",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.20847727700311225
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354059-AT4kV6oQ0yxG60xldCAZ",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.26364557899796637
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354060-QkJJXiVDTNaUb4Xh8XAw",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.21326256199972704
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354060-cPGnZ9y2STEjp5K5ClhB",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.5434805830009282
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354060-fUnKAXKH45TbLWFO2VTQ",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4074194290005835
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354061-E3chwH5wGJPXVuIEAOrH",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.41235256799700437
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354061-cfku0RypaBicKOTGkpAU",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3062612080029794
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354062-3KU6BYxfoIEv1Jc1T5jB",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4097205970028881
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354062-DcDNz1mKs6Vx1l1e9udH",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3271402969985502
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354062-o9yv7iOQOk7XPv67wzNZ",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3874298219998309
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354063-ITmxBkiApBsLqPfXTsga",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.41025998500117566
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354063-7zIuraEiEUnyBbhO9AV6",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.30794129600326414
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354063-0OLhALEMrTRzVO5QcmIY",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4098820239996712
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354064-evfb1fcRhkErnuSZLH3N",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3070100650002132
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354064-xpyaehTBDhWUoLeFNCYJ",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.409454482000001
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354064-GnMFkUdyltfi1G1rOq10",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3067755820011371
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354065-XTnqbZaUuyn8bztplnFf",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4044449210014136
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354065-SgL8qETNJpJZY1UaAIva",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.41523474600035115
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354066-yYCyXouCMyzx99eMRs2P",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4113419690002047
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354066-wLhru3gjVWQLMtlapaKw",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4084320719994139
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354066-Y4GSccXvf9HPHtXVTLgg",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.40910794800220174
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354067-oH9sx3hff3Ht2BEDukM4",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4104332280003291
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354067-rQzrYQ9I552V7218SSVj",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.40897653700085357
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354068-ZKcJDOXdDHzfBmNXPQ0n",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.412277011997503
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354068-Zs7dIv1m7Dis6ELTuSJz",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.40634648999912315
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354068-SLCuFnFGudQQ3kZQEfcw",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.41052841399869067
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354069-zwKD07LjaZ1bRHl9rWaF",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.30549717900066753
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354069-exOQNQdILIn1fpCioseS",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4098197320017789
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354070-u5A1Df9oLGzy9QatZPDa",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.40951589699761826
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354070-S0bjvv8yCMPNkM5eqvT6",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.8193858160011587
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354071-ZBwl9GZmmUn9UPUoVlkA",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.40943992900065496
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354071-qGnHgrRUAKL598iAzmU0",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4098169839999173
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354072-2LnQEqqwCijbstwNGg33",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.40948932800165494
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354072-XHYlKEmrZj3eOAcgCQqb",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.40963932299928274
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354072-gbe69uqLA68gCZKGkOG7",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.4098082880009315
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354073-sX59oYwu8Y9AnVNQlNKL",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3295394840024528
+    },
+    {
+      "response": {
+        "model": "openai/gpt-6-luna-decisions-20261006",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.61,
+              "contradicted": 0.27,
+              "not_stated": 0.12
+            },
+            "confidence": 0.42
+          }
+        },
+        "usage": {
+          "input_tokens": 669,
+          "output_tokens": 0,
+          "cost": 6.69e-05
+        },
+        "id": "gen-dec-1792354073-EcbUCO9s85LsXXFhZ3he",
+        "provider": "OpenAI"
+      },
+      "latency_s": 0.3769935410018661
+    }
+  ]
+}

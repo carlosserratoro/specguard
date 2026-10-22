@@ -68,3 +68,7 @@ markers = [
 filterwarnings = [
     "ignore:There is no current event loop:DeprecationWarning:litellm._service_logger",
 ]
+pythonpath = ["scripts"]
+
+[tool.pyright]
+extraPaths = ["scripts"]

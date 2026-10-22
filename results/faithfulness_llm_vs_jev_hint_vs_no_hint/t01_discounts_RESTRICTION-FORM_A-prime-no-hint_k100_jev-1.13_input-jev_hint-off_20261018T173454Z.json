@@ -1,0 +1,2522 @@
+{
+  "judge_config": {
+    "model": "typesafe/jev-1.13",
+    "input_style": "jev",
+    "hint": false
+  },
+  "code_version": {
+    "commit": "7a690721f9e61d0ff1cac12645b852ba30cfa7de",
+    "dirty": false
+  },
+  "label": "RESTRICTION-FORM",
+  "statement": "When a discount exceeds 20% for a premium customer, the system shall require approval before confirming.",
+  "k": 100,
+  "verdict_counts": {
+    "supported": 100,
+    "contradicted": 0,
+    "not_stated": 0
+  },
+  "errors": 0,
+  "runs": [
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.75,
+              "contradicted": 0.14,
+              "not_stated": 0.11
+            },
+            "confidence": 0.62
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344859-GHxrRQYlOe5ItcTshkQx",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.4065176820004126
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.81,
+              "contradicted": 0.1,
+              "not_stated": 0.09
+            },
+            "confidence": 0.72
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344859-xWyFYTq2lEN0a9meHLvM",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.40916128100070637
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.8200000000000001,
+              "contradicted": 0.12,
+              "not_stated": 0.06
+            },
+            "confidence": 0.73
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344859-QCtQH7HmMPyNPW2Ltect",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.4096559970003
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.82,
+              "contradicted": 0.09,
+              "not_stated": 0.09
+            },
+            "confidence": 0.73
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344860-TZ0ffl9L6ZoOEpMS1rEU",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.4093036790000042
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.8,
+              "contradicted": 0.09,
+              "not_stated": 0.11
+            },
+            "confidence": 0.7
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344860-OKJS2GFJ6hQ21M9UGZ8L",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.2812723309998546
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.82,
+              "contradicted": 0.09,
+              "not_stated": 0.09
+            },
+            "confidence": 0.73
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344861-d4sxsaclAmNwG6MB6HTJ",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.33327711099991575
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.8,
+              "contradicted": 0.1,
+              "not_stated": 0.1
+            },
+            "confidence": 0.7
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344861-UIUs4JKFyM7OcC7zHz54",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.40945391800050857
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.81,
+              "contradicted": 0.12,
+              "not_stated": 0.07
+            },
+            "confidence": 0.72
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344861-NsiiqztDwBdL86epEYxC",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.30716640799982997
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.8,
+              "contradicted": 0.1,
+              "not_stated": 0.1
+            },
+            "confidence": 0.7
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344862-hnMolDCAL3YWMlTlQt8T",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.30696760499995435
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.75,
+              "contradicted": 0.1,
+              "not_stated": 0.15
+            },
+            "confidence": 0.62
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344862-8daM5C5vLnubMZMV4eh4",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.31192936499974167
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.82,
+              "contradicted": 0.1,
+              "not_stated": 0.08
+            },
+            "confidence": 0.73
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344862-oxn9hhTynxgsnN2z1MWH",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3028464899998653
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.76,
+              "contradicted": 0.11,
+              "not_stated": 0.13
+            },
+            "confidence": 0.64
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344863-GdHueC7CXaHmTHo7U26s",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3093526220000058
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.81,
+              "contradicted": 0.09,
+              "not_stated": 0.1
+            },
+            "confidence": 0.72
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344863-T3JfyWBFK2uaIgajwRb8",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3042633120003302
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.79,
+              "contradicted": 0.1,
+              "not_stated": 0.11
+            },
+            "confidence": 0.69
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344863-oXRJb6RcSX4enCA4H7PJ",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.2608221640002739
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.81,
+              "contradicted": 0.11,
+              "not_stated": 0.07
+            },
+            "confidence": 0.72
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344863-MtXJQluLn87purBBxe0g",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3538396660005674
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.83,
+              "contradicted": 0.09,
+              "not_stated": 0.08
+            },
+            "confidence": 0.74
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344864-fcxY4abOxi4hN3KE3N9M",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.4094128910001018
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.77,
+              "contradicted": 0.13,
+              "not_stated": 0.1
+            },
+            "confidence": 0.66
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344864-9KEXGbHVjRKZixkZc7ua",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.25798258800023177
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.8,
+              "contradicted": 0.12,
+              "not_stated": 0.08
+            },
+            "confidence": 0.7
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344864-zVV5AcuyZ0vkdRPjH3yY",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.26745889199992234
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.81,
+              "contradicted": 0.1,
+              "not_stated": 0.08
+            },
+            "confidence": 0.72
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344865-g4DgnnLKfyhaAfGuajbE",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3959958399991592
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.76,
+              "contradicted": 0.11,
+              "not_stated": 0.13
+            },
+            "confidence": 0.64
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344865-14eP3GUp7zlYzt3eudIQ",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.40967757599901233
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.78,
+              "contradicted": 0.11,
+              "not_stated": 0.11
+            },
+            "confidence": 0.67
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344865-pJ93ef6VhtDoTfppkBBZ",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.30707621600049606
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.84,
+              "contradicted": 0.08,
+              "not_stated": 0.08
+            },
+            "confidence": 0.76
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344866-v2jIgIfZoaS1dLYv0Ubi",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.4094759759991575
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.82,
+              "contradicted": 0.09,
+              "not_stated": 0.09
+            },
+            "confidence": 0.73
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344866-USkTRLiCMwsiK8iy3pKH",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.30696467599955213
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.79,
+              "contradicted": 0.12,
+              "not_stated": 0.09
+            },
+            "confidence": 0.69
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344867-hqSp6VqGz1wfC9PMMY5v",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.40977342699989094
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.74,
+              "contradicted": 0.12,
+              "not_stated": 0.14
+            },
+            "confidence": 0.61
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344867-WzD34nAfd3R6bazfPhhT",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.40947022900036245
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.78,
+              "contradicted": 0.14,
+              "not_stated": 0.08
+            },
+            "confidence": 0.67
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344867-5mVe7vzJQNag6KqEUBav",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.40960695399917313
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.75,
+              "contradicted": 0.13,
+              "not_stated": 0.12
+            },
+            "confidence": 0.62
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344868-UF80fWw79FAKIXqDn9Vk",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.37798658199972124
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.83,
+              "contradicted": 0.09,
+              "not_stated": 0.08
+            },
+            "confidence": 0.74
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344868-WF9wTTJy7sY5Ar1KBNVu",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.33870185900013894
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.8,
+              "contradicted": 0.11,
+              "not_stated": 0.09
+            },
+            "confidence": 0.7
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344868-xJKLseAn2ZeiVISlCKc4",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3074391050013219
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.86,
+              "contradicted": 0.06,
+              "not_stated": 0.08
+            },
+            "confidence": 0.79
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344869-vi5BxTiEw6NjkapDAZq5",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3066154939988337
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.83,
+              "contradicted": 0.09,
+              "not_stated": 0.08
+            },
+            "confidence": 0.74
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344869-hXM4eFYqR6zWmeSQ23YD",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.30704734299979464
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.83,
+              "contradicted": 0.09,
+              "not_stated": 0.08
+            },
+            "confidence": 0.74
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344869-93wuNw1yzsHRVZczLsSB",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.30675176799923065
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.8200000000000001,
+              "contradicted": 0.09,
+              "not_stated": 0.09
+            },
+            "confidence": 0.73
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344870-8xh00WCuFnUOC74R7HCC",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3076695389991073
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.74,
+              "contradicted": 0.14,
+              "not_stated": 0.12
+            },
+            "confidence": 0.61
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344870-8xfE9N31ljDaBOydeRYF",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.41020775499964657
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.85,
+              "contradicted": 0.07,
+              "not_stated": 0.08
+            },
+            "confidence": 0.77
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344870-ZsYCnrA42lJKQ8JhASPZ",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.30607123099980527
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.79,
+              "contradicted": 0.12,
+              "not_stated": 0.09
+            },
+            "confidence": 0.69
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344871-VlkJNrjdyHQzjVkL5WnZ",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.4098760399992898
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.77,
+              "contradicted": 0.11,
+              "not_stated": 0.12
+            },
+            "confidence": 0.66
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344871-sM4J5dKONhQbFEcRUKhI",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.40968059199985873
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.78,
+              "contradicted": 0.11,
+              "not_stated": 0.11
+            },
+            "confidence": 0.67
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344872-ae2whNEozGfro7NG3ttn",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.40942559799987066
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.81,
+              "contradicted": 0.1,
+              "not_stated": 0.09
+            },
+            "confidence": 0.72
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344872-gz9psEG0t6BA0MTBrixg",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.306842799000151
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.73,
+              "contradicted": 0.15,
+              "not_stated": 0.12
+            },
+            "confidence": 0.59
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344872-bEK1LCOmagKpg5GhPZbE",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.41028394699969795
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.81,
+              "contradicted": 0.11,
+              "not_stated": 0.07
+            },
+            "confidence": 0.72
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344873-ZEwes647Z8BO7w6rgWpn",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.4115311189998465
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.83,
+              "contradicted": 0.1,
+              "not_stated": 0.07
+            },
+            "confidence": 0.74
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344873-89lp2v3rc0TDSq7XdKDo",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.2768049339993013
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.84,
+              "contradicted": 0.07,
+              "not_stated": 0.09
+            },
+            "confidence": 0.76
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344873-x5rUWXPcT2o2IoMKMOdn",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3349872279995907
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.83,
+              "contradicted": 0.07,
+              "not_stated": 0.1
+            },
+            "confidence": 0.74
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344874-ottsV4YOBlKPbpmlS69k",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.40979832599987276
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.79,
+              "contradicted": 0.1,
+              "not_stated": 0.11
+            },
+            "confidence": 0.69
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344874-bDDOmILZDJgwSj8E23ap",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.40708920099859824
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.8,
+              "contradicted": 0.1,
+              "not_stated": 0.1
+            },
+            "confidence": 0.7
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344875-S9RoM3SbMBsXMxhDhSYu",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3895029310006066
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.76,
+              "contradicted": 0.15,
+              "not_stated": 0.09
+            },
+            "confidence": 0.64
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344875-DxwpqnG0bAnx0Y9c7o94",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.329122365999865
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.83,
+              "contradicted": 0.08,
+              "not_stated": 0.09
+            },
+            "confidence": 0.74
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344875-flYykCmajnnIYyrn58yM",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.40989593000085733
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.73,
+              "contradicted": 0.14,
+              "not_stated": 0.13
+            },
+            "confidence": 0.59
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344876-e5bTSqdway4nugI9fMWP",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.40963911799917696
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.83,
+              "contradicted": 0.09,
+              "not_stated": 0.08
+            },
+            "confidence": 0.74
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344876-CIOYUC1hQroUymaxOB1T",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3064659540013963
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.8,
+              "contradicted": 0.1,
+              "not_stated": 0.1
+            },
+            "confidence": 0.7
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344876-prdTbT3RDguY0w2tARxU",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3357438409984752
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.85,
+              "contradicted": 0.07,
+              "not_stated": 0.08
+            },
+            "confidence": 0.77
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344877-j9UitTMWC7XYTnOHkFHX",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.2580483540004934
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.83,
+              "contradicted": 0.09,
+              "not_stated": 0.08
+            },
+            "confidence": 0.74
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344877-AOpwgZC8CiaPCDK1YIhq",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.43042708699977084
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.81,
+              "contradicted": 0.1,
+              "not_stated": 0.08
+            },
+            "confidence": 0.72
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344877-3usteB68UWUhf78hUx5V",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.4096238860001904
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.77,
+              "contradicted": 0.14,
+              "not_stated": 0.09
+            },
+            "confidence": 0.66
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344878-AE8iw09WXk5SaKlBnuQw",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.40942777400050545
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.83,
+              "contradicted": 0.09,
+              "not_stated": 0.08
+            },
+            "confidence": 0.74
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344878-EVewlxNaGUrzFKF0OPqz",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.271835090001332
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.8,
+              "contradicted": 0.12,
+              "not_stated": 0.08
+            },
+            "confidence": 0.7
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344878-rsgwZyylmrR8ut1UJ7UQ",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.34613530299975537
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.71,
+              "contradicted": 0.13,
+              "not_stated": 0.16
+            },
+            "confidence": 0.56
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344879-TaTtK33wFbQj77xS1iTG",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3033583810010896
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.88,
+              "contradicted": 0.06,
+              "not_stated": 0.06
+            },
+            "confidence": 0.82
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344879-wOP5nvuQijK3VCcVRmxv",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.4094917889997305
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.82,
+              "contradicted": 0.1,
+              "not_stated": 0.08
+            },
+            "confidence": 0.73
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344880-8e0QvQfnGpWmYwyB3IO3",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.30692220399942016
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.76,
+              "contradicted": 0.14,
+              "not_stated": 0.1
+            },
+            "confidence": 0.64
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344880-7IwsNX9aqK21fgRVjOrU",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.40993094100122107
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.77,
+              "contradicted": 0.13,
+              "not_stated": 0.1
+            },
+            "confidence": 0.66
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344880-vsqn4X5GMCK97s1SMhM9",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3068538860006811
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.82,
+              "contradicted": 0.09,
+              "not_stated": 0.09
+            },
+            "confidence": 0.73
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344881-08VACgBe7d4IjOrIpAiB",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.32763194300059695
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.77,
+              "contradicted": 0.12,
+              "not_stated": 0.11
+            },
+            "confidence": 0.66
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344881-gzYjSXAZkdllmMZbmJko",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 1.0035013819997403
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.78,
+              "contradicted": 0.11,
+              "not_stated": 0.11
+            },
+            "confidence": 0.67
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344882-dn7Duojlv2OXoSgTXK3I",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.2707834600005299
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.84,
+              "contradicted": 0.07,
+              "not_stated": 0.09
+            },
+            "confidence": 0.76
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344882-JEHtdAT4J1AWrjYLjwMw",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.34370261099866184
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.84,
+              "contradicted": 0.09,
+              "not_stated": 0.07
+            },
+            "confidence": 0.76
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344882-fHNBFH1jog5IkTztw87E",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.31328293600017787
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.78,
+              "contradicted": 0.13,
+              "not_stated": 0.09
+            },
+            "confidence": 0.67
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344883-bqFuCUaWxRdcZjssqk1B",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.38997818600000755
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.8200000000000001,
+              "contradicted": 0.09,
+              "not_stated": 0.09
+            },
+            "confidence": 0.73
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344883-qHVg99dRfwZgfxa0bsVt",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.32012275399938517
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.75,
+              "contradicted": 0.14,
+              "not_stated": 0.11
+            },
+            "confidence": 0.62
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344884-EH50GllJBzbkCiYAFSsA",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3071807290016295
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.85,
+              "contradicted": 0.08,
+              "not_stated": 0.07
+            },
+            "confidence": 0.77
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344884-zBNFYxElkhrI2BD2lj63",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.2886834010005259
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.82,
+              "contradicted": 0.08,
+              "not_stated": 0.1
+            },
+            "confidence": 0.73
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344884-oi7FAnjiHWSxSSqvBOq6",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.32528595500116353
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.84,
+              "contradicted": 0.1,
+              "not_stated": 0.06
+            },
+            "confidence": 0.76
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344884-kUXM2Q0JWIgLwTQEalrb",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.2926867790010874
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.85,
+              "contradicted": 0.07,
+              "not_stated": 0.08
+            },
+            "confidence": 0.77
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344885-br6mFWngX59Vf1IQzQrb",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3217985840001347
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.86,
+              "contradicted": 0.06,
+              "not_stated": 0.08
+            },
+            "confidence": 0.79
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344885-aZcDYwtArwd9ZYMAaXO8",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.40943351599889866
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.87,
+              "contradicted": 0.06,
+              "not_stated": 0.07
+            },
+            "confidence": 0.8
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344885-rRcMci4XCsnae7tEjEJl",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3073023639990424
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.69,
+              "contradicted": 0.14,
+              "not_stated": 0.17
+            },
+            "confidence": 0.53
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344886-AFaKhvXjqliS6byfAE2R",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.30697138600044127
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.88,
+              "contradicted": 0.06,
+              "not_stated": 0.06
+            },
+            "confidence": 0.82
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344886-D0ceRzo0LURxkqhOEPhb",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.30729417799921066
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.8099999999999999,
+              "contradicted": 0.09,
+              "not_stated": 0.1
+            },
+            "confidence": 0.71
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344886-i31LH6lN3tGzJV6dBz7I",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3065044110007875
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.84,
+              "contradicted": 0.1,
+              "not_stated": 0.06
+            },
+            "confidence": 0.76
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344887-DEDLcKFYLs0wO2vSvlb7",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.41020484599903284
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.82,
+              "contradicted": 0.1,
+              "not_stated": 0.08
+            },
+            "confidence": 0.73
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344887-t963qOYE5aooPbE2Uq09",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.40956119499969645
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.8,
+              "contradicted": 0.13,
+              "not_stated": 0.07
+            },
+            "confidence": 0.7
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344888-kn7PqJS88QJmnB5WSCQl",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.30525835799926426
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.79,
+              "contradicted": 0.1,
+              "not_stated": 0.11
+            },
+            "confidence": 0.69
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344888-eG4Zn2WHNL5E9NMlKBRD",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.30908608100071433
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.81,
+              "contradicted": 0.11,
+              "not_stated": 0.08
+            },
+            "confidence": 0.72
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344888-xwOqAr2ufag2ApwPcbsM",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.30682303799949295
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.7,
+              "contradicted": 0.16,
+              "not_stated": 0.14
+            },
+            "confidence": 0.55
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344888-j67uOVkj9qiLPq22PNJC",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.2807281819987111
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.78,
+              "contradicted": 0.12,
+              "not_stated": 0.1
+            },
+            "confidence": 0.67
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344889-d0T52w4UhfYOD0Wc8bq3",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.33368913300000713
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.84,
+              "contradicted": 0.07,
+              "not_stated": 0.09
+            },
+            "confidence": 0.76
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344889-eFPnJ0jmDHBXdfHUHrxH",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.4093801840008382
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.8,
+              "contradicted": 0.11,
+              "not_stated": 0.09
+            },
+            "confidence": 0.7
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344889-MJAvBZVxZx5TeK9M5ckt",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3070226680010819
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.81,
+              "contradicted": 0.12,
+              "not_stated": 0.07
+            },
+            "confidence": 0.72
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344890-xPHNIXoWz1iRXukMucOP",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.2555342539999401
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.82,
+              "contradicted": 0.1,
+              "not_stated": 0.08
+            },
+            "confidence": 0.73
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344890-EbP7hbGQFX9PJ7qg12nC",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.35903480800152465
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.78,
+              "contradicted": 0.14,
+              "not_stated": 0.08
+            },
+            "confidence": 0.67
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344890-RmmmSm2tkq4st6mkBjOm",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.5092011819997424
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.74,
+              "contradicted": 0.17,
+              "not_stated": 0.09
+            },
+            "confidence": 0.61
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344891-2DTzuq0aUL85ZqvDjB7N",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.30922300099882705
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.75,
+              "contradicted": 0.11,
+              "not_stated": 0.14
+            },
+            "confidence": 0.62
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344891-aK8ClIAvenzsJlXX1SR6",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.4142973649995838
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.82,
+              "contradicted": 0.09,
+              "not_stated": 0.09
+            },
+            "confidence": 0.73
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344892-nUYupKra7dVJzjP7kFrh",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3025636870006565
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.85,
+              "contradicted": 0.08,
+              "not_stated": 0.07
+            },
+            "confidence": 0.77
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344892-JYmXrsXztW7QKm6H8Vgv",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.41019962199970905
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.77,
+              "contradicted": 0.11,
+              "not_stated": 0.12
+            },
+            "confidence": 0.66
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344892-y1unkOES36f4wT97m7Zh",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3066919130014867
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.81,
+              "contradicted": 0.11,
+              "not_stated": 0.07
+            },
+            "confidence": 0.72
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344893-AZglxOsBjem8LPWKMVMq",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.3088672810008575
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.87,
+              "contradicted": 0.08,
+              "not_stated": 0.05
+            },
+            "confidence": 0.8
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344893-AwJZjEK72DUg7tpPzQjx",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.32047930199951224
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.83,
+              "contradicted": 0.09,
+              "not_stated": 0.08
+            },
+            "confidence": 0.74
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344893-3xKycQ4pmFR4DcxqZa6K",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.29201788699901954
+    },
+    {
+      "response": {
+        "model": "typesafe/jev-1.13-20260917",
+        "answers": {
+          "verdict": {
+            "type": "choice",
+            "choice": "supported",
+            "probabilities": {
+              "supported": 0.8,
+              "contradicted": 0.09,
+              "not_stated": 0.11
+            },
+            "confidence": 0.7
+          }
+        },
+        "usage": {
+          "input_tokens": 1043,
+          "output_tokens": 44,
+          "cost": 4.3806e-05
+        },
+        "id": "gen-dec-1792344894-3KlfmWdhsxr0yelQZiS3",
+        "provider": "TypeSafe"
+      },
+      "latency_s": 0.40960157199879177
+    }
+  ]
+}
