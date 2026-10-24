@@ -4,8 +4,8 @@ run:
 	uv run python -m specguard.main
 
 format:
-	uv run ruff format .
 	uv run ruff check --fix .
+	uv run ruff format .
 
 format-check:
 	uv run ruff format --check .
