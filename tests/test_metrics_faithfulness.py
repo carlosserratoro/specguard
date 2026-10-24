@@ -1,7 +1,9 @@
 from unittest.mock import patch
 
+from specguard.adapters.llm import CallMetrics
 from specguard.domain.spec import BusinessRule, Severity
-from specguard.service_layer.metrics import CallMetrics, SupportVerdict, rule_faithfulness
+from specguard.domain.verdicts import SupportVerdict
+from specguard.service_layer.metrics import rule_faithfulness
 
 DUMMY_VAL = "."
 

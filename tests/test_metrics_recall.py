@@ -1,7 +1,8 @@
 from unittest.mock import patch
 
 from specguard.domain.spec import BusinessRule, Severity
-from specguard.service_layer.metrics import MatchDecision, rule_recall
+from specguard.domain.verdicts import MatchDecision
+from specguard.service_layer.metrics import rule_recall
 
 DUMMY_VAL = "."
 

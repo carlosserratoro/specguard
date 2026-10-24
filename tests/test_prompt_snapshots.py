@@ -29,11 +29,9 @@ from specguard.domain.prompts import (
 )
 from specguard.domain.spec import UseCaseSpec
 from specguard.domain.thread import ConversationalThread
+from specguard.domain.verdicts import MatchDecision, ScaffoldedSupportVerdict, SupportVerdict
 from specguard.service_layer.extractor import extract
 from specguard.service_layer.metrics import (
-    MatchDecision,
-    ScaffoldedSupportVerdict,
-    SupportVerdict,
     match_rule,
     verify_rule_against_thread,
 )

@@ -3,11 +3,11 @@ from unittest.mock import MagicMock, patch
 from specguard.adapters.llm import JudgeConfig
 from specguard.domain.spec import BusinessRule, Severity
 from specguard.domain.thread import ConversationalThread, ThreadMessage
-from specguard.service_layer.metrics import (
+from specguard.domain.verdicts import (
     ScaffoldedSupportVerdict,
     SupportVerdict,
-    verify_rule_against_thread,
 )
+from specguard.service_layer.metrics import verify_rule_against_thread
 
 RULE = BusinessRule(
     id="BR2",
