@@ -16,6 +16,8 @@ lint:
 test:
 	uv run pytest
 
+check: format-check lint test
+
 sync:
 	uv sync
 
