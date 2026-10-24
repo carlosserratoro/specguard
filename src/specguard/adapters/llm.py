@@ -46,7 +46,7 @@ class JudgeConfig:
         hint = "_hint-off" if not self.hint else ""
         return f"effort-{effort}_scaffold-{'on' if self.scaffolding else 'off'}{hint}"
 
-    def to_record(self) -> dict:
+    def to_record(self) -> dict[str, Any]:
         """Configuration as stored in the report.
 
         "temperature" keeps the configured value; but "applied_temperature" is
@@ -61,7 +61,7 @@ class LLMCall:
 
     client: instructor.Instructor
     model: str
-    kwargs: dict
+    kwargs: dict[str, Any]
 
 
 class CallMetrics(BaseModel):
@@ -166,7 +166,7 @@ def uses_reasoning(reasoning_effort: str | None) -> bool:
     return reasoning_effort not in (None, "none")
 
 
-def call_kwargs(temperature: float, reasoning_effort: str | None) -> dict:
+def call_kwargs(temperature: float, reasoning_effort: str | None) -> dict[str, Any]:
     """Sampling parameters sent with a call.
 
     Reasoning calls don't send a temperature. For gpt-5.4-mini that is a provider

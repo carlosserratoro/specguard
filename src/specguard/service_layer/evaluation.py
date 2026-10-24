@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import statistics
 from dataclasses import asdict
+from typing import Any
 
 from specguard.adapters.llm import (
     DEFAULT_EXTRACTOR_TEMPERATURE,
@@ -19,10 +20,10 @@ def evaluate(
     k: int = 5,
     extractor_temperature: float = DEFAULT_EXTRACTOR_TEMPERATURE,
     judge_config: JudgeConfig | None = None,
-) -> dict:
+) -> dict[str, Any]:
     """Run the full pipeline k times, computing all metrics on the same extractions."""
     judge_config = judge_config or JudgeConfig()
-    runs: list[dict] = []
+    runs: list[dict[str, Any]] = []
 
     for i in range(k):
         print(f"Evaluating, repetition {i + 1}/{k}")
@@ -50,7 +51,7 @@ def evaluate(
     }
 
 
-def _summarise(values: list[float]) -> dict:
+def _summarise(values: list[float]) -> dict[str, Any]:
     """Mean, stdev and range for a metric across runs."""
     return {
         "mean": round(statistics.mean(values), 3),

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import time
+from typing import Any
 
 from specguard.adapters.llm import (
     CallMetrics,
@@ -29,7 +30,9 @@ def verify_rule_against_thread(
 ) -> tuple[JudgeVerdict, CallMetrics]:
     judge_config = judge_config or JudgeConfig()
     call = build_call(judge_config.model, judge_config.temperature, judge_config.reasoning_effort)
-    response_model = ScaffoldedSupportVerdict if judge_config.scaffolding else SupportVerdict
+    response_model: type[JudgeVerdict] = (
+        ScaffoldedSupportVerdict if judge_config.scaffolding else SupportVerdict
+    )
 
     start = time.perf_counter()
     verdict, completion = call.client.create_with_completion(
@@ -53,7 +56,7 @@ def rule_faithfulness(
     predicted_rules: list[BusinessRule],
     thread: ConversationalThread,
     judge_config: JudgeConfig | None = None,
-) -> dict:
+) -> dict[str, Any]:
     """Faithfulness: fraction of extracted rules actually grounded in the thread (RAGAS-style).
 
     See the paper for RAGAS where the original faithfulness is defined:
@@ -132,7 +135,7 @@ def rule_recall(
     gold_rules: list[BusinessRule],
     candidate_rules: list[BusinessRule],
     judge_config: JudgeConfig | None = None,
-) -> dict:
+) -> dict[str, Any]:
     """Rule recall, i.e. completeness: fraction of gold rules captured."""
     judge_config = judge_config or JudgeConfig()
     total_weight = 0.0
@@ -164,7 +167,7 @@ def rule_precision(
     predicted_rules: list[BusinessRule],
     gold_rules: list[BusinessRule],
     judge_config: JudgeConfig | None = None,
-) -> dict:
+) -> dict[str, Any]:
     """Rule precision, i.e. fidelity vs gold: fraction of predicted rules supported by the gold."""
     judge_config = judge_config or JudgeConfig()
     total = len(predicted_rules)

@@ -2,7 +2,7 @@ import os
 import time
 from dataclasses import asdict, dataclass
 from functools import cache
-from typing import Literal
+from typing import Any, Literal
 
 import requests
 from dotenv import load_dotenv
@@ -37,7 +37,7 @@ class DecisionConfig:
         hint = "_hint-off" if not self.hint else ""
         return f"{self.model.split('/')[-1]}_input-{self.input_style}{hint}"
 
-    def to_record(self) -> dict:
+    def to_record(self) -> dict[str, Any]:
         """Configuration as stored in the report."""
         return asdict(self)
 
@@ -47,19 +47,21 @@ def _session() -> requests.Session:
     return requests.Session()
 
 
-def _headers() -> dict:
+def _headers() -> dict[str, Any]:
     return {
         "Authorization": f"Bearer {os.environ['OPENROUTER_API_KEY']}",
         "Content-Type": "application/json",
     }
 
 
-def build_payload(rule: BusinessRule, thread: ConversationalThread, config: DecisionConfig):
+def build_payload(
+    rule: BusinessRule, thread: ConversationalThread, config: DecisionConfig
+) -> dict[str, Any]:
     """Build a payload following the usual LLM format or Jev's recommended format."""
     if config.input_style == "same-as-llm":
-        state: str | dict = build_faithfulness_user_message(rule, thread)
-        instructions: str | dict = faithfulness_system_prompt(config.hint)
-        criteria: dict = VERDICT_DEFINITIONS
+        state: str | dict[str, Any] = build_faithfulness_user_message(rule, thread)
+        instructions: str | dict[str, Any] = faithfulness_system_prompt(config.hint)
+        criteria: dict[str, Any] = VERDICT_DEFINITIONS
     else:  # if config.input_style == 'jev':
         state = {"thread": thread.model_dump(), "rule": rule.statement}
         instructions = {"task": FAITHFULNESS_TASK}
@@ -79,7 +81,9 @@ def build_payload(rule: BusinessRule, thread: ConversationalThread, config: Deci
     }
 
 
-def verify_rule_with_jev(rule: BusinessRule, thread: ConversationalThread, config: DecisionConfig):
+def verify_rule_with_jev(
+    rule: BusinessRule, thread: ConversationalThread, config: DecisionConfig
+) -> tuple[dict[str, Any], float]:
     payload = build_payload(rule, thread, config)
     start = time.perf_counter()
     response = _session().post(JEV_URL, headers=_headers(), json=payload, timeout=JEV_TIMEOUT_SECS)

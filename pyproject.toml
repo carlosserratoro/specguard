@@ -25,10 +25,19 @@ build-backend = "uv_build"
 [dependency-groups]
 dev = [
     "matplotlib>=3.11.1",
+    "mypy>=2.4.0",
     "numpy>=2.5.3",
     "pytest>=9.1.1",
     "ruff>=0.15.20",
+    "types-pyyaml>=6.0.12.20260906",
+    "types-requests>=2.33.0.20261006",
 ]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src"]
+plugins = ["pydantic.mypy"]
 
 [tool.ruff]
 line-length = 100

@@ -16,7 +16,10 @@ lint:
 test:
 	uv run pytest
 
-check: format-check lint test
+typecheck:
+	uv run mypy
+
+check: format-check lint typecheck test
 
 sync:
 	uv sync
