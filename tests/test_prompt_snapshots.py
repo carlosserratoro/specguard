@@ -21,17 +21,19 @@ from faithfulness_runner import THRESHOLD_STATEMENTS, _rule
 from specguard.adapters import llm
 from specguard.adapters.jev import DecisionConfig, build_payload
 from specguard.adapters.llm import JudgeConfig
+from specguard.domain.prompts import (
+    EXTRACTOR_SYSTEM_PROMPT,
+    JUDGE_SYSTEM_PROMPT,
+    build_faithfulness_user_message,
+    faithfulness_system_prompt,
+)
 from specguard.domain.spec import UseCaseSpec
 from specguard.domain.thread import ConversationalThread
-from specguard.service_layer.extractor import SYSTEM_PROMPT as EXTRACTOR_SYSTEM_PROMPT
 from specguard.service_layer.extractor import extract
 from specguard.service_layer.metrics import (
-    JUDGE_SYSTEM_PROMPT,
     MatchDecision,
     ScaffoldedSupportVerdict,
     SupportVerdict,
-    build_faithfulness_user_message,
-    faithfulness_system_prompt,
     match_rule,
     verify_rule_against_thread,
 )

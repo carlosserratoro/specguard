@@ -10,7 +10,12 @@ from specguard.adapters.llm import (
     JudgeConfig,
     build_call,
 )
-from specguard.domain.definitions import EQUIVALENCE_HINT, VERDICT_DEFINITIONS
+from specguard.domain.definitions import VERDICT_DEFINITIONS
+from specguard.domain.prompts import (
+    JUDGE_SYSTEM_PROMPT,
+    build_faithfulness_user_message,
+    faithfulness_system_prompt,
+)
 from specguard.domain.spec import BusinessRule, Severity
 from specguard.domain.thread import ConversationalThread
 
@@ -65,32 +70,6 @@ class ScaffoldedSupportVerdict(BaseModel):
 
 
 JudgeVerdict = SupportVerdict | ScaffoldedSupportVerdict
-
-
-FAITHFULNESS_TASK = (
-    "You verify whether a business rule is actually stated in a conversation thread.\n"
-    "The rule may be worded very differently from the thread, and that is fine: judge "
-    "MEANING, not wording."
-)
-
-
-def faithfulness_system_prompt(hint: bool = True) -> str:
-    hint_line = f"Important: {EQUIVALENCE_HINT}. Treat them as supported.\n" if hint else ""
-    return (
-        f"{FAITHFULNESS_TASK}\n"
-        f"{hint_line}"
-        f"Return 'supported' only if {VERDICT_DEFINITIONS['supported']}. "
-        f"Return 'contradicted' if {VERDICT_DEFINITIONS['contradicted']}. "
-        f"Return 'not_stated' if {VERDICT_DEFINITIONS['not_stated']}.\n"
-        "Cite the message refs that support your verdict."
-    )
-
-
-FAITHFULNESS_SYSTEM_PROMPT = faithfulness_system_prompt(hint=True)
-
-
-def build_faithfulness_user_message(rule: BusinessRule, thread: ConversationalThread) -> str:
-    return f"Conversation thread:\n{thread.to_prompt()}\n\nRule to verify: {rule.statement}"
 
 
 def verify_rule_against_thread(
@@ -170,15 +149,6 @@ class MatchDecision(BaseModel):
         description="ID of the matching candidate rule, or null if none matches.",
     )
     reasoning: str = Field(description="One concise sentence justifying the decision.")
-
-
-JUDGE_SYSTEM_PROMPT = (
-    "You compare business rules by MEANING, not wording. "
-    "Given one reference (gold) rule and a list of candidate rules, decide whether any "
-    "candidate expresses the same requirement. Two rules match if they impose the same "
-    "condition and the same system behaviour, even if phrased differently. "
-    "Ignore differences in wording, ID, or order."
-)
 
 
 def match_rule(

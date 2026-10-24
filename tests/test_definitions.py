@@ -1,5 +1,5 @@
 from specguard.domain.definitions import VERDICT_DEFINITIONS
-from specguard.service_layer.metrics import faithfulness_system_prompt
+from specguard.domain.prompts import faithfulness_system_prompt
 
 
 def test_system_prompt_uses_each_definition():

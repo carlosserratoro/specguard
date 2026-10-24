@@ -8,13 +8,13 @@ import requests
 from dotenv import load_dotenv
 
 from specguard.domain.definitions import EQUIVALENCE_HINT, VERDICT_CRITERIA_JEV, VERDICT_DEFINITIONS
-from specguard.domain.spec import BusinessRule
-from specguard.domain.thread import ConversationalThread
-from specguard.service_layer.metrics import (
+from specguard.domain.prompts import (
     FAITHFULNESS_TASK,
     build_faithfulness_user_message,
     faithfulness_system_prompt,
 )
+from specguard.domain.spec import BusinessRule
+from specguard.domain.thread import ConversationalThread
 
 load_dotenv()
 

@@ -4,13 +4,13 @@ from specguard.domain.definitions import (
     VERDICT_CRITERIA_JEV,
     VERDICT_DEFINITIONS,
 )
-from specguard.domain.spec import BusinessRule, Severity
-from specguard.domain.thread import ConversationalThread, ThreadMessage
-from specguard.service_layer.metrics import (
+from specguard.domain.prompts import (
     FAITHFULNESS_TASK,
     build_faithfulness_user_message,
     faithfulness_system_prompt,
 )
+from specguard.domain.spec import BusinessRule, Severity
+from specguard.domain.thread import ConversationalThread, ThreadMessage
 
 THREAD = ConversationalThread(
     title="Discounts",
