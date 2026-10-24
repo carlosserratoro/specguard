@@ -12,7 +12,7 @@ def _rule(id: str) -> BusinessRule:
     return BusinessRule(id=id, statement=DUMMY_VAL, source_refs=[], severity=Severity.critical)
 
 
-def _verdict(verdict: str) -> SupportVerdict:
+def _verdict(verdict: str) -> tuple[SupportVerdict, CallMetrics]:
     return (
         SupportVerdict(verdict=verdict, supporting_refs=[], reasoning=DUMMY_VAL),
         CallMetrics(latency_s=0.0),
