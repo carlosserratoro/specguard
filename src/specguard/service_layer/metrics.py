@@ -12,7 +12,7 @@ from specguard.domain.prompts import (
     build_faithfulness_user_message,
     faithfulness_system_prompt,
 )
-from specguard.domain.spec import BusinessRule, Severity
+from specguard.domain.spec import SEVERITY_WEIGHT, BusinessRule
 from specguard.domain.thread import ConversationalThread
 from specguard.domain.verdicts import (
     JudgeVerdict,
@@ -20,12 +20,6 @@ from specguard.domain.verdicts import (
     ScaffoldedSupportVerdict,
     SupportVerdict,
 )
-
-SEVERITY_WEIGHT = {
-    Severity.critical: 3,
-    Severity.normal: 2,
-    Severity.minor: 1,
-}
 
 
 def verify_rule_against_thread(

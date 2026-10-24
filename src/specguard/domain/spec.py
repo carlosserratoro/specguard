@@ -12,6 +12,13 @@ class Severity(StrEnum):
     minor = "minor"
 
 
+SEVERITY_WEIGHT = {
+    Severity.critical: 3,
+    Severity.normal: 2,
+    Severity.minor: 1,
+}
+
+
 class BusinessRule(BaseModel):
     id: str = Field(description="Fixed ID, e.g. BR1")
     statement: str = Field(

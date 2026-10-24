@@ -7,16 +7,10 @@ from specguard.adapters.llm import (
     DEFAULT_EXTRACTOR_TEMPERATURE,
     JudgeConfig,
 )
-from specguard.domain.spec import Severity, UseCaseSpec
+from specguard.domain.spec import UseCaseSpec
 from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.extractor import extract
 from specguard.service_layer.metrics import rule_precision, rule_recall
-
-SEVERITY_WEIGHT = {
-    Severity.critical: 3,
-    Severity.normal: 2,
-    Severity.minor: 1,
-}
 
 
 def evaluate(
