@@ -1945,6 +1945,8 @@ dependencies = [
     { name = "instructor", extra = ["litellm"] },
     { name = "pydantic" },
     { name = "python-dotenv" },
+    { name = "pyyaml" },
+    { name = "requests" },
 ]
 
 [package.dev-dependencies]
@@ -1960,6 +1962,8 @@ requires-dist = [
     { name = "instructor", extras = ["litellm"], specifier = ">=1.15.4" },
     { name = "pydantic", specifier = ">=2.13.4" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
+    { name = "pyyaml", specifier = ">=6.0.3" },
+    { name = "requests", specifier = ">=2.34.2" },
 ]
 
 [package.metadata.requires-dev]
