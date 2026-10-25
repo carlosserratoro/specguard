@@ -1,3 +1,5 @@
+from typing import Any
+
 import requests
 from instructor.core import InstructorRetryException
 
@@ -10,7 +12,7 @@ from specguard.service_layer.metrics import verify_rule_against_thread
 
 
 def make_generative_verifier(thread: ConversationalThread, config: JudgeConfig) -> Verifier:
-    def verify(rule: BusinessRule) -> tuple[str, dict]:
+    def verify(rule: BusinessRule) -> tuple[str, dict[str, Any]]:
         try:
             verdict, metrics = verify_rule_against_thread(rule, thread, config)
         except InstructorRetryException as exc:
@@ -24,7 +26,7 @@ def make_generative_verifier(thread: ConversationalThread, config: JudgeConfig) 
 
 
 def make_decision_verifier(thread: ConversationalThread, config: DecisionConfig) -> Verifier:
-    def verify(rule: BusinessRule) -> tuple[str, dict]:
+    def verify(rule: BusinessRule) -> tuple[str, dict[str, Any]]:
         try:
             response, elapsed_s = verify_rule_with_jev(rule, thread, config)
             choice = response["answers"][VERDICT_QUESTION]["choice"]
