@@ -13,12 +13,12 @@ from scripts.plots.faithfulness_data import (
     STATEMENT_ORDER,
     VERDICT_COLORS,
     VERDICT_LABELS,
-    VERDICT_ORDER,
     add_footer,
     apply_style,
     load_reports,
     save,
 )
+from specguard.domain.definitions import VERDICT_ORDER
 
 DEFAULT_OUTPUT_DIR = FIGURES_DIR / "faithfulness"
 

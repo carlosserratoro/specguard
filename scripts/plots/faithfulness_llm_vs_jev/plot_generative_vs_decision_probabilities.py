@@ -20,10 +20,10 @@ from scripts.plots.faithfulness_llm_vs_jev.generative_vs_decision_data import (
     HINT_CONFIG_ORDER,
     NO_HINT,
     STATEMENT_ORDER,
-    VERDICT_ORDER,
     load_reports,
     main_reports,
 )
+from specguard.domain.definitions import VERDICT_ORDER
 
 VERDICT_LABELS = {"supported": "supp.", "contradicted": "contr.", "not_stated": "not st."}
 
