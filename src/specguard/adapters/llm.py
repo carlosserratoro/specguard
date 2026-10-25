@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-import os
 from dataclasses import asdict, dataclass
 from functools import cache
 from typing import Any
@@ -14,8 +13,8 @@ from pydantic import BaseModel
 load_dotenv()
 
 # https://developers.openai.com/api/docs/models/gpt-5.4-mini
-DEFAULT_EXTRACTOR_MODEL = os.getenv("EXTRACTOR_MODEL", "openai/gpt-5.4-mini")
-DEFAULT_JUDGE_MODEL = os.getenv("JUDGE_MODEL", "openai/gpt-5.4-mini")
+DEFAULT_EXTRACTOR_MODEL = "openai/gpt-5.4-mini"
+DEFAULT_JUDGE_MODEL = "openai/gpt-5.4-mini"
 
 DEFAULT_EXTRACTOR_TEMPERATURE = 1.0
 DEFAULT_JUDGE_TEMPERATURE = 0.0  # For the judge, we want it as reproducible as possible.
