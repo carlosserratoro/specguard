@@ -4,9 +4,8 @@ from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor
 from typing import Any
 
+from specguard.domain.definitions import VERDICT_ORDER
 from specguard.domain.spec import BusinessRule, Severity
-
-VERDICT_ORDER = ("supported", "contradicted", "not_stated")
 
 # Stop a batch if the API keeps failing, e.g. bad key, invalid prompt.
 MAX_CONSECUTIVE_ERRORS = 5

@@ -1,5 +1,6 @@
 import os
 import time
+from collections.abc import Mapping
 from dataclasses import asdict, dataclass
 from functools import cache
 from typing import Any, Literal
@@ -7,7 +8,12 @@ from typing import Any, Literal
 import requests
 from dotenv import load_dotenv
 
-from specguard.domain.definitions import EQUIVALENCE_HINT, VERDICT_CRITERIA_JEV, VERDICT_DEFINITIONS
+from specguard.domain.definitions import (
+    EQUIVALENCE_HINT,
+    VERDICT_CRITERIA_JEV,
+    VERDICT_DEFINITIONS,
+    Verdict,
+)
 from specguard.domain.prompts import (
     FAITHFULNESS_TASK,
     build_faithfulness_user_message,
@@ -61,7 +67,7 @@ def build_payload(
     if config.input_style == "same-as-llm":
         state: str | dict[str, Any] = build_faithfulness_user_message(rule, thread)
         instructions: str | dict[str, Any] = faithfulness_system_prompt(config.hint)
-        criteria: dict[str, Any] = VERDICT_DEFINITIONS
+        criteria: Mapping[Verdict, str | dict[str, str]] = VERDICT_DEFINITIONS
     else:  # if config.input_style == 'jev':
         state = {"thread": thread.model_dump(), "rule": rule.statement}
         instructions = {"task": FAITHFULNESS_TASK}

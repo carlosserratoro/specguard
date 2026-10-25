@@ -1,8 +1,14 @@
-VERDICT_DEFINITIONS = {
+from typing import Literal, get_args
+
+Verdict = Literal["supported", "contradicted", "not_stated"]
+VERDICT_ORDER: tuple[Verdict, ...] = get_args(Verdict)
+
+VERDICT_DEFINITIONS: dict[Verdict, str] = {
     "supported": "the thread states the rule or directly implies it, even if worded differently",
     "contradicted": "the thread states something incompatible with the rule",
     "not_stated": "the thread does not mention the rule",
 }
+
 
 EQUIVALENCE_HINT = (
     "a rule expressed as a permission and a rule expressed as the equivalent restriction "
@@ -10,7 +16,7 @@ EQUIVALENCE_HINT = (
     "both express the same threshold)"
 )
 
-VERDICT_CRITERIA_JEV = {
+VERDICT_CRITERIA_JEV: dict[Verdict, dict[str, str]] = {
     verdict: {
         "what": definition,
         "not_for": "; or ".join(

@@ -60,7 +60,6 @@ _BASE_COLORS = {
 }
 CONFIG_COLORS = {**_BASE_COLORS, **{c + NO_HINT: color for c, color in _BASE_COLORS.items()}}
 Z_95 = 1.96
-VERDICT_ORDER = ("supported", "contradicted", "not_stated")
 DECISION_CONFIGS = ("A", "A-prime", "D", "E")
 
 

@@ -24,7 +24,6 @@ DEFAULT_OUTPUT_DIR = FIGURES_DIR / "faithfulness"
 
 EFFORT_ORDER = ("none", "low", "medium", "high", "xhigh")
 STATEMENT_ORDER = ("PERMISSION-FORM", "RESTRICTION-FORM", "FALSE-THRESHOLD")
-VERDICT_ORDER = ("supported", "contradicted", "not_stated")
 
 COLOR_SUPPORTED = "#1ABC79"
 COLOR_CONTRADICTED = "#E45745"

@@ -25,6 +25,7 @@ from scripts.plots.faithfulness_data import (
     load_reports,
     save,
 )
+from specguard.domain.definitions import VERDICT_ORDER
 
 DEFAULT_OUTPUT_DIR = FIGURES_DIR / "faithfulness"
 
@@ -35,7 +36,7 @@ DEFAULT_SEED = 7  # jitter only; fixed so the image is reproducible
 JITTER = 0.32
 # Draw order: supported last, so supported runs with little reasoning stay visible.
 DRAW_ORDER = ("contradicted", "not_stated", "supported")
-LEGEND_ORDER = ("supported", "contradicted", "not_stated")
+LEGEND_ORDER = VERDICT_ORDER
 
 TITLE = "All but two wrong verdicts\ncame from runs with little or no reasoning"
 

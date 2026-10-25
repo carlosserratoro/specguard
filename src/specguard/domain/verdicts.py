@@ -1,18 +1,14 @@
-from typing import Literal
-
 from pydantic import BaseModel, Field
 
-from specguard.domain.definitions import VERDICT_DEFINITIONS
+from specguard.domain.definitions import VERDICT_DEFINITIONS, VERDICT_ORDER, Verdict
+
+VERDICT_FIELD_DESCRIPTION = (
+    "; ".join(f"'{verdict}' if {VERDICT_DEFINITIONS[verdict]}" for verdict in VERDICT_ORDER) + "."
+)
 
 
 class SupportVerdict(BaseModel):
-    verdict: Literal["supported", "contradicted", "not_stated"] = Field(
-        description=(
-            f"'supported' if {VERDICT_DEFINITIONS['supported']}; "
-            f"'contradicted' if {VERDICT_DEFINITIONS['contradicted']}; "
-            f"'not_stated' if {VERDICT_DEFINITIONS['not_stated']}."
-        )
-    )
+    verdict: Verdict = Field(description=VERDICT_FIELD_DESCRIPTION)
     supporting_refs: list[str] = Field(
         default_factory=list,
         description="Message refs (e.g. ['Cal#04']) that support the rule. Empty if not supported.",
@@ -33,12 +29,9 @@ class ScaffoldedSupportVerdict(BaseModel):
         description="If the rule involves a threshold, state what the thread "
         "implies both above and below it, before deciding."
     )
-    verdict: Literal["supported", "contradicted", "not_stated"] = Field(
+    verdict: Verdict = Field(
         description=(
-            "Decide the verdict based on the threshold_analysis above. "
-            f"'supported' if {VERDICT_DEFINITIONS['supported']}; "
-            f"'contradicted' if {VERDICT_DEFINITIONS['contradicted']}; "
-            f"'not_stated' if {VERDICT_DEFINITIONS['not_stated']}."
+            f"Decide the verdict based on the threshold_analysis above. {VERDICT_FIELD_DESCRIPTION}"
         )
     )
     supporting_refs: list[str] = Field(
