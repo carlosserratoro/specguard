@@ -10,9 +10,11 @@ from specguard.adapters.jev import DecisionConfig
 from specguard.adapters.llm import JudgeConfig
 from specguard.adapters.reporting import save_report
 from specguard.adapters.statements import load_statements
-from specguard.bootstrap import make_decision_verifier, make_generative_verifier
+from specguard.bootstrap import load_environment, make_decision_verifier, make_generative_verifier
 from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.faithfulness import check, check_majority
+
+load_environment()
 
 GENERATIVE_MODEL = "openrouter/openai/gpt-5.4-mini"
 DECISION_MODEL_JEV = "typesafe/jev-1.13"

@@ -5,9 +5,11 @@ from paths import EXAMPLES_DIR, RESULTS_DIR
 
 from specguard.adapters.reporting import save_report
 from specguard.adapters.statements import load_statements
-from specguard.bootstrap import make_generative_verifier
+from specguard.bootstrap import load_environment, make_generative_verifier
 from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.faithfulness import check
+
+load_environment()
 
 parser = build_parser("Measures faithfulness over the threshold cases.")
 args = parser.parse_args()

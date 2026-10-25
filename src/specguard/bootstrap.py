@@ -1,6 +1,7 @@
 from typing import Any
 
 import requests
+from dotenv import load_dotenv
 from instructor.core import InstructorRetryException
 
 from specguard.adapters.jev import VERDICT_QUESTION, DecisionConfig, verify_rule_with_jev
@@ -9,6 +10,11 @@ from specguard.domain.spec import BusinessRule
 from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.faithfulness import JudgeCallError, Verifier
 from specguard.service_layer.metrics import verify_rule_against_thread
+
+
+def load_environment() -> None:
+    """Call it once, at the start of each entry point."""
+    load_dotenv()
 
 
 def make_generative_verifier(thread: ConversationalThread, config: JudgeConfig) -> Verifier:

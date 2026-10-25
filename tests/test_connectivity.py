@@ -10,6 +10,9 @@ from specguard.adapters.llm import (
     DEFAULT_EXTRACTOR_TEMPERATURE,
     build_call,
 )
+from specguard.bootstrap import load_environment
+
+load_environment()
 
 
 class _Greeting(BaseModel):

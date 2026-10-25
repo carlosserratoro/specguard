@@ -7,10 +7,7 @@ from typing import Any
 
 import instructor
 import litellm
-from dotenv import load_dotenv
 from pydantic import BaseModel
-
-load_dotenv()
 
 # https://developers.openai.com/api/docs/models/gpt-5.4-mini
 DEFAULT_EXTRACTOR_MODEL = "openai/gpt-5.4-mini"

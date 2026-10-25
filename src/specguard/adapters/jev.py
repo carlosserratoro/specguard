@@ -6,7 +6,6 @@ from functools import cache
 from typing import Any, Literal
 
 import requests
-from dotenv import load_dotenv
 
 from specguard.domain.definitions import (
     EQUIVALENCE_HINT,
@@ -21,8 +20,6 @@ from specguard.domain.prompts import (
 )
 from specguard.domain.spec import BusinessRule
 from specguard.domain.thread import ConversationalThread
-
-load_dotenv()
 
 JEV_URL = "https://openrouter.ai/api/alpha/decisions"
 JEV_TIMEOUT_SECS = 30

@@ -9,10 +9,13 @@ from paths import EXAMPLES_DIR, RESULTS_DIR
 
 from specguard.adapters.llm import DEFAULT_EXTRACTOR_TEMPERATURE
 from specguard.adapters.reporting import save_report
+from specguard.bootstrap import load_environment
 from specguard.domain.spec import UseCaseSpec
 from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.extractor import extract
 from specguard.service_layer.metrics import match_rule
+
+load_environment()
 
 parser = build_parser("Inspects BR2 framing over k extractions.")
 args = parser.parse_args()
