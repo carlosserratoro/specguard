@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import argparse
 
-from faithfulness_runner import check, check_majority
 from paths import EXAMPLES_DIR, RESULTS_DIR, RESULTS_LLM_VS_JEV_HINT_VS_NO_HINT_DIR
 from verifiers import make_decision_verifier, make_generative_verifier
 
@@ -13,6 +12,7 @@ from specguard.adapters.llm import JudgeConfig
 from specguard.adapters.reporting import save_report
 from specguard.adapters.statements import load_statements
 from specguard.domain.thread import ConversationalThread
+from specguard.service_layer.faithfulness import check, check_majority
 
 GENERATIVE_MODEL = "openrouter/openai/gpt-5.4-mini"
 DECISION_MODEL_JEV = "typesafe/jev-1.13"

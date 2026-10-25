@@ -1,7 +1,7 @@
 import threading
 from unittest.mock import Mock
 
-from faithfulness_runner import JudgeCallError, check, check_majority
+from specguard.service_layer.faithfulness import JudgeCallError, check, check_majority
 
 
 def test_check_counts_verdicts_and_stores_records_unchanged():

@@ -16,8 +16,6 @@ import os
 from pathlib import Path
 
 import pytest
-from faithfulness_runner import _rule
-from paths import EXAMPLES_DIR
 
 from specguard.adapters import llm
 from specguard.adapters.jev import DecisionConfig, build_payload
@@ -33,6 +31,7 @@ from specguard.domain.spec import UseCaseSpec
 from specguard.domain.thread import ConversationalThread
 from specguard.domain.verdicts import MatchDecision, ScaffoldedSupportVerdict, SupportVerdict
 from specguard.service_layer.extractor import extract
+from specguard.service_layer.faithfulness import rule_from_statement
 from specguard.service_layer.metrics import (
     match_rule,
     verify_rule_against_thread,
@@ -41,8 +40,8 @@ from specguard.service_layer.metrics import (
 ROOT = Path(__file__).resolve().parents[1]
 SNAPSHOT = Path(__file__).parent / "snapshots" / "prompts.json"
 THREAD = ConversationalThread.from_file(ROOT / "examples" / "t01_discounts.thread.yaml")
-THRESHOLD_STATEMENTS = load_statements(EXAMPLES_DIR / "t01_threshold_statements.yaml")
-RULE = _rule(THRESHOLD_STATEMENTS["RESTRICTION-FORM"], "RESTRICTION-FORM")
+THRESHOLD_STATEMENTS = load_statements(ROOT / "examples" / "t01_threshold_statements.yaml")
+RULE = rule_from_statement(THRESHOLD_STATEMENTS["RESTRICTION-FORM"], "RESTRICTION-FORM")
 
 
 class RecordingClient:
@@ -90,7 +89,7 @@ def llm_calls(monkeypatch) -> dict:
     for name, config in judge_configs.items():
         verify_rule_against_thread(RULE, THREAD, config)
         recorded[f"verify_{name}"] = calls.pop()
-    match_rule(RULE, [RULE, _rule("Another rule.", "BR9")], JudgeConfig())
+    match_rule(RULE, [RULE, rule_from_statement("Another rule.", "BR9")], JudgeConfig())
     recorded["match"] = calls.pop()
     return recorded
 
@@ -105,7 +104,7 @@ def current_values(monkeypatch) -> dict:
         "faithfulness_user_message": build_faithfulness_user_message(RULE, THREAD),
         "threshold_statements": THRESHOLD_STATEMENTS,
         "faithfulness_user_messages": {
-            label: build_faithfulness_user_message(_rule(statement, label), THREAD)
+            label: build_faithfulness_user_message(rule_from_statement(statement, label), THREAD)
             for label, statement in THRESHOLD_STATEMENTS.items()
         },
         "match_system_prompt": JUDGE_SYSTEM_PROMPT,

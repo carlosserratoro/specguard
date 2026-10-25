@@ -2,6 +2,7 @@ import time
 from collections import Counter
 from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor
+from typing import Any
 
 from specguard.domain.spec import BusinessRule, Severity
 
@@ -16,10 +17,10 @@ class JudgeCallError(Exception):
 
 
 # A verifier takes a business rule and returns a verdict label and a record to store for this run.
-Verifier = Callable[[BusinessRule], tuple[str, dict]]
+Verifier = Callable[[BusinessRule], tuple[str, dict[str, Any]]]
 
 
-def _rule(statement: str, label: str) -> BusinessRule:
+def rule_from_statement(statement: str, label: str) -> BusinessRule:
     return BusinessRule(
         id=label, statement=statement, source_refs=[], severity=Severity.critical, precedence=[]
     )
@@ -30,9 +31,9 @@ def check(
     label: str,
     verify: Verifier,
     k: int = 20,
-) -> dict:
+) -> dict[str, Any]:
 
-    report = {
+    report: dict[str, Any] = {
         "label": label,
         "statement": statement,
         "k": k,
@@ -41,7 +42,7 @@ def check(
         "runs": [],
     }
 
-    rule = _rule(statement, label)
+    rule = rule_from_statement(statement, label)
 
     verdicts = []
     consecutive_errors = 0
@@ -70,7 +71,7 @@ def check(
     return report
 
 
-def _call(verify: Verifier, rule: BusinessRule) -> tuple[str | None, dict]:
+def _call(verify: Verifier, rule: BusinessRule) -> tuple[str | None, dict[str, Any]]:
     """One call that never raises: a failure comes back as an error record."""
     try:
         return verify(rule)
@@ -81,17 +82,17 @@ def _call(verify: Verifier, rule: BusinessRule) -> tuple[str | None, dict]:
 
 def check_majority(
     statement: str, label: str, verify: Verifier, groups: int, group_size: int = 10
-) -> dict:
+) -> dict[str, Any]:
     """Each decision is the majority verdict of `group_size` concurrent calls.
 
     One warm-up call is made first, in the calling thread, and discarded: Instructor
     fills its handler registry on the first call, and doing that from several threads
     at once fails.
     """
-    rule = _rule(statement, label)
+    rule = rule_from_statement(statement, label)
     _call(verify, rule)  # warm-up, not stored
 
-    report = {
+    report: dict[str, Any] = {
         "label": label,
         "statement": statement,
         "groups": groups,
