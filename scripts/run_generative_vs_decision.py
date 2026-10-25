@@ -4,13 +4,14 @@ from __future__ import annotations
 
 import argparse
 
-from faithfulness_runner import THRESHOLD_STATEMENTS, check, check_majority
+from faithfulness_runner import check, check_majority
 from paths import EXAMPLES_DIR, RESULTS_DIR, RESULTS_LLM_VS_JEV_HINT_VS_NO_HINT_DIR
 from verifiers import make_decision_verifier, make_generative_verifier
 
 from specguard.adapters.jev import DecisionConfig
 from specguard.adapters.llm import JudgeConfig
 from specguard.adapters.reporting import save_report
+from specguard.adapters.statements import load_statements
 from specguard.domain.thread import ConversationalThread
 
 GENERATIVE_MODEL = "openrouter/openai/gpt-5.4-mini"
@@ -32,6 +33,8 @@ CONFIGS = {
     "E-no-hint": DecisionConfig(model=DECISION_MODEL_LUNA, input_style="jev", hint=False),
 }
 GROUP_SIZE = 10
+
+THRESHOLD_STATEMENTS = load_statements(EXAMPLES_DIR / "t01_threshold_statements.yaml")
 
 parser = argparse.ArgumentParser(
     description="Compares GPT-5.4 mini, Jev and Luna Decisions on the threshold cases."

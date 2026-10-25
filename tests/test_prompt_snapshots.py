@@ -16,11 +16,13 @@ import os
 from pathlib import Path
 
 import pytest
-from faithfulness_runner import THRESHOLD_STATEMENTS, _rule
+from faithfulness_runner import _rule
+from paths import EXAMPLES_DIR
 
 from specguard.adapters import llm
 from specguard.adapters.jev import DecisionConfig, build_payload
 from specguard.adapters.llm import JudgeConfig
+from specguard.adapters.statements import load_statements
 from specguard.domain.prompts import (
     EXTRACTOR_SYSTEM_PROMPT,
     JUDGE_SYSTEM_PROMPT,
@@ -39,6 +41,7 @@ from specguard.service_layer.metrics import (
 ROOT = Path(__file__).resolve().parents[1]
 SNAPSHOT = Path(__file__).parent / "snapshots" / "prompts.json"
 THREAD = ConversationalThread.from_file(ROOT / "examples" / "t01_discounts.thread.yaml")
+THRESHOLD_STATEMENTS = load_statements(EXAMPLES_DIR / "t01_threshold_statements.yaml")
 RULE = _rule(THRESHOLD_STATEMENTS["RESTRICTION-FORM"], "RESTRICTION-FORM")
 
 

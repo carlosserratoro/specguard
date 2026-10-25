@@ -5,14 +5,6 @@ from concurrent.futures import ThreadPoolExecutor
 
 from specguard.domain.spec import BusinessRule, Severity
 
-THRESHOLD_STATEMENTS = {
-    "PERMISSION-FORM": "When a premium customer's discount is up to 20%, "
-    "the system shall allow confirmation without approval.",
-    "RESTRICTION-FORM": "When a discount exceeds 20% for a premium customer, "
-    "the system shall require approval before confirming.",
-    "FALSE-THRESHOLD": "Premium customers are allowed up to 35% without approval.",
-}
-
 VERDICT_ORDER = ("supported", "contradicted", "not_stated")
 
 # Stop a batch if the API keeps failing, e.g. bad key, invalid prompt.
