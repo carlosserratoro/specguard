@@ -100,6 +100,11 @@ def current_values(monkeypatch) -> dict:
         "faithfulness_system_prompt_hint": faithfulness_system_prompt(hint=True),
         "faithfulness_system_prompt_no_hint": faithfulness_system_prompt(hint=False),
         "faithfulness_user_message": build_faithfulness_user_message(RULE, THREAD),
+        "threshold_statements": THRESHOLD_STATEMENTS,
+        "faithfulness_user_messages": {
+            label: build_faithfulness_user_message(_rule(statement, label), THREAD)
+            for label, statement in THRESHOLD_STATEMENTS.items()
+        },
         "match_system_prompt": JUDGE_SYSTEM_PROMPT,
         # Instructor sends these schemas as the tool definition, so their field
         # descriptions and class names are part of the prompt too.
