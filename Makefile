@@ -14,7 +14,10 @@ lint:
 	uv run ruff check .
 
 test:
-	uv run pytest
+	uv run pytest -m "not external"
+
+test-external:
+	uv run pytest -m external
 
 typecheck:
 	uv run mypy
