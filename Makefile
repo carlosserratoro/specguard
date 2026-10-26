@@ -1,10 +1,8 @@
-.PHONY: run format lint check test sync
-
-run:
-	uv run python -m specguard.main
+# Development
+.PHONY: format format-check lint test test-external typecheck check sync
 
 format:
-	uv run ruff check --fix .
+	uv run ruff check --fix --exit-zero .
 	uv run ruff format .
 
 format-check:
@@ -27,12 +25,16 @@ check: format-check lint typecheck test
 sync:
 	uv sync
 
-# Experiments:
+# Experiments
 # Examples:
 # make exp-faithfulness EFFORT=medium K=100
 # make exp-faithfulness-sweep K=10
 K ?= 1
 EFFORT ?= none
+
+.PHONY: exp-recall-precision exp-br2-framing exp-faithfulness exp-faithfulness-sweep \
+        exp-faithfulness-sweep-scaffolding exp-reasoning-vs-scaffolding \
+        exp-generative-vs-decision exp-generative-vs-decision-hint-vs-no-hint
 
 exp-recall-precision:
 	uv run python scripts/run_recall_precision.py -k $(K)
@@ -62,6 +64,7 @@ exp-reasoning-vs-scaffolding:
 	uv run python scripts/run_faithfulness.py -k 100 --effort low --scaffolding
 	uv run python scripts/run_faithfulness.py -k 100 --effort medium --scaffolding
 
+# Plots
 PLOT = uv run python -m scripts.plots
 PLOT_RECALL_PRECISION_JSON = results/recall-precision/t01_discounts_k20_effort-none_scaffold-off_20260808T181041Z.json
 
@@ -69,14 +72,14 @@ PLOT_RECALL_PRECISION_JSON = results/recall-precision/t01_discounts_k20_effort-n
         plot-thread-verdicts plot-thread-verdicts-judge-effort \
         plot-thread-verdicts-judge-reasoning-tokens \
         plot-thread-verdicts-judge-cost-and-latency \
-		plot-generative-vs-decision
+        plot-thread-verdicts-judge-cot plot-generative-vs-decision
 
 plots: plot-recall-precision plot-missed-by-rule plot-br2-framing \
        plot-thread-verdicts plot-thread-verdicts-judge-effort \
        plot-thread-verdicts-judge-reasoning-tokens \
        plot-thread-verdicts-judge-cost-and-latency \
-	   plot-thread-verdicts-judge-cot \
-	   plot-generative-vs-decision
+       plot-thread-verdicts-judge-cot \
+       plot-generative-vs-decision
 
 plot-recall-precision:
 	$(PLOT).plot_recall_precision $(PLOT_RECALL_PRECISION_JSON)
