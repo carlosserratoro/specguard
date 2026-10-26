@@ -18,6 +18,7 @@ import numpy as np
 from scripts.paths import FIGURES_DIR
 from scripts.plots.faithfulness_data import (
     DEFAULT_FIGSIZE,
+    POST_05_RESULTS_BEFORE,
     VERDICT_COLORS,
     VERDICT_LABELS,
     add_footer,
@@ -108,7 +109,13 @@ def main() -> None:
     reports = [
         r
         for effort in DEFAULT_EFFORTS
-        for r in load_reports(k=DEFAULT_K, scaffolding=False, label=DEFAULT_LABEL, effort=effort)
+        for r in load_reports(
+            k=DEFAULT_K,
+            scaffolding=False,
+            label=DEFAULT_LABEL,
+            effort=effort,
+            before=POST_05_RESULTS_BEFORE,
+        )
     ]
     model = reports[0].model
 

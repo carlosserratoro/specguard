@@ -11,6 +11,7 @@ from scripts.plots.faithfulness_data import (
     COLOR_RECALL,
     DEFAULT_FIGSIZE,
     EFFORT_ORDER,
+    POST_05_RESULTS_BEFORE,
     Report,
     add_footer,
     apply_style,
@@ -38,7 +39,7 @@ CAPTION_SIZE = 12.5
 
 def _reports_for(effort: str) -> tuple[list[Report], int]:
     for k in (DEFAULT_PREFERRED_K, DEFAULT_FALLBACK_K):
-        reports = load_reports(k=k, scaffolding=False, effort=effort)
+        reports = load_reports(k=k, scaffolding=False, effort=effort, before=POST_05_RESULTS_BEFORE)
         if reports:
             return reports, k
     return [], 0

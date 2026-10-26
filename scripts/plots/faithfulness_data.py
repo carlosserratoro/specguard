@@ -44,6 +44,11 @@ VERDICT_LABELS = {
 DEFAULT_FIGSIZE = (12, 9)
 DEFAULT_DPI = 150
 
+# Timestamp of the first file added after the post-05 tag.
+# Results for later posts were added after post 5 was published; however,
+# the charts generated for post 5 must not include them.
+POST_05_RESULTS_BEFORE = "20261005T152023Z"
+
 
 @dataclass(frozen=True)
 class Run:
@@ -101,8 +106,16 @@ def load_reports(
     scaffolding: bool | None = None,
     label: str | None = None,
     effort: str | None = None,
+    before: str | None = None,
 ) -> list[Report]:
-    """Load every report matching the filters, oldest first."""
+    """Load every report matching the filters, oldest first.
+
+    `before` keeps only runs older than a timestamp, e.g. 20261005T160253Z,
+    so a post's figures keep using the results that post was based on. This
+    parameter was added so that plots can be generated from the current
+    state of the code without having to go back to the tag they were generated
+    from, which would exclude newer files.
+    """
     reports = [_parse(p) for p in FAITHFULNESS_DIR.glob("*.json")]
     selected = [
         r
@@ -111,6 +124,7 @@ def load_reports(
         and (scaffolding is None or r.scaffolding == scaffolding)
         and (label is None or r.label == label)
         and (effort is None or r.effort == effort)
+        and (before is None or r.timestamp < before)
     ]
     return sorted(selected, key=lambda r: r.timestamp)
 

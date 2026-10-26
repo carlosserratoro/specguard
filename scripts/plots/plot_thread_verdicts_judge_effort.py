@@ -10,6 +10,7 @@ from scripts.paths import FIGURES_DIR
 from scripts.plots.faithfulness_data import (
     DEFAULT_FIGSIZE,
     EFFORT_ORDER,
+    POST_05_RESULTS_BEFORE,
     STATEMENT_ORDER,
     VERDICT_COLORS,
     VERDICT_LABELS,
@@ -58,7 +59,7 @@ def _parse_args() -> argparse.Namespace:
 def main() -> None:
     args = _parse_args()
     apply_style()
-    reports = load_reports(k=args.k, scaffolding=False)
+    reports = load_reports(k=args.k, scaffolding=False, before=POST_05_RESULTS_BEFORE)
     if not reports:
         raise SystemExit(f"No reports with k={args.k} in the faithfulness results.")
     efforts = [e for e in EFFORT_ORDER if any(r.effort == e for r in reports)]
