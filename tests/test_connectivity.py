@@ -12,23 +12,17 @@ from specguard.adapters.llm import (
 )
 from specguard.bootstrap import load_environment
 
-load_environment()
-
 
 class _Greeting(BaseModel):
     message: str = Field(description="A short greeting.")
     is_valid: bool = Field(description="True if the greeting is valid.")
 
 
-requires_api_key = pytest.mark.skipif(
-    not os.getenv("OPENAI_API_KEY"),
-    reason="No LLM API key available; skipping live call.",
-)
-
-
 @pytest.mark.external
-@requires_api_key
 def test_llm_call_returns_validated_response() -> None:
+    load_environment()
+    if not os.getenv("OPENAI_API_KEY"):
+        pytest.skip("No LLM API key available; skipping live call.")
     call = build_call(DEFAULT_EXTRACTOR_MODEL, DEFAULT_EXTRACTOR_TEMPERATURE)
     result = call.client.create(
         model=call.model,
