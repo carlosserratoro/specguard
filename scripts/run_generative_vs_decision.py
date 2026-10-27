@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 import argparse
+import logging
 
 from paths import EXAMPLES_DIR, RESULTS_DIR, RESULTS_LLM_VS_JEV_HINT_VS_NO_HINT_DIR
 
@@ -16,6 +17,8 @@ from specguard.adapters.statements import load_statements
 from specguard.bootstrap import load_environment, make_decision_verifier, make_generative_verifier
 from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.faithfulness import check, check_majority
+
+logging.basicConfig(level=logging.INFO, format="%(message)s")
 
 load_environment()
 

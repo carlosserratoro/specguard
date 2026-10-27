@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+import logging
+
 from cli import build_parser, judge_config_from_args
 from paths import EXAMPLES_DIR, RESULTS_DIR
 
@@ -11,6 +13,8 @@ from specguard.bootstrap import load_environment
 from specguard.domain.spec import UseCaseSpec
 from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.evaluation import evaluate
+
+logging.basicConfig(level=logging.INFO, format="%(message)s")
 
 load_environment()
 

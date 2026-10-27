@@ -7,6 +7,8 @@
 
 from __future__ import annotations
 
+import logging
+
 from cli import build_parser, judge_config_from_args
 from paths import EXAMPLES_DIR, RESULTS_DIR
 
@@ -17,6 +19,8 @@ from specguard.domain.spec import UseCaseSpec
 from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.extractor import extract
 from specguard.service_layer.judges import match_rule
+
+logging.basicConfig(level=logging.INFO, format="%(message)s")
 
 load_environment()
 

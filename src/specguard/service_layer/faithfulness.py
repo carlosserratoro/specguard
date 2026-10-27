@@ -1,6 +1,7 @@
 # Copyright 2026 Carlos Serra-Toro
 # SPDX-License-Identifier: Apache-2.0
 
+import logging
 import time
 from collections import Counter
 from collections.abc import Callable
@@ -9,6 +10,8 @@ from typing import Any
 
 from specguard.domain.definitions import VERDICT_ORDER
 from specguard.domain.spec import BusinessRule, Severity
+
+logger = logging.getLogger(__name__)
 
 # Stop a batch if the API keeps failing, e.g. bad key, invalid prompt.
 MAX_CONSECUTIVE_ERRORS = 5
@@ -57,18 +60,20 @@ def check(
             consecutive_errors += 1
             report["errors"] += 1
             report["runs"].append({"error": {"type": type(cause).__name__, "message": str(cause)}})
-            print(f"{label} repetition {rep_no + 1}/{k}: ERROR {str(exc)[:120]}")
+            logger.warning("%s repetition %d/%d: ERROR %s", label, rep_no + 1, k, str(exc)[:120])
             if consecutive_errors >= MAX_CONSECUTIVE_ERRORS:
                 raise RuntimeError(f"{MAX_CONSECUTIVE_ERRORS} consecutive errors") from exc
         else:
             consecutive_errors = 0
-            print(f"{label} repetition {rep_no + 1}/{k}: {verdict}")
+            logger.info("%s repetition %d/%d: %s", label, rep_no + 1, k, verdict)
             verdicts.append(verdict)
             report["runs"].append(record)
 
     counts = Counter(verdicts)
     report["verdict_counts"] = {v: counts[v] for v in VERDICT_ORDER}
-    print(f"{label} verdict_counts: {report['verdict_counts']}, errors: {report['errors']}\n")
+    logger.info(
+        "%s verdict_counts: %s, errors: %d", label, report["verdict_counts"], report["errors"]
+    )
 
     return report
 
@@ -130,7 +135,9 @@ def check_majority(
             report["decisions"].append(
                 {"majority": majority, "wall_time_s": wall_time_s, "runs": [r for _, r in results]}
             )
-            print(f"{label} group {group_no + 1}/{groups}: {majority} ({wall_time_s:.2f} s)")
+            logger.info(
+                "%s group %d/%d: %s (%.2f s)", label, group_no + 1, groups, majority, wall_time_s
+            )
 
     report["verdict_counts"] = {v: Counter(majorities)[v] for v in VERDICT_ORDER}
     report["call_verdict_counts"] = {v: Counter(call_verdicts)[v] for v in VERDICT_ORDER}

@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import logging
 import statistics
 from dataclasses import asdict
 from functools import partial
@@ -18,6 +19,8 @@ from specguard.service_layer.extractor import extract
 from specguard.service_layer.judges import match_rule
 from specguard.service_layer.metrics import rule_precision, rule_recall
 
+logger = logging.getLogger(__name__)
+
 
 def evaluate(
     thread: ConversationalThread,
@@ -32,7 +35,7 @@ def evaluate(
 
     match = partial(match_rule, judge_config=judge_config)
     for i in range(k):
-        print(f"Evaluating, repetition {i + 1}/{k}")
+        logger.info("Evaluating, repetition %d/%d", i + 1, k)
         predicted = extract(thread, extractor_temperature)
         recall_result = rule_recall(gold.business_rules, predicted.business_rules, match)
         precision_result = rule_precision(predicted.business_rules, gold.business_rules, match)
