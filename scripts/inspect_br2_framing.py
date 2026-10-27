@@ -20,7 +20,8 @@ from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.extractor import extract
 from specguard.service_layer.judges import match_rule
 
-logging.basicConfig(level=logging.INFO, format="%(message)s")
+logging.basicConfig(format="%(message)s")
+logging.getLogger("specguard").setLevel(logging.INFO)
 
 load_environment()
 

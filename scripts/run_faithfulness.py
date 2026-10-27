@@ -14,7 +14,8 @@ from specguard.bootstrap import load_environment, make_generative_verifier
 from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.faithfulness import check
 
-logging.basicConfig(level=logging.INFO, format="%(message)s")
+logging.basicConfig(format="%(message)s")
+logging.getLogger("specguard").setLevel(logging.INFO)
 
 load_environment()
 
