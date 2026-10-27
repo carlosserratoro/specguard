@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Cover for post 07: the hard case with and without the hint, in 16:9 with large text.
 
 A simplified hint_effect chart, so it reads on a phone and LinkedIn doesn't crop it:

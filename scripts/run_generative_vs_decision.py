@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Compare GPT-5.4 mini and Jev as faithfulness judges (post 7)."""
 
 from __future__ import annotations

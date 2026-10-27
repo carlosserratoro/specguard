@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Shared selection for the post 06's charts.
 
 The code calls the technique "scaffolding" (a schema field the judge must fill in

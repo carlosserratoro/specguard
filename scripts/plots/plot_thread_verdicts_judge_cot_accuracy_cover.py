@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Cover for post 06: the accuracy chart (k=100, one session) in 16:9, with larger text.
 
 Same data and layout as the accuracy chart in the article, so LinkedIn doesn't crop it.

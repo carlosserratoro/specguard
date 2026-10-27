@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Mean probability per verdict, with one standard deviation, for each decision model.
 
 One row per decision model (A, A', D) and one panel per statement. Each panel shows

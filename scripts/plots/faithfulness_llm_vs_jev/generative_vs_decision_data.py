@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Shared loading for the post 07 charts: GPT-5.4 mini vs Jev as faithfulness judges.
 
 Every report in results/faithfulness_llm_vs_jev is reduced to one ``Decision`` per

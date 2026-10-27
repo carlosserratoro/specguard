@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 from specguard.domain.definitions import VERDICT_DEFINITIONS, VERDICT_ORDER
 from specguard.domain.prompts import faithfulness_system_prompt
 

@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Shared loading and styling for the faithfulness plots.
 
 Reports come in two formats:

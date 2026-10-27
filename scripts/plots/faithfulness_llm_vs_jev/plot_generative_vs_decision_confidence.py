@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Probability each decision model gave to the correct verdict, per statement.
 
 Every dot is one of the 100 calls, for each decision model with the hint (filled)

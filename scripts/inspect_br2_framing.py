@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 # Script to further investigate BR2, which is the business rule that fails the most.
 # It aims at seeing the reasoning being made.
 

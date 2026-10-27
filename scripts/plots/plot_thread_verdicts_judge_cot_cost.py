@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Cost normalised to 1,000 calls by statement and configuration.
 
 Each bar is one statement (P, R, F), stacked into input, visible output and

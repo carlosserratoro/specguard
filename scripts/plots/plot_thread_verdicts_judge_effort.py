@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Verdicts per reasoning effort for a given k (--k), one panel per statement."""
 
 from __future__ import annotations

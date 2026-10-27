@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 from specguard.domain.definitions import Verdict
 from specguard.domain.spec import BusinessRule, Severity
 from specguard.domain.verdicts import MatchDecision, SupportVerdict

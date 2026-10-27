@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Latency of every call, per statement, for the k=1000 session with CoT and no reasoning.
 
 One panel per statement, calls in the order they were made, with the p90, p99 and

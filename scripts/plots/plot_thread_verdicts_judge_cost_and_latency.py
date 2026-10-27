@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Cost and latency per reasoning effort, all three statements pooled."""
 
 from __future__ import annotations

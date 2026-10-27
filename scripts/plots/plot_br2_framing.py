@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Plot how the judge treats the two formulations of the same business rule.
 
 Values are hardcoded from the k=30 BR2 framing run; the point of the chart is

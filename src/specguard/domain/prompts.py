@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 from specguard.domain.definitions import EQUIVALENCE_HINT, VERDICT_DEFINITIONS
 from specguard.domain.spec import BusinessRule
 from specguard.domain.thread import ConversationalThread

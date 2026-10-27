@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Characterisation tests: everything the code sends to the models, frozen.
 
 The results of posts 1-7 depend on these exact texts and schemas.

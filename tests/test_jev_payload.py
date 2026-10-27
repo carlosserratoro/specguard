@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 from typing import Any
 
 from specguard.adapters.jev import VERDICT_QUESTION, DecisionConfig, build_payload

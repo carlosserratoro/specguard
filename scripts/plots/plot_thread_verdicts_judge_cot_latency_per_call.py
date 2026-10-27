@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Latency and tokens of every call, in order, for one batch."""
 
 from __future__ import annotations

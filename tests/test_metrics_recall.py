@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 from unittest.mock import Mock
 
 from specguard.service_layer.metrics import rule_recall

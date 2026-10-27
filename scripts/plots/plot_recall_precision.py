@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Plot per-run precision and recall from an evaluation report.
 
 The point of this chart is not that the averages are high. It is that the same
