@@ -1,5 +1,5 @@
 # Development
-.PHONY: format format-check lint test test-external typecheck check sync
+.PHONY: format format-check lint test test-external typecheck imports check sync
 
 format:
 	uv run ruff check --fix --exit-zero .
@@ -20,7 +20,10 @@ test-external:
 typecheck:
 	uv run mypy
 
-check: format-check lint typecheck test
+imports:
+	uv run lint-imports
+
+check: format-check lint imports typecheck test
 
 sync:
 	uv sync

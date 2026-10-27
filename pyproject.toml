@@ -21,6 +21,7 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
+    "import-linter>=2.15",
     "matplotlib>=3.11.1",
     "mypy>=2.4.0",
     "numpy>=2.5.3",
@@ -79,3 +80,22 @@ filterwarnings = [
 
 [tool.pyright]
 extraPaths = ["scripts"]
+
+[tool.importlinter]
+root_package = "specguard"
+
+[[tool.importlinter.contracts]]
+name = "Layers: bootstrap -> service layer -> adapters -> domain"
+type = "layers"
+layers = [
+    "specguard.bootstrap",
+    "specguard.service_layer",
+    "specguard.adapters",
+    "specguard.domain",
+]
+
+[[tool.importlinter.contracts]]
+name = "Metrics don't depend on adapters"
+type = "forbidden"
+source_modules = ["specguard.service_layer.metrics"]
+forbidden_modules = ["specguard.adapters"]
