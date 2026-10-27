@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import time
+from collections.abc import Callable
 from typing import Any
 
 from specguard.adapters.llm import (
@@ -21,6 +22,12 @@ from specguard.domain.verdicts import (
     ScaffoldedSupportVerdict,
     SupportVerdict,
 )
+
+# Given a rule and candidate rules, decide which candidate (if any) expresses the same rule.
+MatcherFn = Callable[[BusinessRule, list[BusinessRule]], MatchDecision]
+
+# Given a rule, decide whether the thread supports it.
+SupportJudgeFn = Callable[[BusinessRule], JudgeVerdict]
 
 
 def verify_rule_against_thread(
@@ -54,8 +61,7 @@ def verify_rule_against_thread(
 
 def rule_faithfulness(
     predicted_rules: list[BusinessRule],
-    thread: ConversationalThread,
-    judge_config: JudgeConfig | None = None,
+    verify: SupportJudgeFn,
 ) -> dict[str, Any]:
     """Faithfulness: fraction of extracted rules actually grounded in the thread (RAGAS-style).
 
@@ -66,15 +72,13 @@ def rule_faithfulness(
     Linguistics: System Demonstrations. Association for Computational Linguistics, 150-158.
     https://doi.org/10.18653/v1/2024.eacl-demo.16
     """
-    judge_config = judge_config or JudgeConfig()
-
     total = len(predicted_rules)
     supported = 0
     contradicted_ids: list[str] = []
     not_stated_ids: list[str] = []
 
     for rule in predicted_rules:
-        verdict, _ = verify_rule_against_thread(rule, thread, judge_config)
+        verdict = verify(rule)
         if verdict.verdict == "supported":
             supported += 1
         elif verdict.verdict == "contradicted":
@@ -132,12 +136,9 @@ def match_rule(
 
 
 def rule_recall(
-    gold_rules: list[BusinessRule],
-    candidate_rules: list[BusinessRule],
-    judge_config: JudgeConfig | None = None,
+    gold_rules: list[BusinessRule], candidate_rules: list[BusinessRule], match: MatcherFn
 ) -> dict[str, Any]:
     """Rule recall, i.e. completeness: fraction of gold rules captured."""
-    judge_config = judge_config or JudgeConfig()
     total_weight = 0.0
     matched_weight = 0.0
     missed_rule_ids: list[str] = []
@@ -146,7 +147,7 @@ def rule_recall(
         weight = SEVERITY_WEIGHT[gold_rule.severity]
         total_weight += weight
 
-        decision = match_rule(gold_rule, candidate_rules, judge_config)
+        decision = match(gold_rule, candidate_rules)
         if decision.matched:
             matched_weight += weight
         else:
@@ -164,18 +165,15 @@ def rule_recall(
 
 
 def rule_precision(
-    predicted_rules: list[BusinessRule],
-    gold_rules: list[BusinessRule],
-    judge_config: JudgeConfig | None = None,
+    predicted_rules: list[BusinessRule], gold_rules: list[BusinessRule], match: MatcherFn
 ) -> dict[str, Any]:
     """Rule precision, i.e. fidelity vs gold: fraction of predicted rules supported by the gold."""
-    judge_config = judge_config or JudgeConfig()
     total = len(predicted_rules)
     supported = 0
     hallucinated_ids: list[str] = []
 
     for predicted_rule in predicted_rules:
-        decision = match_rule(predicted_rule, gold_rules, judge_config)
+        decision = match(predicted_rule, gold_rules)
         if decision.matched:
             supported += 1
         else:

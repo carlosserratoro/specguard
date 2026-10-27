@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import statistics
 from dataclasses import asdict
+from functools import partial
 from typing import Any
 
 from specguard.adapters.llm import (
@@ -11,7 +12,7 @@ from specguard.adapters.llm import (
 from specguard.domain.spec import UseCaseSpec
 from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.extractor import extract
-from specguard.service_layer.metrics import rule_precision, rule_recall
+from specguard.service_layer.metrics import match_rule, rule_precision, rule_recall
 
 
 def evaluate(
@@ -25,13 +26,12 @@ def evaluate(
     judge_config = judge_config or JudgeConfig()
     runs: list[dict[str, Any]] = []
 
+    match = partial(match_rule, judge_config=judge_config)
     for i in range(k):
         print(f"Evaluating, repetition {i + 1}/{k}")
         predicted = extract(thread, extractor_temperature)
-        recall_result = rule_recall(gold.business_rules, predicted.business_rules, judge_config)
-        precision_result = rule_precision(
-            predicted.business_rules, gold.business_rules, judge_config
-        )
+        recall_result = rule_recall(gold.business_rules, predicted.business_rules, match)
+        precision_result = rule_precision(predicted.business_rules, gold.business_rules, match)
         runs.append(
             {
                 "recall": recall_result["recall"],
