@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Plot per-run precision and recall from an evaluation report.
 
 The point of this chart is not that the averages are high. It is that the same

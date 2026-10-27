@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Plot the judge's verdicts when verifying against the thread instead of the gold."""
 
 import argparse

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Plot how many runs missed each gold rule.
 
 Values are hardcoded from the k=20 run reported in post 1; the point of the chart
