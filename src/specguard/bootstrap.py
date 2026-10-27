@@ -8,7 +8,7 @@ from specguard.adapters.jev import VERDICT_QUESTION, DecisionConfig, verify_rule
 from specguard.adapters.llm import JudgeConfig
 from specguard.domain.spec import BusinessRule
 from specguard.domain.thread import ConversationalThread
-from specguard.service_layer.faithfulness import JudgeCallError, Verifier
+from specguard.service_layer.faithfulness import JudgeCallError, VerifierFn
 from specguard.service_layer.metrics import verify_rule_against_thread
 
 
@@ -17,7 +17,7 @@ def load_environment() -> None:
     load_dotenv()
 
 
-def make_generative_verifier(thread: ConversationalThread, config: JudgeConfig) -> Verifier:
+def make_generative_verifier(thread: ConversationalThread, config: JudgeConfig) -> VerifierFn:
     def verify(rule: BusinessRule) -> tuple[str, dict[str, Any]]:
         try:
             verdict, metrics = verify_rule_against_thread(rule, thread, config)
@@ -31,7 +31,7 @@ def make_generative_verifier(thread: ConversationalThread, config: JudgeConfig) 
     return verify
 
 
-def make_decision_verifier(thread: ConversationalThread, config: DecisionConfig) -> Verifier:
+def make_decision_verifier(thread: ConversationalThread, config: DecisionConfig) -> VerifierFn:
     def verify(rule: BusinessRule) -> tuple[str, dict[str, Any]]:
         try:
             response, elapsed_s = verify_rule_with_jev(rule, thread, config)

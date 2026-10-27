@@ -16,7 +16,7 @@ class JudgeCallError(Exception):
 
 
 # A verifier takes a business rule and returns a verdict label and a record to store for this run.
-Verifier = Callable[[BusinessRule], tuple[str, dict[str, Any]]]
+VerifierFn = Callable[[BusinessRule], tuple[str, dict[str, Any]]]
 
 
 def rule_from_statement(statement: str, label: str) -> BusinessRule:
@@ -28,7 +28,7 @@ def rule_from_statement(statement: str, label: str) -> BusinessRule:
 def check(
     statement: str,
     label: str,
-    verify: Verifier,
+    verify: VerifierFn,
     k: int = 20,
 ) -> dict[str, Any]:
 
@@ -70,7 +70,7 @@ def check(
     return report
 
 
-def _call(verify: Verifier, rule: BusinessRule) -> tuple[str | None, dict[str, Any]]:
+def _call(verify: VerifierFn, rule: BusinessRule) -> tuple[str | None, dict[str, Any]]:
     """One call that never raises: a failure comes back as an error record."""
     try:
         return verify(rule)
@@ -80,7 +80,7 @@ def _call(verify: Verifier, rule: BusinessRule) -> tuple[str | None, dict[str, A
 
 
 def check_majority(
-    statement: str, label: str, verify: Verifier, groups: int, group_size: int = 10
+    statement: str, label: str, verify: VerifierFn, groups: int, group_size: int = 10
 ) -> dict[str, Any]:
     """Each decision is the majority verdict of `group_size` concurrent calls.
 
