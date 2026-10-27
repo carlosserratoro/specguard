@@ -1,3 +1,5 @@
+from typing import Any
+
 from specguard.adapters.jev import VERDICT_QUESTION, DecisionConfig, build_payload
 from specguard.domain.definitions import (
     EQUIVALENCE_HINT,
@@ -25,8 +27,9 @@ RULE = BusinessRule(
 )
 
 
-def _question(payload: dict) -> dict:
-    return payload["questions"][VERDICT_QUESTION]
+def _question(payload: dict[str, Any]) -> dict[str, Any]:
+    question: dict[str, Any] = payload["questions"][VERDICT_QUESTION]
+    return question
 
 
 def test_same_as_llm_style_sends_exactly_what_the_llm_receives():

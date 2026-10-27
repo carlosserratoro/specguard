@@ -20,7 +20,7 @@ def thread() -> ConversationalThread:
     )
 
 
-def _patched_call(**kwargs):
+def _patched_call(**kwargs) -> MagicMock:
     client = MagicMock()
     call = MagicMock()
     call.client = client

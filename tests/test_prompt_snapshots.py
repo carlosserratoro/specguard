@@ -14,8 +14,10 @@ Afterwards, you can run the tests as usual.
 import json
 import os
 from pathlib import Path
+from typing import Any
 
 import pytest
+from pydantic import BaseModel
 
 from specguard.adapters import llm
 from specguard.adapters.jev import DecisionConfig, build_payload
@@ -47,32 +49,34 @@ RULE = rule_from_statement(THRESHOLD_STATEMENTS["RESTRICTION-FORM"], "RESTRICTIO
 class RecordingClient:
     """Stands in for the Instructor client and records what each call would send."""
 
-    def __init__(self, route: str, calls: list):
+    def __init__(self, route: str, calls: list[dict[str, Any]]):
         self.route, self.calls = route, calls
 
-    def _record(self, response_model, **kwargs):
+    def _record(self, response_model: type[BaseModel], **kwargs: Any) -> None:
         self.calls.append(
             {"route": self.route, "response_model": response_model.__name__, **kwargs}
         )
 
-    def create(self, response_model, **kwargs):
+    def create(self, response_model: type[BaseModel], **kwargs: Any) -> MatchDecision | None:
         self._record(response_model, **kwargs)
         if response_model is MatchDecision:
             return MatchDecision(gold_rule_id="X", matched=False, reasoning="")
         return None
 
-    def create_with_completion(self, response_model, **kwargs):
+    def create_with_completion(
+        self, response_model: type[BaseModel], **kwargs: Any
+    ) -> tuple[SupportVerdict, None]:
         self._record(response_model, **kwargs)
         return SupportVerdict(verdict="supported", reasoning=""), None
 
 
-def llm_calls(monkeypatch) -> dict:
+def llm_calls(monkeypatch) -> dict[str, Any]:
     """The exact arguments passed to Instructor, from the real code paths.
 
     Only the clients are replaced, so the routing, model names and sampling
     parameters chosen by build_call are recorded as they really are.
     """
-    calls: list = []
+    calls: list[dict[str, Any]] = []
     monkeypatch.setattr(llm, "get_client", lambda: RecordingClient("chat", calls))
     monkeypatch.setattr(
         llm, "get_responses_client", lambda model=None: RecordingClient("responses", calls)
@@ -94,7 +98,7 @@ def llm_calls(monkeypatch) -> dict:
     return recorded
 
 
-def current_values(monkeypatch) -> dict:
+def current_values(monkeypatch) -> dict[str, Any]:
     """What the code sends today, computed without calling any model."""
     return {
         "extractor_system_prompt": EXTRACTOR_SYSTEM_PROMPT,

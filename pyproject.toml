@@ -34,8 +34,14 @@ dev = [
 [tool.mypy]
 python_version = "3.12"
 strict = true
-files = ["src"]
+files = ["src", "tests"]
 plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = true
 
 [tool.ruff]
 line-length = 100
