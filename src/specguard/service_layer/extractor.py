@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 from __future__ import annotations
 
 from specguard.adapters.llm import (
@@ -5,21 +8,9 @@ from specguard.adapters.llm import (
     DEFAULT_EXTRACTOR_TEMPERATURE,
     build_call,
 )
+from specguard.domain.prompts import EXTRACTOR_SYSTEM_PROMPT
 from specguard.domain.spec import UseCaseSpec
 from specguard.domain.thread import ConversationalThread
-
-SYSTEM_PROMPT = (
-    "You are a business analyst with years of experience turning ambiguous, "
-    "incomplete discussions into precise use cases.\n"
-    "From the conversation thread, extract a structured use case. "
-    "Follow these rules strictly:\n"
-    "- Capture only rules explicitly stated in the thread. Do not invent or infer unstated rules.\n"
-    "- For every rule, cite the message(s) it comes from in source_refs.\n"
-    "- If the thread raises a question but leaves it unresolved, record it as an open question. "
-    "Do not answer it or make up an answer.\n"
-    "- Write each business rule in EARS format: 'When <trigger>, the system shall <response>'.\n"
-    "- If a business process is opened but never closed in the thread, flag it as an open question."
-)
 
 
 def extract(
@@ -32,7 +23,7 @@ def extract(
         model=call.model,
         response_model=UseCaseSpec,
         messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "system", "content": EXTRACTOR_SYSTEM_PROMPT},
             {
                 "role": "user",
                 "content": "Extract the use case from the following conversation thread:\n\n"

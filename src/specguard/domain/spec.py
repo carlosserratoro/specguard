@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 from enum import StrEnum
 from pathlib import Path
 from typing import Literal
@@ -10,6 +13,13 @@ class Severity(StrEnum):
     critical = "critical"
     normal = "normal"
     minor = "minor"
+
+
+SEVERITY_WEIGHT = {
+    Severity.critical: 3,
+    Severity.normal: 2,
+    Severity.minor: 1,
+}
 
 
 class BusinessRule(BaseModel):

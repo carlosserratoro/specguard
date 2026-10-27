@@ -1,7 +1,12 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 import threading
+from collections.abc import Sequence
+from typing import Any
 from unittest.mock import Mock
 
-from faithfulness_runner import JudgeCallError, check, check_majority
+from specguard.service_layer.faithfulness import JudgeCallError, VerifierFn, check, check_majority
 
 
 def test_check_counts_verdicts_and_stores_records_unchanged():
@@ -28,10 +33,10 @@ def test_check_stores_the_original_error_type():
 WARM_UP = ["supported"]  # Consumed by the warm-up call and never stored.
 
 
-def _scripted(outcomes):
+def _scripted(outcomes: Sequence[str | Exception]) -> VerifierFn:
     lock, it = threading.Lock(), iter(outcomes)
 
-    def verify(rule):
+    def verify(rule) -> tuple[str, dict[str, Any]]:
         with lock:
             outcome = next(it)
         if isinstance(outcome, Exception):

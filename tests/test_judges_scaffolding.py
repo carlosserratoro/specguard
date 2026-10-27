@@ -1,13 +1,16 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 from unittest.mock import MagicMock, patch
 
 from specguard.adapters.llm import JudgeConfig
 from specguard.domain.spec import BusinessRule, Severity
 from specguard.domain.thread import ConversationalThread, ThreadMessage
-from specguard.service_layer.metrics import (
+from specguard.domain.verdicts import (
     ScaffoldedSupportVerdict,
     SupportVerdict,
-    verify_rule_against_thread,
 )
+from specguard.service_layer.judges import verify_rule_against_thread
 
 RULE = BusinessRule(
     id="BR2",
@@ -43,7 +46,7 @@ def _patched_call() -> MagicMock:
 def test_scaffolding_off_uses_normal_verdict():
     """Without scaffolding the judge doesn't use the scaffolding for the verdict."""
     call = _patched_call()
-    with patch("specguard.service_layer.metrics.build_call", return_value=call):
+    with patch("specguard.service_layer.judges.build_call", return_value=call):
         verify_rule_against_thread(RULE, THREAD, JudgeConfig(scaffolding=False))
     _, kwargs = call.client.create_with_completion.call_args
     assert kwargs["response_model"] is SupportVerdict
@@ -52,7 +55,7 @@ def test_scaffolding_off_uses_normal_verdict():
 def test_scaffolding_on_uses_scaffolded_verdict():
     """With scaffolding the judge must use the scaffolding for the verdict."""
     call = _patched_call()
-    with patch("specguard.service_layer.metrics.build_call", return_value=call):
+    with patch("specguard.service_layer.judges.build_call", return_value=call):
         verify_rule_against_thread(RULE, THREAD, JudgeConfig(scaffolding=True))
     _, kwargs = call.client.create_with_completion.call_args
     assert kwargs["response_model"] is ScaffoldedSupportVerdict

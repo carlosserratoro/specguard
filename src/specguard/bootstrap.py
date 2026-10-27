@@ -1,16 +1,27 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
+from typing import Any
+
 import requests
-from faithfulness_runner import JudgeCallError, Verifier
+from dotenv import load_dotenv
 from instructor.core import InstructorRetryException
 
 from specguard.adapters.jev import VERDICT_QUESTION, DecisionConfig, verify_rule_with_jev
 from specguard.adapters.llm import JudgeConfig
 from specguard.domain.spec import BusinessRule
 from specguard.domain.thread import ConversationalThread
-from specguard.service_layer.metrics import verify_rule_against_thread
+from specguard.service_layer.faithfulness import JudgeCallError, VerifierFn
+from specguard.service_layer.judges import verify_rule_against_thread
 
 
-def make_generative_verifier(thread: ConversationalThread, config: JudgeConfig) -> Verifier:
-    def verify(rule: BusinessRule) -> tuple[str, dict]:
+def load_environment() -> None:
+    """Call it once, at the start of each entry point."""
+    load_dotenv()
+
+
+def make_generative_verifier(thread: ConversationalThread, config: JudgeConfig) -> VerifierFn:
+    def verify(rule: BusinessRule) -> tuple[str, dict[str, Any]]:
         try:
             verdict, metrics = verify_rule_against_thread(rule, thread, config)
         except InstructorRetryException as exc:
@@ -23,8 +34,8 @@ def make_generative_verifier(thread: ConversationalThread, config: JudgeConfig) 
     return verify
 
 
-def make_decision_verifier(thread: ConversationalThread, config: DecisionConfig) -> Verifier:
-    def verify(rule: BusinessRule) -> tuple[str, dict]:
+def make_decision_verifier(thread: ConversationalThread, config: DecisionConfig) -> VerifierFn:
+    def verify(rule: BusinessRule) -> tuple[str, dict[str, Any]]:
         try:
             response, elapsed_s = verify_rule_with_jev(rule, thread, config)
             choice = response["answers"][VERDICT_QUESTION]["choice"]

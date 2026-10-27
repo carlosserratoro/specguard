@@ -1,12 +1,23 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 from __future__ import annotations
 
+import logging
+
 from cli import build_parser, judge_config_from_args
-from faithfulness_runner import THRESHOLD_STATEMENTS, check
 from paths import EXAMPLES_DIR, RESULTS_DIR
-from verifiers import make_generative_verifier
 
 from specguard.adapters.reporting import save_report
+from specguard.adapters.statements import load_statements
+from specguard.bootstrap import load_environment, make_generative_verifier
 from specguard.domain.thread import ConversationalThread
+from specguard.service_layer.faithfulness import check
+
+logging.basicConfig(format="%(message)s")
+logging.getLogger("specguard").setLevel(logging.INFO)
+
+load_environment()
 
 parser = build_parser("Measures faithfulness over the threshold cases.")
 args = parser.parse_args()
@@ -15,6 +26,8 @@ judge_config = judge_config_from_args(args)
 thread = ConversationalThread.from_file(EXAMPLES_DIR / "t01_discounts.thread.yaml")
 
 verify = make_generative_verifier(thread, judge_config)
+
+THRESHOLD_STATEMENTS = load_statements(EXAMPLES_DIR / "t01_threshold_statements.yaml")
 
 report_permission_form = check(
     THRESHOLD_STATEMENTS["PERMISSION-FORM"], "PERMISSION-FORM", verify, k=args.reps

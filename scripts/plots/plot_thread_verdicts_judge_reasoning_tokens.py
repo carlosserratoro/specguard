@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Reasoning tokens per run, coloured by verdict, for RESTRICTION-FORM.
 
 Two layouts:
@@ -18,6 +21,7 @@ import numpy as np
 from scripts.paths import FIGURES_DIR
 from scripts.plots.faithfulness_data import (
     DEFAULT_FIGSIZE,
+    POST_05_RESULTS_BEFORE,
     VERDICT_COLORS,
     VERDICT_LABELS,
     add_footer,
@@ -25,6 +29,7 @@ from scripts.plots.faithfulness_data import (
     load_reports,
     save,
 )
+from specguard.domain.definitions import VERDICT_ORDER
 
 DEFAULT_OUTPUT_DIR = FIGURES_DIR / "faithfulness"
 
@@ -35,7 +40,7 @@ DEFAULT_SEED = 7  # jitter only; fixed so the image is reproducible
 JITTER = 0.32
 # Draw order: supported last, so supported runs with little reasoning stay visible.
 DRAW_ORDER = ("contradicted", "not_stated", "supported")
-LEGEND_ORDER = ("supported", "contradicted", "not_stated")
+LEGEND_ORDER = VERDICT_ORDER
 
 TITLE = "All but two wrong verdicts\ncame from runs with little or no reasoning"
 
@@ -107,7 +112,13 @@ def main() -> None:
     reports = [
         r
         for effort in DEFAULT_EFFORTS
-        for r in load_reports(k=DEFAULT_K, scaffolding=False, label=DEFAULT_LABEL, effort=effort)
+        for r in load_reports(
+            k=DEFAULT_K,
+            scaffolding=False,
+            label=DEFAULT_LABEL,
+            effort=effort,
+            before=POST_05_RESULTS_BEFORE,
+        )
     ]
     model = reports[0].model
 

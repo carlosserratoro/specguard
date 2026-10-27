@@ -1,22 +1,25 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 from __future__ import annotations
 
+import logging
 import statistics
 from dataclasses import asdict
+from functools import partial
+from typing import Any
 
 from specguard.adapters.llm import (
     DEFAULT_EXTRACTOR_TEMPERATURE,
     JudgeConfig,
 )
-from specguard.domain.spec import Severity, UseCaseSpec
+from specguard.domain.spec import UseCaseSpec
 from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.extractor import extract
+from specguard.service_layer.judges import match_rule
 from specguard.service_layer.metrics import rule_precision, rule_recall
 
-SEVERITY_WEIGHT = {
-    Severity.critical: 3,
-    Severity.normal: 2,
-    Severity.minor: 1,
-}
+logger = logging.getLogger(__name__)
 
 
 def evaluate(
@@ -25,18 +28,17 @@ def evaluate(
     k: int = 5,
     extractor_temperature: float = DEFAULT_EXTRACTOR_TEMPERATURE,
     judge_config: JudgeConfig | None = None,
-) -> dict:
+) -> dict[str, Any]:
     """Run the full pipeline k times, computing all metrics on the same extractions."""
     judge_config = judge_config or JudgeConfig()
-    runs: list[dict] = []
+    runs: list[dict[str, Any]] = []
 
+    match = partial(match_rule, judge_config=judge_config)
     for i in range(k):
-        print(f"Evaluating, repetition {i + 1}/{k}")
+        logger.info("Evaluating, repetition %d/%d", i + 1, k)
         predicted = extract(thread, extractor_temperature)
-        recall_result = rule_recall(gold.business_rules, predicted.business_rules, judge_config)
-        precision_result = rule_precision(
-            predicted.business_rules, gold.business_rules, judge_config
-        )
+        recall_result = rule_recall(gold.business_rules, predicted.business_rules, match)
+        precision_result = rule_precision(predicted.business_rules, gold.business_rules, match)
         runs.append(
             {
                 "recall": recall_result["recall"],
@@ -56,7 +58,7 @@ def evaluate(
     }
 
 
-def _summarise(values: list[float]) -> dict:
+def _summarise(values: list[float]) -> dict[str, Any]:
     """Mean, stdev and range for a metric across runs."""
     return {
         "mean": round(statistics.mean(values), 3),

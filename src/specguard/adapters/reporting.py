@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 from __future__ import annotations
 
 import json
@@ -5,7 +8,7 @@ import subprocess
 from datetime import UTC, datetime
 from functools import cache
 from pathlib import Path
-from typing import Protocol
+from typing import Any, Protocol
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 
@@ -14,11 +17,11 @@ class ExperimentConfig(Protocol):
     """Protocol class for experimental configurations: LLM, Jev, etc."""
 
     def label(self) -> str: ...
-    def to_record(self) -> dict: ...
+    def to_record(self) -> dict[str, Any]: ...
 
 
 @cache
-def code_version(repo: Path = REPO_ROOT) -> dict | None:
+def code_version(repo: Path = REPO_ROOT) -> dict[str, Any] | None:
     """Get the commit and whether tracked files had local changes.
 
     Untracked files are ignored on purpose: the result files of the same batch
@@ -39,7 +42,7 @@ def code_version(repo: Path = REPO_ROOT) -> dict | None:
 
 
 def save_report(
-    report: dict,
+    report: dict[str, Any],
     config: ExperimentConfig,
     results_dir: Path,
     experiment: str,

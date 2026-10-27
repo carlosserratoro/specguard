@@ -1,43 +1,26 @@
-from unittest.mock import patch
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
 
-from specguard.domain.spec import BusinessRule, Severity
-from specguard.service_layer.metrics import MatchDecision, rule_recall
+from unittest.mock import Mock
 
-DUMMY_VAL = "."
-
-
-def _rule(id: str) -> BusinessRule:
-    return BusinessRule(id=id, statement=DUMMY_VAL, source_refs=[], severity=Severity.critical)
+from specguard.service_layer.metrics import rule_recall
+from tests.stubs import make_rule, stub_matcher
 
 
 def test_recall_all_supported():
     """Perfect recall."""
-    predicted = [_rule("BR1"), _rule("BR2")]
-    gold = [_rule("G1"), _rule("G2")]
-    with patch(
-        "specguard.service_layer.metrics.match_rule",
-        autospec=True,
-        return_value=MatchDecision(gold_rule_id=DUMMY_VAL, matched=True, reasoning=DUMMY_VAL),
-    ):
-        result = rule_recall(gold, predicted)
+    predicted = [make_rule("BR1"), make_rule("BR2")]
+    gold = [make_rule("G1"), make_rule("G2")]
+    result = rule_recall(gold, predicted, stub_matcher({"G1": True, "G2": True}))
     assert result["recall"] == 1.0
     assert result["missed_rule_ids"] == []
 
 
 def test_recall_with_one_missing():
     """One rule is missing: recall not perfect."""
-    predicted = [_rule("BR1")]
-    gold = [_rule("G1"), _rule("G2")]
-    decisions = [
-        MatchDecision(gold_rule_id=DUMMY_VAL, matched=True, reasoning=DUMMY_VAL),  # G1: match
-        MatchDecision(gold_rule_id=DUMMY_VAL, matched=False, reasoning=DUMMY_VAL),  # G2: no match
-    ]
-    with patch(
-        "specguard.service_layer.metrics.match_rule",
-        autospec=True,
-        side_effect=decisions,
-    ):
-        result = rule_recall(gold, predicted)
+    predicted = [make_rule("BR1")]
+    gold = [make_rule("G1"), make_rule("G2")]
+    result = rule_recall(gold, predicted, stub_matcher({"G1": True, "G2": False}))
     assert result["recall"] == 0.5
     assert result["missed_rule_ids"] == ["G2"]
 
@@ -48,10 +31,7 @@ def test_recall_empty_gold():
     This is to test the impossible case (we should always have a gold)
     but it's given here for completeness.
     """
-    with patch(
-        "specguard.service_layer.metrics.match_rule",
-        autospec=True,
-    ) as m:
-        result = rule_recall(gold_rules=[], candidate_rules=[_rule("BR1")])
+    match = Mock()
+    result = rule_recall(gold_rules=[], candidate_rules=[make_rule("BR1")], match=match)
     assert result["recall"] == 0
-    m.assert_not_called()  # No gold rules, tus match_rule is not called.
+    match.assert_not_called()  # No gold rules, thus not called.

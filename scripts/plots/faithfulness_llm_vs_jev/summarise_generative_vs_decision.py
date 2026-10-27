@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Print the numbers behind post 07, one row per configuration and statement.
 
 Every figure quoted in the post should come from this table or from the charts

@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Latency per decision, pooled over the three statements (300 decisions each).
 
 Every decision is a dot; the bar marks the median and the triangle the p99. For C,

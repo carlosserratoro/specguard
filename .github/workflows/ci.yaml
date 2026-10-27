@@ -17,6 +17,8 @@ jobs:
         run: make format-check
       - name: Lint
         run: make lint
+      - name: Check architecture
+        run: make imports
 
   test:
     name: Test
@@ -26,3 +28,12 @@ jobs:
       - uses: ./.github/actions/setup-python-env
       - name: Run tests
         run: make test
+
+  typecheck:
+    name: Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-python-env
+      - name: Check types
+        run: make typecheck

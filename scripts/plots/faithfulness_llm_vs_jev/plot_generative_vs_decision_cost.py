@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Cost per 1,000 decisions by configuration, on the hard case (RESTRICTION-FORM).
 
 Costs are the ones OpenRouter reported for each call; for C, the sum of the group's

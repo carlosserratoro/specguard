@@ -1,7 +1,7 @@
 [project]
 name = "specguard"
 version = "0.1.0"
-description = "Add your description here"
+description = "Measures how LLMs extract business rules from conversations, and how reliable LLM judges are."
 readme = "README.md"
 authors = [
     { name = "Carlos Serra-Toro", email = "carlosserratoro@gmail.com" }
@@ -11,10 +11,9 @@ dependencies = [
     "instructor[litellm]>=1.15.4",
     "pydantic>=2.13.4",
     "python-dotenv>=1.2.2",
+    "pyyaml>=6.0.3",
+    "requests>=2.34.2",
 ]
-
-[project.scripts]
-specguard = "specguard.main:main"
 
 [build-system]
 requires = ["uv_build>=0.11.26,<0.12.0"]
@@ -22,11 +21,27 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
+    "import-linter>=2.15",
     "matplotlib>=3.11.1",
+    "mypy>=2.4.0",
     "numpy>=2.5.3",
     "pytest>=9.1.1",
     "ruff>=0.15.20",
+    "types-pyyaml>=6.0.12.20260906",
+    "types-requests>=2.33.0.20261006",
 ]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src", "tests"]
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+check_untyped_defs = true
 
 [tool.ruff]
 line-length = 100
@@ -40,6 +55,7 @@ exclude = [
 select = [
     "E",   # pycodestyle errors
     "F",   # pyflakes
+    "G",   # flake8-logging-format
     "I",   # isort
     "UP",  # pyupgrade
     "B",   # flake8-bugbear
@@ -68,7 +84,25 @@ markers = [
 filterwarnings = [
     "ignore:There is no current event loop:DeprecationWarning:litellm._service_logger",
 ]
-pythonpath = ["scripts"]
 
 [tool.pyright]
 extraPaths = ["scripts"]
+
+[tool.importlinter]
+root_package = "specguard"
+
+[[tool.importlinter.contracts]]
+name = "Layers: bootstrap -> service layer -> adapters -> domain"
+type = "layers"
+layers = [
+    "specguard.bootstrap",
+    "specguard.service_layer",
+    "specguard.adapters",
+    "specguard.domain",
+]
+
+[[tool.importlinter.contracts]]
+name = "Metrics don't depend on adapters"
+type = "forbidden"
+source_modules = ["specguard.service_layer.metrics"]
+forbidden_modules = ["specguard.adapters"]

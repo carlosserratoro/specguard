@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """CoT without reasoning: 100 runs vs 1,000 runs per statement, with 95% Wilson intervals."""
 
 from __future__ import annotations

@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Runs judged correctly per configuration, with 95% Wilson intervals."""
 
 from __future__ import annotations

@@ -1,0 +1,593 @@
+{
+  "extractor_system_prompt": "You are a business analyst with years of experience turning ambiguous, incomplete discussions into precise use cases.\nFrom the conversation thread, extract a structured use case. Follow these rules strictly:\n- Capture only rules explicitly stated in the thread. Do not invent or infer unstated rules.\n- For every rule, cite the message(s) it comes from in source_refs.\n- If the thread raises a question but leaves it unresolved, record it as an open question. Do not answer it or make up an answer.\n- Write each business rule in EARS format: 'When <trigger>, the system shall <response>'.\n- If a business process is opened but never closed in the thread, flag it as an open question.",
+  "thread_prompt": "Task: Discount approval on sales orders\nDescription: Salespeople apply discounts without control, sales manager wants to enforce some control.\n\nAmy-01 (Amy): Large discounts should require approval from the sales manager before confirming. Right now they have a situation in which any salesperson can give whatever discount they want.\nBen-02 (Ben): What counts as 'large'? A fixed % that they can configure somehow?\nAmy-03 (Amy): More than 15%. Wait. Cal said premium customers up to 20% without approval.\nCal-04 (Cal): Premium 20%, everyone else 15%. And if the order is over €10,000, always require approval, regardless of the discount.\nBen-05 (Ben): And who approves if you're on holiday?\nAmy-06 (Amy): I don't know. I'll ask them later.\nCal-07 (Cal): The approver has to receive a notification.\nBen-08 (Ben): Email or an in-app notification?\nAmy-09 (Amy): The order can't be confirmed while it's pending.\nBen-10 (Ben): Pending of what? Of authorising the discount?\nAmy-11 (Amy): @Ben Yep.",
+  "faithfulness_system_prompt_hint": "You verify whether a business rule is actually stated in a conversation thread.\nThe rule may be worded very differently from the thread, and that is fine: judge MEANING, not wording.\nImportant: a rule expressed as a permission and a rule expressed as the equivalent restriction are the SAME rule (e.g. 'allowed up to 20%' and 'requires approval above 20%' both express the same threshold). Treat them as supported.\nReturn 'supported' only if the thread states the rule or directly implies it, even if worded differently. Return 'contradicted' if the thread states something incompatible with the rule. Return 'not_stated' if the thread does not mention the rule.\nCite the message refs that support your verdict.",
+  "faithfulness_system_prompt_no_hint": "You verify whether a business rule is actually stated in a conversation thread.\nThe rule may be worded very differently from the thread, and that is fine: judge MEANING, not wording.\nReturn 'supported' only if the thread states the rule or directly implies it, even if worded differently. Return 'contradicted' if the thread states something incompatible with the rule. Return 'not_stated' if the thread does not mention the rule.\nCite the message refs that support your verdict.",
+  "faithfulness_user_message": "Conversation thread:\nTask: Discount approval on sales orders\nDescription: Salespeople apply discounts without control, sales manager wants to enforce some control.\n\nAmy-01 (Amy): Large discounts should require approval from the sales manager before confirming. Right now they have a situation in which any salesperson can give whatever discount they want.\nBen-02 (Ben): What counts as 'large'? A fixed % that they can configure somehow?\nAmy-03 (Amy): More than 15%. Wait. Cal said premium customers up to 20% without approval.\nCal-04 (Cal): Premium 20%, everyone else 15%. And if the order is over €10,000, always require approval, regardless of the discount.\nBen-05 (Ben): And who approves if you're on holiday?\nAmy-06 (Amy): I don't know. I'll ask them later.\nCal-07 (Cal): The approver has to receive a notification.\nBen-08 (Ben): Email or an in-app notification?\nAmy-09 (Amy): The order can't be confirmed while it's pending.\nBen-10 (Ben): Pending of what? Of authorising the discount?\nAmy-11 (Amy): @Ben Yep.\n\nRule to verify: When a discount exceeds 20% for a premium customer, the system shall require approval before confirming.",
+  "threshold_statements": {
+    "PERMISSION-FORM": "When a premium customer's discount is up to 20%, the system shall allow confirmation without approval.",
+    "RESTRICTION-FORM": "When a discount exceeds 20% for a premium customer, the system shall require approval before confirming.",
+    "FALSE-THRESHOLD": "Premium customers are allowed up to 35% without approval."
+  },
+  "faithfulness_user_messages": {
+    "PERMISSION-FORM": "Conversation thread:\nTask: Discount approval on sales orders\nDescription: Salespeople apply discounts without control, sales manager wants to enforce some control.\n\nAmy-01 (Amy): Large discounts should require approval from the sales manager before confirming. Right now they have a situation in which any salesperson can give whatever discount they want.\nBen-02 (Ben): What counts as 'large'? A fixed % that they can configure somehow?\nAmy-03 (Amy): More than 15%. Wait. Cal said premium customers up to 20% without approval.\nCal-04 (Cal): Premium 20%, everyone else 15%. And if the order is over €10,000, always require approval, regardless of the discount.\nBen-05 (Ben): And who approves if you're on holiday?\nAmy-06 (Amy): I don't know. I'll ask them later.\nCal-07 (Cal): The approver has to receive a notification.\nBen-08 (Ben): Email or an in-app notification?\nAmy-09 (Amy): The order can't be confirmed while it's pending.\nBen-10 (Ben): Pending of what? Of authorising the discount?\nAmy-11 (Amy): @Ben Yep.\n\nRule to verify: When a premium customer's discount is up to 20%, the system shall allow confirmation without approval.",
+    "RESTRICTION-FORM": "Conversation thread:\nTask: Discount approval on sales orders\nDescription: Salespeople apply discounts without control, sales manager wants to enforce some control.\n\nAmy-01 (Amy): Large discounts should require approval from the sales manager before confirming. Right now they have a situation in which any salesperson can give whatever discount they want.\nBen-02 (Ben): What counts as 'large'? A fixed % that they can configure somehow?\nAmy-03 (Amy): More than 15%. Wait. Cal said premium customers up to 20% without approval.\nCal-04 (Cal): Premium 20%, everyone else 15%. And if the order is over €10,000, always require approval, regardless of the discount.\nBen-05 (Ben): And who approves if you're on holiday?\nAmy-06 (Amy): I don't know. I'll ask them later.\nCal-07 (Cal): The approver has to receive a notification.\nBen-08 (Ben): Email or an in-app notification?\nAmy-09 (Amy): The order can't be confirmed while it's pending.\nBen-10 (Ben): Pending of what? Of authorising the discount?\nAmy-11 (Amy): @Ben Yep.\n\nRule to verify: When a discount exceeds 20% for a premium customer, the system shall require approval before confirming.",
+    "FALSE-THRESHOLD": "Conversation thread:\nTask: Discount approval on sales orders\nDescription: Salespeople apply discounts without control, sales manager wants to enforce some control.\n\nAmy-01 (Amy): Large discounts should require approval from the sales manager before confirming. Right now they have a situation in which any salesperson can give whatever discount they want.\nBen-02 (Ben): What counts as 'large'? A fixed % that they can configure somehow?\nAmy-03 (Amy): More than 15%. Wait. Cal said premium customers up to 20% without approval.\nCal-04 (Cal): Premium 20%, everyone else 15%. And if the order is over €10,000, always require approval, regardless of the discount.\nBen-05 (Ben): And who approves if you're on holiday?\nAmy-06 (Amy): I don't know. I'll ask them later.\nCal-07 (Cal): The approver has to receive a notification.\nBen-08 (Ben): Email or an in-app notification?\nAmy-09 (Amy): The order can't be confirmed while it's pending.\nBen-10 (Ben): Pending of what? Of authorising the discount?\nAmy-11 (Amy): @Ben Yep.\n\nRule to verify: Premium customers are allowed up to 35% without approval."
+  },
+  "match_system_prompt": "You compare business rules by MEANING, not wording. Given one reference (gold) rule and a list of candidate rules, decide whether any candidate expresses the same requirement. Two rules match if they impose the same condition and the same system behaviour, even if phrased differently. Ignore differences in wording, ID, or order.",
+  "schemas": {
+    "UseCaseSpec": {
+      "$defs": {
+        "BusinessRule": {
+          "properties": {
+            "id": {
+              "description": "Fixed ID, e.g. BR1",
+              "title": "Id",
+              "type": "string"
+            },
+            "statement": {
+              "description": "The rule in EARS format. Only rules explicitly stated in the thread; do not invent rules that are not stated.",
+              "title": "Statement",
+              "type": "string"
+            },
+            "source_refs": {
+              "description": "Thread messages supporting the rule, e.g. ['Ana-03', 'Ben-04'].",
+              "items": {
+                "type": "string"
+              },
+              "title": "Source Refs",
+              "type": "array"
+            },
+            "severity": {
+              "$ref": "#/$defs/Severity",
+              "description": "Impact if the rule is violated or omitted."
+            },
+            "precedence": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "IDs of other rules this rule takes precedence over, e.g. ['BR1', 'BR2']. Leave empty if it doesn't override any rule.",
+              "title": "Precedence"
+            }
+          },
+          "required": [
+            "id",
+            "statement",
+            "source_refs",
+            "severity"
+          ],
+          "title": "BusinessRule",
+          "type": "object"
+        },
+        "OpenQuestion": {
+          "properties": {
+            "id": {
+              "description": "Fixed ID, e.g. 'OQ1'.",
+              "title": "Id",
+              "type": "string"
+            },
+            "question": {
+              "description": "A question the thread raises but leaves unresolved. Do not answer or invent it; only flag it.",
+              "title": "Question",
+              "type": "string"
+            },
+            "raised_by": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Message where it arises for the first time, if present (e.g. 'Ana-05').",
+              "title": "Raised By"
+            },
+            "status": {
+              "const": "unresolved",
+              "default": "unresolved",
+              "title": "Status",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "question"
+          ],
+          "title": "OpenQuestion",
+          "type": "object"
+        },
+        "Severity": {
+          "enum": [
+            "critical",
+            "normal",
+            "minor"
+          ],
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "properties": {
+        "id": {
+          "description": "Use case ID, e.g. 'UC-DISCOUNTS'.",
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "description": "The primary actor's goal, in one sentence.",
+          "title": "Title",
+          "type": "string"
+        },
+        "goal": {
+          "description": "What is to be achieved, in one sentence.",
+          "title": "Goal",
+          "type": "string"
+        },
+        "business_rules": {
+          "description": "Business rules explicitly stated in the thread. Do not invent unstated rules.",
+          "items": {
+            "$ref": "#/$defs/BusinessRule"
+          },
+          "title": "Business Rules",
+          "type": "array"
+        },
+        "open_questions": {
+          "description": "Questions the thread leaves unresolved. Flag them instead of answering them.",
+          "items": {
+            "$ref": "#/$defs/OpenQuestion"
+          },
+          "title": "Open Questions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "goal",
+        "business_rules",
+        "open_questions"
+      ],
+      "title": "UseCaseSpec",
+      "type": "object"
+    },
+    "SupportVerdict": {
+      "properties": {
+        "verdict": {
+          "description": "'supported' if the thread states the rule or directly implies it, even if worded differently; 'contradicted' if the thread states something incompatible with the rule; 'not_stated' if the thread does not mention the rule.",
+          "enum": [
+            "supported",
+            "contradicted",
+            "not_stated"
+          ],
+          "title": "Verdict",
+          "type": "string"
+        },
+        "supporting_refs": {
+          "description": "Message refs (e.g. ['Cal#04']) that support the rule. Empty if not supported.",
+          "items": {
+            "type": "string"
+          },
+          "title": "Supporting Refs",
+          "type": "array"
+        },
+        "reasoning": {
+          "description": "One concise sentence justifying the verdict.",
+          "title": "Reasoning",
+          "type": "string"
+        }
+      },
+      "required": [
+        "verdict",
+        "reasoning"
+      ],
+      "title": "SupportVerdict",
+      "type": "object"
+    },
+    "ScaffoldedSupportVerdict": {
+      "description": "Same as SupportVerdict but the model must analyse the threshold first.\n\nFields are duplicated in a new class, instead of making use of inheritance,\nbecause inheriting from SupportVerdict would have added the inherited fields\nbefore the new fields added, and here we want that the threshold analysis is\nmade before the other fields.",
+      "properties": {
+        "threshold_analysis": {
+          "description": "If the rule involves a threshold, state what the thread implies both above and below it, before deciding.",
+          "title": "Threshold Analysis",
+          "type": "string"
+        },
+        "verdict": {
+          "description": "Decide the verdict based on the threshold_analysis above. 'supported' if the thread states the rule or directly implies it, even if worded differently; 'contradicted' if the thread states something incompatible with the rule; 'not_stated' if the thread does not mention the rule.",
+          "enum": [
+            "supported",
+            "contradicted",
+            "not_stated"
+          ],
+          "title": "Verdict",
+          "type": "string"
+        },
+        "supporting_refs": {
+          "description": "Message refs (e.g. ['Cal#04']) that support the rule. Empty if not supported.",
+          "items": {
+            "type": "string"
+          },
+          "title": "Supporting Refs",
+          "type": "array"
+        },
+        "reasoning": {
+          "description": "One concise sentence justifying the verdict.",
+          "title": "Reasoning",
+          "type": "string"
+        }
+      },
+      "required": [
+        "threshold_analysis",
+        "verdict",
+        "reasoning"
+      ],
+      "title": "ScaffoldedSupportVerdict",
+      "type": "object"
+    },
+    "MatchDecision": {
+      "properties": {
+        "gold_rule_id": {
+          "description": "The ID of the gold rule being checked.",
+          "title": "Gold Rule Id",
+          "type": "string"
+        },
+        "matched": {
+          "description": "True if a candidate rule expresses the same requirement as the gold rule.",
+          "title": "Matched",
+          "type": "boolean"
+        },
+        "matched_candidate_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "ID of the matching candidate rule, or null if none matches.",
+          "title": "Matched Candidate Id"
+        },
+        "reasoning": {
+          "description": "One concise sentence justifying the decision.",
+          "title": "Reasoning",
+          "type": "string"
+        }
+      },
+      "required": [
+        "gold_rule_id",
+        "matched",
+        "reasoning"
+      ],
+      "title": "MatchDecision",
+      "type": "object"
+    }
+  },
+  "jev_payloads": {
+    "same-as-llm_hint-True": {
+      "model": "typesafe/jev-1.13",
+      "state": "Conversation thread:\nTask: Discount approval on sales orders\nDescription: Salespeople apply discounts without control, sales manager wants to enforce some control.\n\nAmy-01 (Amy): Large discounts should require approval from the sales manager before confirming. Right now they have a situation in which any salesperson can give whatever discount they want.\nBen-02 (Ben): What counts as 'large'? A fixed % that they can configure somehow?\nAmy-03 (Amy): More than 15%. Wait. Cal said premium customers up to 20% without approval.\nCal-04 (Cal): Premium 20%, everyone else 15%. And if the order is over €10,000, always require approval, regardless of the discount.\nBen-05 (Ben): And who approves if you're on holiday?\nAmy-06 (Amy): I don't know. I'll ask them later.\nCal-07 (Cal): The approver has to receive a notification.\nBen-08 (Ben): Email or an in-app notification?\nAmy-09 (Amy): The order can't be confirmed while it's pending.\nBen-10 (Ben): Pending of what? Of authorising the discount?\nAmy-11 (Amy): @Ben Yep.\n\nRule to verify: When a discount exceeds 20% for a premium customer, the system shall require approval before confirming.",
+      "questions": {
+        "verdict": {
+          "type": "choice",
+          "instructions": "You verify whether a business rule is actually stated in a conversation thread.\nThe rule may be worded very differently from the thread, and that is fine: judge MEANING, not wording.\nImportant: a rule expressed as a permission and a rule expressed as the equivalent restriction are the SAME rule (e.g. 'allowed up to 20%' and 'requires approval above 20%' both express the same threshold). Treat them as supported.\nReturn 'supported' only if the thread states the rule or directly implies it, even if worded differently. Return 'contradicted' if the thread states something incompatible with the rule. Return 'not_stated' if the thread does not mention the rule.\nCite the message refs that support your verdict.",
+          "criteria": {
+            "supported": "the thread states the rule or directly implies it, even if worded differently",
+            "contradicted": "the thread states something incompatible with the rule",
+            "not_stated": "the thread does not mention the rule"
+          }
+        }
+      }
+    },
+    "same-as-llm_hint-False": {
+      "model": "typesafe/jev-1.13",
+      "state": "Conversation thread:\nTask: Discount approval on sales orders\nDescription: Salespeople apply discounts without control, sales manager wants to enforce some control.\n\nAmy-01 (Amy): Large discounts should require approval from the sales manager before confirming. Right now they have a situation in which any salesperson can give whatever discount they want.\nBen-02 (Ben): What counts as 'large'? A fixed % that they can configure somehow?\nAmy-03 (Amy): More than 15%. Wait. Cal said premium customers up to 20% without approval.\nCal-04 (Cal): Premium 20%, everyone else 15%. And if the order is over €10,000, always require approval, regardless of the discount.\nBen-05 (Ben): And who approves if you're on holiday?\nAmy-06 (Amy): I don't know. I'll ask them later.\nCal-07 (Cal): The approver has to receive a notification.\nBen-08 (Ben): Email or an in-app notification?\nAmy-09 (Amy): The order can't be confirmed while it's pending.\nBen-10 (Ben): Pending of what? Of authorising the discount?\nAmy-11 (Amy): @Ben Yep.\n\nRule to verify: When a discount exceeds 20% for a premium customer, the system shall require approval before confirming.",
+      "questions": {
+        "verdict": {
+          "type": "choice",
+          "instructions": "You verify whether a business rule is actually stated in a conversation thread.\nThe rule may be worded very differently from the thread, and that is fine: judge MEANING, not wording.\nReturn 'supported' only if the thread states the rule or directly implies it, even if worded differently. Return 'contradicted' if the thread states something incompatible with the rule. Return 'not_stated' if the thread does not mention the rule.\nCite the message refs that support your verdict.",
+          "criteria": {
+            "supported": "the thread states the rule or directly implies it, even if worded differently",
+            "contradicted": "the thread states something incompatible with the rule",
+            "not_stated": "the thread does not mention the rule"
+          }
+        }
+      }
+    },
+    "jev_hint-True": {
+      "model": "typesafe/jev-1.13",
+      "state": {
+        "thread": {
+          "title": "Discount approval on sales orders",
+          "description": "Salespeople apply discounts without control, sales manager wants to enforce some control.",
+          "messages": [
+            {
+              "ref": "Amy-01",
+              "author": "Amy",
+              "text": "Large discounts should require approval from the sales manager before confirming. Right now they have a situation in which any salesperson can give whatever discount they want."
+            },
+            {
+              "ref": "Ben-02",
+              "author": "Ben",
+              "text": "What counts as 'large'? A fixed % that they can configure somehow?"
+            },
+            {
+              "ref": "Amy-03",
+              "author": "Amy",
+              "text": "More than 15%. Wait. Cal said premium customers up to 20% without approval."
+            },
+            {
+              "ref": "Cal-04",
+              "author": "Cal",
+              "text": "Premium 20%, everyone else 15%. And if the order is over €10,000, always require approval, regardless of the discount."
+            },
+            {
+              "ref": "Ben-05",
+              "author": "Ben",
+              "text": "And who approves if you're on holiday?"
+            },
+            {
+              "ref": "Amy-06",
+              "author": "Amy",
+              "text": "I don't know. I'll ask them later."
+            },
+            {
+              "ref": "Cal-07",
+              "author": "Cal",
+              "text": "The approver has to receive a notification."
+            },
+            {
+              "ref": "Ben-08",
+              "author": "Ben",
+              "text": "Email or an in-app notification?"
+            },
+            {
+              "ref": "Amy-09",
+              "author": "Amy",
+              "text": "The order can't be confirmed while it's pending."
+            },
+            {
+              "ref": "Ben-10",
+              "author": "Ben",
+              "text": "Pending of what? Of authorising the discount?"
+            },
+            {
+              "ref": "Amy-11",
+              "author": "Amy",
+              "text": "@Ben Yep."
+            }
+          ]
+        },
+        "rule": "When a discount exceeds 20% for a premium customer, the system shall require approval before confirming."
+      },
+      "questions": {
+        "verdict": {
+          "type": "choice",
+          "instructions": {
+            "task": "You verify whether a business rule is actually stated in a conversation thread.\nThe rule may be worded very differently from the thread, and that is fine: judge MEANING, not wording.",
+            "note": "a rule expressed as a permission and a rule expressed as the equivalent restriction are the SAME rule (e.g. 'allowed up to 20%' and 'requires approval above 20%' both express the same threshold). Treat them as supported."
+          },
+          "criteria": {
+            "supported": {
+              "what": "the thread states the rule or directly implies it, even if worded differently",
+              "not_for": "the thread states something incompatible with the rule; or the thread does not mention the rule"
+            },
+            "contradicted": {
+              "what": "the thread states something incompatible with the rule",
+              "not_for": "the thread states the rule or directly implies it, even if worded differently; or the thread does not mention the rule"
+            },
+            "not_stated": {
+              "what": "the thread does not mention the rule",
+              "not_for": "the thread states the rule or directly implies it, even if worded differently; or the thread states something incompatible with the rule"
+            }
+          }
+        }
+      }
+    },
+    "jev_hint-False": {
+      "model": "typesafe/jev-1.13",
+      "state": {
+        "thread": {
+          "title": "Discount approval on sales orders",
+          "description": "Salespeople apply discounts without control, sales manager wants to enforce some control.",
+          "messages": [
+            {
+              "ref": "Amy-01",
+              "author": "Amy",
+              "text": "Large discounts should require approval from the sales manager before confirming. Right now they have a situation in which any salesperson can give whatever discount they want."
+            },
+            {
+              "ref": "Ben-02",
+              "author": "Ben",
+              "text": "What counts as 'large'? A fixed % that they can configure somehow?"
+            },
+            {
+              "ref": "Amy-03",
+              "author": "Amy",
+              "text": "More than 15%. Wait. Cal said premium customers up to 20% without approval."
+            },
+            {
+              "ref": "Cal-04",
+              "author": "Cal",
+              "text": "Premium 20%, everyone else 15%. And if the order is over €10,000, always require approval, regardless of the discount."
+            },
+            {
+              "ref": "Ben-05",
+              "author": "Ben",
+              "text": "And who approves if you're on holiday?"
+            },
+            {
+              "ref": "Amy-06",
+              "author": "Amy",
+              "text": "I don't know. I'll ask them later."
+            },
+            {
+              "ref": "Cal-07",
+              "author": "Cal",
+              "text": "The approver has to receive a notification."
+            },
+            {
+              "ref": "Ben-08",
+              "author": "Ben",
+              "text": "Email or an in-app notification?"
+            },
+            {
+              "ref": "Amy-09",
+              "author": "Amy",
+              "text": "The order can't be confirmed while it's pending."
+            },
+            {
+              "ref": "Ben-10",
+              "author": "Ben",
+              "text": "Pending of what? Of authorising the discount?"
+            },
+            {
+              "ref": "Amy-11",
+              "author": "Amy",
+              "text": "@Ben Yep."
+            }
+          ]
+        },
+        "rule": "When a discount exceeds 20% for a premium customer, the system shall require approval before confirming."
+      },
+      "questions": {
+        "verdict": {
+          "type": "choice",
+          "instructions": {
+            "task": "You verify whether a business rule is actually stated in a conversation thread.\nThe rule may be worded very differently from the thread, and that is fine: judge MEANING, not wording."
+          },
+          "criteria": {
+            "supported": {
+              "what": "the thread states the rule or directly implies it, even if worded differently",
+              "not_for": "the thread states something incompatible with the rule; or the thread does not mention the rule"
+            },
+            "contradicted": {
+              "what": "the thread states something incompatible with the rule",
+              "not_for": "the thread states the rule or directly implies it, even if worded differently; or the thread does not mention the rule"
+            },
+            "not_stated": {
+              "what": "the thread does not mention the rule",
+              "not_for": "the thread states the rule or directly implies it, even if worded differently; or the thread states something incompatible with the rule"
+            }
+          }
+        }
+      }
+    }
+  },
+  "llm_calls": {
+    "extract": {
+      "route": "chat",
+      "response_model": "UseCaseSpec",
+      "model": "openai/gpt-5.4-mini",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are a business analyst with years of experience turning ambiguous, incomplete discussions into precise use cases.\nFrom the conversation thread, extract a structured use case. Follow these rules strictly:\n- Capture only rules explicitly stated in the thread. Do not invent or infer unstated rules.\n- For every rule, cite the message(s) it comes from in source_refs.\n- If the thread raises a question but leaves it unresolved, record it as an open question. Do not answer it or make up an answer.\n- Write each business rule in EARS format: 'When <trigger>, the system shall <response>'.\n- If a business process is opened but never closed in the thread, flag it as an open question."
+        },
+        {
+          "role": "user",
+          "content": "Extract the use case from the following conversation thread:\n\nTask: Discount approval on sales orders\nDescription: Salespeople apply discounts without control, sales manager wants to enforce some control.\n\nAmy-01 (Amy): Large discounts should require approval from the sales manager before confirming. Right now they have a situation in which any salesperson can give whatever discount they want.\nBen-02 (Ben): What counts as 'large'? A fixed % that they can configure somehow?\nAmy-03 (Amy): More than 15%. Wait. Cal said premium customers up to 20% without approval.\nCal-04 (Cal): Premium 20%, everyone else 15%. And if the order is over €10,000, always require approval, regardless of the discount.\nBen-05 (Ben): And who approves if you're on holiday?\nAmy-06 (Amy): I don't know. I'll ask them later.\nCal-07 (Cal): The approver has to receive a notification.\nBen-08 (Ben): Email or an in-app notification?\nAmy-09 (Amy): The order can't be confirmed while it's pending.\nBen-10 (Ben): Pending of what? Of authorising the discount?\nAmy-11 (Amy): @Ben Yep."
+        }
+      ],
+      "temperature": 1.0
+    },
+    "verify_default": {
+      "route": "chat",
+      "response_model": "SupportVerdict",
+      "model": "openai/gpt-5.4-mini",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You verify whether a business rule is actually stated in a conversation thread.\nThe rule may be worded very differently from the thread, and that is fine: judge MEANING, not wording.\nImportant: a rule expressed as a permission and a rule expressed as the equivalent restriction are the SAME rule (e.g. 'allowed up to 20%' and 'requires approval above 20%' both express the same threshold). Treat them as supported.\nReturn 'supported' only if the thread states the rule or directly implies it, even if worded differently. Return 'contradicted' if the thread states something incompatible with the rule. Return 'not_stated' if the thread does not mention the rule.\nCite the message refs that support your verdict."
+        },
+        {
+          "role": "user",
+          "content": "Conversation thread:\nTask: Discount approval on sales orders\nDescription: Salespeople apply discounts without control, sales manager wants to enforce some control.\n\nAmy-01 (Amy): Large discounts should require approval from the sales manager before confirming. Right now they have a situation in which any salesperson can give whatever discount they want.\nBen-02 (Ben): What counts as 'large'? A fixed % that they can configure somehow?\nAmy-03 (Amy): More than 15%. Wait. Cal said premium customers up to 20% without approval.\nCal-04 (Cal): Premium 20%, everyone else 15%. And if the order is over €10,000, always require approval, regardless of the discount.\nBen-05 (Ben): And who approves if you're on holiday?\nAmy-06 (Amy): I don't know. I'll ask them later.\nCal-07 (Cal): The approver has to receive a notification.\nBen-08 (Ben): Email or an in-app notification?\nAmy-09 (Amy): The order can't be confirmed while it's pending.\nBen-10 (Ben): Pending of what? Of authorising the discount?\nAmy-11 (Amy): @Ben Yep.\n\nRule to verify: When a discount exceeds 20% for a premium customer, the system shall require approval before confirming."
+        }
+      ],
+      "temperature": 0.0
+    },
+    "verify_no_hint": {
+      "route": "chat",
+      "response_model": "SupportVerdict",
+      "model": "openai/gpt-5.4-mini",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You verify whether a business rule is actually stated in a conversation thread.\nThe rule may be worded very differently from the thread, and that is fine: judge MEANING, not wording.\nReturn 'supported' only if the thread states the rule or directly implies it, even if worded differently. Return 'contradicted' if the thread states something incompatible with the rule. Return 'not_stated' if the thread does not mention the rule.\nCite the message refs that support your verdict."
+        },
+        {
+          "role": "user",
+          "content": "Conversation thread:\nTask: Discount approval on sales orders\nDescription: Salespeople apply discounts without control, sales manager wants to enforce some control.\n\nAmy-01 (Amy): Large discounts should require approval from the sales manager before confirming. Right now they have a situation in which any salesperson can give whatever discount they want.\nBen-02 (Ben): What counts as 'large'? A fixed % that they can configure somehow?\nAmy-03 (Amy): More than 15%. Wait. Cal said premium customers up to 20% without approval.\nCal-04 (Cal): Premium 20%, everyone else 15%. And if the order is over €10,000, always require approval, regardless of the discount.\nBen-05 (Ben): And who approves if you're on holiday?\nAmy-06 (Amy): I don't know. I'll ask them later.\nCal-07 (Cal): The approver has to receive a notification.\nBen-08 (Ben): Email or an in-app notification?\nAmy-09 (Amy): The order can't be confirmed while it's pending.\nBen-10 (Ben): Pending of what? Of authorising the discount?\nAmy-11 (Amy): @Ben Yep.\n\nRule to verify: When a discount exceeds 20% for a premium customer, the system shall require approval before confirming."
+        }
+      ],
+      "temperature": 0.0
+    },
+    "verify_scaffolding": {
+      "route": "chat",
+      "response_model": "ScaffoldedSupportVerdict",
+      "model": "openai/gpt-5.4-mini",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You verify whether a business rule is actually stated in a conversation thread.\nThe rule may be worded very differently from the thread, and that is fine: judge MEANING, not wording.\nImportant: a rule expressed as a permission and a rule expressed as the equivalent restriction are the SAME rule (e.g. 'allowed up to 20%' and 'requires approval above 20%' both express the same threshold). Treat them as supported.\nReturn 'supported' only if the thread states the rule or directly implies it, even if worded differently. Return 'contradicted' if the thread states something incompatible with the rule. Return 'not_stated' if the thread does not mention the rule.\nCite the message refs that support your verdict."
+        },
+        {
+          "role": "user",
+          "content": "Conversation thread:\nTask: Discount approval on sales orders\nDescription: Salespeople apply discounts without control, sales manager wants to enforce some control.\n\nAmy-01 (Amy): Large discounts should require approval from the sales manager before confirming. Right now they have a situation in which any salesperson can give whatever discount they want.\nBen-02 (Ben): What counts as 'large'? A fixed % that they can configure somehow?\nAmy-03 (Amy): More than 15%. Wait. Cal said premium customers up to 20% without approval.\nCal-04 (Cal): Premium 20%, everyone else 15%. And if the order is over €10,000, always require approval, regardless of the discount.\nBen-05 (Ben): And who approves if you're on holiday?\nAmy-06 (Amy): I don't know. I'll ask them later.\nCal-07 (Cal): The approver has to receive a notification.\nBen-08 (Ben): Email or an in-app notification?\nAmy-09 (Amy): The order can't be confirmed while it's pending.\nBen-10 (Ben): Pending of what? Of authorising the discount?\nAmy-11 (Amy): @Ben Yep.\n\nRule to verify: When a discount exceeds 20% for a premium customer, the system shall require approval before confirming."
+        }
+      ],
+      "temperature": 0.0
+    },
+    "verify_effort_medium": {
+      "route": "responses",
+      "response_model": "SupportVerdict",
+      "model": "gpt-5.4-mini",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You verify whether a business rule is actually stated in a conversation thread.\nThe rule may be worded very differently from the thread, and that is fine: judge MEANING, not wording.\nImportant: a rule expressed as a permission and a rule expressed as the equivalent restriction are the SAME rule (e.g. 'allowed up to 20%' and 'requires approval above 20%' both express the same threshold). Treat them as supported.\nReturn 'supported' only if the thread states the rule or directly implies it, even if worded differently. Return 'contradicted' if the thread states something incompatible with the rule. Return 'not_stated' if the thread does not mention the rule.\nCite the message refs that support your verdict."
+        },
+        {
+          "role": "user",
+          "content": "Conversation thread:\nTask: Discount approval on sales orders\nDescription: Salespeople apply discounts without control, sales manager wants to enforce some control.\n\nAmy-01 (Amy): Large discounts should require approval from the sales manager before confirming. Right now they have a situation in which any salesperson can give whatever discount they want.\nBen-02 (Ben): What counts as 'large'? A fixed % that they can configure somehow?\nAmy-03 (Amy): More than 15%. Wait. Cal said premium customers up to 20% without approval.\nCal-04 (Cal): Premium 20%, everyone else 15%. And if the order is over €10,000, always require approval, regardless of the discount.\nBen-05 (Ben): And who approves if you're on holiday?\nAmy-06 (Amy): I don't know. I'll ask them later.\nCal-07 (Cal): The approver has to receive a notification.\nBen-08 (Ben): Email or an in-app notification?\nAmy-09 (Amy): The order can't be confirmed while it's pending.\nBen-10 (Ben): Pending of what? Of authorising the discount?\nAmy-11 (Amy): @Ben Yep.\n\nRule to verify: When a discount exceeds 20% for a premium customer, the system shall require approval before confirming."
+        }
+      ],
+      "reasoning": {
+        "effort": "medium"
+      }
+    },
+    "match": {
+      "route": "chat",
+      "response_model": "MatchDecision",
+      "model": "openai/gpt-5.4-mini",
+      "messages": [
+        {
+          "role": "system",
+          "content": "You compare business rules by MEANING, not wording. Given one reference (gold) rule and a list of candidate rules, decide whether any candidate expresses the same requirement. Two rules match if they impose the same condition and the same system behaviour, even if phrased differently. Ignore differences in wording, ID, or order."
+        },
+        {
+          "role": "user",
+          "content": "Gold rule [RESTRICTION-FORM]: When a discount exceeds 20% for a premium customer, the system shall require approval before confirming.\n\nCandidate rules:\n- [C1] When a discount exceeds 20% for a premium customer, the system shall require approval before confirming.\n- [C2] Another rule."
+        }
+      ],
+      "temperature": 0.0
+    }
+  },
+  "labels": {
+    "judge_default": "effort-none_scaffold-off",
+    "judge_scaffold_no_hint": "effort-none_scaffold-on_hint-off",
+    "judge_effort_medium": "effort-medium_scaffold-off",
+    "decision_jev_no_hint": "jev-1.13_input-jev_hint-off"
+  }
+}

@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Accuracy on the hard case (RESTRICTION-FORM) with and without the equivalence hint.
 
 One row per configuration: the filled dot is with the hint, the hollow one without it,

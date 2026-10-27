@@ -1,18 +1,29 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 # Script to further investigate BR2, which is the business rule that fails the most.
 # It aims at seeing the reasoning being made.
 
 
 from __future__ import annotations
 
+import logging
+
 from cli import build_parser, judge_config_from_args
 from paths import EXAMPLES_DIR, RESULTS_DIR
 
 from specguard.adapters.llm import DEFAULT_EXTRACTOR_TEMPERATURE
 from specguard.adapters.reporting import save_report
+from specguard.bootstrap import load_environment
 from specguard.domain.spec import UseCaseSpec
 from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.extractor import extract
-from specguard.service_layer.metrics import match_rule
+from specguard.service_layer.judges import match_rule
+
+logging.basicConfig(format="%(message)s")
+logging.getLogger("specguard").setLevel(logging.INFO)
+
+load_environment()
 
 parser = build_parser("Inspects BR2 framing over k extractions.")
 args = parser.parse_args()

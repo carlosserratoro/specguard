@@ -1,17 +1,27 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Compare GPT-5.4 mini and Jev as faithfulness judges (post 7)."""
 
 from __future__ import annotations
 
 import argparse
+import logging
 
-from faithfulness_runner import THRESHOLD_STATEMENTS, check, check_majority
 from paths import EXAMPLES_DIR, RESULTS_DIR, RESULTS_LLM_VS_JEV_HINT_VS_NO_HINT_DIR
-from verifiers import make_decision_verifier, make_generative_verifier
 
 from specguard.adapters.jev import DecisionConfig
 from specguard.adapters.llm import JudgeConfig
 from specguard.adapters.reporting import save_report
+from specguard.adapters.statements import load_statements
+from specguard.bootstrap import load_environment, make_decision_verifier, make_generative_verifier
 from specguard.domain.thread import ConversationalThread
+from specguard.service_layer.faithfulness import check, check_majority
+
+logging.basicConfig(format="%(message)s")
+logging.getLogger("specguard").setLevel(logging.INFO)
+
+load_environment()
 
 GENERATIVE_MODEL = "openrouter/openai/gpt-5.4-mini"
 DECISION_MODEL_JEV = "typesafe/jev-1.13"
@@ -32,6 +42,8 @@ CONFIGS = {
     "E-no-hint": DecisionConfig(model=DECISION_MODEL_LUNA, input_style="jev", hint=False),
 }
 GROUP_SIZE = 10
+
+THRESHOLD_STATEMENTS = load_statements(EXAMPLES_DIR / "t01_threshold_statements.yaml")
 
 parser = argparse.ArgumentParser(
     description="Compares GPT-5.4 mini, Jev and Luna Decisions on the threshold cases."

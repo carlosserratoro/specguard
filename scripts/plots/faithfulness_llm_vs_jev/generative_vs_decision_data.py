@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 """Shared loading for the post 07 charts: GPT-5.4 mini vs Jev as faithfulness judges.
 
 Every report in results/faithfulness_llm_vs_jev is reduced to one ``Decision`` per
@@ -60,7 +63,6 @@ _BASE_COLORS = {
 }
 CONFIG_COLORS = {**_BASE_COLORS, **{c + NO_HINT: color for c, color in _BASE_COLORS.items()}}
 Z_95 = 1.96
-VERDICT_ORDER = ("supported", "contradicted", "not_stated")
 DECISION_CONFIGS = ("A", "A-prime", "D", "E")
 
 

@@ -1,8 +1,15 @@
-from specguard.domain.definitions import VERDICT_DEFINITIONS
-from specguard.service_layer.metrics import faithfulness_system_prompt
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
+from specguard.domain.definitions import VERDICT_DEFINITIONS, VERDICT_ORDER
+from specguard.domain.prompts import faithfulness_system_prompt
 
 
 def test_system_prompt_uses_each_definition():
     for verdict, definition in VERDICT_DEFINITIONS.items():
         assert f"Return '{verdict}'" in faithfulness_system_prompt()
         assert definition in faithfulness_system_prompt()
+
+
+def test_every_verdict_has_a_definition():
+    assert tuple(VERDICT_DEFINITIONS) == VERDICT_ORDER

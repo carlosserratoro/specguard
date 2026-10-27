@@ -1,7 +1,9 @@
-from specguard.service_layer.metrics import (
-    EQUIVALENCE_HINT,
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
+from specguard.domain.definitions import EQUIVALENCE_HINT, VERDICT_DEFINITIONS
+from specguard.domain.prompts import (
     FAITHFULNESS_TASK,
-    VERDICT_DEFINITIONS,
     faithfulness_system_prompt,
 )
 

@@ -1,16 +1,21 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
+from typing import Any
+
 from specguard.adapters.jev import VERDICT_QUESTION, DecisionConfig, build_payload
 from specguard.domain.definitions import (
     EQUIVALENCE_HINT,
     VERDICT_CRITERIA_JEV,
     VERDICT_DEFINITIONS,
 )
-from specguard.domain.spec import BusinessRule, Severity
-from specguard.domain.thread import ConversationalThread, ThreadMessage
-from specguard.service_layer.metrics import (
+from specguard.domain.prompts import (
     FAITHFULNESS_TASK,
     build_faithfulness_user_message,
     faithfulness_system_prompt,
 )
+from specguard.domain.spec import BusinessRule, Severity
+from specguard.domain.thread import ConversationalThread, ThreadMessage
 
 THREAD = ConversationalThread(
     title="Discounts",
@@ -25,8 +30,9 @@ RULE = BusinessRule(
 )
 
 
-def _question(payload: dict) -> dict:
-    return payload["questions"][VERDICT_QUESTION]
+def _question(payload: dict[str, Any]) -> dict[str, Any]:
+    question: dict[str, Any] = payload["questions"][VERDICT_QUESTION]
+    return question
 
 
 def test_same_as_llm_style_sends_exactly_what_the_llm_receives():

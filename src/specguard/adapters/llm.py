@@ -1,21 +1,20 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 from __future__ import annotations
 
 import json
-import os
 from dataclasses import asdict, dataclass
 from functools import cache
 from typing import Any
 
 import instructor
 import litellm
-from dotenv import load_dotenv
 from pydantic import BaseModel
 
-load_dotenv()
-
 # https://developers.openai.com/api/docs/models/gpt-5.4-mini
-DEFAULT_EXTRACTOR_MODEL = os.getenv("EXTRACTOR_MODEL", "openai/gpt-5.4-mini")
-DEFAULT_JUDGE_MODEL = os.getenv("JUDGE_MODEL", "openai/gpt-5.4-mini")
+DEFAULT_EXTRACTOR_MODEL = "openai/gpt-5.4-mini"
+DEFAULT_JUDGE_MODEL = "openai/gpt-5.4-mini"
 
 DEFAULT_EXTRACTOR_TEMPERATURE = 1.0
 DEFAULT_JUDGE_TEMPERATURE = 0.0  # For the judge, we want it as reproducible as possible.
@@ -46,7 +45,7 @@ class JudgeConfig:
         hint = "_hint-off" if not self.hint else ""
         return f"effort-{effort}_scaffold-{'on' if self.scaffolding else 'off'}{hint}"
 
-    def to_record(self) -> dict:
+    def to_record(self) -> dict[str, Any]:
         """Configuration as stored in the report.
 
         "temperature" keeps the configured value; but "applied_temperature" is
@@ -61,7 +60,7 @@ class LLMCall:
 
     client: instructor.Instructor
     model: str
-    kwargs: dict
+    kwargs: dict[str, Any]
 
 
 class CallMetrics(BaseModel):
@@ -166,7 +165,7 @@ def uses_reasoning(reasoning_effort: str | None) -> bool:
     return reasoning_effort not in (None, "none")
 
 
-def call_kwargs(temperature: float, reasoning_effort: str | None) -> dict:
+def call_kwargs(temperature: float, reasoning_effort: str | None) -> dict[str, Any]:
     """Sampling parameters sent with a call.
 
     Reasoning calls don't send a temperature. For gpt-5.4-mini that is a provider

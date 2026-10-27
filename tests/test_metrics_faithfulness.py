@@ -1,31 +1,17 @@
-from unittest.mock import patch
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
 
-from specguard.domain.spec import BusinessRule, Severity
-from specguard.service_layer.metrics import CallMetrics, SupportVerdict, rule_faithfulness
+from unittest.mock import Mock
 
-DUMMY_VAL = "."
-
-
-def _rule(id: str) -> BusinessRule:
-    return BusinessRule(id=id, statement=DUMMY_VAL, source_refs=[], severity=Severity.critical)
-
-
-def _verdict(verdict: str) -> SupportVerdict:
-    return (
-        SupportVerdict(verdict=verdict, supporting_refs=[], reasoning=DUMMY_VAL),
-        CallMetrics(latency_s=0.0),
-    )
+from specguard.service_layer.metrics import rule_faithfulness
+from tests.stubs import make_rule, stub_support_judge
 
 
 def test_faithfulness_all_supported():
     """Every rule extracted is supported by the thread."""
-    predicted = [_rule("BR1"), _rule("BR2")]
-    with patch(
-        "specguard.service_layer.metrics.verify_rule_against_thread",
-        autospec=True,
-        return_value=_verdict("supported"),
-    ):
-        result = rule_faithfulness(predicted, thread=None)
+    predicted = [make_rule("BR1"), make_rule("BR2")]
+    verify = stub_support_judge({"BR1": "supported", "BR2": "supported"})
+    result = rule_faithfulness(predicted, verify)
     assert result["faithfulness"] == 1.0
     assert result["contradicted_rule_ids"] == []
     assert result["not_stated_rule_ids"] == []
@@ -33,31 +19,20 @@ def test_faithfulness_all_supported():
 
 def test_faithfulness_empty_predicted():
     """No rules extracted: no faithfulness."""
-    with patch(
-        "specguard.service_layer.metrics.verify_rule_against_thread",
-        autospec=True,
-    ) as m:
-        result = rule_faithfulness([], thread=None)
+    mock = Mock()
+    result = rule_faithfulness([], mock)
     assert result["faithfulness"] == 0.0
     assert result["contradicted_rule_ids"] == []
     assert result["not_stated_rule_ids"] == []
-    m.assert_not_called()
+    mock.assert_not_called()
 
 
 def test_faithfulness_sparates_verdicts():
-    predicted = [_rule("BR1"), _rule("BR2"), _rule("BR3"), _rule("BR4")]
-    verdicts = [
-        _verdict("supported"),
-        _verdict("contradicted"),
-        _verdict("not_stated"),
-        _verdict("supported"),
-    ]
-    with patch(
-        "specguard.service_layer.metrics.verify_rule_against_thread",
-        autospec=True,
-        side_effect=verdicts,
-    ):
-        result = rule_faithfulness(predicted, thread=None)
+    predicted = [make_rule("BR1"), make_rule("BR2"), make_rule("BR3"), make_rule("BR4")]
+    verify = stub_support_judge(
+        {"BR1": "supported", "BR2": "contradicted", "BR3": "not_stated", "BR4": "supported"}
+    )
+    result = rule_faithfulness(predicted, verify)
     assert result["faithfulness"] == 0.5
     assert result["contradicted_rule_ids"] == ["BR2"]
     assert result["not_stated_rule_ids"] == ["BR3"]

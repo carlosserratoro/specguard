@@ -1,3 +1,6 @@
+# Copyright 2026 Carlos Serra-Toro
+# SPDX-License-Identifier: Apache-2.0
+
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -20,7 +23,7 @@ def thread() -> ConversationalThread:
     )
 
 
-def _patched_call(**kwargs):
+def _patched_call(**kwargs) -> MagicMock:
     client = MagicMock()
     call = MagicMock()
     call.client = client
