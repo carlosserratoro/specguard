@@ -13,7 +13,7 @@ from specguard.bootstrap import load_environment
 from specguard.domain.spec import UseCaseSpec
 from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.extractor import extract
-from specguard.service_layer.metrics import match_rule
+from specguard.service_layer.judges import match_rule
 
 load_environment()
 

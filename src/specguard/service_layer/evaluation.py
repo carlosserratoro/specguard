@@ -12,7 +12,8 @@ from specguard.adapters.llm import (
 from specguard.domain.spec import UseCaseSpec
 from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.extractor import extract
-from specguard.service_layer.metrics import match_rule, rule_precision, rule_recall
+from specguard.service_layer.judges import match_rule
+from specguard.service_layer.metrics import rule_precision, rule_recall
 
 
 def evaluate(

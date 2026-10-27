@@ -32,7 +32,7 @@ from specguard.domain.thread import ConversationalThread
 from specguard.domain.verdicts import MatchDecision, ScaffoldedSupportVerdict, SupportVerdict
 from specguard.service_layer.extractor import extract
 from specguard.service_layer.faithfulness import rule_from_statement
-from specguard.service_layer.metrics import (
+from specguard.service_layer.judges import (
     match_rule,
     verify_rule_against_thread,
 )

@@ -9,7 +9,7 @@ from specguard.adapters.llm import JudgeConfig
 from specguard.domain.spec import BusinessRule
 from specguard.domain.thread import ConversationalThread
 from specguard.service_layer.faithfulness import JudgeCallError, VerifierFn
-from specguard.service_layer.metrics import verify_rule_against_thread
+from specguard.service_layer.judges import verify_rule_against_thread
 
 
 def load_environment() -> None:
